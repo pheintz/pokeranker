@@ -1,0 +1,44 @@
+name: Download PvPoke CSV
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6am UTC
+  workflow_dispatch:      # Allow manual trigger
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: process
+        run: npm ci
+
+      - name: Install Puppeteer browser
+        working-directory: process
+        run: npx puppeteer browsers install chrome
+
+      - name: Run download script
+        working-directory: process
+        run: node download-csv.js
+
+      - name: Move CSV to wwwroot/csv
+        run: |
+          mkdir -p wwwroot/csv
+          cp process/downloads/*.csv wwwroot/csv/
+
+      - name: Commit and push updated CSV
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add wwwroot/csv/*.csv
+          git diff --cached --quiet || git commit -m "chore: update PvPoke rankings CSV [skip ci]"
+          git push
