@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #0f0f0f;
+    color: #e8e8e8;
+    padding: 1.5rem;
+    font-size: 14px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: .25rem;
+    color: #fff;
+}
+
+.sub {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 1.25rem;
+}
+
+textarea {
+    width: 100%;
+    height: 110px;
+    font-family: monospace;
+    font-size: 11px;
+    resize: vertical;
+    padding: 8px;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #e8e8e8;
+    display: block;
+}
+
+.ctrl {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 0 1.5rem;
+}
+
+button {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #e8e8e8;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+button:hover {
+    background: #2a2a2a;
+}
+
+button.primary {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #fff;
+}
+
+button.primary:hover {
+    background: #3b82f6;
+}
+
+select {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #e8e8e8;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+label {
+    font-size: 13px;
+    color: #999;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ── Summary cards ──────────────────────────────────────────────────────── */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background: #1a1a1a;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.card-label {
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+.card-value {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* ── Species groups ─────────────────────────────────────────────────────── */
+
+.group {
+    border: 1px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.group-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: #141414;
+    flex-wrap: wrap;
+}
+
+.group-name {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.meta-rank {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: #1e3a5f;
+    color: #60a5fa;
+}
+
+.meta-unranked {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: #1a1a1a;
+    color: #444;
+    border: 1px solid #2a2a2a;
+}
+
+.group-count {
+    font-size: 11px;
+    color: #444;
+    margin-left: auto;
+}
+
+/* ── Table ──────────────────────────────────────────────────────────────── */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-size: 10px;
+    font-weight: 500;
+    color: #555;
+    padding: 6px 9px;
+    border-bottom: 1px solid #1c1c1c;
+    text-align: left;
+    white-space: nowrap;
+    background: #111;
+}
+
+td {
+    padding: 6px 9px;
+    font-size: 12px;
+    border-bottom: 1px solid #191919;
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: #161616;
+}
+
+/* ── IV rank badges ─────────────────────────────────────────────────────── */
+
+.badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.badge-rank1   { background: #14532d; color: #4ade80; }
+.badge-top10   { background: #1e3a5f; color: #60a5fa; }
+.badge-top100  { background: #431407; color: #fb923c; }
+.badge-other   { background: #1a1a1a; color: #555;    }
+
+/* ── Stat product progress bar ──────────────────────────────────────────── */
+
+.stat-bar {
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
+    margin-top: 3px;
+    min-width: 40px;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+}
+
+/* ── Row tags ───────────────────────────────────────────────────────────── */
+
+.tag-shadow {
+    font-size: 9px;
+    background: #2d1a3e;
+    color: #c084fc;
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-left: 3px;
+}
+
+.tag-evo {
+    font-size: 9px;
+    background: #1e3a5f;
+    color: #60a5fa;
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-left: 3px;
+}
+
+.tag-overcap {
+    font-size: 9px;
+    background: #3a1a00;
+    color: #fb923c;
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-left: 3px;
+}
+
+.approx {
+    font-size: 9px;
+    color: #555;
+    margin-left: 2px;
+    cursor: help;
+}
+
+.nickname {
+    font-size: 10px;
+    color: #555;
+}
+
+/* ── Warnings ───────────────────────────────────────────────────────────── */
+
+.warn {
+    background: #1c1200;
+    border: 1px solid #3a2800;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #fb923c;
+    line-height: 1.6;
+}
+
+/* ── Rankings status pill ───────────────────────────────────────────────── */
+
+.rank-status {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-left: 4px;
+}
+
+.rank-loading { background: #1a1a2e; color: #60a5fa; }
+.rank-ok      { background: #14532d; color: #4ade80; }
+.rank-err     { background: #3a1a1a; color: #f87171; }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+
+.footer {
+    font-size: 11px;
+    color: #444;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #1e1e1e;
+}
+
+a {
+    color: #60a5fa;
+}
+
+/* ─── Meta Breaker ─────────────────────────────────────────────────────────── */
+
+.meta-btn {
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+}
+.meta-btn:hover { filter: brightness(1.15); }
+
+#meta-out h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+.type-normal   { background: #a8a878; color: #000; }
+.type-fire     { background: #f08030; }
+.type-water    { background: #6890f0; }
+.type-electric { background: #f8d030; color: #000; }
+.type-grass    { background: #78c850; color: #000; }
+.type-ice      { background: #98d8d8; color: #000; }
+.type-fighting { background: #c03028; }
+.type-poison   { background: #a040a0; }
+.type-ground   { background: #e0c068; color: #000; }
+.type-flying   { background: #a890f0; }
+.type-psychic  { background: #f85888; }
+.type-bug      { background: #a8b820; color: #000; }
+.type-rock     { background: #b8a038; }
+.type-ghost    { background: #705898; }
+.type-dragon   { background: #7038f8; }
+.type-dark     { background: #705848; }
+.type-steel    { background: #b8b8d0; color: #000; }
+.type-fairy    { background: #ee99ac; color: #000; }
