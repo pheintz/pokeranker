@@ -6,7 +6,10 @@ const path = require('path');
   const downloadPath = path.resolve(__dirname, 'downloads');
   fs.mkdirSync(downloadPath, { recursive: true });
 
-  const browser = await puppeteer.launch({ headless: 'new' });
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
   const page = await browser.newPage();
 
   await page.goto('https://pvpoke.com/rankings/all/1500/overall/', {

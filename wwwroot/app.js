@@ -977,6 +977,339 @@ function getOptimalMoveset(speciesId) {
     return pickOptimalMoveset(speciesId, null);
 }
 
+// ─── Mini Battle Simulator ──────────────────────────────────────────────────
+// Simulates turn-by-turn 1v1 PvP battles using real Pokemon GO mechanics.
+// Used to produce a "Battle Rating" that combines stats + movesets into one number.
+
+/**
+ * Find the rank-1 (best stat product) IVs for a species at a given CP cap.
+ * Returns { atkIv, defIv, staIv, level, atk, def, hp } with effective stats.
+ */
+function findRank1IVs(speciesId, cpCap) {
+    const base = POKEMON_STATS[speciesId];
+    if (!base) return null;
+    const [bAtk, bDef, bSta] = base;
+    const maxLevelIdx = LEVELS.length - 1;
+
+    let bestSP = 0, bestIVs = null;
+    for (let a = 0; a <= 15; a++) {
+        for (let d = 0; d <= 15; d++) {
+            for (let s = 0; s <= 15; s++) {
+                const lvlIdx = findOptimalLevelIdx(bAtk, bDef, bSta, a, d, s, cpCap, maxLevelIdx);
+                const lvl = LEVELS[lvlIdx];
+                const cp = calcCp(bAtk, bDef, bSta, a, d, s, lvl);
+                if (cp > cpCap) continue;
+                const sp = calcStatProduct(bAtk, bDef, bSta, a, d, s, lvl, false);
+                if (sp > bestSP) {
+                    bestSP = sp;
+                    const cpm = CPM[lvl];
+                    bestIVs = {
+                        atkIv: a, defIv: d, staIv: s, level: lvl,
+                        atk: (bAtk + a) * cpm,
+                        def: (bDef + d) * cpm,
+                        hp:  Math.floor((bSta + s) * cpm),
+                    };
+                }
+            }
+        }
+    }
+    return bestIVs;
+}
+
+// Cache for rank-1 stats to avoid recomputation
+const rank1Cache = {};
+function getRank1Stats(speciesId, cpCap) {
+    const key = speciesId + '|' + cpCap;
+    if (!rank1Cache[key]) rank1Cache[key] = findRank1IVs(speciesId, cpCap);
+    return rank1Cache[key];
+}
+
+/**
+ * Compute PvP damage for one attack.
+ * @param {number} power      Move power
+ * @param {number} atkStat    Attacker's effective attack
+ * @param {number} defStat    Defender's effective defense
+ * @param {number} stab       1.2 if STAB, else 1.0
+ * @param {number} eff        Type effectiveness multiplier
+ * @returns {number} Damage dealt (minimum 1)
+ */
+function pvpDamage(power, atkStat, defStat, stab, eff) {
+    return Math.floor(0.5 * power * (atkStat / defStat) * stab * eff) + 1;
+}
+
+/**
+ * Simulate a 1v1 PvP battle between two Pokemon.
+ * Uses simplified but accurate Pokemon GO PvP mechanics:
+ *   - Turn-based fast moves (each takes N turns)
+ *   - Charged moves fire when energy is sufficient (AI: fire cheapest when able)
+ *   - Shield scenario: 0, 1, or 2 shields per side
+ *   - Shielded charged moves deal 1 damage
+ *   - Max 500 turns to prevent infinite loops
+ *
+ * @param {object} a  Attacker: { speciesId, atk, def, hp, types, fast, charged1, charged2 }
+ * @param {object} b  Defender: same structure
+ * @param {number} shieldsA  Shields for attacker (0-2)
+ * @param {number} shieldsB  Shields for defender (0-2)
+ * @returns {{ winner: 'a'|'b'|'tie', aHpLeft: number, bHpLeft: number, aHpPct: number, bHpPct: number }}
+ */
+function simulateBattle(a, b, shieldsA, shieldsB) {
+    // Pre-compute damage values for every move combination
+    function calcStab(moveType, userTypes) {
+        return userTypes.includes(moveType) ? 1.2 : 1.0;
+    }
+    function calcEff(moveType, targetTypes) {
+        return typeEffectiveness(moveType, targetTypes[0], targetTypes[1] || null);
+    }
+
+    // Attacker's moves vs defender
+    const aFastDmg = pvpDamage(a.fast.pow, a.atk, b.def,
+        calcStab(a.fast.type, a.types), calcEff(a.fast.type, b.types));
+    const aC1Dmg = pvpDamage(a.charged1.pow, a.atk, b.def,
+        calcStab(a.charged1.type, a.types), calcEff(a.charged1.type, b.types));
+    const aC2Dmg = a.charged2
+        ? pvpDamage(a.charged2.pow, a.atk, b.def,
+            calcStab(a.charged2.type, a.types), calcEff(a.charged2.type, b.types))
+        : 0;
+
+    // Defender's moves vs attacker
+    const bFastDmg = pvpDamage(b.fast.pow, b.atk, a.def,
+        calcStab(b.fast.type, b.types), calcEff(b.fast.type, a.types));
+    const bC1Dmg = pvpDamage(b.charged1.pow, b.atk, a.def,
+        calcStab(b.charged1.type, b.types), calcEff(b.charged1.type, a.types));
+    const bC2Dmg = b.charged2
+        ? pvpDamage(b.charged2.pow, b.atk, a.def,
+            calcStab(b.charged2.type, b.types), calcEff(b.charged2.type, a.types))
+        : 0;
+
+    let aHp = a.hp, bHp = b.hp;
+    let aEnergy = 0, bEnergy = 0;
+    let aShields = shieldsA, bShields = shieldsB;
+    let aTurnCd = 0, bTurnCd = 0; // turns remaining before next fast move completes
+
+    for (let turn = 0; turn < 500; turn++) {
+        if (aHp <= 0 || bHp <= 0) break;
+
+        // Both sides try charged moves at turn start (CMP: higher atk goes first)
+        // Attacker charged move check
+        if (aTurnCd === 0) {
+            // Pick best charged move to fire (highest damage, or cheapest if both available)
+            let fired = false;
+            // Strategy: fire the move that will KO, or bait with cheap move, or nuke
+            let bestCId = null, bestCDmg = 0, bestCNrg = Infinity;
+            if (aEnergy >= a.charged1.nrg) {
+                // Pick move with better damage-per-energy, but prefer cheap for baiting
+                if (a.charged2 && aEnergy >= a.charged2.nrg) {
+                    // Both available — fire cheaper one for shield pressure (bait strategy)
+                    if (a.charged1.nrg <= a.charged2.nrg) {
+                        bestCId = 1; bestCDmg = aC1Dmg; bestCNrg = a.charged1.nrg;
+                    } else {
+                        bestCId = 2; bestCDmg = aC2Dmg; bestCNrg = a.charged2.nrg;
+                    }
+                    // But if the expensive one can KO, use that instead
+                    const expensiveDmg = a.charged1.nrg > a.charged2.nrg ? aC1Dmg : aC2Dmg;
+                    if (expensiveDmg >= bHp && bShields === 0) {
+                        if (a.charged1.nrg > a.charged2.nrg) {
+                            bestCId = 1; bestCDmg = aC1Dmg; bestCNrg = a.charged1.nrg;
+                        } else {
+                            bestCId = 2; bestCDmg = aC2Dmg; bestCNrg = a.charged2.nrg;
+                        }
+                    }
+                } else {
+                    bestCId = 1; bestCDmg = aC1Dmg; bestCNrg = a.charged1.nrg;
+                }
+            } else if (a.charged2 && aEnergy >= a.charged2.nrg) {
+                bestCId = 2; bestCDmg = aC2Dmg; bestCNrg = a.charged2.nrg;
+            }
+
+            if (bestCId !== null) {
+                aEnergy -= bestCNrg;
+                if (bShields > 0) {
+                    bShields--;
+                    bHp -= 1;
+                } else {
+                    bHp -= bestCDmg;
+                }
+                fired = true;
+            }
+
+            // If didn't fire charged, do fast move
+            if (!fired) {
+                aTurnCd = a.fast.turns; // start fast move
+            }
+        }
+
+        // Defender charged move check
+        if (bTurnCd === 0) {
+            let bestCId = null, bestCDmg = 0, bestCNrg = Infinity;
+            if (bEnergy >= b.charged1.nrg) {
+                if (b.charged2 && bEnergy >= b.charged2.nrg) {
+                    if (b.charged1.nrg <= b.charged2.nrg) {
+                        bestCId = 1; bestCDmg = bC1Dmg; bestCNrg = b.charged1.nrg;
+                    } else {
+                        bestCId = 2; bestCDmg = bC2Dmg; bestCNrg = b.charged2.nrg;
+                    }
+                    const expensiveDmg = b.charged1.nrg > b.charged2.nrg ? bC1Dmg : bC2Dmg;
+                    if (expensiveDmg >= aHp && aShields === 0) {
+                        if (b.charged1.nrg > b.charged2.nrg) {
+                            bestCId = 1; bestCDmg = bC1Dmg; bestCNrg = b.charged1.nrg;
+                        } else {
+                            bestCId = 2; bestCDmg = bC2Dmg; bestCNrg = b.charged2.nrg;
+                        }
+                    }
+                } else {
+                    bestCId = 1; bestCDmg = bC1Dmg; bestCNrg = b.charged1.nrg;
+                }
+            } else if (b.charged2 && bEnergy >= b.charged2.nrg) {
+                bestCId = 2; bestCDmg = bC2Dmg; bestCNrg = b.charged2.nrg;
+            }
+
+            if (bestCId !== null) {
+                bEnergy -= bestCNrg;
+                if (aShields > 0) {
+                    aShields--;
+                    aHp -= 1;
+                } else {
+                    aHp -= bestCDmg;
+                }
+            } else {
+                bTurnCd = b.fast.turns;
+            }
+        }
+
+        // Process fast move completions
+        if (aTurnCd > 0) {
+            aTurnCd--;
+            if (aTurnCd === 0) {
+                // Fast move lands: damage + energy on last turn
+                bHp -= aFastDmg;
+                aEnergy = Math.min(100, aEnergy + a.fast.nrg);
+            }
+        }
+        if (bTurnCd > 0) {
+            bTurnCd--;
+            if (bTurnCd === 0) {
+                aHp -= bFastDmg;
+                bEnergy = Math.min(100, bEnergy + b.fast.nrg);
+            }
+        }
+    }
+
+    aHp = Math.max(0, aHp);
+    bHp = Math.max(0, bHp);
+    const winner = aHp > bHp ? 'a' : bHp > aHp ? 'b' : 'tie';
+    return {
+        winner,
+        aHpLeft: aHp, bHpLeft: bHp,
+        aHpPct: aHp / a.hp, bHpPct: bHp / b.hp
+    };
+}
+
+/**
+ * Build a battle-ready Pokemon object for the simulator from a speciesId.
+ * Uses rank-1 IVs at the given CP cap and optimal moveset vs meta.
+ * @returns {object|null} { speciesId, atk, def, hp, types, fast, charged1, charged2 }
+ */
+function buildBattler(speciesId, cpCap, metaEntries) {
+    const stats = getRank1Stats(speciesId, cpCap);
+    if (!stats) return null;
+
+    const types = POKEMON_TYPES[speciesId] || ['normal'];
+    const optimal = pickOptimalMoveset(speciesId, metaEntries || null);
+
+    // Need at least a fast move and one charged move
+    let fast, charged1, charged2;
+    if (optimal) {
+        fast = FAST_MOVES[optimal.bestFast];
+        charged1 = CHARGED_MOVES[optimal.charged1];
+        charged2 = optimal.charged2 ? CHARGED_MOVES[optimal.charged2] : null;
+        if (fast) fast = { ...fast, id: optimal.bestFast };
+        if (charged1) charged1 = { ...charged1, id: optimal.charged1 };
+        if (charged2) charged2 = { ...charged2, id: optimal.charged2 };
+    }
+
+    // Fallback: use first available moves from moveset
+    if (!fast || !charged1) {
+        const moveset = typeof POKEMON_MOVESETS !== 'undefined' ? POKEMON_MOVESETS[speciesId] : null;
+        if (!moveset) return null;
+        if (!fast && moveset.fast && moveset.fast[0]) {
+            const fid = moveset.fast[0];
+            fast = FAST_MOVES[fid] ? { ...FAST_MOVES[fid], id: fid } : null;
+        }
+        if (!charged1 && moveset.charged && moveset.charged[0]) {
+            const cid = moveset.charged[0];
+            charged1 = CHARGED_MOVES[cid] ? { ...CHARGED_MOVES[cid], id: cid } : null;
+        }
+    }
+
+    if (!fast || !charged1) return null;
+
+    return {
+        speciesId, types,
+        atk: stats.atk, def: stats.def, hp: stats.hp,
+        fast, charged1, charged2
+    };
+}
+
+// Cache for battler objects
+const battlerCache = {};
+function getCachedBattler(speciesId, cpCap, metaEntries) {
+    const key = speciesId + '|' + cpCap;
+    if (!battlerCache[key]) battlerCache[key] = buildBattler(speciesId, cpCap, metaEntries);
+    return battlerCache[key];
+}
+
+/**
+ * Compute a battle rating for a Pokemon by simulating 1v1s against top N meta.
+ * Runs 1-shield scenario (most common competitive format).
+ *
+ * @param {string} speciesId
+ * @param {number} cpCap
+ * @param {Array} metaEntries  Array of { id, types, weight }
+ * @param {number} topN        Number of meta opponents to sim against (default 50)
+ * @returns {{ battleRating: number, wins: number, losses: number, ties: number, total: number }|null}
+ */
+function computeBattleRating(speciesId, cpCap, metaEntries, topN) {
+    topN = topN || 50;
+    const attacker = getCachedBattler(speciesId, cpCap, metaEntries);
+    if (!attacker) return null;
+
+    const opponents = metaEntries.slice(0, topN);
+    let totalScore = 0, wins = 0, losses = 0, ties = 0, simCount = 0;
+
+    for (const opp of opponents) {
+        if (opp.id === speciesId) continue; // skip mirror
+        const defender = getCachedBattler(opp.id, cpCap, metaEntries);
+        if (!defender) continue;
+
+        // 1-shield scenario (most standard)
+        const result = simulateBattle(attacker, defender, 1, 1);
+        simCount++;
+
+        // Score: 1.0 for win, 0.5 for tie, 0.0 for loss
+        // Weighted by remaining HP percentage for granularity
+        if (result.winner === 'a') {
+            wins++;
+            // Full win + bonus for HP remaining (0.5 to 1.0 range)
+            totalScore += 0.5 + (result.aHpPct * 0.5);
+        } else if (result.winner === 'tie') {
+            ties++;
+            totalScore += 0.5;
+        } else {
+            losses++;
+            // Partial credit for close losses (0 to 0.5 range)
+            // How much HP did we take from them?
+            totalScore += (1 - result.bHpPct) * 0.5;
+        }
+    }
+
+    if (simCount === 0) return null;
+
+    // Battle rating: 0–1000 scale
+    const battleRating = Math.round((totalScore / simCount) * 1000);
+
+    return { battleRating, wins, losses, ties, total: simCount };
+}
+
 /**
  * Build meta-busting teams of 3.
  * Scoring incorporates:
@@ -1079,8 +1412,10 @@ function buildMetaBreakerTeams(cpCap) {
     // ── Team building: role-aware greedy with ABB detection ──
     const teams = [];
     const usedAsLead = new Set();
+    const seenTeamKeys = new Set();
+    const maxAttempts = 20; // try extra iterations to fill 5 distinct teams
 
-    for (let t = 0; t < 5; t++) {
+    for (let t = 0; t < maxAttempts && teams.length < 5; t++) {
         const team = [];
         const teamTypes = new Set();
         const teamWeaknesses = [];
@@ -1148,7 +1483,14 @@ function buildMetaBreakerTeams(cpCap) {
                 }
             }
         }
-        if (team.length === 3) teams.push(team);
+
+        if (team.length === 3) {
+            const teamKey = team.map(m => m.id).sort().join('|');
+            if (!seenTeamKeys.has(teamKey)) {
+                seenTeamKeys.add(teamKey);
+                teams.push(team);
+            }
+        }
     }
 
     return { metaEntries, teams, allScored };
@@ -1180,7 +1522,8 @@ function renderMonCard(mon, opts) {
     const metaTag = mon.metaRank != null
         ? `<span style="color:#f59e0b;font-size:10px;"> Meta #${mon.metaRank+1}</span>`
         : '';
-    const spiceTag = (mon.spiceBonus > 0)
+    const spiceVal = mon.spiceBonus || mon.spiceValue || 0;
+    const spiceTag = (spiceVal > 0)
         ? ' <span style="background:#d946ef;color:#fff;padding:0 4px;border-radius:3px;font-size:8px;">SPICE</span>'
         : '';
     const roleTag = role
@@ -1232,17 +1575,29 @@ function renderMonCard(mon, opts) {
 /**
  * Render the top N scorers table.
  */
-function renderScorerTable(allScored, count, userBox) {
+function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
     const n = Math.min(count, allScored.length);
-    let html = `<h3 style="margin:20px 0 10px;color:#e2e8f0;">Top ${n} Individual Meta Breakers</h3>`;
+    let html = `<h3 style="margin:20px 0 10px;color:#e2e8f0;">Top ${n} Individual Scorers</h3>`;
+
+    // Compute battle ratings for displayed rows (sim is expensive, only do top N)
+    const battleRatings = {};
+    if (cpCap && metaEntries && metaEntries.length > 0) {
+        for (let i = 0; i < n; i++) {
+            const br = computeBattleRating(allScored[i].id, cpCap, metaEntries, 50);
+            if (br) battleRatings[allScored[i].id] = br;
+        }
+    }
+    const hasBR = Object.keys(battleRatings).length > 0;
+
     html += `<table style="width:100%;"><thead><tr>
-        <th>#</th><th>Pokémon</th><th>Types</th><th>Moveset</th><th>Coverage</th><th>Pressure</th><th>Score</th>
+        <th>#</th><th>Pokémon</th><th>Types</th><th>Moveset</th>${hasBR ? '<th>Battle</th>' : ''}<th>Coverage</th><th>Pressure</th><th>Score</th>
     </tr></thead><tbody>`;
     for (let i = 0; i < n; i++) {
         const s = allScored[i];
         const inBox = (userBox || new Set()).has(s.id);
         const boxTag = inBox ? ' <span style="background:#22c55e;color:#000;padding:0 4px;border-radius:3px;font-size:9px;">IN BOX</span>' : '';
-        const spiceTag = (s.spiceBonus > 0) ? ' <span style="background:#d946ef;color:#fff;padding:0 3px;border-radius:2px;font-size:8px;">SPICE</span>' : '';
+        const spiceVal = s.spiceBonus || s.spiceValue || 0;
+        const spiceTag = (spiceVal > 0) ? ' <span style="background:#d946ef;color:#fff;padding:0 3px;border-radius:2px;font-size:8px;">SPICE</span>' : '';
         const typesTags = s.types.map(t => `<span class="type-badge type-${t}" style="font-size:10px;">${t}</span>`).join(' ');
 
         let movesetCell = '<span style="color:#555;">STAB only</span>';
@@ -1259,12 +1614,25 @@ function renderScorerTable(allScored, count, userBox) {
                 + `<span style="font-size:10px;color:#94a3b8;">${fmtMove(o.charged1)}${eliteTag(o.charged1)}${c1Role}${o.charged2 ? ', '+fmtMove(o.charged2)+eliteTag(o.charged2)+c2Role : ''}</span>`;
         }
 
+        // Battle rating cell
+        let brCell = '';
+        if (hasBR) {
+            const br = battleRatings[s.id];
+            if (br) {
+                const brColor = br.battleRating >= 600 ? '#4ade80' : br.battleRating >= 450 ? '#60a5fa' : br.battleRating >= 300 ? '#fbbf24' : '#fb923c';
+                brCell = `<td><span style="font-weight:600;color:${brColor};">${br.battleRating}</span><br><span style="font-size:9px;color:#64748b;">${br.wins}W ${br.losses}L</span></td>`;
+            } else {
+                brCell = `<td style="color:#555;">—</td>`;
+            }
+        }
+
         const pressurePct = Math.round((s.pressureScore || 0) * 100);
         html += `<tr>
             <td>${i+1}</td>
             <td style="font-weight:500;">${toTitleCase(s.id)}${boxTag}${spiceTag}</td>
             <td>${typesTags}</td>
             <td>${movesetCell}</td>
+            ${brCell}
             <td style="color:${s.coverageScore > 1.5 ? '#4ade80' : s.coverageScore > 1.0 ? '#60a5fa' : '#fb923c'}">${s.coverageScore.toFixed(2)}</td>
             <td style="color:${pressurePct > 60 ? '#4ade80' : pressurePct > 30 ? '#60a5fa' : '#fb923c'}">${pressurePct}%</td>
             <td style="font-weight:600;">${s.finalScore.toFixed(2)}</td>
@@ -1349,8 +1717,8 @@ async function runMetaBreaker() {
             html += `</div></div>`;
         }
 
-        // Top 20 individual scorers
-        html += renderScorerTable(allScored, 20, userBox);
+        // Top 20 individual scorers (with battle sim)
+        html += renderScorerTable(allScored, 20, userBox, cpCap, metaEntries);
 
         outEl.innerHTML = html;
     }, 30);
@@ -1460,8 +1828,10 @@ function buildBoxTeams(cpCap) {
     function buildTeamsGreedy(candidates, count, scoreFn, slotFilter) {
         const teams = [];
         const usedAsLead = new Set();
+        const seenTeamKeys = new Set(); // prevent duplicate teams in any slot order
+        const maxAttempts = count * 4;  // try extra iterations to fill quota
 
-        for (let t = 0; t < count; t++) {
+        for (let t = 0; t < maxAttempts && teams.length < count; t++) {
             const team = [];
             const teamTypes = new Set();
             const teamWeaknesses = [];
@@ -1526,7 +1896,15 @@ function buildBoxTeams(cpCap) {
                     }
                 }
             }
-            if (team.length === 3) teams.push(team);
+
+            if (team.length === 3) {
+                // Deduplicate: sorted IDs form a canonical key regardless of slot order
+                const teamKey = team.map(m => m.id).sort().join('|');
+                if (!seenTeamKeys.has(teamKey)) {
+                    seenTeamKeys.add(teamKey);
+                    teams.push(team);
+                }
+            }
         }
         return teams;
     }
@@ -1682,8 +2060,8 @@ async function runBoxBuilder() {
             'Maximum spice — unexpected picks with strong coverage to catch opponents off-guard',
             '#7c2d12', '#fb923c');
 
-        // Top box Pokémon table
-        html += renderScorerTable(boxScored, 30, new Set());
+        // Top box Pokémon table (with battle sim)
+        html += renderScorerTable(boxScored, 30, new Set(), cpCap, metaEntries);
         html += `</div>`;
 
         outEl.innerHTML = html;
