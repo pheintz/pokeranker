@@ -2,33 +2,45 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-(async () => {
-  const downloadPath = path.resolve(__dirname, 'downloads');
-  fs.mkdirSync(downloadPath, { recursive: true });
+const LEAGUES = [
+  { cpCap: 1500, url: 'https://pvpoke.com/rankings/all/1500/overall/', outFile: 'cp1500_all_overall_rankings.csv' },
+  { cpCap: 2500, url: 'https://pvpoke.com/rankings/all/2500/overall/', outFile: 'cp2500_all_overall_rankings.csv' },
+];
 
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
-  const page = await browser.newPage();
+const downloadPath = path.resolve(__dirname, 'downloads');
+fs.mkdirSync(downloadPath, { recursive: true });
 
-  await page.goto('https://pvpoke.com/rankings/all/1500/overall/', {
-    waitUntil: 'networkidle2',
-  });
+/**
+ * Download the rankings CSV from a PvPoke rankings page.
+ * PvPoke generates a blob URL on the download button after rankings render.
+ * We wait up to 10s for the button to appear and the blob to be set.
+ */
+async function downloadLeague(page, league) {
+  console.log(`\nFetching: ${league.url}`);
+  await page.goto(league.url, { waitUntil: 'networkidle2', timeout: 60000 });
 
-  // Intercept the click so the link doesn't navigate — just capture the blob
+  // Wait for the download button to appear (rankings must finish rendering)
+  try {
+    await page.waitForSelector('a.button.download-csv', { timeout: 10000 });
+  } catch {
+    throw new Error(`Download button not found on ${league.url}`);
+  }
+
+  // Click to generate the blob URL if it hasn't been set yet, then wait
   const csvBase64 = await page.evaluate(async () => {
     const a = document.querySelector('a.button.download-csv');
     if (!a) throw new Error('Download link not found');
 
-    // If the blob URL isn't set yet, trigger the click to generate it,
-    // then wait a tick for the href to populate
     if (!a.href.startsWith('blob:')) {
       a.click();
-      await new Promise(r => setTimeout(r, 2000));
+      // Wait up to 5s for blob URL to populate
+      for (let i = 0; i < 50; i++) {
+        await new Promise(r => setTimeout(r, 100));
+        if (a.href.startsWith('blob:')) break;
+      }
     }
 
-    if (!a.href.startsWith('blob:')) throw new Error('Blob URL not generated');
+    if (!a.href.startsWith('blob:')) throw new Error('Blob URL not generated after waiting');
 
     const res = await fetch(a.href);
     const blob = await res.blob();
@@ -42,15 +54,27 @@ const path = require('path');
     return btoa(binary);
   });
 
-  // Get the filename from the link attribute
-  const filename = await page.$eval(
-    'a.button.download-csv',
-    a => a.getAttribute('download') || 'export.csv'
-  );
-
-  const filePath = path.join(downloadPath, filename);
+  // Always save with the canonical filename the webapp expects
+  const filePath = path.join(downloadPath, league.outFile);
   fs.writeFileSync(filePath, Buffer.from(csvBase64, 'base64'));
-  console.log('Downloaded:', filePath);
+  console.log(`Saved: ${filePath}`);
+}
 
-  await browser.close();
+(async () => {
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
+
+  try {
+    const page = await browser.newPage();
+
+    for (const league of LEAGUES) {
+      await downloadLeague(page, league);
+    }
+
+    console.log('\nAll downloads complete.');
+  } finally {
+    await browser.close();
+  }
 })();

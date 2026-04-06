@@ -30,15 +30,34 @@ jobs:
         working-directory: process
         run: node download-csv.js
 
-      - name: Move CSV to wwwroot/csv
+      - name: Validate downloaded files
+        run: |
+          echo "Files downloaded:"
+          ls -lh process/downloads/
+          for f in cp1500_all_overall_rankings.csv cp2500_all_overall_rankings.csv; do
+            if [ ! -f "process/downloads/$f" ]; then
+              echo "ERROR: Missing expected file: $f"
+              exit 1
+            fi
+            lines=$(wc -l < "process/downloads/$f")
+            echo "$f: $lines lines"
+            if [ "$lines" -lt 10 ]; then
+              echo "ERROR: $f looks too short (only $lines lines)"
+              exit 1
+            fi
+          done
+
+      - name: Copy CSVs to wwwroot/csv
         run: |
           mkdir -p wwwroot/csv
-          cp process/downloads/*.csv wwwroot/csv/
+          cp process/downloads/cp1500_all_overall_rankings.csv wwwroot/csv/
+          cp process/downloads/cp2500_all_overall_rankings.csv wwwroot/csv/
 
-      - name: Commit and push updated CSV
+      - name: Commit and push updated CSVs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add wwwroot/csv/*.csv
-          git diff --cached --quiet || git commit -m "chore: update PvPoke rankings CSV [skip ci]"
+          git add wwwroot/csv/cp1500_all_overall_rankings.csv
+          git add wwwroot/csv/cp2500_all_overall_rankings.csv
+          git diff --cached --quiet || git commit -m "chore: update PvPoke rankings CSVs [skip ci]"
           git push
