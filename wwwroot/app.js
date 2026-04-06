@@ -1311,6 +1311,61 @@ function computeBattleRating(speciesId, cpCap, metaEntries, topN) {
 }
 
 /**
+ * Reciprocal Rank Fusion — research-validated method for combining heterogeneous scores.
+ * Ranks each entry by its heuristic score and by its battle simulation rating independently,
+ * then fuses them: RRF = 1/(k + heuristicRank) + 1/(k + battleRank)
+ * where k=60 is the standard constant from the original Cormack et al. paper.
+ *
+ * This is scale-invariant (no normalisation needed), outlier-robust, and proven to
+ * outperform weighted-sum and min-max approaches for multimodal ranking problems.
+ *
+ * The function mutates each entry, adding:
+ *   .battleRating  — raw 0–1000 sim score (or null if species has no moveset data)
+ *   .rrfScore      — fused composite (higher = better)
+ *   .finalScore    — overwritten with rrfScore so all downstream code just uses finalScore
+ *
+ * @param {Array}  scored       Array of scored entries with at least { id, finalScore }
+ * @param {number} cpCap
+ * @param {Array}  metaEntries  Weighted meta opponent list for the battle sim
+ */
+function applyRRF(scored, cpCap, metaEntries) {
+    const k = 60;
+
+    // 1. Compute battle ratings for every entry
+    for (const entry of scored) {
+        if (entry.battleRating == null) {
+            const br = computeBattleRating(entry.id, cpCap, metaEntries, 50);
+            entry.battleRating  = br ? br.battleRating  : null;
+            entry.battleWins    = br ? br.wins           : null;
+            entry.battleLosses  = br ? br.losses         : null;
+        }
+    }
+
+    // 2. Assign heuristic rank (sorted by existing finalScore, which is the heuristic)
+    const byHeuristic = [...scored].sort((a, b) => b.finalScore - a.finalScore);
+    byHeuristic.forEach((entry, i) => { entry._hRank = i + 1; });
+
+    // 3. Assign battle rank — entries with no battle rating get a last-place rank
+    const withBR    = scored.filter(e => e.battleRating != null)
+                            .sort((a, b) => b.battleRating - a.battleRating);
+    const noBR      = scored.filter(e => e.battleRating == null);
+    const lastRank  = withBR.length + 1;
+    withBR.forEach((entry, i)  => { entry._bRank = i + 1; });
+    noBR.forEach(entry         => { entry._bRank = lastRank; });
+
+    // 4. Compute RRF score and overwrite finalScore
+    for (const entry of scored) {
+        entry.rrfScore  = 1 / (k + entry._hRank) + 1 / (k + entry._bRank);
+        entry.finalScore = entry.rrfScore;
+        // Keep baseScore in sync for box builder category scoreFns
+        if (entry.baseScore != null) entry.baseScore = entry.rrfScore;
+    }
+
+    // 5. Re-sort in place
+    scored.sort((a, b) => b.rrfScore - a.rrfScore);
+}
+
+/**
  * Build meta-busting teams of 3.
  * Scoring incorporates:
  *   - Meta-optimized moveset selection (bait+nuke, STAB, stat effects)
@@ -1408,6 +1463,10 @@ function buildMetaBreakerTeams(cpCap) {
     }
 
     allScored.sort((a, b) => b.finalScore - a.finalScore);
+
+    // ── Fuse heuristic + battle-sim scores via Reciprocal Rank Fusion ──
+    // Computes battle ratings for all candidates and re-sorts using RRF.
+    applyRRF(allScored, cpCap, metaEntries);
 
     // ── Team building: role-aware greedy with ABB detection ──
     const teams = [];
@@ -1590,7 +1649,7 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
     const hasBR = Object.keys(battleRatings).length > 0;
 
     html += `<table style="width:100%;"><thead><tr>
-        <th>#</th><th>Pokémon</th><th>Types</th><th>Moveset</th>${hasBR ? '<th>Battle</th>' : ''}<th>Coverage</th><th>Pressure</th><th>Score</th>
+        <th>#</th><th>Pokémon</th><th>Types</th><th>Moveset</th>${hasBR ? '<th title="1v1 battle sim vs top 50 meta (1-shield)">Battle</th>' : ''}<th>Coverage</th><th>Pressure</th><th title="Reciprocal Rank Fusion of heuristic + battle sim">RRF Score</th>
     </tr></thead><tbody>`;
     for (let i = 0; i < n; i++) {
         const s = allScored[i];
@@ -1660,7 +1719,7 @@ async function runMetaBreaker() {
         return;
     }
 
-    outEl.innerHTML = '<p style="color:#555;">Computing meta-busting teams...</p>';
+    outEl.innerHTML = '<p style="color:#555;">Computing meta-busting teams (running battle simulations — may take a few seconds)...</p>';
 
     setTimeout(() => {
         const { metaEntries, teams, allScored } = buildMetaBreakerTeams(cpCap);
@@ -1823,6 +1882,9 @@ function buildBoxTeams(cpCap) {
     }
 
     boxScored.sort((a, b) => b.finalScore - a.finalScore);
+
+    // ── Fuse heuristic + battle-sim scores via Reciprocal Rank Fusion ──
+    applyRRF(boxScored, cpCap, metaEntries);
 
     // ── Shared team-building helper ──────────────────────────────────────
     function buildTeamsGreedy(candidates, count, scoreFn, slotFilter) {
@@ -2001,7 +2063,7 @@ async function runBoxBuilder() {
         await run();
     }
 
-    outEl.innerHTML = '<p style="color:#555;">Building teams from your box...</p>';
+    outEl.innerHTML = '<p style="color:#555;">Building teams from your box (running battle simulations — may take a few seconds)...</p>';
 
     setTimeout(() => {
         const { metaEntries, metaTeams, semiMetaTeams, disruptionTeams, boxScored } = buildBoxTeams(cpCap);
