@@ -17,7 +17,7 @@ const TYPE_CHART = (() => {
   c['psychic'] = {'fighting':1.6, 'poison':1.6, 'psychic':0.625, 'steel':0.625, 'dark':0.390625};
   c['bug'] = {'grass':1.6, 'psychic':1.6, 'dark':1.6, 'fire':0.625, 'fighting':0.625, 'poison':0.625, 'flying':0.625, 'ghost':0.625, 'steel':0.625, 'fairy':0.625};
   c['rock'] = {'fire':1.6, 'ice':1.6, 'flying':1.6, 'bug':1.6, 'fighting':0.625, 'ground':0.625, 'steel':0.625};
-  c['ghost'] = {'psychic':1.6, 'ghost':1.6, 'dark':0.625, 'normal':0.390625};
+  c['ghost'] = {'psychic':1.6, 'ghost':1.6, 'dark':0.625, 'normal':0.390625, 'fighting':0.390625};
   c['dragon'] = {'dragon':1.6, 'fairy':0.390625};
   c['dark'] = {'psychic':1.6, 'ghost':1.6, 'fighting':0.625, 'dark':0.625, 'fairy':0.625};
   c['steel'] = {'ice':1.6, 'rock':1.6, 'fairy':1.6, 'fire':0.625, 'water':0.625, 'electric':0.625, 'steel':0.625};
@@ -1366,6 +1366,7 @@ const CHARGED_MOVES = {
   'weather_ball_water': {type:'water',pow:55,nrg:35},
   'wild_charge': {type:'electric',pow:100,nrg:45},
   'wrap': {type:'normal',pow:60,nrg:45},
+  'upper_hand': {type:'fighting',pow:40,nrg:35},
   'x_scissor': {type:'bug',pow:45,nrg:35},
   'zap_cannon': {type:'electric',pow:150,nrg:80}
 };
@@ -1504,7 +1505,7 @@ const POKEMON_MOVESETS = {
   'samurott': {fast:['fury_cutter', 'waterfall'], charged:['hydro_cannon', 'megahorn', 'razor_shell', 'blizzard'], elite:['hydro_cannon']},
   'sandslash_alolan': {fast:['powder_snow', 'metal_claw', 'shadow_claw'], charged:['ice_punch', 'bulldoze', 'gyro_ball', 'blizzard'], elite:[]},
   'sceptile': {fast:['fury_cutter', 'bullet_seed'], charged:['frenzy_plant', 'leaf_blade', 'aerial_ace', 'earthquake', 'dragon_claw'], elite:['frenzy_plant']},
-  'scrafty': {fast:['counter', 'snarl'], charged:['foul_play', 'power_up_punch', 'acid_spray'], elite:[]},
+  'scrafty': {fast:['counter', 'snarl'], charged:['foul_play', 'power_up_punch', 'upper_hand'], elite:[]},
   'shiftry': {fast:['snarl', 'razor_leaf', 'feint_attack', 'bullet_seed'], charged:['leaf_blade', 'foul_play', 'hurricane'], elite:[]},
   'sirfetchd': {fast:['counter', 'fury_cutter'], charged:['close_combat', 'leaf_blade', 'night_slash', 'brave_bird'], elite:[]},
   'skarmory': {fast:['air_slash', 'steel_wing'], charged:['sky_attack', 'brave_bird', 'flash_cannon'], elite:[]},

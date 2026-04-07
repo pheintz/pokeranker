@@ -892,8 +892,8 @@ function pickOptimalMoveset(speciesId, metaEntries) {
                     structureBonus = 0.3; // strong bait+nuke structure
                     // Extra bonus for big energy gap (more baiting potential)
                     structureBonus += Math.min(0.15, (costliest - cheapest) / 200);
-                } else if (cheapest <= 45 && i !== j) {
-                    structureBonus = 0.1; // decent spam pair
+                } else if (i !== j) {
+                    structureBonus = 0.1; // two charged moves always better than one
                 }
 
                 // ── Type coverage diversity bonus ──
@@ -1055,7 +1055,7 @@ function pvpDamage(power, atkStat, defStat, stab, eff) {
  * @returns {{ winner: 'a'|'b'|'tie', aHpLeft: number, bHpLeft: number, aHpPct: number, bHpPct: number }}
  */
 function simulateBattle(a, b, shieldsA, shieldsB, seed) {
-    // Simple seeded PRNG (mulberry32) for reproducible stochastic AI
+    // ── Seeded PRNG (mulberry32) ─────────────────────────────────────────────
     let _seed = seed != null ? seed : ((a.hp * 7919 + b.hp * 6271 + shieldsA * 31 + shieldsB) >>> 0);
     function rand() {
         _seed |= 0; _seed = _seed + 0x6D2B79F5 | 0;
@@ -1063,94 +1063,110 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed) {
         t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
         return ((t ^ t >>> 14) >>> 0) / 4294967296;
     }
-    // Pre-compute damage values for every move combination
-    function calcStab(moveType, userTypes) {
-        return userTypes.includes(moveType) ? 1.2 : 1.0;
-    }
-    function calcEff(moveType, targetTypes) {
-        return typeEffectiveness(moveType, targetTypes[0], targetTypes[1] || null);
+    function calcStab(moveType, userTypes) { return userTypes.includes(moveType) ? 1.2 : 1.0; }
+    function calcEff(moveType, targetTypes) { return typeEffectiveness(moveType, targetTypes[0], targetTypes[1] || null); }
+
+    // ── Stat stages ──────────────────────────────────────────────────────────
+    // Tracks attack/defense stage changes from charged move effects.
+    // Pokemon GO PvP formula: stage ≥ 0 → (3+stage)/3 ; stage < 0 → 3/(3-stage)
+    // Capped at ±4. Effects apply even when the move is shielded (per GO PvP rules).
+    let aAtkStage = 0, aDefStage = 0;
+    let bAtkStage = 0, bDefStage = 0;
+    function clampStage(s) { return Math.max(-4, Math.min(4, s)); }
+    function stageMult(s)  { return s >= 0 ? (3 + s) / 3 : 3 / (3 - s); }
+
+    function applyMoveEffects(moveId, userIsA) {
+        const fx = typeof MOVE_EFFECTS !== 'undefined' ? MOVE_EFFECTS[moveId] : null;
+        if (!fx) return;
+        if (fx.chance < 1.0 && rand() >= fx.chance) return;
+        if (fx.selfBuff) {
+            if (userIsA) { aAtkStage = clampStage(aAtkStage + fx.selfBuff[0]); aDefStage = clampStage(aDefStage + fx.selfBuff[1]); }
+            else         { bAtkStage = clampStage(bAtkStage + fx.selfBuff[0]); bDefStage = clampStage(bDefStage + fx.selfBuff[1]); }
+        }
+        if (fx.selfDebuff) {
+            if (userIsA) { aAtkStage = clampStage(aAtkStage + fx.selfDebuff[0]); aDefStage = clampStage(aDefStage + fx.selfDebuff[1]); }
+            else         { bAtkStage = clampStage(bAtkStage + fx.selfDebuff[0]); bDefStage = clampStage(bDefStage + fx.selfDebuff[1]); }
+        }
+        if (fx.oppDebuff) {
+            if (userIsA) { bAtkStage = clampStage(bAtkStage + fx.oppDebuff[0]); bDefStage = clampStage(bDefStage + fx.oppDebuff[1]); }
+            else         { aAtkStage = clampStage(aAtkStage + fx.oppDebuff[0]); aDefStage = clampStage(aDefStage + fx.oppDebuff[1]); }
+        }
     }
 
-    // Attacker's moves vs defender
-    const aFastDmg = pvpDamage(a.fast.pow, a.atk, b.def,
-        calcStab(a.fast.type, a.types), calcEff(a.fast.type, b.types));
-    const aC1Dmg = pvpDamage(a.charged1.pow, a.atk, b.def,
-        calcStab(a.charged1.type, a.types), calcEff(a.charged1.type, b.types));
-    const aC2Dmg = a.charged2
-        ? pvpDamage(a.charged2.pow, a.atk, b.def,
-            calcStab(a.charged2.type, a.types), calcEff(a.charged2.type, b.types))
-        : 0;
+    // ── Dynamic damage (recomputed each use to reflect current stat stages) ──
+    function pvpDmg(pow, atkBase, atkStage, defBase, defStage, stab, eff) {
+        return Math.floor(0.5 * pow * (atkBase * stageMult(atkStage)) / (defBase * stageMult(defStage)) * stab * eff) + 1;
+    }
+    function aFastDmg() { return pvpDmg(a.fast.pow, a.atk, aAtkStage, b.def, bDefStage, calcStab(a.fast.type, a.types), calcEff(a.fast.type, b.types)); }
+    function bFastDmg() { return pvpDmg(b.fast.pow, b.atk, bAtkStage, a.def, aDefStage, calcStab(b.fast.type, b.types), calcEff(b.fast.type, a.types)); }
+    function aC1Dmg()   { return pvpDmg(a.charged1.pow, a.atk, aAtkStage, b.def, bDefStage, calcStab(a.charged1.type, a.types), calcEff(a.charged1.type, b.types)); }
+    function aC2Dmg()   { return a.charged2 ? pvpDmg(a.charged2.pow, a.atk, aAtkStage, b.def, bDefStage, calcStab(a.charged2.type, a.types), calcEff(a.charged2.type, b.types)) : 0; }
+    function bC1Dmg()   { return pvpDmg(b.charged1.pow, b.atk, bAtkStage, a.def, aDefStage, calcStab(b.charged1.type, b.types), calcEff(b.charged1.type, a.types)); }
+    function bC2Dmg()   { return b.charged2 ? pvpDmg(b.charged2.pow, b.atk, bAtkStage, a.def, aDefStage, calcStab(b.charged2.type, b.types), calcEff(b.charged2.type, a.types)) : 0; }
 
-    // Defender's moves vs attacker
-    const bFastDmg = pvpDamage(b.fast.pow, b.atk, a.def,
-        calcStab(b.fast.type, b.types), calcEff(b.fast.type, a.types));
-    const bC1Dmg = pvpDamage(b.charged1.pow, b.atk, a.def,
-        calcStab(b.charged1.type, b.types), calcEff(b.charged1.type, a.types));
-    const bC2Dmg = b.charged2
-        ? pvpDamage(b.charged2.pow, b.atk, a.def,
-            calcStab(b.charged2.type, b.types), calcEff(b.charged2.type, a.types))
-        : 0;
+    // ── Stochastic charged move AI ───────────────────────────────────────────
+    // Returns { dmg, nrg, id } — damage snapshotted at decision time with current stages.
+    // Strategy: guarantee KO when possible, 75% bait when shields up, 85% nuke when shields down.
+    // Nuke = higher effective DPE (damage per energy) move; bait = lower effective DPE.
+    // When only the bait is affordable but the nuke is within 20 energy, wait for the nuke.
+    function pickChargedMove(energy, c1, c1Dmg, c2, c2Dmg, oppHp, oppShields) {
+        const have1 = energy >= c1.nrg;
+        const have2 = c2 && energy >= c2.nrg;
+        if (!have1 && !have2) return null;
+
+        // Identify nuke (higher effective DPE) vs bait (lower effective DPE).
+        const c1IsNuke = !c2 || (c1Dmg / c1.nrg >= c2Dmg / c2.nrg);
+        const nuke = c1IsNuke ? { dmg: c1Dmg, nrg: c1.nrg, id: c1.id }
+                              : { dmg: c2Dmg, nrg: c2.nrg, id: c2.id };
+        const bait = c1IsNuke ? (c2 ? { dmg: c2Dmg, nrg: c2.nrg, id: c2.id } : nuke)
+                              : { dmg: c1Dmg, nrg: c1.nrg, id: c1.id };
+        const haveNuke = c1IsNuke ? have1 : have2;
+        const haveBait = c1IsNuke ? (c2 ? have2 : have1) : have1;
+
+        // Only bait affordable: fire bait to waste opponent's shield when shields are up.
+        // When opponent has no shields, wait for nuke if it's close (≤20 energy away).
+        if (haveBait && !haveNuke) {
+            const nukeNrg = c1IsNuke ? c1.nrg : c2.nrg;
+            if (oppShields === 0 && nukeNrg - energy <= 20) return null; // wait for nuke
+            return bait; // fire bait to pressure shields (or nuke is too far away)
+        }
+        // Only nuke affordable (or single-move): fire it.
+        if (haveNuke && !haveBait) return nuke;
+
+        // Both ready: guarantee KO when possible, then stochastic bait/nuke.
+        if (oppShields === 0 && nuke.dmg >= oppHp) return nuke;
+        if (oppShields === 0 && bait.dmg >= oppHp) return bait;
+        return oppShields > 0 ? (rand() < 0.75 ? bait : nuke)
+                              : (rand() < 0.85 ? nuke : bait);
+    }
 
     let aHp = a.hp, bHp = b.hp;
     let aEnergy = 0, bEnergy = 0;
     let aShields = shieldsA, bShields = shieldsB;
-    let aTurnCd = 0, bTurnCd = 0; // turns remaining before next fast move completes
+    let aTurnCd = 0, bTurnCd = 0;
 
     for (let turn = 0; turn < 500; turn++) {
         if (aHp <= 0 || bHp <= 0) break;
 
-        // Both sides try charged moves at turn start (CMP: higher atk goes first)
-        // ── Stochastic charged move AI ──────────────────────────────
-        // Picks which charged move to throw using probabilistic decisions:
-        //   - Always KO if possible (no randomness for guaranteed kills)
-        //   - When shields up: 75% bait (cheap), 25% go straight to nuke
-        //   - When shields down & no KO: 85% nuke, 15% cheap (energy farm)
-        //   - Only one move available: always fire it
-        function pickChargedMove(energy, c1, c1Dmg, c2, c2Dmg, oppHp, oppShields) {
-            const have1 = energy >= c1.nrg;
-            const have2 = c2 && energy >= c2.nrg;
-            if (!have1 && !have2) return null;
-            if (have1 && !have2) return { dmg: c1Dmg, nrg: c1.nrg };
-            if (!have1 && have2) return { dmg: c2Dmg, nrg: c2.nrg };
-
-            // Both available — identify cheap vs expensive
-            const cheap     = c1.nrg <= c2.nrg ? { dmg: c1Dmg, nrg: c1.nrg } : { dmg: c2Dmg, nrg: c2.nrg };
-            const expensive = c1.nrg >  c2.nrg ? { dmg: c1Dmg, nrg: c1.nrg } : { dmg: c2Dmg, nrg: c2.nrg };
-
-            // Always go for guaranteed KO with the bigger move
-            if (oppShields === 0 && expensive.dmg >= oppHp) return expensive;
-            // Also check if cheap move KOs
-            if (oppShields === 0 && cheap.dmg >= oppHp) return cheap;
-
-            if (oppShields > 0) {
-                // Shields up: mostly bait, sometimes throw nuke through shield
-                return rand() < 0.75 ? cheap : expensive;
-            } else {
-                // Shields down: mostly nuke for damage, sometimes farm energy
-                return rand() < 0.85 ? expensive : cheap;
-            }
-        }
-
-        // Attacker charged move check
+        // ── Attacker charged move ────────────────────────────────────────────
         if (aTurnCd === 0) {
-            let fired = false;
-            const pick = pickChargedMove(aEnergy, a.charged1, aC1Dmg, a.charged2, aC2Dmg, bHp, bShields);
+            const pick = pickChargedMove(aEnergy, a.charged1, aC1Dmg(), a.charged2, aC2Dmg(), bHp, bShields);
             if (pick) {
                 aEnergy -= pick.nrg;
+                applyMoveEffects(pick.id, true); // stat effects fire even when shielded
                 if (bShields > 0) { bShields--; bHp -= 1; }
                 else { bHp -= pick.dmg; }
-                fired = true;
-            }
-            if (!fired) {
+            } else {
                 aTurnCd = a.fast.turns;
             }
         }
 
-        // Defender charged move check
+        // ── Defender charged move ────────────────────────────────────────────
         if (bTurnCd === 0) {
-            const pick = pickChargedMove(bEnergy, b.charged1, bC1Dmg, b.charged2, bC2Dmg, aHp, aShields);
+            const pick = pickChargedMove(bEnergy, b.charged1, bC1Dmg(), b.charged2, bC2Dmg(), aHp, aShields);
             if (pick) {
                 bEnergy -= pick.nrg;
+                applyMoveEffects(pick.id, false);
                 if (aShields > 0) { aShields--; aHp -= 1; }
                 else { aHp -= pick.dmg; }
             } else {
@@ -1158,19 +1174,18 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed) {
             }
         }
 
-        // Process fast move completions
+        // ── Fast move completions ────────────────────────────────────────────
         if (aTurnCd > 0) {
             aTurnCd--;
             if (aTurnCd === 0) {
-                // Fast move lands: damage + energy on last turn
-                bHp -= aFastDmg;
+                bHp -= aFastDmg();
                 aEnergy = Math.min(100, aEnergy + a.fast.nrg);
             }
         }
         if (bTurnCd > 0) {
             bTurnCd--;
             if (bTurnCd === 0) {
-                aHp -= bFastDmg;
+                aHp -= bFastDmg();
                 bEnergy = Math.min(100, bEnergy + b.fast.nrg);
             }
         }
@@ -1179,11 +1194,7 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed) {
     aHp = Math.max(0, aHp);
     bHp = Math.max(0, bHp);
     const winner = aHp > bHp ? 'a' : bHp > aHp ? 'b' : 'tie';
-    return {
-        winner,
-        aHpLeft: aHp, bHpLeft: bHp,
-        aHpPct: aHp / a.hp, bHpPct: bHp / b.hp
-    };
+    return { winner, aHpLeft: aHp, bHpLeft: bHp, aHpPct: aHp / a.hp, bHpPct: bHp / b.hp };
 }
 
 /**
@@ -1347,11 +1358,19 @@ function applyRRF(scored, cpCap, metaEntries) {
     noBR.forEach(entry         => { entry._bRank = lastRank; });
 
     // 4. Compute RRF score and overwrite finalScore
+    // NOTE: baseScore is intentionally NOT overwritten here.
+    // buildBoxTeams category scoreFns (metaScoreFn, semiScoreFn, disruptionScoreFn) use
+    // baseScore as their foundation. Overwriting it with the tiny RRF value (~0.013–0.033)
+    // would make categorical bonuses (+0.05 to +0.20) completely swamp quality differences,
+    // breaking per-category selection. finalScore is overwritten for display and greedy
+    // ordering in buildMetaBreakerTeams; baseScore remains the original heuristic quality signal.
+    // Theoretical max RRF when both ranks are 1: 1/(k+1) + 1/(k+1)
+    const rrfMax = 2 / (k + 1); // ≈ 0.03279 for k=60
     for (const entry of scored) {
-        entry.rrfScore  = 1 / (k + entry._hRank) + 1 / (k + entry._bRank);
-        entry.finalScore = entry.rrfScore;
-        // Keep baseScore in sync for box builder category scoreFns
-        if (entry.baseScore != null) entry.baseScore = entry.rrfScore;
+        entry.rrfScore    = 1 / (k + entry._hRank) + 1 / (k + entry._bRank);
+        entry.finalScore  = entry.rrfScore;
+        // Human-readable 0–1000 display score (does not affect sorting or logic)
+        entry.displayScore = Math.round((entry.rrfScore / rrfMax) * 1000);
     }
 
     // 5. Re-sort in place
@@ -1617,7 +1636,7 @@ function renderMonCard(mon, opts) {
         <div style="font-size:11px;color:#94a3b8;">
             Coverage: <span style="color:${mon.coverageScore > 1.5 ? '#4ade80' : mon.coverageScore > 1.0 ? '#60a5fa' : '#f87171'}">${mon.coverageScore.toFixed(2)}</span> ·
             Pressure: <span style="color:${pressurePct > 60 ? '#4ade80' : pressurePct > 30 ? '#60a5fa' : '#f87171'}">${pressurePct}%</span> ·
-            Score: <span style="font-weight:600;">${mon.finalScore.toFixed(2)}</span>
+            Score: <span style="font-weight:600;">${mon.displayScore ?? Math.round(mon.finalScore * 30497)}</span>
         </div>
         ${movesetHtml}${eliteWarn}
         <div style="font-size:10px;color:#64748b;margin-top:2px;">Coverage: ${mon.moveTypes.map(t => `<span class="type-badge type-${t}" style="font-size:9px;padding:0 4px;">${t}</span>`).join(' ')}</div>
@@ -1642,7 +1661,7 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
     const hasBR = Object.keys(battleRatings).length > 0;
 
     html += `<table style="width:100%;"><thead><tr>
-        <th>#</th><th>Pokémon</th><th>Types</th><th>Moveset</th>${hasBR ? '<th title="1v1 battle sim vs top 50 meta (1-shield)">Battle</th>' : ''}<th>Coverage</th><th>Pressure</th><th title="Reciprocal Rank Fusion of heuristic + battle sim">RRF Score</th>
+        <th>#</th><th>Pokémon</th><th>Types</th><th>Moveset</th>${hasBR ? '<th title="1v1 battle sim vs top 50 meta (0s/1s/2s weighted 20/60/20)">Battle</th>' : ''}<th>Coverage</th><th>Pressure</th><th title="Reciprocal Rank Fusion of heuristic + battle sim (0–1000 scale)">RRF Score</th>
     </tr></thead><tbody>`;
     for (let i = 0; i < n; i++) {
         const s = allScored[i];
@@ -1687,7 +1706,7 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
             ${brCell}
             <td style="color:${s.coverageScore > 1.5 ? '#4ade80' : s.coverageScore > 1.0 ? '#60a5fa' : '#fb923c'}">${s.coverageScore.toFixed(2)}</td>
             <td style="color:${pressurePct > 60 ? '#4ade80' : pressurePct > 30 ? '#60a5fa' : '#fb923c'}">${pressurePct}%</td>
-            <td style="font-weight:600;">${s.finalScore.toFixed(2)}</td>
+            <td style="font-weight:600;">${s.displayScore ?? Math.round(s.finalScore * 30497)}</td>
         </tr>`;
     }
     html += `</tbody></table>`;
