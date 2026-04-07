@@ -1041,7 +1041,8 @@ function pvpDamage(power, atkStat, defStat, stab, eff) {
  * Simulate a 1v1 PvP battle between two Pokemon.
  * Uses simplified but accurate Pokemon GO PvP mechanics:
  *   - Turn-based fast moves (each takes N turns)
- *   - Charged moves fire when energy is sufficient (AI: fire cheapest when able)
+ *   - Charged moves fire when energy is sufficient
+ *   - Stochastic AI: probabilistic bait/nuke decisions (research-backed)
  *   - Shield scenario: 0, 1, or 2 shields per side
  *   - Shielded charged moves deal 1 damage
  *   - Max 500 turns to prevent infinite loops
@@ -1050,9 +1051,18 @@ function pvpDamage(power, atkStat, defStat, stab, eff) {
  * @param {object} b  Defender: same structure
  * @param {number} shieldsA  Shields for attacker (0-2)
  * @param {number} shieldsB  Shields for defender (0-2)
+ * @param {number} [seed]    Optional PRNG seed for reproducible stochastic decisions
  * @returns {{ winner: 'a'|'b'|'tie', aHpLeft: number, bHpLeft: number, aHpPct: number, bHpPct: number }}
  */
-function simulateBattle(a, b, shieldsA, shieldsB) {
+function simulateBattle(a, b, shieldsA, shieldsB, seed) {
+    // Simple seeded PRNG (mulberry32) for reproducible stochastic AI
+    let _seed = seed != null ? seed : ((a.hp * 7919 + b.hp * 6271 + shieldsA * 31 + shieldsB) >>> 0);
+    function rand() {
+        _seed |= 0; _seed = _seed + 0x6D2B79F5 | 0;
+        let t = Math.imul(_seed ^ _seed >>> 15, 1 | _seed);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
     // Pre-compute damage values for every move combination
     function calcStab(moveType, userTypes) {
         return userTypes.includes(moveType) ? 1.2 : 1.0;
@@ -1090,87 +1100,59 @@ function simulateBattle(a, b, shieldsA, shieldsB) {
         if (aHp <= 0 || bHp <= 0) break;
 
         // Both sides try charged moves at turn start (CMP: higher atk goes first)
+        // ── Stochastic charged move AI ──────────────────────────────
+        // Picks which charged move to throw using probabilistic decisions:
+        //   - Always KO if possible (no randomness for guaranteed kills)
+        //   - When shields up: 75% bait (cheap), 25% go straight to nuke
+        //   - When shields down & no KO: 85% nuke, 15% cheap (energy farm)
+        //   - Only one move available: always fire it
+        function pickChargedMove(energy, c1, c1Dmg, c2, c2Dmg, oppHp, oppShields) {
+            const have1 = energy >= c1.nrg;
+            const have2 = c2 && energy >= c2.nrg;
+            if (!have1 && !have2) return null;
+            if (have1 && !have2) return { dmg: c1Dmg, nrg: c1.nrg };
+            if (!have1 && have2) return { dmg: c2Dmg, nrg: c2.nrg };
+
+            // Both available — identify cheap vs expensive
+            const cheap     = c1.nrg <= c2.nrg ? { dmg: c1Dmg, nrg: c1.nrg } : { dmg: c2Dmg, nrg: c2.nrg };
+            const expensive = c1.nrg >  c2.nrg ? { dmg: c1Dmg, nrg: c1.nrg } : { dmg: c2Dmg, nrg: c2.nrg };
+
+            // Always go for guaranteed KO with the bigger move
+            if (oppShields === 0 && expensive.dmg >= oppHp) return expensive;
+            // Also check if cheap move KOs
+            if (oppShields === 0 && cheap.dmg >= oppHp) return cheap;
+
+            if (oppShields > 0) {
+                // Shields up: mostly bait, sometimes throw nuke through shield
+                return rand() < 0.75 ? cheap : expensive;
+            } else {
+                // Shields down: mostly nuke for damage, sometimes farm energy
+                return rand() < 0.85 ? expensive : cheap;
+            }
+        }
+
         // Attacker charged move check
         if (aTurnCd === 0) {
-            // Pick best charged move to fire (highest damage, or cheapest if both available)
             let fired = false;
-            // Strategy: fire the move that will KO, or bait with cheap move, or nuke
-            let bestCId = null, bestCDmg = 0, bestCNrg = Infinity;
-            if (aEnergy >= a.charged1.nrg) {
-                // Pick move with better damage-per-energy, but prefer cheap for baiting
-                if (a.charged2 && aEnergy >= a.charged2.nrg) {
-                    // Both available — fire cheaper one for shield pressure (bait strategy)
-                    if (a.charged1.nrg <= a.charged2.nrg) {
-                        bestCId = 1; bestCDmg = aC1Dmg; bestCNrg = a.charged1.nrg;
-                    } else {
-                        bestCId = 2; bestCDmg = aC2Dmg; bestCNrg = a.charged2.nrg;
-                    }
-                    // But if the expensive one can KO, use that instead
-                    const expensiveDmg = a.charged1.nrg > a.charged2.nrg ? aC1Dmg : aC2Dmg;
-                    if (expensiveDmg >= bHp && bShields === 0) {
-                        if (a.charged1.nrg > a.charged2.nrg) {
-                            bestCId = 1; bestCDmg = aC1Dmg; bestCNrg = a.charged1.nrg;
-                        } else {
-                            bestCId = 2; bestCDmg = aC2Dmg; bestCNrg = a.charged2.nrg;
-                        }
-                    }
-                } else {
-                    bestCId = 1; bestCDmg = aC1Dmg; bestCNrg = a.charged1.nrg;
-                }
-            } else if (a.charged2 && aEnergy >= a.charged2.nrg) {
-                bestCId = 2; bestCDmg = aC2Dmg; bestCNrg = a.charged2.nrg;
-            }
-
-            if (bestCId !== null) {
-                aEnergy -= bestCNrg;
-                if (bShields > 0) {
-                    bShields--;
-                    bHp -= 1;
-                } else {
-                    bHp -= bestCDmg;
-                }
+            const pick = pickChargedMove(aEnergy, a.charged1, aC1Dmg, a.charged2, aC2Dmg, bHp, bShields);
+            if (pick) {
+                aEnergy -= pick.nrg;
+                if (bShields > 0) { bShields--; bHp -= 1; }
+                else { bHp -= pick.dmg; }
                 fired = true;
             }
-
-            // If didn't fire charged, do fast move
             if (!fired) {
-                aTurnCd = a.fast.turns; // start fast move
+                aTurnCd = a.fast.turns;
             }
         }
 
         // Defender charged move check
         if (bTurnCd === 0) {
-            let bestCId = null, bestCDmg = 0, bestCNrg = Infinity;
-            if (bEnergy >= b.charged1.nrg) {
-                if (b.charged2 && bEnergy >= b.charged2.nrg) {
-                    if (b.charged1.nrg <= b.charged2.nrg) {
-                        bestCId = 1; bestCDmg = bC1Dmg; bestCNrg = b.charged1.nrg;
-                    } else {
-                        bestCId = 2; bestCDmg = bC2Dmg; bestCNrg = b.charged2.nrg;
-                    }
-                    const expensiveDmg = b.charged1.nrg > b.charged2.nrg ? bC1Dmg : bC2Dmg;
-                    if (expensiveDmg >= aHp && aShields === 0) {
-                        if (b.charged1.nrg > b.charged2.nrg) {
-                            bestCId = 1; bestCDmg = bC1Dmg; bestCNrg = b.charged1.nrg;
-                        } else {
-                            bestCId = 2; bestCDmg = bC2Dmg; bestCNrg = b.charged2.nrg;
-                        }
-                    }
-                } else {
-                    bestCId = 1; bestCDmg = bC1Dmg; bestCNrg = b.charged1.nrg;
-                }
-            } else if (b.charged2 && bEnergy >= b.charged2.nrg) {
-                bestCId = 2; bestCDmg = bC2Dmg; bestCNrg = b.charged2.nrg;
-            }
-
-            if (bestCId !== null) {
-                bEnergy -= bestCNrg;
-                if (aShields > 0) {
-                    aShields--;
-                    aHp -= 1;
-                } else {
-                    aHp -= bestCDmg;
-                }
+            const pick = pickChargedMove(bEnergy, b.charged1, bC1Dmg, b.charged2, bC2Dmg, aHp, aShields);
+            if (pick) {
+                bEnergy -= pick.nrg;
+                if (aShields > 0) { aShields--; aHp -= 1; }
+                else { aHp -= pick.dmg; }
             } else {
                 bTurnCd = b.fast.turns;
             }
@@ -1260,7 +1242,7 @@ function getCachedBattler(speciesId, cpCap, metaEntries) {
 
 /**
  * Compute a battle rating for a Pokemon by simulating 1v1s against top N meta.
- * Runs 1-shield scenario (most common competitive format).
+ * Runs multi-shield scenarios (0s, 1s, 2s) weighted 20%/60%/20% by real-game prevalence.
  *
  * @param {string} speciesId
  * @param {number} cpCap
@@ -1276,30 +1258,41 @@ function computeBattleRating(speciesId, cpCap, metaEntries, topN) {
     const opponents = metaEntries.slice(0, topN);
     let totalScore = 0, wins = 0, losses = 0, ties = 0, simCount = 0;
 
+    // Multi-shield scenarios weighted by real-game prevalence
+    const shieldScenarios = [
+        { sA: 0, sB: 0, weight: 0.20 },   // no shields (lead gets caught, swap scenarios)
+        { sA: 1, sB: 1, weight: 0.60 },   // 1-shield (most common mid-game state)
+        { sA: 2, sB: 2, weight: 0.20 },   // 2-shield (opening lead matchup)
+    ];
+
     for (const opp of opponents) {
         if (opp.id === speciesId) continue; // skip mirror
         const defender = getCachedBattler(opp.id, cpCap, metaEntries);
         if (!defender) continue;
 
-        // 1-shield scenario (most standard)
-        const result = simulateBattle(attacker, defender, 1, 1);
         simCount++;
+        let matchupScore = 0;
+        let matchupWin = false, matchupLoss = false;
 
-        // Score: 1.0 for win, 0.5 for tie, 0.0 for loss
-        // Weighted by remaining HP percentage for granularity
-        if (result.winner === 'a') {
-            wins++;
-            // Full win + bonus for HP remaining (0.5 to 1.0 range)
-            totalScore += 0.5 + (result.aHpPct * 0.5);
-        } else if (result.winner === 'tie') {
-            ties++;
-            totalScore += 0.5;
-        } else {
-            losses++;
-            // Partial credit for close losses (0 to 0.5 range)
-            // How much HP did we take from them?
-            totalScore += (1 - result.bHpPct) * 0.5;
+        for (const sc of shieldScenarios) {
+            const result = simulateBattle(attacker, defender, sc.sA, sc.sB);
+
+            let scScore;
+            if (result.winner === 'a') {
+                scScore = 0.5 + (result.aHpPct * 0.5);
+            } else if (result.winner === 'tie') {
+                scScore = 0.5;
+            } else {
+                scScore = (1 - result.bHpPct) * 0.5;
+            }
+            matchupScore += scScore * sc.weight;
         }
+
+        totalScore += matchupScore;
+        // Classify overall matchup result based on blended score
+        if (matchupScore >= 0.55) wins++;
+        else if (matchupScore <= 0.45) losses++;
+        else ties++;
     }
 
     if (simCount === 0) return null;

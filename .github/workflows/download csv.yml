@@ -18,15 +18,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        working-directory: process
-        run: npm ci
-
-      - name: Install Puppeteer browser
-        working-directory: process
-        run: npx puppeteer browsers install chrome
-
-      - name: Run download script
+      - name: Download rankings CSVs
         working-directory: process
         run: node download-csv.js
 
@@ -42,7 +34,7 @@ jobs:
             lines=$(wc -l < "process/downloads/$f")
             echo "$f: $lines lines"
             if [ "$lines" -lt 10 ]; then
-              echo "ERROR: $f looks too short (only $lines lines)"
+              echo "ERROR: $f looks too short (only $lines lines) — download may have failed"
               exit 1
             fi
           done

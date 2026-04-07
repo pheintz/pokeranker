@@ -1,80 +1,87 @@
-const puppeteer = require('puppeteer');
-const fs = require('fs');
-const path = require('path');
+/**
+ * Downloads PvPoke rankings JSON directly (no browser needed) and converts
+ * to CSV format expected by the webapp: rows ordered by rank, first column = speciesId.
+ *
+ * Source: https://pvpoke.com/data/rankings/all/overall/rankings-{cp}.json
+ * Output: wwwroot/csv/cp{cp}_all_overall_rankings.csv
+ */
+
+const https = require('https');
+const fs    = require('fs');
+const path  = require('path');
 
 const LEAGUES = [
-  { cpCap: 1500, url: 'https://pvpoke.com/rankings/all/1500/overall/', outFile: 'cp1500_all_overall_rankings.csv' },
-  { cpCap: 2500, url: 'https://pvpoke.com/rankings/all/2500/overall/', outFile: 'cp2500_all_overall_rankings.csv' },
+  { cp: 1500, outFile: 'cp1500_all_overall_rankings.csv' },
+  { cp: 2500, outFile: 'cp2500_all_overall_rankings.csv' },
 ];
 
 const downloadPath = path.resolve(__dirname, 'downloads');
 fs.mkdirSync(downloadPath, { recursive: true });
 
-/**
- * Download the rankings CSV from a PvPoke rankings page.
- * PvPoke generates a blob URL on the download button after rankings render.
- * We wait up to 10s for the button to appear and the blob to be set.
- */
-async function downloadLeague(page, league) {
-  console.log(`\nFetching: ${league.url}`);
-  await page.goto(league.url, { waitUntil: 'networkidle2', timeout: 60000 });
-
-  // Wait for the download button to appear (rankings must finish rendering)
-  try {
-    await page.waitForSelector('a.button.download-csv', { timeout: 10000 });
-  } catch {
-    throw new Error(`Download button not found on ${league.url}`);
-  }
-
-  // Click to generate the blob URL if it hasn't been set yet, then wait
-  const csvBase64 = await page.evaluate(async () => {
-    const a = document.querySelector('a.button.download-csv');
-    if (!a) throw new Error('Download link not found');
-
-    if (!a.href.startsWith('blob:')) {
-      a.click();
-      // Wait up to 5s for blob URL to populate
-      for (let i = 0; i < 50; i++) {
-        await new Promise(r => setTimeout(r, 100));
-        if (a.href.startsWith('blob:')) break;
+function fetchJson(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, { headers: { 'User-Agent': 'pokeranker-updater/1.0' } }, res => {
+      if (res.statusCode !== 200) {
+        return reject(new Error(`HTTP ${res.statusCode} for ${url}`));
       }
-    }
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try { resolve(JSON.parse(data)); }
+        catch (e) { reject(new Error(`JSON parse failed: ${e.message}`)); }
+      });
+    }).on('error', reject);
+  });
+}
 
-    if (!a.href.startsWith('blob:')) throw new Error('Blob URL not generated after waiting');
+function rankingsToCsv(entries) {
+  // Header matches existing CSV format; speciesId must be first column
+  const header = 'speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2';
 
-    const res = await fetch(a.href);
-    const blob = await res.blob();
-    const arrayBuffer = await blob.arrayBuffer();
-
-    let binary = '';
-    const bytes = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < bytes.byteLength; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    return btoa(binary);
+  const rows = entries.map(e => {
+    const moveset = e.moveset || [];
+    const fast  = (moveset[0] || '').replace(/,/g, '');
+    const cm1   = (moveset[1] || '').replace(/,/g, '');
+    const cm2   = (moveset[2] || '').replace(/,/g, '');
+    const stats = e.stats || {};
+    return [
+      e.speciesId || '',
+      (e.speciesName || '').replace(/,/g, ''),
+      e.score ?? '',
+      stats.atk ?? '',
+      stats.def ?? '',
+      stats.hp  ?? '',
+      stats.product ?? '',
+      fast,
+      cm1,
+      cm2,
+    ].join(',');
   });
 
-  // Always save with the canonical filename the webapp expects
-  const filePath = path.join(downloadPath, league.outFile);
-  fs.writeFileSync(filePath, Buffer.from(csvBase64, 'base64'));
-  console.log(`Saved: ${filePath}`);
+  return [header, ...rows].join('\n');
+}
+
+async function downloadLeague(league) {
+  const url = `https://pvpoke.com/data/rankings/all/overall/rankings-${league.cp}.json`;
+  console.log(`Fetching: ${url}`);
+
+  const entries = await fetchJson(url);
+
+  if (!Array.isArray(entries) || entries.length === 0) {
+    throw new Error(`Empty or invalid rankings data for CP ${league.cp}`);
+  }
+
+  console.log(`  Received ${entries.length} entries`);
+
+  const csv = rankingsToCsv(entries);
+  const outPath = path.join(downloadPath, league.outFile);
+  fs.writeFileSync(outPath, csv, 'utf8');
+  console.log(`  Saved: ${outPath}`);
 }
 
 (async () => {
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
-
-  try {
-    const page = await browser.newPage();
-
-    for (const league of LEAGUES) {
-      await downloadLeague(page, league);
-    }
-
-    console.log('\nAll downloads complete.');
-  } finally {
-    await browser.close();
+  for (const league of LEAGUES) {
+    await downloadLeague(league);
   }
+  console.log('\nAll downloads complete.');
 })();
