@@ -1,16 +1,36 @@
 // ─── Rankings ────────────────────────────────────────────────────────────────
-// Rankings are loaded lazily from local CSV files (one per league CP cap).
-// Each CSV lists Pokémon in meta-rank order; we build a map of speciesId → rank index.
+// Rankings are loaded lazily from local CSV files.
+// Each entry maps a format key (select value) → { cpCap, csvFile, label }.
 
-const rankingsCache   = {};   // cpCap → { speciesId: zeroBasedRankIndex }
-const rankingsLoading = {};   // cpCap → Promise (prevents duplicate fetches)
+const LEAGUE_FORMATS = {
+    '1500':         { cpCap: 1500, csvFile: 'cp1500_all_overall_rankings.csv',     label: 'Great League'  },
+    '2500':         { cpCap: 2500, csvFile: 'cp2500_all_overall_rankings.csv',     label: 'Ultra League'  },
+    '1500_fantasy': { cpCap: 1500, csvFile: 'cp1500_fantasy_overall_rankings.csv', label: 'Fantasy Cup'   },
+};
 
-async function loadRankings(cpCap) {
-    if (rankingsCache[cpCap]) return rankingsCache[cpCap];
-    if (rankingsLoading[cpCap]) return rankingsLoading[cpCap];
+/** Returns the LEAGUE_FORMATS entry for the given select value (falls back to GL). */
+function getLeagueInfo(formatKey) {
+    return LEAGUE_FORMATS[String(formatKey)] || LEAGUE_FORMATS['1500'];
+}
 
-    rankingsLoading[cpCap] = (async () => {
-        const url = `./csv/cp${cpCap}_all_overall_rankings.csv`;
+/** Reads the current league select and returns its info object. */
+function getSelectedLeagueInfo() {
+    const el  = document.getElementById('league');
+    const key = el ? el.value : '1500';
+    return { key, ...getLeagueInfo(key) };
+}
+
+const rankingsCache   = {};   // formatKey → { speciesId: zeroBasedRankIndex }
+const rankingsLoading = {};   // formatKey → Promise (prevents duplicate fetches)
+
+async function loadRankings(formatKey) {
+    formatKey = String(formatKey);
+    if (rankingsCache[formatKey]) return rankingsCache[formatKey];
+    if (rankingsLoading[formatKey]) return rankingsLoading[formatKey];
+
+    const { csvFile } = getLeagueInfo(formatKey);
+    rankingsLoading[formatKey] = (async () => {
+        const url = `./csv/${csvFile}`;
         console.log('[rankings] fetching', url);
 
         let response;
@@ -46,11 +66,11 @@ async function loadRankings(cpCap) {
             if (id) rankMap[id.toLowerCase()] = i - 1; // zero-based rank index
         }
 
-        rankingsCache[cpCap] = rankMap;
+        rankingsCache[formatKey] = rankMap;
         return rankMap;
     })();
 
-    return rankingsLoading[cpCap];
+    return rankingsLoading[formatKey];
 }
 
 function setRankStatusDisplay(state, message) {
@@ -60,11 +80,11 @@ function setRankStatusDisplay(state, message) {
 }
 
 async function onLeagueChange() {
-    const cpCap = +document.getElementById('league').value;
-    if (rankingsCache[cpCap]) return; // already loaded
+    const { key } = getSelectedLeagueInfo();
+    if (rankingsCache[key]) { setRankStatusDisplay('ok', 'Rankings loaded ✓'); return; }
     setRankStatusDisplay('loading', 'Loading rankings…');
     try {
-        await loadRankings(cpCap);
+        await loadRankings(key);
         setRankStatusDisplay('ok', 'Rankings loaded ✓');
     } catch (err) {
         setRankStatusDisplay('err', 'Rankings unavailable');
@@ -75,7 +95,7 @@ async function onLeagueChange() {
 // Pre-load the default league on page open
 (async () => {
     try {
-        await loadRankings(1500);
+        await loadRankings('1500');
         setRankStatusDisplay('ok', 'Rankings loaded ✓');
     } catch (err) {
         setRankStatusDisplay('err', 'Rankings unavailable — meta sorting disabled');
@@ -417,7 +437,7 @@ let lastAnalysisBox98 = new Set();     // species with at least one 98%+ entry
 
 async function run() {
     const csvText     = document.getElementById('csv').value.trim();
-    const cpCap       = +document.getElementById('league').value;
+    const { key: leagueKey, cpCap } = getSelectedLeagueInfo();
     const allowXl     = document.getElementById('xl').checked;
     const highestEvo  = document.getElementById('dedup').checked;
     const only98pct   = document.getElementById('f98').checked;
@@ -442,7 +462,7 @@ async function run() {
     // Load meta rankings for the selected league
     let rankMap = {};
     try {
-        rankMap = await loadRankings(cpCap);
+        rankMap = await loadRankings(leagueKey);
         setRankStatusDisplay('ok', 'Rankings loaded ✓');
     } catch (err) {
         setRankStatusDisplay('err', `Rankings unavailable — ${err.message}`);
@@ -1388,8 +1408,8 @@ function applyRRF(scored, cpCap, metaEntries) {
  *   - Shield pressure: fast energy generation for bait potential
  * Team building uses role-aware greedy coverage with ABB detection.
  */
-function buildMetaBreakerTeams(cpCap) {
-    const rankMap = rankingsCache[cpCap] || {};
+function buildMetaBreakerTeams(leagueKey, cpCap) {
+    const rankMap = rankingsCache[leagueKey] || {};
     const metaIds = Object.entries(rankMap)
         .sort(([,a],[,b]) => a - b)
         .slice(0, 30)
@@ -1719,12 +1739,12 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
  * Called when the user clicks the "Meta Breaker" button after running analysis.
  */
 async function runMetaBreaker() {
-    const cpCap = +document.getElementById('league').value;
+    const { key: leagueKey, cpCap } = getSelectedLeagueInfo();
     const outEl = document.getElementById('meta-out');
     if (!outEl) return;
 
     // Ensure rankings loaded
-    try { await loadRankings(cpCap); } catch (e) {}
+    try { await loadRankings(leagueKey); } catch (e) {}
 
     // Check if meta.js loaded
     if (typeof POKEMON_TYPES === 'undefined' || typeof TYPE_CHART === 'undefined') {
@@ -1735,7 +1755,7 @@ async function runMetaBreaker() {
     outEl.innerHTML = '<p style="color:#555;">Computing meta-busting teams (running battle simulations — may take a few seconds)...</p>';
 
     setTimeout(() => {
-        const { metaEntries, teams, allScored } = buildMetaBreakerTeams(cpCap);
+        const { metaEntries, teams, allScored } = buildMetaBreakerTeams(leagueKey, cpCap);
 
         if (teams.length === 0) {
             outEl.innerHTML = '<p style="color:#f87171;">No rankings loaded. Run analysis first or check rankings CSV.</p>';
@@ -1803,8 +1823,8 @@ async function runMetaBreaker() {
  * Uses top 100 meta for coverage scoring. Same scoring engine as Meta Breaker
  * but restricted to user's imported Pokémon.
  */
-function buildBoxTeams(cpCap) {
-    const rankMap = rankingsCache[cpCap] || {};
+function buildBoxTeams(leagueKey, cpCap) {
+    const rankMap = rankingsCache[leagueKey] || {};
     const metaIds = Object.entries(rankMap)
         .sort(([,a],[,b]) => a - b)
         .slice(0, 100)
@@ -2054,7 +2074,7 @@ function buildBoxTeams(cpCap) {
  * Auto-runs Analyze in the background if it hasn't been run yet.
  */
 async function runBoxBuilder() {
-    const cpCap = +document.getElementById('league').value;
+    const { key: leagueKey, cpCap } = getSelectedLeagueInfo();
     const outEl = document.getElementById('box-out');
     if (!outEl) return;
 
@@ -2068,7 +2088,7 @@ async function runBoxBuilder() {
     // Ensure meta data is loaded
     if (typeof POKEMON_TYPES === 'undefined' || typeof TYPE_CHART === 'undefined') return;
 
-    try { await loadRankings(cpCap); } catch (e) {}
+    try { await loadRankings(leagueKey); } catch (e) {}
 
     // If Analyze hasn't been run yet (box sets empty), run it in the background first
     if (lastAnalysisBox.size === 0) {
@@ -2079,7 +2099,7 @@ async function runBoxBuilder() {
     outEl.innerHTML = '<p style="color:#555;">Building teams from your box (running battle simulations — may take a few seconds)...</p>';
 
     setTimeout(() => {
-        const { metaEntries, metaTeams, semiMetaTeams, disruptionTeams, boxScored } = buildBoxTeams(cpCap);
+        const { metaEntries, metaTeams, semiMetaTeams, disruptionTeams, boxScored } = buildBoxTeams(leagueKey, cpCap);
 
         if (boxScored.length === 0) {
             const f98 = document.getElementById('f98').checked;
