@@ -123,7 +123,8 @@ function normalizeId(name) {
 /** Returns true if this Pokémon is a shadow form, based on its name or the
  *  ShadowForm column value from the CalcyIV CSV. */
 function isShadowPokemon(name, shadowFormValue) {
-    return shadowFormValue === '1'
+    // In the CalcyIV/GoIV CSV format: ShadowForm=1 = Normal, ShadowForm=2 = Shadow
+    return shadowFormValue === '2'
         || shadowFormValue === 'true'
         || shadowFormValue === 'shadow'
         || /\bshadow\b/i.test(name);
