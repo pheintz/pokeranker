@@ -65,7 +65,14 @@ async function loadRankings(formatKey) {
         for (let i = 1; i < lines.length; i++) {
             const cols = lines[i].split(delimiter).map(c => c.trim().replace(/^"|"$/g, ''));
             const id = cols[idCol];
-            if (id) rankMap[id.toLowerCase()] = i - 1; // zero-based rank index
+            if (id) {
+                // Normalize display-format IDs (e.g. "Stunfisk (Galarian)" → "stunfisk_galarian")
+                // so Fantasy Cup CSV keys match internal species IDs used everywhere else.
+                const hasShadow = /shadow/i.test(id);
+                const baseNormalId = normalizeId(id).replace(/_shadow$/i, '');
+                const finalId = hasShadow ? baseNormalId + '_shadow' : baseNormalId;
+                if (finalId) rankMap[finalId] = i - 1; // zero-based rank index
+            }
         }
 
         rankingsCache[formatKey] = rankMap;
