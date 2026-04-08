@@ -3,9 +3,11 @@
 // Each entry maps a format key (select value) → { cpCap, csvFile, label }.
 
 const LEAGUE_FORMATS = {
-    '1500':         { cpCap: 1500, csvFile: 'cp1500_all_overall_rankings.csv',     label: 'Great League'  },
-    '2500':         { cpCap: 2500, csvFile: 'cp2500_all_overall_rankings.csv',     label: 'Ultra League'  },
-    '1500_fantasy': { cpCap: 1500, csvFile: 'cp1500_fantasy_overall_rankings.csv', label: 'Fantasy Cup'   },
+    // restricted:false → open format (any pokemon under the CP cap is eligible)
+    // restricted:true  → cup format (only pokemon listed in the rankings CSV are eligible)
+    '1500':         { cpCap: 1500, csvFile: 'cp1500_all_overall_rankings.csv',     label: 'Great League', restricted: false },
+    '2500':         { cpCap: 2500, csvFile: 'cp2500_all_overall_rankings.csv',     label: 'Ultra League', restricted: false },
+    '1500_fantasy': { cpCap: 1500, csvFile: 'cp1500_fantasy_overall_rankings.csv', label: 'Fantasy Cup',  restricted: true  },
 };
 
 /** Returns the LEAGUE_FORMATS entry for the given select value (falls back to GL). */
@@ -1422,6 +1424,8 @@ function applyRRF(scored, cpCap, metaEntries) {
  * Team building uses role-aware greedy coverage with ABB detection.
  */
 function buildMetaBreakerTeams(leagueKey, cpCap) {
+    const leagueInfo = getLeagueInfo(leagueKey);
+    const isRestricted = leagueInfo.restricted || false;
     const rankMap = rankingsCache[leagueKey] || {};
     const metaIds = Object.entries(rankMap)
         .sort(([,a],[,b]) => a - b)
@@ -1442,11 +1446,14 @@ function buildMetaBreakerTeams(leagueKey, cpCap) {
         Object.entries(rankMap).sort(([,a],[,b]) => a - b).slice(0, 100).map(([id]) => id)
     );
 
-    // Score every Pokémon in the DB
+    // Score every Pokémon in the DB (restricted formats only score eligible species)
     const allScored = [];
     for (const speciesId of Object.keys(POKEMON_STATS)) {
         const pokemonTypes = typeof POKEMON_TYPES !== 'undefined' ? POKEMON_TYPES[speciesId] : null;
         if (!pokemonTypes) continue;
+
+        // Cups: skip anything not in the eligible rankings pool
+        if (isRestricted && !(speciesId in rankMap)) continue;
 
         const [a, d, s] = POKEMON_STATS[speciesId];
         if (calcCp(a, d, s, 0, 0, 0, LEVELS[0]) > cpCap) continue;
@@ -1837,6 +1844,8 @@ async function runMetaBreaker() {
  * but restricted to user's imported Pokémon.
  */
 function buildBoxTeams(leagueKey, cpCap) {
+    const leagueInfo = getLeagueInfo(leagueKey);
+    const isRestricted = leagueInfo.restricted || false;
     const rankMap = rankingsCache[leagueKey] || {};
     const metaIds = Object.entries(rankMap)
         .sort(([,a],[,b]) => a - b)
@@ -1874,6 +1883,10 @@ function buildBoxTeams(leagueKey, cpCap) {
     for (const speciesId of userBox) {
         const pokemonTypes = POKEMON_TYPES[speciesId];
         if (!pokemonTypes) continue;
+
+        // For restricted formats (cups), only allow Pokémon listed in the rankings CSV.
+        // Open formats (GL, UL) allow anything under the CP cap.
+        if (isRestricted && !(speciesId in rankMap)) continue;
 
         const [a, d, s] = POKEMON_STATS[speciesId] || [0,0,0];
         if (calcCp(a, d, s, 0, 0, 0, LEVELS[0]) > cpCap) continue;
