@@ -24,7 +24,7 @@
         <span id="rank-status" class="rank-status rank-loading">Loading rankings…</span>
         <label><input type="checkbox" id="xl"> XL (to 50)</label>
         <label><input type="checkbox" id="dedup" checked> Highest evo only</label>
-        <label><input type="checkbox" id="f98"> 98%+ only</label>
+        <label>Min IV%: <input type="number" id="f98" min="0" max="100" step="0.1" placeholder="—" style="width:60px;"></label>
         <button onclick="demo()">Load demo</button>
         <button class="meta-btn" onclick="runMetaBreaker()">Meta Breaker</button>
         <button class="meta-btn" style="background:linear-gradient(135deg,#059669,#0891b2);" onclick="runBoxBuilder()">My Box Builder</button>
@@ -47,9 +47,13 @@
     <!-- Application logic: rankings loading, calculations, CSV parsing, UI -->
     <script src="app.js"></script>
     <script>
-        // Build the league dropdown from LEAGUE_FORMATS, then trigger initial load.
-        populateLeagueDropdown();
-        onLeagueChange();
+        // Load league definitions from csv/index.json, then build the dropdown
+        // and trigger the initial rankings fetch.  Adding a new cup requires only
+        // dropping a CSV into wwwroot/csv/ and adding one line to index.json.
+        initLeagues().then(() => {
+            populateLeagueDropdown();
+            onLeagueChange();
+        });
     </script>
 </body>
 </html>

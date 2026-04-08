@@ -92,6 +92,19 @@ label {
     user-select: none;
 }
 
+input[type="number"] {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #e8e8e8;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+input[type="number"]::placeholder {
+    color: #555;
+}
+
 /* ── Summary cards ──────────────────────────────────────────────────────── */
 
 .cards {
