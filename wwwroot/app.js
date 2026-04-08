@@ -1,13 +1,24 @@
-// ─── Rankings ────────────────────────────────────────────────────────────────
-// Rankings are loaded lazily from local CSV files.
-// Each entry maps a format key (select value) → { cpCap, csvFile, label }.
+// ─── League Formats ──────────────────────────────────────────────────────────
+// Single source of truth for every supported league / cup.
+// To add a new league or cup, add ONE entry here — the dropdown is auto-built.
+//
+// Fields:
+//   cpCap      {number}  Maximum CP for this format.
+//   csvFile    {string}  Filename inside wwwroot/csv/ with rankings data.
+//   label      {string}  Human-readable name shown in the UI dropdown.
+//   restricted {boolean} true  → cup: only Pokémon listed in the CSV are eligible.
+//                        false → open: any Pokémon under the CP cap is eligible.
+//   idColumn   {string?} (optional) Exact CSV header (lowercase) that holds the
+//                        species identifier. If omitted, loadRankings uses
+//                        heuristic detection (looks for speciesid, pokemon, name…).
+//                        Specify this when the CSV column name is non-standard.
+//
+// Entry order determines dropdown order (first entry = default selection).
 
 const LEAGUE_FORMATS = {
-    // restricted:false → open format (any pokemon under the CP cap is eligible)
-    // restricted:true  → cup format (only pokemon listed in the rankings CSV are eligible)
-    '1500':         { cpCap: 1500, csvFile: 'cp1500_all_overall_rankings.csv',     label: 'Great League', restricted: false },
-    '2500':         { cpCap: 2500, csvFile: 'cp2500_all_overall_rankings.csv',     label: 'Ultra League', restricted: false },
-    '1500_fantasy': { cpCap: 1500, csvFile: 'cp1500_fantasy_overall_rankings.csv', label: 'Fantasy Cup',  restricted: true  },
+    '1500':         { cpCap: 1500, csvFile: 'cp1500_all_overall_rankings.csv',     label: 'Great League', restricted: false, idColumn: 'speciesid' },
+    '2500':         { cpCap: 2500, csvFile: 'cp2500_all_overall_rankings.csv',     label: 'Ultra League', restricted: false, idColumn: 'speciesid' },
+    '1500_fantasy': { cpCap: 1500, csvFile: 'cp1500_fantasy_overall_rankings.csv', label: 'Fantasy Cup',  restricted: true,  idColumn: 'pokemon'   },
 };
 
 /** Returns the LEAGUE_FORMATS entry for the given select value (falls back to GL). */
@@ -20,6 +31,28 @@ function getSelectedLeagueInfo() {
     const el  = document.getElementById('league');
     const key = el ? el.value : '1500';
     return { key, ...getLeagueInfo(key) };
+}
+
+/**
+ * Builds the league <select> from LEAGUE_FORMATS so adding a new league
+ * only requires one entry in LEAGUE_FORMATS — no HTML changes needed.
+ * Called once on page load.
+ */
+function populateLeagueDropdown() {
+    const el = document.getElementById('league');
+    if (!el) return;
+    const currentVal = el.value;
+    el.innerHTML = '';
+    for (const [key, info] of Object.entries(LEAGUE_FORMATS)) {
+        const opt = document.createElement('option');
+        opt.value = key;
+        opt.textContent = `${info.label} (${info.cpCap} CP)`;
+        el.appendChild(opt);
+    }
+    // Restore selection if it still exists, otherwise default to first entry
+    if (currentVal && el.querySelector(`option[value="${currentVal}"]`)) {
+        el.value = currentVal;
+    }
 }
 
 const rankingsCache   = {};   // formatKey → { speciesId: zeroBasedRankIndex }
@@ -55,11 +88,17 @@ async function loadRankings(formatKey) {
         const delimiter = lines[0].includes(';') ? ';' : ',';
         const headers   = lines[0].split(delimiter).map(h => h.trim().toLowerCase().replace(/^"|"$/g, ''));
 
-        // speciesId is almost always the first column; search as fallback
-        let idCol = headers.indexOf('specieid');
+        // Determine which column holds the species identifier.
+        // 1. Use idColumn from LEAGUE_FORMATS config if specified (most reliable).
+        // 2. Fall back to heuristic detection for future CSVs with unknown headers.
+        const { idColumn: configIdColumn } = getLeagueInfo(formatKey);
+        let idCol = configIdColumn ? headers.indexOf(configIdColumn.toLowerCase()) : -1;
         if (idCol < 0) idCol = headers.indexOf('speciesid');
-        if (idCol < 0) idCol = headers.findIndex(h => h.includes('species') || h.includes('id') || h === 'mon');
-        if (idCol < 0) idCol = 0;
+        if (idCol < 0) idCol = headers.indexOf('specieid');   // typo seen in some exports
+        if (idCol < 0) idCol = headers.indexOf('pokemon');
+        if (idCol < 0) idCol = headers.indexOf('name');
+        if (idCol < 0) idCol = headers.findIndex(h => h.includes('species') || h === 'mon');
+        if (idCol < 0) idCol = 0; // last resort: first column
 
         const rankMap = {};
         for (let i = 1; i < lines.length; i++) {

@@ -18,9 +18,8 @@
     <div class="ctrl">
         <button class="primary" onclick="run()">Analyze</button>
         <select id="league" onchange="onLeagueChange()">
-            <option value="1500">Great League (1500 CP)</option>
-            <option value="2500">Ultra League (2500 CP)</option>
-            <option value="1500_fantasy">Fantasy Cup (1500 CP)</option>
+            <!-- Options are injected by populateLeagueDropdown() from LEAGUE_FORMATS in app.js.
+                 To add a new league/cup, add one entry to LEAGUE_FORMATS — no HTML changes needed. -->
         </select>
         <span id="rank-status" class="rank-status rank-loading">Loading rankings…</span>
         <label><input type="checkbox" id="xl"> XL (to 50)</label>
@@ -37,7 +36,7 @@
 
     <div class="footer">
         Rankings: <a href="https://pvpoke.com" target="_blank">pvpoke.com</a> overall ·
-        Loaded from <code>csv/cp{cap}_all_overall_rankings.csv</code> ·
+        CSV files in <code>wwwroot/csv/</code> · configured in <code>LEAGUE_FORMATS</code> in app.js ·
         Runs entirely in your browser, nothing is uploaded.
     </div>
 
@@ -47,5 +46,10 @@
     <script src="meta.js"></script>
     <!-- Application logic: rankings loading, calculations, CSV parsing, UI -->
     <script src="app.js"></script>
+    <script>
+        // Build the league dropdown from LEAGUE_FORMATS, then trigger initial load.
+        populateLeagueDropdown();
+        onLeagueChange();
+    </script>
 </body>
 </html>
