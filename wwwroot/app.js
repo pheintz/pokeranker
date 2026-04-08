@@ -81,6 +81,19 @@ function setRankStatusDisplay(state, message) {
 
 async function onLeagueChange() {
     const { key } = getSelectedLeagueInfo();
+
+    // Clear stale analysis box so Box Builder re-runs analysis for the new league
+    lastAnalysisBox    = new Set();
+    lastAnalysisBox98  = new Set();
+
+    // Clear any previous output that was rendered for the old league
+    const outEl   = document.getElementById('out');
+    const boxOut  = document.getElementById('box-out');
+    const metaOut = document.getElementById('meta-out');
+    if (outEl)   outEl.innerHTML   = '';
+    if (boxOut)  boxOut.innerHTML  = '';
+    if (metaOut) metaOut.innerHTML = '';
+
     if (rankingsCache[key]) { setRankStatusDisplay('ok', 'Rankings loaded ✓'); return; }
     setRankStatusDisplay('loading', 'Loading rankings…');
     try {
