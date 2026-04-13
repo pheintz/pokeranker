@@ -191,7 +191,9 @@ function moveNameToId(name) {
 // Aliases: a gamemaster ID maps to a legacy ID that movesets still reference.
 // Both keys are kept alive so nothing breaks.
 const MOVE_ID_ALIASES = {
-    'mystical_fire': 'mystic_fire',   // PvPoke "MYSTIC_FIRE" → keep "mystic_fire" too
+    'mystical_fire': 'mystic_fire',   // PvPoke MYSTICAL_FIRE → keep legacy key too
+    'super_power':   'superpower',    // PvPoke SUPER_POWER  → keep legacy key too
+    'vice_grip':     'vise_grip',     // PvPoke VICE_GRIP    → keep legacy key too
 };
 
 // ── loadMoves ─────────────────────────────────────────────────────────────────
@@ -222,7 +224,9 @@ function applyGamemasterMove(entry) {
     const pow  = entry.power || 0;
     const alias = MOVE_ID_ALIASES[id];
 
-    const isFast = entry.energyGain > 0 || entry.turns > 0;
+    // Charged moves always have energy > 0 (cost to fire).
+    // Fast moves and TRANSFORM have energy === 0 (generate or gain nothing).
+    const isFast = !entry.energy;
 
     if (isFast) {
         const nrg   = entry.energyGain || 0;
@@ -358,6 +362,9 @@ async function loadPokemon() {
 
     pokemonLoadingPromise = (async () => {
         try {
+            // Moves must be loaded first so we can classify elite moves below
+            await loadMoves();
+
             const resp = await fetch('./data/pokemon.json');
             if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
             const entries = await resp.json();
@@ -388,13 +395,27 @@ async function loadPokemon() {
                     EVOLUTIONS[id] = p.family.evolutions; // already snake_case
                 }
 
-                // ── fastMoves / chargedMoves → POKEMON_MOVESETS ───────────
+                // ── fastMoves / chargedMoves / eliteMoves → POKEMON_MOVESETS
                 if (typeof POKEMON_MOVESETS !== 'undefined') {
-                    POKEMON_MOVESETS[id] = {
-                        fast:    (p.fastMoves    || []).map(toId),
-                        charged: (p.chargedMoves || []).map(toId),
-                        elite:   (p.eliteMoves   || []).map(toId),
-                    };
+                    const fast    = (p.fastMoves    || []).map(toId);
+                    const charged = (p.chargedMoves || []).map(toId);
+                    const elite   = (p.eliteMoves   || []).map(toId);
+
+                    // Elite moves are additional moves (require Elite TM) that
+                    // PvPoke lists separately from fastMoves/chargedMoves.
+                    // Classify each by checking the move dicts so the scoring
+                    // engine can consider them.
+                    for (const eid of elite) {
+                        if (FAST_MOVES[eid] !== undefined) {
+                            if (!fast.includes(eid)) fast.push(eid);
+                        } else if (CHARGED_MOVES[eid] !== undefined) {
+                            if (!charged.includes(eid)) charged.push(eid);
+                        }
+                        // If not in either dict yet, leave it only in elite[]
+                        // (may be a future/unreleased move)
+                    }
+
+                    POKEMON_MOVESETS[id] = { fast, charged, elite };
                 }
 
                 count++;
