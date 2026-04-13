@@ -1,13 +1,13 @@
 /**
- * Downloads PvPoke data directly (no browser needed).
+ * Downloads PvPoke data from the public GitHub repository.
  *
  * Rankings:
- *   Source: https://pvpoke.com/data/rankings/all/overall/rankings-{cp}.json
+ *   Source: https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/all/overall/rankings-{cp}.json
  *   Output: wwwroot/csv/cp{cp}_all_overall_rankings.csv
  *
  * Gamemaster (moves + pokemon movesets):
- *   Source: https://pvpoke.com/data/gamemaster/moves.json
- *           https://pvpoke.com/data/gamemaster/pokemon.json
+ *   Source: https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster/moves.json
+ *           https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster/pokemon.json
  *   Output: wwwroot/data/moves.json
  *           wwwroot/data/pokemon.json
  *
@@ -30,7 +30,7 @@ function fetchJson(url) {
   return new Promise((resolve, reject) => {
     https.get(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'User-Agent': 'pokeranker-ci/1.0 (github.com)',
         'Accept': 'application/json',
       }
     }, res => {
@@ -75,7 +75,7 @@ function rankingsToCsv(entries) {
 }
 
 async function downloadLeague(league) {
-  const url = `https://pvpoke.com/data/rankings/all/overall/rankings-${league.cp}.json`;
+  const url = `https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/all/overall/rankings-${league.cp}.json`;
   console.log(`Fetching: ${url}`);
 
   const entries = await fetchJson(url);
@@ -96,7 +96,7 @@ async function downloadLeague(league) {
 
 const GAMEMASTER_FILES = [
   {
-    url:     'https://pvpoke.com/data/gamemaster/moves.json',
+    url:     'https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster/moves.json',
     outFile: 'moves.json',
     validate(data) {
       if (!Array.isArray(data) || data.length < 50)
@@ -104,7 +104,7 @@ const GAMEMASTER_FILES = [
     },
   },
   {
-    url:     'https://pvpoke.com/data/gamemaster/pokemon.json',
+    url:     'https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster/pokemon.json',
     outFile: 'pokemon.json',
     validate(data) {
       if (!Array.isArray(data) || data.length < 100)
