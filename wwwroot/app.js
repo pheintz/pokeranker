@@ -2313,8 +2313,9 @@ function buildMetaBreakerTeams(leagueKey, cpCap) {
         const pokemonTypes = typeof POKEMON_TYPES !== 'undefined' ? POKEMON_TYPES[speciesId] : null;
         if (!pokemonTypes) continue;
 
-        // Cups: skip anything not in the eligible rankings pool
-        if (isRestricted && !(speciesId in rankMap)) continue;
+        // Only score Pokémon that appear in the loaded rankings for this league.
+        // This automatically excludes Mega, unreleased, Palafin-Hero, etc.
+        if (!(speciesId in rankMap)) continue;
 
         const [a, d, s] = POKEMON_STATS[speciesId];
         if (calcCp(a, d, s, 0, 0, 0, LEVELS[0]) > cpCap) continue;
@@ -2765,9 +2766,9 @@ function buildBoxTeams(leagueKey, cpCap) {
         const pokemonTypes = POKEMON_TYPES[speciesId];
         if (!pokemonTypes) continue;
 
-        // For restricted formats (cups), only allow Pokémon listed in the rankings CSV.
-        // Open formats (GL, UL) allow anything under the CP cap.
-        if (isRestricted && !(speciesId in rankMap)) continue;
+        // Only allow Pokémon listed in the rankings CSV for this league.
+        // This automatically excludes Mega, unreleased, Palafin-Hero, etc.
+        if (!(speciesId in rankMap)) continue;
 
         const [a, d, s] = POKEMON_STATS[speciesId] || [0,0,0];
         if (calcCp(a, d, s, 0, 0, 0, LEVELS[0]) > cpCap) continue;
