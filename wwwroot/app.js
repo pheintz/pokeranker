@@ -2678,7 +2678,7 @@ async function runMetaBreaker() {
             // Matchup margin bar
             const ms = team._matchupStats;
             const marginBar = ms ? (() => {
-                const wins = ms.winCount, losses = ms.lossCount, total = ms.oppCount || 1;
+                const wins = ms.wins, losses = ms.losses, total = ms.oppCount || 1;
                 const ties = total - wins - losses;
                 const wmColor  = ms.avgWinMargin  >= 50 ? '#4ade80' : ms.avgWinMargin >= 30 ? '#a3e635' : '#fbbf24';
                 const lmColor  = ms.avgLossMargin <= 20 ? '#4ade80' : ms.avgLossMargin <= 40 ? '#fbbf24' : '#f87171';
@@ -3002,7 +3002,7 @@ async function runBoxBuilder() {
                 // Matchup margin bar
                 const ms = team._matchupStats;
                 const marginBar = ms ? (() => {
-                    const wins = ms.winCount, losses = ms.lossCount, total = ms.oppCount || 1;
+                    const wins = ms.wins, losses = ms.losses, total = ms.oppCount || 1;
                     const ties = total - wins - losses;
                     const winPct   = Math.round(wins   / total * 100);
                     const lossPct  = Math.round(losses / total * 100);
