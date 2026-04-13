@@ -1,9 +1,17 @@
 /**
- * Downloads PvPoke rankings JSON directly (no browser needed) and converts
- * to CSV format expected by the webapp: rows ordered by rank, first column = speciesId.
+ * Downloads PvPoke data directly (no browser needed).
  *
- * Source: https://pvpoke.com/data/rankings/all/overall/rankings-{cp}.json
- * Output: wwwroot/csv/cp{cp}_all_overall_rankings.csv
+ * Rankings:
+ *   Source: https://pvpoke.com/data/rankings/all/overall/rankings-{cp}.json
+ *   Output: wwwroot/csv/cp{cp}_all_overall_rankings.csv
+ *
+ * Gamemaster (moves + pokemon movesets):
+ *   Source: https://pvpoke.com/data/gamemaster/moves.json
+ *           https://pvpoke.com/data/gamemaster/pokemon.json
+ *   Output: wwwroot/data/moves.json
+ *           wwwroot/data/pokemon.json
+ *
+ * The app loads these JSON files at runtime; no rebuild needed after update.
  */
 
 const https = require('https');
@@ -84,9 +92,51 @@ async function downloadLeague(league) {
   console.log(`  Saved: ${outPath}`);
 }
 
+// ─── Gamemaster downloader ────────────────────────────────────────────────────
+
+const GAMEMASTER_FILES = [
+  {
+    url:     'https://pvpoke.com/data/gamemaster/moves.json',
+    outFile: 'moves.json',
+    validate(data) {
+      if (!Array.isArray(data) || data.length < 50)
+        throw new Error(`moves.json looks wrong — expected array of 50+ moves, got ${JSON.stringify(data).slice(0, 80)}`);
+    },
+  },
+  {
+    url:     'https://pvpoke.com/data/gamemaster/pokemon.json',
+    outFile: 'pokemon.json',
+    validate(data) {
+      if (!Array.isArray(data) || data.length < 100)
+        throw new Error(`pokemon.json looks wrong — expected array of 100+ pokemon, got ${JSON.stringify(data).slice(0, 80)}`);
+    },
+  },
+];
+
+const dataOutputPath = path.resolve(__dirname, '..', 'wwwroot', 'data');
+fs.mkdirSync(dataOutputPath, { recursive: true });
+
+async function downloadGamemasterFile({ url, outFile, validate }) {
+  console.log(`Fetching: ${url}`);
+  const data = await fetchJson(url);
+  validate(data);
+  const outPath = path.join(dataOutputPath, outFile);
+  fs.writeFileSync(outPath, JSON.stringify(data, null, 2), 'utf8');
+  console.log(`  Saved ${Array.isArray(data) ? data.length + ' entries' : ''}: ${outPath}`);
+}
+
+// ─── Main ─────────────────────────────────────────────────────────────────────
+
 (async () => {
+  // Rankings CSVs
   for (const league of LEAGUES) {
     await downloadLeague(league);
   }
+
+  // Gamemaster JSON (moves + pokemon)
+  for (const gm of GAMEMASTER_FILES) {
+    await downloadGamemasterFile(gm);
+  }
+
   console.log('\nAll downloads complete.');
 })();

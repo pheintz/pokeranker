@@ -18,13 +18,13 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Download rankings CSVs
+      - name: Download rankings CSVs and gamemaster JSON
         working-directory: process
         run: node download-csv.js
 
       - name: Validate downloaded files
         run: |
-          echo "Files downloaded:"
+          echo "=== Rankings ==="
           ls -lh process/downloads/
           for f in cp1500_all_overall_rankings.csv cp2500_all_overall_rankings.csv; do
             if [ ! -f "process/downloads/$f" ]; then
@@ -34,22 +34,39 @@ jobs:
             lines=$(wc -l < "process/downloads/$f")
             echo "$f: $lines lines"
             if [ "$lines" -lt 10 ]; then
-              echo "ERROR: $f looks too short (only $lines lines) — download may have failed"
+              echo "ERROR: $f looks too short — download may have failed"
               exit 1
             fi
           done
 
-      - name: Copy CSVs to wwwroot/csv
+          echo "=== Gamemaster ==="
+          ls -lh wwwroot/data/
+          for f in moves.json pokemon.json; do
+            if [ ! -f "wwwroot/data/$f" ]; then
+              echo "ERROR: Missing expected file: wwwroot/data/$f"
+              exit 1
+            fi
+            bytes=$(wc -c < "wwwroot/data/$f")
+            echo "wwwroot/data/$f: $bytes bytes"
+            if [ "$bytes" -lt 1000 ]; then
+              echo "ERROR: $f looks too small ($bytes bytes) — download may have failed"
+              exit 1
+            fi
+          done
+
+      - name: Copy rankings CSVs to wwwroot/csv
         run: |
           mkdir -p wwwroot/csv
           cp process/downloads/cp1500_all_overall_rankings.csv wwwroot/csv/
           cp process/downloads/cp2500_all_overall_rankings.csv wwwroot/csv/
 
-      - name: Commit and push updated CSVs
+      - name: Commit and push updated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add wwwroot/csv/cp1500_all_overall_rankings.csv
           git add wwwroot/csv/cp2500_all_overall_rankings.csv
-          git diff --cached --quiet || git commit -m "chore: update PvPoke rankings CSVs [skip ci]"
+          git add wwwroot/data/moves.json
+          git add wwwroot/data/pokemon.json
+          git diff --cached --quiet || git commit -m "chore: update PvPoke data [skip ci]"
           git push

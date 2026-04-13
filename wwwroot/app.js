@@ -162,6 +162,253 @@ async function loadRankings(formatKey) {
     return rankingsLoading[formatKey];
 }
 
+// ─── Move CSV loader ──────────────────────────────────────────────────────────
+//
+// csv/moves.csv is the source of truth for all move damage / energy / turn stats.
+// On startup this function fetches the CSV and overlays every entry onto the
+// FAST_MOVES / CHARGED_MOVES objects that meta.js pre-populates as a fallback.
+// To apply a balance patch: edit moves.csv only — no JS changes required.
+
+/**
+ * Convert a display move name to the snake_case key used throughout the app.
+ *   "Air Slash"            → "air_slash"
+ *   "Weather Ball (Fire)"  → "weather_ball_fire"
+ *   "Power-Up Punch"       → "power_up_punch"
+ *   "X-Scissor"            → "x_scissor"
+ *   "Nature's Madness"     → "natures_madness"
+ */
+function moveNameToId(name) {
+    return name.trim()
+        .toLowerCase()
+        .replace(/\s*\(([^)]+)\)\s*/g, '_$1')   // "(Fire)" → "_fire"
+        .replace(/['\u2019]/g, '')               // remove apostrophes
+        .replace(/[-\s]+/g, '_')                 // hyphens / spaces → _
+        .replace(/[^a-z0-9_]/g, '')              // strip remaining punctuation
+        .replace(/_+/g, '_')                     // collapse repeated _
+        .replace(/^_|_$/g, '');                  // trim leading/trailing _
+}
+
+// Aliases: a gamemaster ID maps to a legacy ID that movesets still reference.
+// Both keys are kept alive so nothing breaks.
+const MOVE_ID_ALIASES = {
+    'mystical_fire': 'mystic_fire',   // PvPoke "MYSTIC_FIRE" → keep "mystic_fire" too
+};
+
+// ── loadMoves ─────────────────────────────────────────────────────────────────
+// Priority: data/moves.json (PvPoke gamemaster, auto-updated by CI)
+//         → csv/moves.csv (manual fallback)
+//         → meta.js built-ins (last resort)
+
+let movesLoaded = false;
+let movesLoadingPromise = null;
+
+/**
+ * Apply a single moves.json entry (PvPoke gamemaster format) to FAST_MOVES,
+ * CHARGED_MOVES, and MOVE_EFFECTS.  Returns 'fast' | 'charged'.
+ *
+ *  Fast:    { moveId, type, power, energyGain, turns }
+ *  Charged: { moveId, type, power, energy, buffs?, buffTarget?, buffApplyChance? }
+ *
+ * MOVE_EFFECTS mapping from PvPoke format → our format:
+ *   buffTarget "self"     + positive buffs → selfBuff
+ *   buffTarget "self"     + negative buffs → selfDebuff
+ *   buffTarget "opponent" + negative buffs → oppDebuff
+ *   buffApplyChance (string) → chance (float)
+ */
+function applyGamemasterMove(entry) {
+    // PvPoke uses SCREAMING_SNAKE_CASE — convert to snake_case
+    const id   = entry.moveId.toLowerCase();
+    const type = (entry.type || 'normal').toLowerCase();
+    const pow  = entry.power || 0;
+    const alias = MOVE_ID_ALIASES[id];
+
+    const isFast = entry.energyGain > 0 || entry.turns > 0;
+
+    if (isFast) {
+        const nrg   = entry.energyGain || 0;
+        const turns = entry.turns || 1;
+        if (typeof CHARGED_MOVES !== 'undefined') delete CHARGED_MOVES[id];
+        if (typeof FAST_MOVES !== 'undefined') {
+            FAST_MOVES[id] = { type, pow, nrg, turns };
+            if (alias) FAST_MOVES[alias] = FAST_MOVES[id];
+        }
+        return 'fast';
+    } else {
+        const nrg = entry.energy || 0;
+        if (typeof FAST_MOVES !== 'undefined') delete FAST_MOVES[id];
+        if (typeof CHARGED_MOVES !== 'undefined') {
+            CHARGED_MOVES[id] = { type, pow, nrg };
+            if (alias) CHARGED_MOVES[alias] = CHARGED_MOVES[id];
+        }
+
+        // Populate MOVE_EFFECTS if this move has stat-change buffs
+        if (entry.buffs && typeof MOVE_EFFECTS !== 'undefined') {
+            const [atkStg, defStg] = entry.buffs;
+            const chance = parseFloat(entry.buffApplyChance) || 0;
+            if (chance > 0 && (atkStg !== 0 || defStg !== 0)) {
+                const effect = { chance };
+                if (entry.buffTarget === 'self') {
+                    // positive = buff (e.g. Power-Up Punch), negative = self-debuff (e.g. Overheat)
+                    const key = (atkStg >= 0 && defStg >= 0) ? 'selfBuff' : 'selfDebuff';
+                    effect[key] = [atkStg, defStg];
+                } else {
+                    // opponent target — almost always a debuff
+                    effect.oppDebuff = [atkStg, defStg];
+                }
+                MOVE_EFFECTS[id] = effect;
+                if (alias) MOVE_EFFECTS[alias] = effect;
+            }
+        }
+
+        return 'charged';
+    }
+}
+
+async function loadMoves() {
+    if (movesLoaded) return;
+    if (movesLoadingPromise) return movesLoadingPromise;
+
+    movesLoadingPromise = (async () => {
+        // ── Try gamemaster JSON first ─────────────────────────────────────
+        try {
+            const resp = await fetch('./data/moves.json');
+            if (resp.ok) {
+                const entries = await resp.json();
+                if (Array.isArray(entries) && entries.length > 0) {
+                    let fast = 0, charged = 0;
+                    for (const entry of entries) {
+                        const kind = applyGamemasterMove(entry);
+                        if (kind === 'fast') fast++;
+                        else if (kind === 'charged') charged++;
+                    }
+                    console.log(`[moves] loaded ${fast} fast + ${charged} charged from data/moves.json`);
+                    movesLoaded = true;
+                    return;
+                }
+            }
+        } catch (e) { /* fall through */ }
+
+        // ── Fallback: csv/moves.csv ───────────────────────────────────────
+        try {
+            const resp = await fetch('./csv/moves.csv');
+            if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+            const text = await resp.text();
+            const lines = text.trim().split(/\r?\n/);
+            if (lines.length < 2) throw new Error('empty');
+
+            const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+            const ci = n => headers.indexOf(n);
+            const iName = ci('move'), iType = ci('type'), iCat = ci('category');
+            const iDmg = ci('damage'), iNrg = ci('energy'), iTurns = ci('turns');
+
+            let fast = 0, charged = 0;
+            for (let i = 1; i < lines.length; i++) {
+                const p = lines[i].split(',').map(s => s.trim());
+                const rawName = p[iName]; if (!rawName) continue;
+                const id    = moveNameToId(rawName);
+                const type  = (p[iType] || '').toLowerCase();
+                const cat   = p[iCat] || '';
+                const pow   = parseInt(p[iDmg],   10) || 0;
+                const nrg   = parseInt(p[iNrg],   10) || 0;
+                const turns = parseInt(p[iTurns],  10) || 0;
+                const alias = MOVE_ID_ALIASES[id];
+                if (cat === 'Fast Attack') {
+                    if (typeof CHARGED_MOVES !== 'undefined') delete CHARGED_MOVES[id];
+                    if (typeof FAST_MOVES !== 'undefined') {
+                        FAST_MOVES[id] = { type, pow, nrg, turns };
+                        if (alias) FAST_MOVES[alias] = FAST_MOVES[id];
+                        fast++;
+                    }
+                } else if (cat === 'Charged Attack') {
+                    if (typeof FAST_MOVES !== 'undefined') delete FAST_MOVES[id];
+                    if (typeof CHARGED_MOVES !== 'undefined') {
+                        CHARGED_MOVES[id] = { type, pow, nrg };
+                        if (alias) CHARGED_MOVES[alias] = CHARGED_MOVES[id];
+                        charged++;
+                    }
+                }
+            }
+            console.log(`[moves] loaded ${fast} fast + ${charged} charged from csv/moves.csv`);
+        } catch (e) {
+            console.warn('[moves] could not load move data — using meta.js built-ins:', e.message);
+        }
+
+        movesLoaded = true;
+    })();
+
+    return movesLoadingPromise;
+}
+
+// ── loadPokemon ──────────────────────────────────────────────────────────────
+// Loads pokemon.json (PvPoke gamemaster) and populates POKEMON_MOVESETS.
+// Falls back to data.js / meta.js built-ins if the file isn't present.
+//
+// Populates from data/pokemon.json (one fetch, four data structures):
+//   POKEMON_STATS    [atk, def, hp]          — replaces data.js hardcoding (~1155 entries)
+//   POKEMON_TYPES    ['type1', 'type2']       — replaces meta.js hardcoding (~1155 entries)
+//   EVOLUTIONS       { id: [nextEvoIds] }     — replaces data.js hardcoding (~456 entries)
+//   POKEMON_MOVESETS { fast, charged, elite } — replaces meta.js 132-entry list with 700+
+
+let pokemonLoaded = false;
+let pokemonLoadingPromise = null;
+
+async function loadPokemon() {
+    if (pokemonLoaded) return;
+    if (pokemonLoadingPromise) return pokemonLoadingPromise;
+
+    pokemonLoadingPromise = (async () => {
+        try {
+            const resp = await fetch('./data/pokemon.json');
+            if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+            const entries = await resp.json();
+            if (!Array.isArray(entries) || entries.length === 0)
+                throw new Error('empty or non-array');
+
+            const toId = s => s.toLowerCase(); // SCREAMING_SNAKE → snake_case
+
+            let count = 0;
+            for (const p of entries) {
+                if (!p.speciesId) continue;
+                const id = p.speciesId; // already snake_case in PvPoke
+
+                // ── baseStats → POKEMON_STATS ─────────────────────────────
+                if (p.baseStats && typeof POKEMON_STATS !== 'undefined') {
+                    POKEMON_STATS[id] = [p.baseStats.atk, p.baseStats.def, p.baseStats.hp];
+                }
+
+                // ── types → POKEMON_TYPES ─────────────────────────────────
+                if (p.types && typeof POKEMON_TYPES !== 'undefined') {
+                    // PvPoke uses "none" for single-type; we use a 1-element array
+                    const types = p.types.filter(t => t !== 'none');
+                    if (types.length) POKEMON_TYPES[id] = types;
+                }
+
+                // ── family.evolutions → EVOLUTIONS ────────────────────────
+                if (p.family?.evolutions?.length && typeof EVOLUTIONS !== 'undefined') {
+                    EVOLUTIONS[id] = p.family.evolutions; // already snake_case
+                }
+
+                // ── fastMoves / chargedMoves → POKEMON_MOVESETS ───────────
+                if (typeof POKEMON_MOVESETS !== 'undefined') {
+                    POKEMON_MOVESETS[id] = {
+                        fast:    (p.fastMoves    || []).map(toId),
+                        charged: (p.chargedMoves || []).map(toId),
+                        elite:   (p.eliteMoves   || []).map(toId),
+                    };
+                }
+
+                count++;
+            }
+            console.log(`[pokemon] loaded ${count} species from data/pokemon.json`);
+        } catch (e) {
+            console.warn('[pokemon] could not load pokemon.json — using data.js/meta.js built-ins:', e.message);
+        }
+        pokemonLoaded = true;
+    })();
+
+    return pokemonLoadingPromise;
+}
+
 function setRankStatusDisplay(state, message) {
     const el = document.getElementById('rank-status');
     el.className = `rank-status rank-${state}`;
@@ -194,8 +441,14 @@ async function onLeagueChange() {
     }
 }
 
-// Pre-load the default league on page open
+// Pre-load move stats and the default league rankings on page open.
+// loadMoves() must complete before any battle simulation runs so that
+// move data from moves.csv is in place before the user clicks Analyze.
 (async () => {
+    // Load move stats first — fast and silent; falls back to meta.js if CSV missing.
+    await Promise.all([loadMoves(), loadPokemon()]);
+
+    // Then load rankings (shown to user via status indicator).
     try {
         await loadRankings('1500');
         setRankStatusDisplay('ok', 'Rankings loaded ✓');
@@ -587,6 +840,9 @@ async function run() {
         outputEl.innerHTML = '<p style="color:#555;">No valid rows.</p>';
         return;
     }
+
+    // Ensure move data from CSV is loaded before simulation
+    await Promise.all([loadMoves(), loadPokemon()]);
 
     // Load meta rankings for the selected league
     let rankMap = {};
@@ -1605,16 +1861,7 @@ function computeBattleRatingWithScenarios(speciesId, cpCap, metaEntries, scenari
         let matchupScore = 0;
 
         for (const sc of scenarios) {
-            const result = simulateBattle(attacker, defender, sc.sA, sc.sB);
-            let scScore;
-            if (result.winner === 'a') {
-                scScore = 0.5 + (result.aHpPct * 0.5);
-            } else if (result.winner === 'tie') {
-                scScore = 0.5;
-            } else {
-                scScore = (1 - result.bHpPct) * 0.5;
-            }
-            matchupScore += scScore * sc.weight;
+            matchupScore += battleMargin(simulateBattle(attacker, defender, sc.sA, sc.sB)) * sc.weight;
         }
 
         totalScore += matchupScore;
@@ -1736,6 +1983,268 @@ function applyRRF(scored, cpCap, metaEntries) {
  *   - Shield pressure: fast energy generation for bait potential
  * Team building uses role-aware greedy coverage with ABB detection.
  */
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Shared team-quality engine
+// All team-building functions (Meta Breaker + Box Builder) use these primitives
+// so every team is evaluated identically regardless of which builder produced it.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Continuous battle margin: (ourHP% − theirHP% + 1) / 2
+ * Range: 0.0 (we faint, opp at full HP) → 1.0 (opp faints, we at full HP).
+ * A barely-win (5% left) and a barely-loss (opp 5% left) score ~0.525 / ~0.475 —
+ * nearly equal — so teams that compete hard even in losing matchups earn credit.
+ */
+function battleMargin(r) { return (r.aHpPct - r.bHpPct + 1) / 2; }
+
+/**
+ * Energy-momentum score: how much does a Pokémon's weighted matchup record
+ * improve when it enters with 30 banked energy vs 0?  High → ideal safe swap.
+ */
+function computeEnergyMomentum(candidateId, isShadow, cpCap, metaEntries) {
+    const battler = getCachedBattler(candidateId, cpCap, metaEntries, isShadow);
+    if (!battler) return 0;
+    const topOpps = metaEntries.slice(0, 25)
+        .map(e => getCachedBattler(e.id, cpCap, metaEntries, false)).filter(Boolean);
+    if (!topOpps.length) return 0;
+    let s0 = 0, s30 = 0;
+    for (const opp of topOpps) {
+        s0  += battleMargin(simulateBattle(battler, opp, 1, 1, null, 0,  0));
+        s30 += battleMargin(simulateBattle(battler, opp, 1, 1, null, 30, 0));
+    }
+    return Math.max(0, Math.min(1, (s30 - s0) / topOpps.length));
+}
+
+/** Archetype badge colours — shared by all renderers. */
+const ARCHETYPE_COLORS = {
+    'ABC · Balanced':    '#4ade80',
+    'ABB · Double-Back': '#60a5fa',
+    'ABA · Bookend':     '#a78bfa',
+    'All Safe Swap':     '#34d399',
+    'Attack Heavy':      '#f87171',
+    'Mixed':             '#94a3b8',
+};
+
+/**
+ * Classify the structural template of a 3-member team.
+ * Returns one of: ABA · Bookend / ABB · Double-Back / All Safe Swap /
+ *                 ABC · Balanced / Attack Heavy / Mixed
+ */
+function classifyTeamArchetype(team) {
+    if (team.length < 3) return null;
+    const [lead, swap, closer] = team;
+    function covers(a, d) {
+        return (a.moveTypes || []).some(mt =>
+            typeEffectiveness(mt, d.types[0], d.types[1] || null) > 1.0);
+    }
+    function weakCount(m) {
+        return TYPES_LIST.filter(t =>
+            typeEffectiveness(t, m.types[0], m.types[1] || null) > 1.0).length;
+    }
+    function minNrg(m) {
+        const vals = [m.optimal?.charged1Info?.nrg, m.optimal?.charged2Info?.nrg].filter(v => v != null);
+        return vals.length ? Math.min(...vals) : 55;
+    }
+    const [lt, st, ct] = [lead.types[0], swap.types[0], closer.types[0]];
+    if (lt === ct && st !== lt) return 'ABA · Bookend';
+    if (st === ct && lt !== st) return 'ABB · Double-Back';
+    const wc = [lead, swap, closer].map(weakCount);
+    const spammy = [lead, swap, closer].filter(m => minNrg(m) <= 45).length;
+    if (wc.every(c => c <= 2) && spammy >= 2) return 'All Safe Swap';
+    if (covers(lead, closer) && covers(closer, lead)) return 'ABC · Balanced';
+    const lp = lead.pressureScore || 0;
+    const bp = ((swap.pressureScore || 0) + (closer.pressureScore || 0)) / 2;
+    if (lp >= 0.55 && lp > bp * 1.35) return 'Attack Heavy';
+    return 'Mixed';
+}
+
+/**
+ * Greedy 3v3 team builder — shared by Meta Breaker and Box Builder.
+ *
+ * @param {Array}         candidates  Scored pool (needs .id, .types, .moveTypes)
+ * @param {number}        count       Target number of distinct teams
+ * @param {Function}      scoreFn     (cand, slot) → base numeric value
+ * @param {Function|null} slotFilter  (cand, slot, team) → bool — optional per-slot gate
+ * @param {Object}        [ctx]       { rank1Battler, rank2Battler } — pre-built battlers
+ */
+function buildTeamsGreedy(candidates, count, scoreFn, slotFilter, ctx) {
+    const { rank1Battler = null } = ctx || {};
+    const teams = [], usedAsLead = new Set(), seenKeys = new Set();
+
+    for (let t = 0; t < count * 4 && teams.length < count; t++) {
+        const team = [], teamTypes = new Set(), teamWeak = [];
+
+        for (let slot = 0; slot < 3; slot++) {
+            const pool = slotFilter ? candidates.filter(c => slotFilter(c, slot, team)) : candidates;
+            let bestPick = null, bestVal = -Infinity;
+
+            for (const cand of pool) {
+                if (team.some(m => m.id === cand.id)) continue;
+                if (slot === 0 && usedAsLead.has(cand.id)) continue;
+
+                let val = scoreFn(cand, slot);
+
+                // Offensive novelty: bonus per new attack type
+                for (const mt of cand.moveTypes) if (!teamTypes.has(mt)) val += 0.12;
+
+                // Defensive synergy: bonus for covering existing weaknesses
+                for (const wt of teamWeak) {
+                    const m = typeEffectiveness(wt, cand.types[0], cand.types[1] || null);
+                    if (m < 1) val += 0.15 * (1 - m);
+                }
+
+                // Shared weakness penalty
+                for (const tp of TYPES_LIST) {
+                    if (typeEffectiveness(tp, cand.types[0], cand.types[1] || null) > 1.0) {
+                        const already = team.filter(tm =>
+                            typeEffectiveness(tp, tm.types[0], tm.types[1] || null) > 1.0).length;
+                        if (already > 0) val -= 0.12 * already;
+                    }
+                }
+
+                // Role-specific battle rating bonus (normalised to 0–0.10 range)
+                if (cand.roleRatings) {
+                    const rr = cand.roleRatings;
+                    if (slot === 0 && rr.lead)     val += rr.lead.battleRating     / 10000;
+                    if (slot === 1 && rr.safeSwap) val += rr.safeSwap.battleRating / 10000;
+                    if (slot === 2 && rr.closer)   val += rr.closer.battleRating   / 10000;
+                } else {
+                    if (slot === 0 && (cand.pressureScore || 0) > 0.5)  val += 0.05;
+                    if (slot === 2 && (cand.optimal?.charged2Info?.pow ?? 0) >= 80) val += 0.05;
+                }
+
+                // Safe-swap energy-momentum bonus
+                if (slot === 1) val += (cand.energyMomentum || 0) * 0.25;
+
+                // Lead fragility penalty
+                if (slot === 0) {
+                    const wc = TYPES_LIST.filter(tp =>
+                        typeEffectiveness(tp, cand.types[0], cand.types[1] || null) > 1.0).length;
+                    if (wc >= 3) val -= 0.10 * (wc - 2);
+                }
+
+                // Pivot quality bonus (non-lead: ≤2 weaknesses + ≤45 energy move)
+                if (slot >= 1) {
+                    const wc  = TYPES_LIST.filter(tp =>
+                        typeEffectiveness(tp, cand.types[0], cand.types[1] || null) > 1.0).length;
+                    const nrg = Math.min(
+                        cand.optimal?.charged1Info?.nrg ?? 55,
+                        cand.optimal?.charged2Info?.nrg ?? 55);
+                    if (wc <= 2 && nrg <= 45) val += 0.06;
+                }
+
+                // Top-threat coverage bonus
+                if (rank1Battler && cand.beatsRank1 && !team.some(m => m.beatsRank1)) val += 0.12;
+
+                if (val > bestVal) { bestVal = val; bestPick = cand; }
+            }
+
+            if (bestPick) {
+                team.push(bestPick);
+                if (slot === 0) usedAsLead.add(bestPick.id);
+                for (const mt of bestPick.moveTypes) teamTypes.add(mt);
+                for (const tp of TYPES_LIST)
+                    if (typeEffectiveness(tp, bestPick.types[0], bestPick.types[1] || null) > 1.0)
+                        teamWeak.push(tp);
+            }
+        }
+
+        if (team.length === 3) {
+            const key = team.map(m => m.id).sort().join('|');
+            if (!seenKeys.has(key)) { seenKeys.add(key); teams.push(team); }
+        }
+    }
+    return teams;
+}
+
+/**
+ * Full 3v3 team score (0–1000) with matchup detail stats.
+ * Weights validated by Spearman ρ against gauntlet simulation (n=400 teams):
+ *   Coverage   ρ=0.83  →  30%
+ *   Role chain ρ=0.86  →  60%
+ *   Synergy    ρ=-0.09 →  10%
+ *
+ * @returns {{ score: number, stats: object }}
+ */
+function scoreTeamFull(team, cpCap, metaEntries, topN) {
+    topN = topN || 30;
+    const battlers = team.map(m => getCachedBattler(m.id, cpCap, metaEntries, m.isShadow))
+                         .filter(Boolean);
+    if (battlers.length < 2) return { score: 0, stats: null };
+
+    // ── 1. Coverage score (30%) ──────────────────────────────────────────
+    let covSum = 0, hardHoles = 0, oppCount = 0;
+    let wins = 0, winHpSum = 0, losses = 0, lossHpSum = 0;
+
+    for (const oppEntry of metaEntries.slice(0, topN)) {
+        const opp = getCachedBattler(oppEntry.id, cpCap, metaEntries, false);
+        if (!opp) continue;
+        oppCount++;
+        let bestM = 0, bestR = null;
+        for (const b of battlers) {
+            const r = simulateBattle(b, opp, 1, 1);
+            const m = battleMargin(r);
+            if (m > bestM) { bestM = m; bestR = r; }
+        }
+        covSum += bestM;
+        if (bestM < 0.45) hardHoles++;
+        if (bestR) {
+            if (bestR.winner === 'a')    { wins++;   winHpSum  += bestR.aHpPct; }
+            else if (bestR.winner !== 'tie') { losses++; lossHpSum += bestR.bHpPct; }
+        }
+    }
+    if (oppCount === 0) return { score: 0, stats: null };
+    const coverageScore = Math.max(0, covSum / oppCount - hardHoles * 0.04);
+
+    // ── 2. Role-chain score (60%) ────────────────────────────────────────
+    let roleScore = 0.5;
+    if (battlers.length >= 3) {
+        const chain = metaEntries.slice(0, 30)
+            .map(e => getCachedBattler(e.id, cpCap, metaEntries, false)).filter(Boolean);
+        function runChain(o0, o1, o2) {
+            const r1 = simulateBattle(battlers[0], o0, 1, 1);
+            const swE = r1.winner === 'a' ? Math.round(r1.aHpPct * 30) : 0;
+            const r2  = simulateBattle(battlers[1], r1.winner === 'a' ? o1 : o0, 1, 1, null, swE, 0);
+            const r3  = simulateBattle(battlers[2], o2, 0, 0, null, Math.round(r2.aHpPct * 25), 0);
+            return (battleMargin(r1) + battleMargin(r2) + battleMargin(r3)) / 3;
+        }
+        if (chain.length >= 3) {
+            const starts = [0, 3, 6, 9, 12].filter(s => s + 2 < chain.length);
+            const scores = starts.map(s => runChain(chain[s], chain[s+1], chain[s+2]));
+            roleScore = scores.reduce((a, b) => a + b, 0) / scores.length;
+        }
+    }
+
+    // ── 3. Type-synergy score (10%) ──────────────────────────────────────
+    let sharedWeak = 0, tripleWeak = 0;
+    for (const tp of TYPES_LIST) {
+        const wc = battlers.filter(b =>
+            typeEffectiveness(tp, b.types[0], b.types[1] || null) > 1.0).length;
+        if (wc >= 2) sharedWeak++;
+        if (wc === 3) tripleWeak++;
+    }
+    const synergyScore = Math.max(0, 1 - sharedWeak * 0.08 - tripleWeak * 0.15);
+
+    // ── Blend and scale ──────────────────────────────────────────────────
+    const score = Math.round(Math.max(0, Math.min(1,
+        coverageScore * 0.30 + roleScore * 0.60 + synergyScore * 0.10
+    )) * 1000);
+
+    return {
+        score,
+        stats: {
+            wins, losses, oppCount, hardHoles,
+            avgWinMargin:  wins   > 0 ? Math.round(winHpSum  / wins   * 100) : 0,
+            avgLossMargin: losses > 0 ? Math.round(lossHpSum / losses * 100) : 0,
+            coverageScore: Math.round(coverageScore * 100),
+            chainScore:    Math.round(roleScore * 100),
+        },
+    };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 function buildMetaBreakerTeams(leagueKey, cpCap) {
     const leagueInfo = getLeagueInfo(leagueKey);
     const isRestricted = leagueInfo.restricted || false;
@@ -1834,95 +2343,36 @@ function buildMetaBreakerTeams(leagueKey, cpCap) {
     // Computes battle ratings for all candidates and re-sorts using RRF.
     applyRRF(allScored, cpCap, metaEntries);
 
-    // ── Team building: role-aware greedy with ABB detection ──
-    const teams = [];
-    const usedAsLead = new Set();
-    const seenTeamKeys = new Set();
-    const maxAttempts = 20; // try extra iterations to fill 5 distinct teams
+    // ── Pre-compute energy-momentum and top-threat flags ─────────────────
+    // These are used by buildTeamsGreedy's slot bonuses.
+    const rank1Battler = metaEntries.length >= 1
+        ? getCachedBattler(metaEntries[0].id, cpCap, metaEntries, false) : null;
+    const rank2Battler = metaEntries.length >= 2
+        ? getCachedBattler(metaEntries[1].id, cpCap, metaEntries, false) : null;
 
-    for (let t = 0; t < maxAttempts && teams.length < 5; t++) {
-        const team = [];
-        const teamTypes = new Set();
-        const teamWeaknesses = [];
-        const teamDefTypes = []; // track defensive types on team
-
-        for (let slot = 0; slot < 3; slot++) {
-            let bestPick = null, bestVal = -Infinity;
-
-            for (const cand of allScored) {
-                if (team.some(m => m.id === cand.id)) continue;
-                if (slot === 0 && usedAsLead.has(cand.id)) continue;
-
-                let val = cand.finalScore;
-
-                // ── Offensive novelty: bonus for new type coverage ──
-                let novelty = 0;
-                for (const mt of cand.moveTypes) {
-                    if (!teamTypes.has(mt)) novelty += 0.12;
-                }
-                val += novelty;
-
-                // ── Defensive synergy: bonus for resisting team weaknesses ──
-                let shoreUp = 0;
-                for (const weakType of teamWeaknesses) {
-                    const mult = typeEffectiveness(weakType, cand.types[0], cand.types[1] || null);
-                    if (mult < 1) shoreUp += 0.15 * (1 - mult);
-                }
-                val += shoreUp;
-
-                // ── Shared weakness penalty: avoid stacking same vulnerability ──
-                let sharedWeakPenalty = 0;
-                for (const tType of TYPES_LIST) {
-                    const mult = typeEffectiveness(tType, cand.types[0], cand.types[1] || null);
-                    if (mult > 1.0) {
-                        // Count how many existing team members are also weak to this
-                        let alreadyWeak = 0;
-                        for (const tm of team) {
-                            const tmMult = typeEffectiveness(tType, tm.types[0], tm.types[1] || null);
-                            if (tmMult > 1.0) alreadyWeak++;
-                        }
-                        if (alreadyWeak > 0) sharedWeakPenalty += 0.12 * alreadyWeak;
-                    }
-                }
-                val -= sharedWeakPenalty;
-
-                // ── Role bonus: use role-specific battle ratings when available ──
-                if (cand.roleRatings) {
-                    const rr = cand.roleRatings;
-                    if (slot === 0 && rr.lead)     val += (rr.lead.battleRating    / 10000);
-                    if (slot === 1 && rr.safeSwap) val += (rr.safeSwap.battleRating / 10000);
-                    if (slot === 2 && rr.closer)   val += (rr.closer.battleRating  / 10000);
-                } else {
-                    if (slot === 0 && cand.pressureScore > 0.5) val += 0.05;
-                    if (slot === 2 && cand.optimal && cand.optimal.charged1Info) {
-                        const nukeInfo = cand.optimal.charged2Info || cand.optimal.charged1Info;
-                        if (nukeInfo && nukeInfo.pow >= 80) val += 0.05;
-                    }
-                }
-
-                if (val > bestVal) { bestVal = val; bestPick = cand; }
-            }
-
-            if (bestPick) {
-                team.push(bestPick);
-                if (slot === 0) usedAsLead.add(bestPick.id);
-                for (const mt of bestPick.moveTypes) teamTypes.add(mt);
-                teamDefTypes.push(...bestPick.types);
-                for (const tType of TYPES_LIST) {
-                    const mult = typeEffectiveness(tType, bestPick.types[0], bestPick.types[1] || null);
-                    if (mult > 1.0) teamWeaknesses.push(tType);
-                }
-            }
-        }
-
-        if (team.length === 3) {
-            const teamKey = team.map(m => m.id).sort().join('|');
-            if (!seenTeamKeys.has(teamKey)) {
-                seenTeamKeys.add(teamKey);
-                teams.push(team);
-            }
-        }
+    for (const cand of allScored) {
+        cand.energyMomentum = computeEnergyMomentum(cand.id, false, cpCap, metaEntries);
+        const cb = getCachedBattler(cand.id, cpCap, metaEntries, false);
+        cand.beatsRank1 = !!(cb && rank1Battler && simulateBattle(cb, rank1Battler, 1, 1).winner === 'a');
+        cand.beatsRank2 = !!(cb && rank2Battler && simulateBattle(cb, rank2Battler, 1, 1).winner === 'a');
     }
+
+    // ── Team building via shared greedy engine ────────────────────────────
+    const teams = buildTeamsGreedy(
+        allScored, 5,
+        (cand, _slot) => cand.finalScore,   // base score from RRF heuristic
+        null,
+        { rank1Battler, rank2Battler }
+    );
+
+    // ── Score and classify every team ─────────────────────────────────────
+    for (const team of teams) {
+        const { score, stats } = scoreTeamFull(team, cpCap, metaEntries);
+        team._chainScore    = score;
+        team._matchupStats  = stats;
+        team._archetype     = classifyTeamArchetype(team);
+    }
+    teams.sort((a, b) => b._chainScore - a._chainScore);
 
     return { metaEntries, teams, allScored };
 }
@@ -2115,7 +2565,8 @@ async function runMetaBreaker() {
     const outEl = document.getElementById('meta-out');
     if (!outEl) return;
 
-    // Ensure rankings loaded
+    // Ensure move data and rankings are loaded
+    await Promise.all([loadMoves(), loadPokemon()]);
     try { await loadRankings(leagueKey); } catch (e) {}
 
     // Check if meta.js loaded
@@ -2171,8 +2622,44 @@ async function runMetaBreaker() {
         const roles = ['Lead','Safe Swap','Closer'];
         for (let i = 0; i < teams.length; i++) {
             const team = teams[i];
+
+            // Score badge
+            const cs = team._chainScore;
+            const csColor = cs >= 700 ? '#4ade80' : cs >= 550 ? '#60a5fa' : cs >= 400 ? '#fbbf24' : '#fb923c';
+            const csTag = cs != null
+                ? `<span style="font-size:11px;color:#64748b;margin-left:8px;">score: <span style="color:${csColor};font-weight:600;">${cs}</span></span>`
+                : '';
+
+            // Archetype badge
+            const atColor = ARCHETYPE_COLORS[team._archetype] || '#94a3b8';
+            const atTag = team._archetype
+                ? `<span style="font-size:10px;border:1px solid ${atColor};color:${atColor};padding:1px 7px;border-radius:4px;margin-left:8px;">${team._archetype}</span>`
+                : '';
+
+            // Matchup margin bar
+            const ms = team._matchupStats;
+            const marginBar = ms ? (() => {
+                const wins = ms.winCount, losses = ms.lossCount, total = ms.oppCount || 1;
+                const ties = total - wins - losses;
+                const wmColor  = ms.avgWinMargin  >= 50 ? '#4ade80' : ms.avgWinMargin >= 30 ? '#a3e635' : '#fbbf24';
+                const lmColor  = ms.avgLossMargin <= 20 ? '#4ade80' : ms.avgLossMargin <= 40 ? '#fbbf24' : '#f87171';
+                const winLabel  = ms.avgWinMargin  > 0 ? ` <span style="color:${wmColor}">+${ms.avgWinMargin}% HP</span>` : '';
+                const lossLabel = ms.avgLossMargin > 0 ? ` <span style="color:${lmColor}">${ms.avgLossMargin}% left</span>` : '';
+                const hardHoleLabel = ms.hardHoles > 0
+                    ? `<span style="color:#f87171;margin-left:8px;">⚠ ${ms.hardHoles} hard hole${ms.hardHoles > 1 ? 's' : ''}</span>`
+                    : '';
+                return `<div style="font-size:10px;color:#64748b;margin-top:4px;margin-bottom:6px;">` +
+                    `vs top-${total} meta: ` +
+                    `<span style="color:#4ade80;">W ${wins}${winLabel}</span> · ` +
+                    `<span style="color:#fb923c;">L ${losses}${lossLabel}</span>` +
+                    (ties > 0 ? ` · <span>T ${ties}</span>` : '') +
+                    hardHoleLabel +
+                    `</div>`;
+            })() : '';
+
             html += `<div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px;margin-bottom:12px;">
-                <div style="font-weight:600;color:#94a3b8;margin-bottom:8px;">Team ${i+1}</div>
+                <div style="font-weight:600;color:#94a3b8;margin-bottom:4px;">Team ${i+1}${csTag}${atTag}</div>
+                ${marginBar}
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">`;
             for (let si = 0; si < team.length; si++) {
                 const mon = team[si];
@@ -2303,31 +2790,8 @@ function buildBoxTeams(leagueKey, cpCap) {
     applyRRF(boxScored, cpCap, metaEntries);
 
     // ── Energy-momentum pre-computation ──────────────────────────────────
-    // For each candidate measure how much their matchup record improves when
-    // they enter with 30 energy (≈ 2 fast moves banked) vs 0 energy.
-    // High momentum → excellent safe swap; used to bias slot-1 selection.
-    function computeEnergyMomentum(candidateId, candidateIsShadow) {
-        const battler = getCachedBattler(candidateId, cpCap, metaEntries, candidateIsShadow);
-        if (!battler) return 0;
-        const topOpps = metaEntries.slice(0, 25)
-            .map(e => getCachedBattler(e.id, cpCap, metaEntries, false))
-            .filter(Boolean);
-        if (topOpps.length === 0) return 0;
-        let score0 = 0, score30 = 0;
-        for (const opp of topOpps) {
-            const r0  = simulateBattle(battler, opp, 1, 1, null, 0, 0);
-            const r30 = simulateBattle(battler, opp, 1, 1, null, 30, 0);
-            const sc = r => r.winner === 'a' ? 0.5 + r.aHpPct * 0.5
-                          : r.winner === 'tie' ? 0.5 : (1 - r.bHpPct) * 0.5;
-            score0  += sc(r0);
-            score30 += sc(r30);
-        }
-        // Delta per matchup, clamped to [0, 1]
-        return Math.max(0, Math.min(1, (score30 - score0) / topOpps.length));
-    }
-
     for (const cand of boxScored) {
-        cand.energyMomentum = computeEnergyMomentum(cand.id, cand.isShadow);
+        cand.energyMomentum = computeEnergyMomentum(cand.id, cand.isShadow, cpCap, metaEntries);
     }
 
     // ── Top-threat coverage pre-computation ──────────────────────────────
@@ -2345,134 +2809,6 @@ function buildBoxTeams(leagueKey, cpCap) {
         cand.beatsRank2 = !!(cb && rank2Battler && simulateBattle(cb, rank2Battler, 1, 1).winner === 'a');
     }
 
-    // ── Shared team-building helper ──────────────────────────────────────
-    function buildTeamsGreedy(candidates, count, scoreFn, slotFilter) {
-        const teams = [];
-        const usedAsLead = new Set();
-        const seenTeamKeys = new Set(); // prevent duplicate teams in any slot order
-        const maxAttempts = count * 4;  // try extra iterations to fill quota
-
-        for (let t = 0; t < maxAttempts && teams.length < count; t++) {
-            const team = [];
-            const teamTypes = new Set();
-            const teamWeaknesses = [];
-
-            for (let slot = 0; slot < 3; slot++) {
-                // Optional per-slot candidate filtering (for semi-meta)
-                const pool = slotFilter ? candidates.filter(c => slotFilter(c, slot, team)) : candidates;
-
-                let bestPick = null, bestVal = -Infinity;
-
-                for (const cand of pool) {
-                    if (team.some(m => m.id === cand.id)) continue;
-                    if (slot === 0 && usedAsLead.has(cand.id)) continue;
-
-                    let val = scoreFn(cand, slot);
-
-                    // Offensive novelty
-                    let novelty = 0;
-                    for (const mt of cand.moveTypes) {
-                        if (!teamTypes.has(mt)) novelty += 0.12;
-                    }
-                    val += novelty;
-
-                    // Defensive synergy
-                    let shoreUp = 0;
-                    for (const weakType of teamWeaknesses) {
-                        const mult = typeEffectiveness(weakType, cand.types[0], cand.types[1] || null);
-                        if (mult < 1) shoreUp += 0.15 * (1 - mult);
-                    }
-                    val += shoreUp;
-
-                    // Shared weakness penalty
-                    let sharedWeakPenalty = 0;
-                    for (const tType of TYPES_LIST) {
-                        const mult = typeEffectiveness(tType, cand.types[0], cand.types[1] || null);
-                        if (mult > 1.0) {
-                            let alreadyWeak = 0;
-                            for (const tm of team) {
-                                if (typeEffectiveness(tType, tm.types[0], tm.types[1] || null) > 1.0) alreadyWeak++;
-                            }
-                            if (alreadyWeak > 0) sharedWeakPenalty += 0.12 * alreadyWeak;
-                        }
-                    }
-                    val -= sharedWeakPenalty;
-
-                    // Role bonuses: use role-specific battle ratings when available,
-                    // otherwise fall back to heuristics.
-                    if (cand.roleRatings) {
-                        // Normalise role ratings to 0–0.10 bonus range
-                        const rr = cand.roleRatings;
-                        if (slot === 0 && rr.lead)     val += (rr.lead.battleRating    / 10000);
-                        if (slot === 1 && rr.safeSwap) val += (rr.safeSwap.battleRating / 10000);
-                        if (slot === 2 && rr.closer)   val += (rr.closer.battleRating  / 10000);
-                    } else {
-                        // Heuristic fallback
-                        if (slot === 0 && cand.pressureScore > 0.5) val += 0.05;
-                        if (slot === 2 && cand.optimal && cand.optimal.charged2Info) {
-                            if (cand.optimal.charged2Info.pow >= 80) val += 0.05;
-                        }
-                    }
-
-                    // Energy-momentum bonus for safe swap slot:
-                    // Pokémon that dramatically improve their record with banked
-                    // energy are exactly what you want as a pivot.
-                    if (slot === 1) val += (cand.energyMomentum || 0) * 0.25;
-
-                    // Lead fragility penalty: leads with 3+ weaknesses force awkward
-                    // pivots out of neutral matchups (per GBL team-building advice).
-                    if (slot === 0) {
-                        const wCount = TYPES_LIST.filter(t =>
-                            typeEffectiveness(t, cand.types[0], cand.types[1] || null) > 1.0
-                        ).length;
-                        if (wCount >= 3) val -= 0.10 * (wCount - 2);
-                    }
-
-                    // Pivot-quality bonus for non-lead slots: reward candidates with
-                    // few weaknesses AND a cheap charged move — the GBL ideal pivot profile.
-                    if (slot >= 1) {
-                        const wCount = TYPES_LIST.filter(t =>
-                            typeEffectiveness(t, cand.types[0], cand.types[1] || null) > 1.0
-                        ).length;
-                        const minEnergy = Math.min(
-                            cand.optimal?.charged1Info?.nrg ?? 55,
-                            cand.optimal?.charged2Info?.nrg ?? 55
-                        );
-                        if (wCount <= 2 && minEnergy <= 45) val += 0.06;
-                    }
-
-                    // Top-threat coverage: if the current team has no answer to the
-                    // #1 meta Pokémon, heavily reward the next pick that can beat it.
-                    if (rank1Battler && cand.beatsRank1 && !team.some(m => m.beatsRank1)) {
-                        val += 0.12;
-                    }
-
-                    if (val > bestVal) { bestVal = val; bestPick = cand; }
-                }
-
-                if (bestPick) {
-                    team.push(bestPick);
-                    if (slot === 0) usedAsLead.add(bestPick.id);
-                    for (const mt of bestPick.moveTypes) teamTypes.add(mt);
-                    for (const tType of TYPES_LIST) {
-                        const mult = typeEffectiveness(tType, bestPick.types[0], bestPick.types[1] || null);
-                        if (mult > 1.0) teamWeaknesses.push(tType);
-                    }
-                }
-            }
-
-            if (team.length === 3) {
-                // Deduplicate: sorted IDs form a canonical key regardless of slot order
-                const teamKey = team.map(m => m.id).sort().join('|');
-                if (!seenTeamKeys.has(teamKey)) {
-                    seenTeamKeys.add(teamKey);
-                    teams.push(team);
-                }
-            }
-        }
-        return teams;
-    }
-
     // ── Category 1: Meta Teams (best proven picks, no spice) ────────────
     // Prefer meta-ranked Pokémon. Score = base + meta preference bonus.
     const metaScoreFn = (cand, slot) => {
@@ -2488,7 +2824,7 @@ function buildBoxTeams(leagueKey, cpCap) {
         }
         return s;
     };
-    const metaTeams = buildTeamsGreedy(boxScored, 5, metaScoreFn, null);
+    const metaTeams = buildTeamsGreedy(boxScored, 5, metaScoreFn, null, { rank1Battler, rank2Battler });
 
     // ── Category 2: Semi-Meta (2 meta + 1 breaker) ─────────────────────
     // Slots 0 & 1 prefer meta, slot 2 must be off-meta.
@@ -2515,7 +2851,7 @@ function buildBoxTeams(leagueKey, cpCap) {
         }
         return true;
     };
-    const semiMetaTeams = buildTeamsGreedy(boxScored, 5, semiScoreFn, semiSlotFilter);
+    const semiMetaTeams = buildTeamsGreedy(boxScored, 5, semiScoreFn, semiSlotFilter, { rank1Battler, rank2Battler });
 
     // ── Category 3: Full Disruption (maximize anti-meta spice) ──────────
     // Boost spice picks, penalize meta-standard choices.
@@ -2533,201 +2869,20 @@ function buildBoxTeams(leagueKey, cpCap) {
         }
         return s;
     };
-    const disruptionTeams = buildTeamsGreedy(boxScored, 5, disruptionScoreFn, null);
+    const disruptionTeams = buildTeamsGreedy(boxScored, 5, disruptionScoreFn, null, { rank1Battler, rank2Battler });
 
-    // ── 3v3 team full scoring ─────────────────────────────────────────────
-    // Blended score across three dimensions (weights data-validated, n=400 teams):
-    // Weights validated by Spearman correlation against simulated gauntlet (n=400 teams):
-    //   Coverage   ρ=0.83  →  30%
-    //   Role chain ρ=0.86  →  60%  (strongest individual predictor)
-    //   Synergy    ρ=-0.09 →  10%  (kept small; type-diversity is often unavoidable)
-    // Three theory-driven modifiers (lead fragility, dual-pivot, top-threat) were tested
-    // statistically and found to reduce predictive accuracy (combined Δρ = −0.024),
-    // so they are NOT applied in the final blend.
-    // Result normalised to 0–1000 (500 = breakeven, 700+ = excellent).
-    function scoreTeamFull(team, topN) {
-        topN = topN || 30;
-        const battlers = team.map(m => getCachedBattler(m.id, cpCap, metaEntries, m.isShadow))
-                             .filter(Boolean);
-        if (battlers.length < 2) return 0;
-
-        // ── 1. Coverage score (30%) ───────────────────────────────────────
-        // For each meta opp, pick the best-matchup team member.
-        // Hard hole = no team member wins (all three lose 1v1-shielded).
-        let coverageSum = 0, hardHoles = 0, oppCount = 0;
-        for (const oppEntry of metaEntries.slice(0, topN)) {
-            const oppBattler = getCachedBattler(oppEntry.id, cpCap, metaEntries, false);
-            if (!oppBattler) continue;
-            oppCount++;
-            let bestScore = 0, anyWin = false;
-            for (const b of battlers) {
-                const result = simulateBattle(b, oppBattler, 1, 1);
-                const sc = result.winner === 'a' ? 0.5 + result.aHpPct * 0.5
-                         : result.winner === 'tie' ? 0.5
-                         : (1 - result.bHpPct) * 0.5;
-                if (sc > bestScore) bestScore = sc;
-                if (result.winner === 'a') anyWin = true;
-            }
-            coverageSum += bestScore;
-            if (!anyWin) hardHoles++;
-        }
-        if (oppCount === 0) return 0;
-        const rawCoverage = coverageSum / oppCount;
-        const holePenalty = hardHoles * 0.04; // −4 pts per hard hole (out of 100)
-        const coverageScore = Math.max(0, rawCoverage - holePenalty);
-
-        // ── 2. Role-chain score (60%) ─────────────────────────────────────
-        // Simulate lead → swap → closer with energy handoff between battles.
-        // Run 5 staggered chains across the top 30 meta (every 5 ranks) and
-        // average the results so that the score reflects a broad range of
-        // matchup sequences rather than just the top-3 threats.
-        //
-        // Within each chain:
-        //   Lead    (1s/1s) vs chain[0]
-        //   Swap    (1s/1s) vs chain[1] (or chain[0] if lead lost), enters with
-        //             banked energy proportional to lead's surviving HP
-        //   Closer  (0s/0s) vs chain[2], enters with swap's banked energy
-        let roleScore = 0.5; // default to neutral if not enough battlers/opps
-        if (battlers.length >= 3) {
-            const chainPool = metaEntries.slice(0, 30)
-                .map(e => getCachedBattler(e.id, cpCap, metaEntries, false))
-                .filter(Boolean);
-
-            function runChain(o0, o1, o2) {
-                const sc = r => r.winner === 'a' ? 0.5 + r.aHpPct * 0.5
-                              : r.winner === 'tie' ? 0.5 : (1 - r.bHpPct) * 0.5;
-
-                const leadResult = simulateBattle(battlers[0], o0, 1, 1);
-                const leadScore  = sc(leadResult);
-
-                const swapStartEnergy = leadResult.winner === 'a'
-                    ? Math.round(leadResult.aHpPct * 30) : 0;
-                const swapOpp = leadResult.winner === 'a' ? o1 : o0;
-                const swapResult = simulateBattle(battlers[1], swapOpp, 1, 1, null, swapStartEnergy, 0);
-                const swapScore  = sc(swapResult);
-
-                const closerStartEnergy = Math.round(swapResult.aHpPct * 25);
-                const closerResult = simulateBattle(battlers[2], o2, 0, 0, null, closerStartEnergy, 0);
-                const closerScore  = sc(closerResult);
-
-                return (leadScore + swapScore + closerScore) / 3;
-            }
-
-            if (chainPool.length >= 3) {
-                // Five chains starting at ranks 0, 3, 6, 9, 12
-                const starts = [0, 3, 6, 9, 12].filter(s => s + 2 < chainPool.length);
-                const chainScores = starts.map(s => runChain(
-                    chainPool[s], chainPool[s + 1], chainPool[s + 2]
-                ));
-                roleScore = chainScores.reduce((a, b) => a + b, 0) / chainScores.length;
-            }
-        }
-
-        // ── 3. Type-synergy score (10%) ───────────────────────────────────
-        // Penalise teams where 2 or 3 members share the same weakness.
-        // Weight kept small (10%) because type diversity is often unavoidable
-        // and statistical testing showed it has near-zero predictive power alone.
-        let sharedWeakCount = 0, tripleWeakCount = 0;
-        for (const tType of TYPES_LIST) {
-            let weakCount = 0;
-            for (const b of battlers) {
-                if (typeEffectiveness(tType, b.types[0], b.types[1] || null) > 1.0) weakCount++;
-            }
-            if (weakCount >= 2) sharedWeakCount++;
-            if (weakCount === 3) tripleWeakCount++;
-        }
-        const synergyScore = Math.max(0, 1.0 - sharedWeakCount * 0.08 - tripleWeakCount * 0.15);
-
-        // ── Blend and scale to 0–1000 ────────────────────────────────────
-        // Weights: coverage=0.30, chain=0.60, synergy=0.10
-        // These were optimised by grid search against simulated gauntlet data (ρ=0.888).
-        const blended = coverageScore * 0.30 + roleScore * 0.60 + synergyScore * 0.10;
-        return Math.round(Math.max(0, Math.min(1, blended)) * 1000);
-    }
-
-    // ── Team archetype classifier ─────────────────────────────────────────
-    // Identifies the structural template of a team using the vocabulary from
-    // competitive GBL: ABC/Balanced, ABB, ABA, All Safe Swap, Attack Heavy.
-    // Lead = team[0], Safe Swap = team[1], Closer = team[2].
-    function classifyTeamArchetype(team) {
-        if (team.length < 3) return null;
-        const [lead, swap, closer] = team;
-
-        // Does `attacker` have a charged or fast move that hits `defender` super effectively?
-        function coversWeakness(attacker, defender) {
-            for (const moveType of (attacker.moveTypes || [])) {
-                if (typeEffectiveness(moveType, defender.types[0], defender.types[1] || null) > 1.0) return true;
-            }
-            return false;
-        }
-
-        // Number of distinct attacking types that hit this member super effectively
-        function weaknessCount(member) {
-            let n = 0;
-            for (const t of TYPES_LIST) {
-                if (typeEffectiveness(t, member.types[0], member.types[1] || null) > 1.0) n++;
-            }
-            return n;
-        }
-
-        // Minimum charged move energy cost (proxy for spamminess)
-        function minChargeEnergy(member) {
-            const c1 = member.optimal?.charged1Info?.nrg;
-            const c2 = member.optimal?.charged2Info?.nrg;
-            const vals = [c1, c2].filter(v => v != null);
-            return vals.length ? Math.min(...vals) : 55;
-        }
-
-        const leadType  = lead.types[0];
-        const swapType  = swap.types[0];
-        const closerType = closer.types[0];
-
-        // ABA: lead and closer share primary type; swap is the answer in the middle
-        if (leadType === closerType && swapType !== leadType) {
-            return 'ABA · Bookend';
-        }
-
-        // ABB: back two share primary type; lead is the answer / draw-out
-        if (swapType === closerType && leadType !== swapType) {
-            return 'ABB · Double-Back';
-        }
-
-        // All Safe Swap: every member has ≤2 weaknesses and at least 2 members spam (≤45 energy)
-        const weakCounts = [lead, swap, closer].map(weaknessCount);
-        const spammyCount = [lead, swap, closer].filter(m => minChargeEnergy(m) <= 45).length;
-        if (weakCounts.every(c => c <= 2) && spammyCount >= 2) {
-            return 'All Safe Swap';
-        }
-
-        // ABC/Balanced: lead's moves cover closer's weakness AND closer's moves cover lead's weakness
-        if (coversWeakness(lead, closer) && coversWeakness(closer, lead)) {
-            return 'ABC · Balanced';
-        }
-
-        // Attack Heavy: lead's pressure score notably exceeds the backline average
-        const leadPressure  = lead.pressureScore  || 0;
-        const backPressure  = ((swap.pressureScore || 0) + (closer.pressureScore || 0)) / 2;
-        if (leadPressure >= 0.55 && leadPressure > backPressure * 1.35) {
-            return 'Attack Heavy';
-        }
-
-        return 'Mixed';
-    }
-
-    // Archetype color map for display
-    const ARCHETYPE_COLORS = {
-        'ABC · Balanced':   '#4ade80',
-        'ABB · Double-Back':'#60a5fa',
-        'ABA · Bookend':    '#a78bfa',
-        'All Safe Swap':    '#34d399',
-        'Attack Heavy':     '#f87171',
-        'Mixed':            '#94a3b8',
-    };
+    // ── Score, classify and sort all teams ───────────────────────────────
+    // Uses top-level scoreTeamFull / classifyTeamArchetype so the logic is
+    // identical to what Meta Breaker teams receive.  (See engine functions
+    // above buildMetaBreakerTeams for the implementation.)
+    // NOTE: uses top-level scoreTeamFull / classifyTeamArchetype (shared with Meta Breaker).
 
     // Annotate and sort each team list by full score (best first)
     for (const teamList of [metaTeams, semiMetaTeams, disruptionTeams]) {
         for (const team of teamList) {
-            team._chainScore = scoreTeamFull(team);
+            const { score, stats } = scoreTeamFull(team, cpCap, metaEntries);
+            team._chainScore = score;
+            team._matchupStats = stats;
             team._archetype  = classifyTeamArchetype(team);
         }
         teamList.sort((a, b) => b._chainScore - a._chainScore);
@@ -2755,6 +2910,7 @@ async function runBoxBuilder() {
     // Ensure meta data is loaded
     if (typeof POKEMON_TYPES === 'undefined' || typeof TYPE_CHART === 'undefined') return;
 
+    await Promise.all([loadMoves(), loadPokemon()]);
     try { await loadRankings(leagueKey); } catch (e) {}
 
     // If Analyze hasn't been run yet (box sets empty), run it in the background first
@@ -2799,17 +2955,39 @@ async function runBoxBuilder() {
                 const csTag = cs != null
                     ? `<span style="font-size:11px;color:#64748b;margin-left:8px;">score: <span style="color:${csColor};font-weight:600;">${cs}</span></span>`
                     : '';
-                const archetypeColors = {
-                    'ABC · Balanced':   '#4ade80', 'ABB · Double-Back': '#60a5fa',
-                    'ABA · Bookend':    '#a78bfa', 'All Safe Swap':     '#34d399',
-                    'Attack Heavy':     '#f87171', 'Mixed':             '#94a3b8',
-                };
-                const atColor = archetypeColors[team._archetype] || '#94a3b8';
+                const atColor = ARCHETYPE_COLORS[team._archetype] || '#94a3b8';
                 const atTag = team._archetype
                     ? `<span style="font-size:10px;border:1px solid ${atColor};color:${atColor};padding:1px 7px;border-radius:4px;margin-left:8px;">${team._archetype}</span>`
                     : '';
+
+                // Matchup margin bar
+                const ms = team._matchupStats;
+                const marginBar = ms ? (() => {
+                    const wins = ms.winCount, losses = ms.lossCount, total = ms.oppCount || 1;
+                    const ties = total - wins - losses;
+                    const winPct   = Math.round(wins   / total * 100);
+                    const lossPct  = Math.round(losses / total * 100);
+                    // Win-margin colour: higher HP left = greener
+                    const wmColor  = ms.avgWinMargin  >= 50 ? '#4ade80' : ms.avgWinMargin >= 30 ? '#a3e635' : '#fbbf24';
+                    // Loss-margin colour: lower opp HP = better (closer loss) = greener
+                    const lmColor  = ms.avgLossMargin <= 20 ? '#4ade80' : ms.avgLossMargin <= 40 ? '#fbbf24' : '#f87171';
+                    const winLabel  = ms.avgWinMargin  > 0 ? ` <span style="color:${wmColor}">+${ms.avgWinMargin}% HP</span>` : '';
+                    const lossLabel = ms.avgLossMargin > 0 ? ` <span style="color:${lmColor}">${ms.avgLossMargin}% left</span>` : '';
+                    const hardHoleLabel = ms.hardHoles > 0
+                        ? `<span style="color:#f87171;margin-left:8px;">⚠ ${ms.hardHoles} hard hole${ms.hardHoles > 1 ? 's' : ''}</span>`
+                        : '';
+                    return `<div style="font-size:10px;color:#64748b;margin-top:4px;margin-bottom:6px;">` +
+                        `vs top-${total} meta: ` +
+                        `<span style="color:#4ade80;">W ${wins}${winLabel}</span> · ` +
+                        `<span style="color:#fb923c;">L ${losses}${lossLabel}</span>` +
+                        (ties > 0 ? ` · <span>T ${ties}</span>` : '') +
+                        hardHoleLabel +
+                        `</div>`;
+                })() : '';
+
                 s += `<div style="background:#1e293b;border:1px solid ${borderColor};border-radius:8px;padding:12px;margin-bottom:12px;">
-                    <div style="font-weight:600;color:${titleColor};margin-bottom:8px;">Team ${i+1}${csTag}${atTag}</div>
+                    <div style="font-weight:600;color:${titleColor};margin-bottom:4px;">Team ${i+1}${csTag}${atTag}</div>
+                    ${marginBar}
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">`;
                 for (let si = 0; si < team.length; si++) {
                     s += renderMonCard(team[si], { role: roles[si], borderColor });
