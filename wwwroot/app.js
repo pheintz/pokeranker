@@ -188,7 +188,7 @@ function moveNameToId(name) {
         .replace(/^_|_$/g, '');                  // trim leading/trailing _
 }
 
-// Aliases: a gamemaster ID maps to a legacy ID that movesets still reference.
+// Aliases: a gamemaster move ID maps to a legacy ID that movesets still reference.
 // Both keys are kept alive so nothing breaks.
 const MOVE_ID_ALIASES = {
     'mystical_fire': 'mystic_fire',   // PvPoke MYSTICAL_FIRE → keep legacy key too
@@ -196,10 +196,19 @@ const MOVE_ID_ALIASES = {
     'vice_grip':     'vise_grip',     // PvPoke VICE_GRIP    → keep legacy key too
 };
 
+// Aliases: scanner app species names that differ from PvPoke's speciesId.
+// After loadPokemon() runs, each alias key is copied from its canonical value
+// so stat/type lookups succeed for both naming conventions.
+const POKEMON_ID_ALIASES = {
+    'cherrim_sunshine':       'cherrim_sunny',               // CalcyIV calls it sunshine
+    'darmanitan_galarian':    'darmanitan_galarian_standard', // omits "standard" form suffix
+    'dudunsparce_two_segment':'dudunsparce',                  // PvPoke uses un-suffixed ID
+    'mareani':                'mareanie',                     // common misspelling in scanners
+};
+
 // ── loadMoves ─────────────────────────────────────────────────────────────────
 // Priority: data/moves.json (PvPoke gamemaster, auto-updated by CI)
-//         → csv/moves.csv (manual fallback)
-//         → meta.js built-ins (last resort)
+//         → csv/moves.csv  (legacy fallback — kept for offline/dev use)
 
 let movesLoaded = false;
 let movesLoadingPromise = null;
@@ -420,9 +429,18 @@ async function loadPokemon() {
 
                 count++;
             }
+            // ── Apply species ID aliases ──────────────────────────────────
+            // Some scanner apps produce names that differ from PvPoke's IDs.
+            // Copy the canonical entry under each alias key so lookups succeed.
+            for (const [alias, canonical] of Object.entries(POKEMON_ID_ALIASES)) {
+                if (POKEMON_STATS[canonical])   POKEMON_STATS[alias]   = POKEMON_STATS[canonical];
+                if (POKEMON_TYPES[canonical])   POKEMON_TYPES[alias]   = POKEMON_TYPES[canonical];
+                if (POKEMON_MOVESETS[canonical]) POKEMON_MOVESETS[alias] = POKEMON_MOVESETS[canonical];
+            }
+
             console.log(`[pokemon] loaded ${count} species from data/pokemon.json`);
         } catch (e) {
-            console.warn('[pokemon] could not load pokemon.json — using data.js/meta.js built-ins:', e.message);
+            console.warn('[pokemon] could not load pokemon.json:', e.message);
         }
         pokemonLoaded = true;
     })();
