@@ -433,9 +433,10 @@ async function loadPokemon() {
             // Some scanner apps produce names that differ from PvPoke's IDs.
             // Copy the canonical entry under each alias key so lookups succeed.
             for (const [alias, canonical] of Object.entries(POKEMON_ID_ALIASES)) {
-                if (POKEMON_STATS[canonical])   POKEMON_STATS[alias]   = POKEMON_STATS[canonical];
-                if (POKEMON_TYPES[canonical])   POKEMON_TYPES[alias]   = POKEMON_TYPES[canonical];
+                if (POKEMON_STATS[canonical])    POKEMON_STATS[alias]    = POKEMON_STATS[canonical];
+                if (POKEMON_TYPES[canonical])    POKEMON_TYPES[alias]    = POKEMON_TYPES[canonical];
                 if (POKEMON_MOVESETS[canonical]) POKEMON_MOVESETS[alias] = POKEMON_MOVESETS[canonical];
+                if (EVOLUTIONS[canonical])       EVOLUTIONS[alias]       = EVOLUTIONS[canonical];
             }
 
             console.log(`[pokemon] loaded ${count} species from data/pokemon.json`);
@@ -480,21 +481,12 @@ async function onLeagueChange() {
     }
 }
 
-// Pre-load move stats and the default league rankings on page open.
+// Pre-load move stats and pokemon data on page open.
 // loadMoves() must complete before any battle simulation runs so that
-// move data from moves.csv is in place before the user clicks Analyze.
+// move data is in place before the user clicks Analyze.
+// Rankings are loaded separately via initLeagues() + onLeagueChange() in index.html.
 (async () => {
-    // Load move stats first — fast and silent; falls back to meta.js if CSV missing.
     await Promise.all([loadMoves(), loadPokemon()]);
-
-    // Then load rankings (shown to user via status indicator).
-    try {
-        await loadRankings('1500');
-        setRankStatusDisplay('ok', 'Rankings loaded ✓');
-    } catch (err) {
-        setRankStatusDisplay('err', 'Rankings unavailable — meta sorting disabled');
-        console.warn('Could not load GL rankings:', err);
-    }
 })();
 
 
@@ -1466,7 +1458,7 @@ function findRank1IVs(speciesId, cpCap) {
                         atkIv: a, defIv: d, staIv: s, level: lvl,
                         atk: (bAtk + a) * cpm,
                         def: (bDef + d) * cpm,
-                        hp:  Math.floor((bSta + s) * cpm),
+                        hp:  Math.max(10, Math.floor((bSta + s) * cpm)),
                     };
                 }
             }
@@ -1483,8 +1475,14 @@ function getRank1Stats(speciesId, cpCap) {
     return rank1Cache[key];
 }
 
+// Niantic's internal damage bonus constant (introduced 2019).
+// Stored as a 32-bit float in the game binary, so the precise value is
+// 1.2999999523162841796875, but 1.3 is equivalent for integer floor math.
+const PVP_BONUS = 1.3;
+
 /**
  * Compute PvP damage for one attack.
+ * Formula: floor(0.5 × power × (atk/def) × STAB × typeEff × 1.3) + 1
  * @param {number} power      Move power
  * @param {number} atkStat    Attacker's effective attack
  * @param {number} defStat    Defender's effective defense
@@ -1493,7 +1491,7 @@ function getRank1Stats(speciesId, cpCap) {
  * @returns {number} Damage dealt (minimum 1)
  */
 function pvpDamage(power, atkStat, defStat, stab, eff) {
-    return Math.floor(0.5 * power * (atkStat / defStat) * stab * eff) + 1;
+    return Math.floor(0.5 * power * (atkStat / defStat) * stab * eff * PVP_BONUS) + 1;
 }
 
 /**
@@ -1528,7 +1526,7 @@ function computeBreakpoints(row, cpCap, metaEntries) {
 
     const userAtk   = (bAtk + row.atkIv) * cpm * (row.shadow ? 1.2 : 1);
     const userDef   = (bDef + row.defIv) * cpm * (row.shadow ? 5/6 : 1);
-    const userHp    = Math.floor((bSta + (row.staIv || 0)) * cpm);
+    const userHp    = Math.max(10, Math.floor((bSta + (row.staIv || 0)) * cpm));
 
     // Rank-1 stats at the same CP cap (using pre-computed optimal level)
     const r1 = getRank1Stats(baseId, cpCap);
@@ -1629,7 +1627,9 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
     function clampStage(s) { return Math.max(-4, Math.min(4, s)); }
     function stageMult(s)  { return s >= 0 ? (3 + s) / 3 : 3 / (3 - s); }
 
-    function applyMoveEffects(moveId, userIsA) {
+    // shielded=true → self-buffs/debuffs still apply, opponent debuffs do NOT
+    // (matches GO PvP: shielding blocks debuff secondary effects)
+    function applyMoveEffects(moveId, userIsA, shielded) {
         const fx = typeof MOVE_EFFECTS !== 'undefined' ? MOVE_EFFECTS[moveId] : null;
         if (!fx) return;
         if (fx.chance < 1.0 && rand() >= fx.chance) return;
@@ -1641,7 +1641,7 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
             if (userIsA) { aAtkStage = clampStage(aAtkStage + fx.selfDebuff[0]); aDefStage = clampStage(aDefStage + fx.selfDebuff[1]); }
             else         { bAtkStage = clampStage(bAtkStage + fx.selfDebuff[0]); bDefStage = clampStage(bDefStage + fx.selfDebuff[1]); }
         }
-        if (fx.oppDebuff) {
+        if (fx.oppDebuff && !shielded) {
             if (userIsA) { bAtkStage = clampStage(bAtkStage + fx.oppDebuff[0]); bDefStage = clampStage(bDefStage + fx.oppDebuff[1]); }
             else         { aAtkStage = clampStage(aAtkStage + fx.oppDebuff[0]); aDefStage = clampStage(aDefStage + fx.oppDebuff[1]); }
         }
@@ -1649,7 +1649,7 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
 
     // ── Dynamic damage (recomputed each use to reflect current stat stages) ──
     function pvpDmg(pow, atkBase, atkStage, defBase, defStage, stab, eff) {
-        return Math.floor(0.5 * pow * (atkBase * stageMult(atkStage)) / (defBase * stageMult(defStage)) * stab * eff) + 1;
+        return Math.floor(0.5 * pow * (atkBase * stageMult(atkStage)) / (defBase * stageMult(defStage)) * stab * eff * PVP_BONUS) + 1;
     }
     function aFastDmg() { return pvpDmg(a.fast.pow, a.atk, aAtkStage, b.def, bDefStage, calcStab(a.fast.type, a.types), calcEff(a.fast.type, b.types)); }
     function bFastDmg() { return pvpDmg(b.fast.pow, b.atk, bAtkStage, a.def, aDefStage, calcStab(b.fast.type, b.types), calcEff(b.fast.type, a.types)); }
@@ -1703,31 +1703,43 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
     for (let turn = 0; turn < 500; turn++) {
         if (aHp <= 0 || bHp <= 0) break;
 
-        // ── Attacker charged move ────────────────────────────────────────────
-        if (aTurnCd === 0) {
-            const pick = pickChargedMove(aEnergy, a.charged1, aC1Dmg(), a.charged2, aC2Dmg(), bHp, bShields);
-            if (pick) {
-                aEnergy -= pick.nrg;
-                applyMoveEffects(pick.id, true); // stat effects fire even when shielded
-                if (bShields > 0) { bShields--; bHp -= 1; }
-                else { bHp -= pick.dmg; }
-            } else {
-                aTurnCd = a.fast.turns;
-            }
-        }
+        // ── Charged move phase ───────────────────────────────────────────────
+        // Both sides decide independently; if both fire on the same turn,
+        // CMP (Charge Move Priority) resolves by ATK stat — higher goes first.
+        const aPick = (aTurnCd === 0)
+            ? pickChargedMove(aEnergy, a.charged1, aC1Dmg(), a.charged2, aC2Dmg(), bHp, bShields)
+            : null;
+        const bPick = (bTurnCd === 0)
+            ? pickChargedMove(bEnergy, b.charged1, bC1Dmg(), b.charged2, bC2Dmg(), aHp, aShields)
+            : null;
 
-        // ── Defender charged move ────────────────────────────────────────────
-        if (bTurnCd === 0) {
-            const pick = pickChargedMove(bEnergy, b.charged1, bC1Dmg(), b.charged2, bC2Dmg(), aHp, aShields);
-            if (pick) {
-                bEnergy -= pick.nrg;
-                applyMoveEffects(pick.id, false);
-                if (aShields > 0) { aShields--; aHp -= 1; }
-                else { aHp -= pick.dmg; }
-            } else {
-                bTurnCd = b.fast.turns;
-            }
-        }
+        // CMP: when both fire simultaneously, higher-ATK Pokémon resolves first.
+        // Ties broken deterministically (a wins, matching PvPoke default).
+        const aFirst = !bPick || (aPick && a.atk >= b.atk);
+
+        const fireA = () => {
+            if (!aPick) return;
+            aEnergy -= aPick.nrg;
+            const shielded = bShields > 0;
+            applyMoveEffects(aPick.id, true, shielded);
+            if (shielded) { bShields--; bHp -= 1; }
+            else          { bHp -= aPick.dmg; }
+        };
+        const fireB = () => {
+            if (!bPick) return;
+            bEnergy -= bPick.nrg;
+            const shielded = aShields > 0;
+            applyMoveEffects(bPick.id, false, shielded);
+            if (shielded) { aShields--; aHp -= 1; }
+            else          { aHp -= bPick.dmg; }
+        };
+
+        if (aFirst) { fireA(); if (aHp > 0 && bHp > 0) fireB(); }
+        else        { fireB(); if (aHp > 0 && bHp > 0) fireA(); }
+
+        // If neither fired a charged move, use a fast move instead
+        if (!aPick && aTurnCd === 0) aTurnCd = a.fast.turns;
+        if (!bPick && bTurnCd === 0) bTurnCd = b.fast.turns;
 
         // ── Fast move completions ────────────────────────────────────────────
         if (aTurnCd > 0) {
