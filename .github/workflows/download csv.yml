@@ -20,18 +20,23 @@ jobs:
 
       - name: Download rankings CSVs and gamemaster JSON
         working-directory: process
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node download-csv.js
 
-      - name: Validate downloaded files
+      - name: Validate mandatory files
         run: |
-          echo "=== Rankings ==="
-          ls -lh process/downloads/
+          echo "=== Rankings (all downloaded) ==="
+          ls -lh wwwroot/csv/*.csv 2>/dev/null || echo "(none)"
+
+          echo ""
+          echo "=== Mandatory GL / UL rankings ==="
           for f in cp1500_all_overall_rankings.csv cp2500_all_overall_rankings.csv; do
-            if [ ! -f "process/downloads/$f" ]; then
-              echo "ERROR: Missing expected file: $f"
+            if [ ! -f "wwwroot/csv/$f" ]; then
+              echo "ERROR: Missing required file: wwwroot/csv/$f"
               exit 1
             fi
-            lines=$(wc -l < "process/downloads/$f")
+            lines=$(wc -l < "wwwroot/csv/$f")
             echo "$f: $lines lines"
             if [ "$lines" -lt 10 ]; then
               echo "ERROR: $f looks too short — download may have failed"
@@ -39,8 +44,16 @@ jobs:
             fi
           done
 
+          echo ""
+          echo "=== index.json ==="
+          if [ ! -f "wwwroot/csv/index.json" ]; then
+            echo "ERROR: Missing wwwroot/csv/index.json"
+            exit 1
+          fi
+          cat wwwroot/csv/index.json
+
+          echo ""
           echo "=== Gamemaster ==="
-          ls -lh wwwroot/data/
           for f in moves.json pokemon.json; do
             if [ ! -f "wwwroot/data/$f" ]; then
               echo "ERROR: Missing expected file: wwwroot/data/$f"
@@ -54,18 +67,11 @@ jobs:
             fi
           done
 
-      - name: Copy rankings CSVs to wwwroot/csv
-        run: |
-          mkdir -p wwwroot/csv
-          cp process/downloads/cp1500_all_overall_rankings.csv wwwroot/csv/
-          cp process/downloads/cp2500_all_overall_rankings.csv wwwroot/csv/
-
       - name: Commit and push updated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add wwwroot/csv/cp1500_all_overall_rankings.csv
-          git add wwwroot/csv/cp2500_all_overall_rankings.csv
+          git add wwwroot/csv/
           git add wwwroot/data/moves.json
           git add wwwroot/data/pokemon.json
           git diff --cached --quiet || git commit -m "chore: update PvPoke data [skip ci]"
