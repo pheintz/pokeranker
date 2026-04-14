@@ -1,0 +1,705 @@
+speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2
+medicham,Medicham,94,,,,,COUNTER,ICE_PUNCH,PSYCHIC
+stunfisk_galarian,Stunfisk (Galarian),93.7,,,,,MUD_SHOT,ROCK_SLIDE,EARTHQUAKE
+azumarill,Azumarill,93.2,,,,,BUBBLE,ICE_BEAM,HYDRO_PUMP
+jellicent,Jellicent,93,,,,,HEX,BUBBLE_BEAM,SHADOW_BALL
+altaria,Altaria,92.4,,,,,DRAGON_BREATH,SKY_ATTACK,MOONBLAST
+bastiodon,Bastiodon,92.2,,,,,SMACK_DOWN,STONE_EDGE,FLAMETHROWER
+azumarill_xs,Azumarill,92.1,,,,,BUBBLE,ICE_BEAM,HYDRO_PUMP
+registeel,Registeel,91.6,,,,,LOCK_ON,FOCUS_BLAST,FLASH_CANNON
+cresselia,Cresselia,91,,,,,PSYCHO_CUT,GRASS_KNOT,MOONBLAST
+sableye,Sableye,90.7,,,,,SHADOW_CLAW,FOUL_PLAY,RETURN
+machamp_shadow,Machamp (Shadow),90.5,,,,,COUNTER,CROSS_CHOP,ROCK_SLIDE
+skarmory,Skarmory,90.5,,,,,AIR_SLASH,BRAVE_BIRD,SKY_ATTACK
+swampert_shadow,Swampert (Shadow),90.5,,,,,MUD_SHOT,HYDRO_CANNON,SLUDGE_WAVE
+swampert,Swampert,90.4,,,,,MUD_SHOT,HYDRO_CANNON,SLUDGE_WAVE
+ninetales_alolan,Ninetales (Alolan),90.3,,,,,POWDER_SNOW,WEATHER_BALL_ICE,DAZZLING_GLEAM
+deoxys_defense,Deoxys (Defense),90.1,,,,,COUNTER,PSYCHO_BOOST,THUNDERBOLT
+politoed_shadow,Politoed (Shadow),90,,,,,MUD_SHOT,WEATHER_BALL_WATER,EARTHQUAKE
+scrafty,Scrafty,89.8,,,,,COUNTER,FOUL_PLAY,POWER_UP_PUNCH
+regirock,Regirock,89.5,,,,,LOCK_ON,STONE_EDGE,FOCUS_BLAST
+lickitung,Lickitung,89.2,,,,,LICK,BODY_SLAM,POWER_WHIP
+abomasnow_shadow,Abomasnow (Shadow),89.1,,,,,POWDER_SNOW,WEATHER_BALL_ICE,ENERGY_BALL
+medicham_xs,Medicham,89.1,,,,,COUNTER,ICE_PUNCH,PSYCHIC
+diggersby,Diggersby,89,,,,,MUD_SHOT,FIRE_PUNCH,EARTHQUAKE
+bastiodon_xs,Bastiodon,88.7,,,,,SMACK_DOWN,STONE_EDGE,FLAMETHROWER
+castform_rainy,Castform (Rainy),88.2,,,,,WATER_GUN,WEATHER_BALL_WATER,THUNDER
+politoed,Politoed,88.2,,,,,MUD_SHOT,WEATHER_BALL_WATER,EARTHQUAKE
+whiscash,Whiscash,88.1,,,,,MUD_SHOT,MUD_BOMB,BLIZZARD
+zweilous,Zweilous,88.1,,,,,DRAGON_BREATH,BODY_SLAM,DARK_PULSE
+dewgong,Dewgong,87.9,,,,,ICE_SHARD,ICY_WIND,WATER_PULSE
+wobbuffet,Wobbuffet,87.9,,,,,COUNTER,RETURN,MIRROR_COAT
+drifblim,Drifblim,87.8,,,,,HEX,ICY_WIND,SHADOW_BALL
+mandibuzz,Mandibuzz,87.8,,,,,SNARL,FOUL_PLAY,AERIAL_ACE
+skarmory_shadow,Skarmory (Shadow),87.7,,,,,AIR_SLASH,BRAVE_BIRD,SKY_ATTACK
+umbreon,Umbreon,87.7,,,,,SNARL,FOUL_PLAY,LAST_RESORT
+abomasnow,Abomasnow,87.6,,,,,POWDER_SNOW,WEATHER_BALL_ICE,ENERGY_BALL
+venusaur,Venusaur,87.4,,,,,VINE_WHIP,FRENZY_PLANT,SLUDGE_BOMB
+meganium,Meganium,87.3,,,,,VINE_WHIP,FRENZY_PLANT,EARTHQUAKE
+sableye_xs,Sableye,87.3,,,,,SHADOW_CLAW,FOUL_PLAY,RETURN
+nidoqueen_shadow,Nidoqueen (Shadow),87.2,,,,,POISON_JAB,POISON_FANG,EARTH_POWER
+pelipper,Pelipper,87.1,,,,,WING_ATTACK,WEATHER_BALL_WATER,HURRICANE
+pachirisu,Pachirisu,87,,,,,VOLT_SWITCH,THUNDER_PUNCH,THUNDERBOLT
+froslass,Froslass,86.9,,,,,POWDER_SNOW,AVALANCHE,SHADOW_BALL
+quagsire,Quagsire,86.9,,,,,MUD_SHOT,EARTHQUAKE,STONE_EDGE
+castform_snowy,Castform (Snowy),86.8,,,,,POWDER_SNOW,WEATHER_BALL_ICE,BLIZZARD
+lucario,Lucario,86.8,,,,,COUNTER,POWER_UP_PUNCH,SHADOW_BALL
+chesnaught,Chesnaught,86.7,,,,,VINE_WHIP,SUPER_POWER,ENERGY_BALL
+vigoroth,Vigoroth,86.7,,,,,COUNTER,BODY_SLAM,BULLDOZE
+machamp,Machamp,86.6,,,,,COUNTER,CROSS_CHOP,ROCK_SLIDE
+wigglytuff,Wigglytuff,86.6,,,,,CHARM,ICE_BEAM,PLAY_ROUGH
+beedrill_shadow,Beedrill (Shadow),86.4,,,,,POISON_JAB,X_SCISSOR,DRILL_RUN
+hitmontop,Hitmontop,86.4,,,,,COUNTER,CLOSE_COMBAT,STONE_EDGE
+sableye_shadow,Sableye (Shadow),86.4,,,,,SHADOW_CLAW,FOUL_PLAY,POWER_GEM
+tropius,Tropius,86.4,,,,,AIR_SLASH,LEAF_BLADE,AERIAL_ACE
+mew,Mew,86.3,,,,,SHADOW_CLAW,WILD_CHARGE,SURF
+magnezone_shadow,Magnezone (Shadow),86.1,,,,,SPARK,WILD_CHARGE,MIRROR_SHOT
+zapdos_shadow,Zapdos (Shadow),86.1,,,,,THUNDER_SHOCK,DRILL_PECK,THUNDERBOLT
+chansey,Chansey,86,,,,,POUND,PSYCHIC,HYPER_BEAM
+ferrothorn,Ferrothorn,85.9,,,,,BULLET_SEED,POWER_WHIP,THUNDER
+lanturn,Lanturn,85.9,,,,,SPARK,THUNDERBOLT,HYDRO_PUMP
+mantine,Mantine,85.9,,,,,BUBBLE,BUBBLE_BEAM,ICE_BEAM
+zapdos,Zapdos,85.9,,,,,THUNDER_SHOCK,DRILL_PECK,THUNDER
+venusaur_shadow,Venusaur (Shadow),85.8,,,,,VINE_WHIP,FRENZY_PLANT,SLUDGE_BOMB
+magnezone,Magnezone,85.7,,,,,SPARK,WILD_CHARGE,MIRROR_SHOT
+flygon_shadow,Flygon (Shadow),85.6,,,,,DRAGON_TAIL,DRAGON_CLAW,EARTH_POWER
+golbat_shadow,Golbat (Shadow),85.5,,,,,WING_ATTACK,POISON_FANG,SHADOW_BALL
+nidoqueen,Nidoqueen,85.5,,,,,POISON_JAB,POISON_FANG,EARTH_POWER
+falinks,Falinks,85.4,,,,,COUNTER,SUPER_POWER,MEGAHORN
+primeape,Primeape,85.4,,,,,COUNTER,NIGHT_SLASH,CLOSE_COMBAT
+steelix,Steelix,85.4,,,,,DRAGON_TAIL,EARTHQUAKE,CRUNCH
+empoleon,Empoleon,85.2,,,,,WATERFALL,HYDRO_CANNON,DRILL_PECK
+pidgeot,Pidgeot,85.2,,,,,GUST,FEATHER_DANCE,BRAVE_BIRD
+escavalier,Escavalier,85.1,,,,,COUNTER,DRILL_RUN,MEGAHORN
+clefable,Clefable,84.9,,,,,CHARM,MOONBLAST,METEOR_MASH
+serperior,Serperior,84.8,,,,,VINE_WHIP,FRENZY_PLANT,AERIAL_ACE
+raikou_shadow,Raikou (Shadow),84.7,,,,,THUNDER_SHOCK,WILD_CHARGE,SHADOW_BALL
+slurpuff,Slurpuff,84.7,,,,,CHARM,FLAMETHROWER,ENERGY_BALL
+talonflame,Talonflame,84.7,,,,,INCINERATE,BRAVE_BIRD,FLAME_CHARGE
+lapras,Lapras,84.6,,,,,ICE_SHARD,SURF,SKULL_BASH
+aromatisse,Aromatisse,84.5,,,,,CHARM,MOONBLAST,THUNDERBOLT
+hariyama,Hariyama,84.5,,,,,COUNTER,CLOSE_COMBAT,HEAVY_SLAM
+stunfisk,Stunfisk,84.5,,,,,THUNDER_SHOCK,MUD_BOMB,DISCHARGE
+granbull_shadow,Granbull (Shadow),84.4,,,,,CHARM,CLOSE_COMBAT,CRUNCH
+whimsicott,Whimsicott,84.4,,,,,CHARM,GRASS_KNOT,MOONBLAST
+gardevoir_shadow,Gardevoir (Shadow),84.3,,,,,CHARM,SYNCHRONOISE,SHADOW_BALL
+shiftry_shadow,Shiftry (Shadow),84.3,,,,,SNARL,LEAF_BLADE,FOUL_PLAY
+blastoise,Blastoise,84.2,,,,,WATER_GUN,HYDRO_CANNON,ICE_BEAM
+bellossom,Bellossom,84.1,,,,,BULLET_SEED,LEAF_BLADE,RETURN
+alomomola,Alomomola,84,,,,,WATERFALL,PSYCHIC,HYDRO_PUMP
+forretress,Forretress,84,,,,,BUG_BITE,EARTHQUAKE,MIRROR_SHOT
+lapras_shadow,Lapras (Shadow),84,,,,,ICE_SHARD,SURF,SKULL_BASH
+spritzee,Spritzee,83.9,,,,,CHARM,THUNDERBOLT,DRAINING_KISS
+sylveon,Sylveon,83.9,,,,,CHARM,MOONBLAST,PSYSHOCK
+cradily,Cradily,83.8,,,,,BULLET_SEED,GRASS_KNOT,STONE_EDGE
+electivire_shadow,Electivire (Shadow),83.8,,,,,THUNDER_SHOCK,ICE_PUNCH,WILD_CHARGE
+goodra,Goodra,83.8,,,,,DRAGON_BREATH,POWER_WHIP,MUDDY_WATER
+lugia,Lugia,83.8,,,,,DRAGON_TAIL,SKY_ATTACK,AEROBLAST
+sirfetchd,Sirfetch'd,83.8,,,,,COUNTER,LEAF_BLADE,NIGHT_SLASH
+obstagoon,Obstagoon,83.7,,,,,COUNTER,NIGHT_SLASH,GUNK_SHOT
+snorlax,Snorlax,83.7,,,,,LICK,BODY_SLAM,SUPER_POWER
+togekiss,Togekiss,83.7,,,,,CHARM,ANCIENT_POWER,FLAMETHROWER
+golbat,Golbat,83.6,,,,,WING_ATTACK,POISON_FANG,SHADOW_BALL
+shiftry,Shiftry,83.5,,,,,SNARL,LEAF_BLADE,FOUL_PLAY
+articuno,Articuno,83.4,,,,,ICE_SHARD,ICY_WIND,HURRICANE
+hariyama_shadow,Hariyama (Shadow),83.3,,,,,COUNTER,CLOSE_COMBAT,HEAVY_SLAM
+munchlax,Munchlax,83.3,,,,,LICK,BODY_SLAM,BULLDOZE
+regice,Regice,83.3,,,,,LOCK_ON,BLIZZARD,EARTHQUAKE
+bellossom_shadow,Bellossom (Shadow),83.1,,,,,BULLET_SEED,LEAF_BLADE,DAZZLING_GLEAM
+machoke_shadow,Machoke (Shadow),83.1,,,,,KARATE_CHOP,CROSS_CHOP,DYNAMIC_PUNCH
+melmetal,Melmetal,83.1,,,,,THUNDER_SHOCK,SUPER_POWER,ROCK_SLIDE
+grimer_alolan,Grimer (Alolan),83,,,,,POISON_JAB,CRUNCH,SLUDGE_BOMB
+jumpluff_shadow,Jumpluff (Shadow),83,,,,,BULLET_SEED,ENERGY_BALL,AERIAL_ACE
+machoke,Machoke,83,,,,,KARATE_CHOP,CROSS_CHOP,DYNAMIC_PUNCH
+poliwrath_shadow,Poliwrath (Shadow),83,,,,,MUD_SHOT,DYNAMIC_PUNCH,ICE_PUNCH
+seaking,Seaking,83,,,,,POISON_JAB,DRILL_RUN,ICY_WIND
+snorlax_shadow,Snorlax (Shadow),83,,,,,LICK,BODY_SLAM,SUPER_POWER
+electivire,Electivire,82.9,,,,,THUNDER_SHOCK,ICE_PUNCH,WILD_CHARGE
+galvantula,Galvantula,82.9,,,,,VOLT_SWITCH,DISCHARGE,LUNGE
+hypno,Hypno,82.9,,,,,CONFUSION,SHADOW_BALL,THUNDER_PUNCH
+raikou,Raikou,82.9,,,,,THUNDER_SHOCK,WILD_CHARGE,SHADOW_BALL
+sealeo_shadow,Sealeo (Shadow),82.9,,,,,POWDER_SNOW,BODY_SLAM,AURORA_BEAM
+blastoise_shadow,Blastoise (Shadow),82.8,,,,,WATER_GUN,HYDRO_CANNON,ICE_BEAM
+dragonite_shadow,Dragonite (Shadow),82.8,,,,,DRAGON_BREATH,DRAGON_CLAW,HURRICANE
+quagsire_shadow,Quagsire (Shadow),82.8,,,,,MUD_SHOT,EARTHQUAKE,STONE_EDGE
+beedrill,Beedrill,82.7,,,,,POISON_JAB,X_SCISSOR,DRILL_RUN
+gliscor,Gliscor,82.7,,,,,WING_ATTACK,EARTHQUAKE,NIGHT_SLASH
+skuntank_shadow,Skuntank (Shadow),82.7,,,,,POISON_JAB,CRUNCH,FLAMETHROWER
+toxicroak,Toxicroak,82.5,,,,,COUNTER,MUD_BOMB,SLUDGE_BOMB
+hitmonchan_shadow,Hitmonchan (Shadow),82.4,,,,,COUNTER,ICE_PUNCH,THUNDER_PUNCH
+skuntank,Skuntank,82.4,,,,,POISON_JAB,CRUNCH,SLUDGE_BOMB
+suicune,Suicune,82.4,,,,,SNARL,BUBBLE_BEAM,HYDRO_PUMP
+roserade,Roserade,82.3,,,,,BULLET_SEED,WEATHER_BALL_FIRE,LEAF_STORM
+tangrowth_shadow,Tangrowth (Shadow),82.3,,,,,VINE_WHIP,POWER_WHIP,ROCK_SLIDE
+lickilicky,Lickilicky,82.1,,,,,LICK,BODY_SLAM,SHADOW_BALL
+dragonair_shadow,Dragonair (Shadow),81.9,,,,,DRAGON_BREATH,AQUA_TAIL,DRAGON_PULSE
+drapion_shadow,Drapion (Shadow),81.9,,,,,POISON_STING,AQUA_TAIL,SLUDGE_BOMB
+marshtomp_shadow,Marshtomp (Shadow),81.9,,,,,MUD_SHOT,SURF,MUD_BOMB
+quilladin,Quilladin,81.9,,,,,VINE_WHIP,BODY_SLAM,ENERGY_BALL
+sandslash_alolan,Sandslash (Alolan),81.9,,,,,POWDER_SNOW,ICE_PUNCH,BULLDOZE
+dragalge,Dragalge,81.6,,,,,DRAGON_TAIL,AQUA_TAIL,GUNK_SHOT
+noctowl,Noctowl,81.6,,,,,WING_ATTACK,SKY_ATTACK,PSYCHIC
+zangoose,Zangoose,81.6,,,,,SHADOW_CLAW,CLOSE_COMBAT,NIGHT_SLASH
+castform,Castform,81.5,,,,,HEX,WEATHER_BALL_ROCK,ENERGY_BALL
+dragonair,Dragonair,81.5,,,,,DRAGON_BREATH,AQUA_TAIL,RETURN
+hitmonchan,Hitmonchan,81.4,,,,,COUNTER,ICE_PUNCH,THUNDER_PUNCH
+sceptile,Sceptile,81.4,,,,,BULLET_SEED,LEAF_BLADE,EARTHQUAKE
+sealeo,Sealeo,81.4,,,,,POWDER_SNOW,BODY_SLAM,AURORA_BEAM
+tangrowth,Tangrowth,81.4,,,,,VINE_WHIP,POWER_WHIP,ROCK_SLIDE
+heracross,Heracross,81.3,,,,,COUNTER,CLOSE_COMBAT,MEGAHORN
+ivysaur,Ivysaur,81.3,,,,,VINE_WHIP,POWER_WHIP,SLUDGE_BOMB
+gengar,Gengar,81.2,,,,,SHADOW_CLAW,SHADOW_BALL,SHADOW_PUNCH
+marowak_alolan,Marowak (Alolan),81.2,,,,,FIRE_SPIN,SHADOW_BONE,BONE_CLUB
+qwilfish,Qwilfish,81.2,,,,,POISON_STING,AQUA_TAIL,SLUDGE_WAVE
+flygon,Flygon,81.1,,,,,MUD_SHOT,DRAGON_CLAW,EARTH_POWER
+gastrodon_east_sea,Gastrodon (East),81.1,,,,,MUD_SLAP,BODY_SLAM,EARTH_POWER
+gastrodon_west_sea,Gastrodon (West),81.1,,,,,MUD_SLAP,BODY_SLAM,EARTH_POWER
+gliscor_shadow,Gliscor (Shadow),81.1,,,,,WING_ATTACK,EARTHQUAKE,NIGHT_SLASH
+poliwrath,Poliwrath,81.1,,,,,MUD_SHOT,DYNAMIC_PUNCH,ICE_PUNCH
+excadrill,Excadrill,81,,,,,MUD_SHOT,DRILL_RUN,ROCK_SLIDE
+jumpluff,Jumpluff,81,,,,,BULLET_SEED,ENERGY_BALL,AERIAL_ACE
+marshtomp,Marshtomp,81,,,,,MUD_SHOT,SURF,MUD_BOMB
+muk_alolan,Muk (Alolan),81,,,,,SNARL,DARK_PULSE,SLUDGE_WAVE
+perrserker,Perrserker,81,,,,,SHADOW_CLAW,CLOSE_COMBAT,FOUL_PLAY
+vullaby,Vullaby,81,,,,,AIR_SLASH,BRAVE_BIRD,FOUL_PLAY
+cradily_shadow,Cradily (Shadow),80.8,,,,,BULLET_SEED,STONE_EDGE,GRASS_KNOT
+dragonite,Dragonite,80.8,,,,,DRAGON_BREATH,DRAGON_CLAW,HURRICANE
+grimer_shadow,Grimer (Shadow),80.8,,,,,POISON_JAB,MUD_BOMB,SLUDGE_BOMB
+ludicolo,Ludicolo,80.8,,,,,BUBBLE,ICE_BEAM,LEAF_STORM
+probopass,Probopass,80.8,,,,,SPARK,ROCK_SLIDE,THUNDERBOLT
+castform_sunny,Castform (Sunny),80.7,,,,,EMBER,WEATHER_BALL_FIRE,SOLAR_BEAM
+drapion,Drapion,80.7,,,,,POISON_STING,AQUA_TAIL,SLUDGE_BOMB
+forretress_shadow,Forretress (Shadow),80.7,,,,,BUG_BITE,EARTHQUAKE,MIRROR_SHOT
+granbull,Granbull,80.7,,,,,CHARM,CLOSE_COMBAT,CRUNCH
+gyarados_shadow,Gyarados (Shadow),80.7,,,,,WATERFALL,AQUA_TAIL,CRUNCH
+raichu,Raichu,80.7,,,,,VOLT_SWITCH,WILD_CHARGE,THUNDER_PUNCH
+zebstrika,Zebstrika,80.7,,,,,SPARK,WILD_CHARGE,FLAME_CHARGE
+linoone,Linoone,80.6,,,,,SHADOW_CLAW,GRASS_KNOT,THUNDER
+blaziken,Blaziken,80.5,,,,,COUNTER,BLAZE_KICK,STONE_EDGE
+servine,Servine,80.5,,,,,VINE_WHIP,GRASS_KNOT,WRAP
+muk_shadow,Muk (Shadow),80.4,,,,,POISON_JAB,THUNDER_PUNCH,DARK_PULSE
+dusclops_shadow,Dusclops (Shadow),80.3,,,,,HEX,SHADOW_PUNCH,ICE_PUNCH
+gligar,Gligar,80.2,,,,,WING_ATTACK,NIGHT_SLASH,RETURN
+ivysaur_shadow,Ivysaur (Shadow),80.1,,,,,VINE_WHIP,POWER_WHIP,SLUDGE_BOMB
+greedent,Greedent,80,,,,,BULLET_SEED,BODY_SLAM,CRUNCH
+dusclops,Dusclops,79.8,,,,,HEX,FIRE_PUNCH,RETURN
+drifloon,Drifloon,79.7,,,,,HEX,ICY_WIND,SHADOW_BALL
+honchkrow,Honchkrow,79.7,,,,,SNARL,BRAVE_BIRD,SKY_ATTACK
+pangoro,Pangoro,79.7,,,,,SNARL,CLOSE_COMBAT,NIGHT_SLASH
+vaporeon,Vaporeon,79.7,,,,,WATER_GUN,AQUA_TAIL,LAST_RESORT
+haunter,Haunter,79.6,,,,,SHADOW_CLAW,SHADOW_PUNCH,SHADOW_BALL
+ninetales_shadow,Ninetales (Shadow),79.6,,,,,FIRE_SPIN,WEATHER_BALL_FIRE,PSYSHOCK
+gardevoir,Gardevoir,79.5,,,,,CHARM,SYNCHRONOISE,SHADOW_BALL
+bronzong,Bronzong,79.4,,,,,CONFUSION,PSYSHOCK,PAYBACK
+farfetchd_galarian,Farfetch'd (Galarian),79.4,,,,,FURY_CUTTER,LEAF_BLADE,BRAVE_BIRD
+milotic,Milotic,79.4,,,,,DRAGON_TAIL,SURF,BLIZZARD
+barbaracle,Barbaracle,79.3,,,,,FURY_CUTTER,STONE_EDGE,CROSS_CHOP
+grotle_shadow,Grotle (Shadow),79.3,,,,,RAZOR_LEAF,BODY_SLAM,ENERGY_BALL
+raichu_alolan,Raichu (Alolan),79.3,,,,,VOLT_SWITCH,WILD_CHARGE,GRASS_KNOT
+suicune_shadow,Suicune (Shadow),79.3,,,,,SNARL,BUBBLE_BEAM,HYDRO_PUMP
+pinsir_shadow,Pinsir (Shadow),79.2,,,,,FURY_CUTTER,CLOSE_COMBAT,X_SCISSOR
+nidorina_shadow,Nidorina (Shadow),79.1,,,,,POISON_STING,POISON_FANG,SLUDGE_BOMB
+gallade_shadow,Gallade (Shadow),79,,,,,CONFUSION,CLOSE_COMBAT,LEAF_BLADE
+articuno_shadow,Articuno (Shadow),78.9,,,,,ICE_SHARD,ICY_WIND,HURRICANE
+charizard_shadow,Charizard (Shadow),78.9,,,,,FIRE_SPIN,BLAST_BURN,DRAGON_CLAW
+gloom_shadow,Gloom (Shadow),78.9,,,,,RAZOR_LEAF,SLUDGE_BOMB,MOONBLAST
+grimer,Grimer,78.9,,,,,POISON_JAB,MUD_BOMB,SLUDGE_BOMB
+probopass_shadow,Probopass (Shadow),78.9,,,,,SPARK,ROCK_SLIDE,THUNDERBOLT
+sudowoodo,Sudowoodo,78.9,,,,,COUNTER,ROCK_SLIDE,EARTHQUAKE
+golem_alolan,Golem (Alolan),78.8,,,,,VOLT_SWITCH,WILD_CHARGE,ROCK_BLAST
+leafeon,Leafeon,78.8,,,,,BULLET_SEED,LEAF_BLADE,LAST_RESORT
+muk,Muk,78.8,,,,,POISON_JAB,THUNDER_PUNCH,DARK_PULSE
+bibarel,Bibarel,78.7,,,,,WATER_GUN,SURF,HYPER_FANG
+jirachi,Jirachi,78.7,,,,,CONFUSION,DOOM_DESIRE,PSYCHIC
+ninetales,Ninetales,78.7,,,,,FIRE_SPIN,WEATHER_BALL_FIRE,SOLAR_BEAM
+sandshrew_alolan,Sandshrew (Alolan),78.7,,,,,POWDER_SNOW,NIGHT_SLASH,BLIZZARD
+seviper,Seviper,78.7,,,,,POISON_JAB,POISON_FANG,CRUNCH
+gyarados,Gyarados,78.6,,,,,WATERFALL,AQUA_TAIL,CRUNCH
+cherrim_sunny,Cherrim (Sunshine),78.5,,,,,BULLET_SEED,WEATHER_BALL_FIRE,SOLAR_BEAM
+charizard,Charizard,78.4,,,,,FIRE_SPIN,BLAST_BURN,DRAGON_CLAW
+bibarel_shadow,Bibarel (Shadow),78.3,,,,,WATER_GUN,SURF,HYPER_FANG
+crobat,Crobat,78.3,,,,,AIR_SLASH,POISON_FANG,SHADOW_BALL
+wailmer,Wailmer,78.2,,,,,WATER_GUN,BODY_SLAM,HEAVY_SLAM
+grotle,Grotle,78.1,,,,,RAZOR_LEAF,BODY_SLAM,ENERGY_BALL
+hypno_shadow,Hypno (Shadow),78.1,,,,,CONFUSION,THUNDER_PUNCH,FIRE_PUNCH
+piloswine,Piloswine,78.1,,,,,POWDER_SNOW,AVALANCHE,BULLDOZE
+victreebel_shadow,Victreebel (Shadow),78.1,,,,,RAZOR_LEAF,LEAF_BLADE,ACID_SPRAY
+crobat_shadow,Crobat (Shadow),78,,,,,AIR_SLASH,POISON_FANG,SHADOW_BALL
+graveler_alolan,Graveler (Alolan),78,,,,,VOLT_SWITCH,STONE_EDGE,ROCK_BLAST
+magneton_shadow,Magneton (Shadow),78,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE
+gligar_shadow,Gligar (Shadow),77.9,,,,,WING_ATTACK,NIGHT_SLASH,DIG
+bayleef,Bayleef,77.7,,,,,RAZOR_LEAF,GRASS_KNOT,ANCIENT_POWER
+feraligatr,Feraligatr,77.7,,,,,WATER_GUN,HYDRO_CANNON,CRUNCH
+pinsir,Pinsir,77.6,,,,,FURY_CUTTER,CLOSE_COMBAT,X_SCISSOR
+typhlosion,Typhlosion,77.6,,,,,INCINERATE,BLAST_BURN,SOLAR_BEAM
+wormadam_trash,Wormadam (Trash),77.6,,,,,CONFUSION,IRON_HEAD,BUG_BUZZ
+prinplup,Prinplup,77.5,,,,,BUBBLE,ICY_WIND,HYDRO_PUMP
+electabuzz_shadow,Electabuzz (Shadow),77.4,,,,,THUNDER_SHOCK,THUNDER_PUNCH,THUNDERBOLT
+gallade,Gallade,77.4,,,,,CONFUSION,CLOSE_COMBAT,LEAF_BLADE
+glalie,Glalie,77.4,,,,,ICE_SHARD,AVALANCHE,SHADOW_BALL
+relicanth,Relicanth,77.4,,,,,WATER_GUN,AQUA_TAIL,ANCIENT_POWER
+bonsly,Bonsly,77.3,,,,,COUNTER,ROCK_SLIDE,EARTHQUAKE
+grovyle,Grovyle,77.3,,,,,BULLET_SEED,LEAF_BLADE,AERIAL_ACE
+nidorina,Nidorina,77.3,,,,,POISON_STING,POISON_FANG,RETURN
+honchkrow_shadow,Honchkrow (Shadow),77.2,,,,,SNARL,BRAVE_BIRD,SKY_ATTACK
+venomoth_shadow,Venomoth (Shadow),77.2,,,,,INFESTATION,POISON_FANG,BUG_BUZZ
+vespiquen,Vespiquen,77.2,,,,,FURY_CUTTER,X_SCISSOR,POWER_GEM
+emolga,Emolga,77.1,,,,,THUNDER_SHOCK,DISCHARGE,AERIAL_ACE
+magmar_shadow,Magmar (Shadow),77.1,,,,,KARATE_CHOP,FIRE_PUNCH,FLAMETHROWER
+tirtouga,Tirtouga,77.1,,,,,WATER_GUN,SURF,BODY_SLAM
+magnemite_shadow,Magnemite (Shadow),77,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE
+vileplume_shadow,Vileplume (Shadow),77,,,,,RAZOR_LEAF,SLUDGE_BOMB,MOONBLAST
+wailord,Wailord,77,,,,,WATER_GUN,SURF,BLIZZARD
+magneton,Magneton,76.8,,,,,THUNDER_SHOCK,DISCHARGE,MAGNET_BOMB
+scolipede,Scolipede,76.8,,,,,POISON_JAB,X_SCISSOR,SLUDGE_BOMB
+latios,Latios,76.6,,,,,DRAGON_BREATH,DRAGON_CLAW,PSYCHIC
+nidorino_shadow,Nidorino (Shadow),76.6,,,,,POISON_JAB,SLUDGE_BOMB,HORN_ATTACK
+shelgon,Shelgon,76.5,,,,,DRAGON_BREATH,FLAMETHROWER,TWISTER
+venomoth,Venomoth,76.5,,,,,INFESTATION,POISON_FANG,BUG_BUZZ
+carnivine,Carnivine,76.4,,,,,VINE_WHIP,POWER_WHIP,CRUNCH
+leavanny,Leavanny,76.4,,,,,RAZOR_LEAF,LEAF_BLADE,X_SCISSOR
+scizor_shadow,Scizor (Shadow),76.4,,,,,BULLET_PUNCH,NIGHT_SLASH,IRON_HEAD
+ariados,Ariados,76.3,,,,,POISON_STING,CROSS_POISON,LUNGE
+eelektross,Eelektross,76.3,,,,,SPARK,DRAGON_CLAW,THUNDERBOLT
+linoone_galarian,Linoone (Galarian),76.3,,,,,SNARL,BODY_SLAM,GUNK_SHOT
+rapidash_galarian,Rapidash (Galarian),76.3,,,,,PSYCHO_CUT,BODY_SLAM,PLAY_ROUGH
+torterra_shadow,Torterra (Shadow),76.3,,,,,RAZOR_LEAF,FRENZY_PLANT,STONE_EDGE
+ampharos,Ampharos,76.2,,,,,VOLT_SWITCH,THUNDER_PUNCH,FOCUS_BLAST
+piloswine_shadow,Piloswine (Shadow),76.2,,,,,POWDER_SNOW,AVALANCHE,BULLDOZE
+electrode,Electrode,76.1,,,,,VOLT_SWITCH,FOUL_PLAY,THUNDERBOLT
+ho_oh,Ho-Oh,76.1,,,,,INCINERATE,BRAVE_BIRD,EARTHQUAKE
+mawile,Mawile,76.1,,,,,FIRE_FANG,POWER_UP_PUNCH,PLAY_ROUGH
+palpitoad,Palpitoad,76,,,,,MUD_SHOT,EARTH_POWER,SLUDGE_WAVE
+seismitoad,Seismitoad,76,,,,,MUD_SHOT,EARTH_POWER,SLUDGE_BOMB
+magmortar_shadow,Magmortar (Shadow),75.9,,,,,KARATE_CHOP,FIRE_PUNCH,THUNDERBOLT
+minun,Minun,75.9,,,,,SPARK,THUNDERBOLT,GRASS_KNOT
+ampharos_shadow,Ampharos (Shadow),75.8,,,,,VOLT_SWITCH,THUNDER_PUNCH,FOCUS_BLAST
+wobbuffet_shadow,Wobbuffet (Shadow),75.7,,,,,COUNTER,MIRROR_COAT,FRUSTRATION
+crustle,Crustle,75.6,,,,,FURY_CUTTER,ROCK_SLIDE,X_SCISSOR
+machop,Machop,75.6,,,,,KARATE_CHOP,CROSS_CHOP,RETURN
+magnemite,Magnemite,75.6,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE
+delcatty,Delcatty,75.5,,,,,CHARM,WILD_CHARGE,DISARMING_VOICE
+lileep,Lileep,75.5,,,,,BULLET_SEED,GRASS_KNOT,ANCIENT_POWER
+tentacruel,Tentacruel,75.5,,,,,POISON_JAB,ACID_SPRAY,HYDRO_PUMP
+vileplume,Vileplume,75.5,,,,,RAZOR_LEAF,SLUDGE_BOMB,PETAL_BLIZZARD
+victini,Victini,75.4,,,,,CONFUSION,V_CREATE,PSYCHIC
+fraxure,Fraxure,75.3,,,,,DRAGON_TAIL,DRAGON_CLAW,NIGHT_SLASH
+spiritomb,Spiritomb,75.3,,,,,SUCKER_PUNCH,SHADOW_BALL,OMINOUS_WIND
+mantyke,Mantyke,75.2,,,,,BUBBLE,AERIAL_ACE,ICE_BEAM
+gurdurr,Gurdurr,75.1,,,,,POISON_JAB,BRICK_BREAK,STONE_EDGE
+mawile_shadow,Mawile (Shadow),75.1,,,,,FIRE_FANG,POWER_UP_PUNCH,PLAY_ROUGH
+carracosta,Carracosta,75,,,,,WATER_GUN,SURF,BODY_SLAM
+dugtrio,Dugtrio,75,,,,,MUD_SHOT,MUD_BOMB,STONE_EDGE
+conkeldurr,Conkeldurr,74.9,,,,,COUNTER,DYNAMIC_PUNCH,STONE_EDGE
+genesect,Genesect,74.9,,,,,FURY_CUTTER,X_SCISSOR,MAGNET_BOMB
+klang,Klang,74.9,,,,,THUNDER_SHOCK,THUNDERBOLT,VICE_GRIP
+swalot,Swalot,74.9,,,,,INFESTATION,SLUDGE_BOMB,ICE_BEAM
+bouffalant,Bouffalant,74.8,,,,,MUD_SHOT,STOMP,EARTHQUAKE
+golduck,Golduck,74.8,,,,,WATER_GUN,CROSS_CHOP,ICE_BEAM
+scizor,Scizor,74.8,,,,,BULLET_PUNCH,X_SCISSOR,IRON_HEAD
+krookodile,Krookodile,74.7,,,,,SNARL,CRUNCH,EARTHQUAKE
+chinchou,Chinchou,74.6,,,,,SPARK,THUNDERBOLT,BUBBLE_BEAM
+gloom,Gloom,74.5,,,,,RAZOR_LEAF,SLUDGE_BOMB,MOONBLAST
+raticate_alolan,Raticate (Alolan),74.5,,,,,QUICK_ATTACK,CRUNCH,HYPER_FANG
+victreebel,Victreebel,74.5,,,,,RAZOR_LEAF,LEAF_BLADE,ACID_SPRAY
+poliwhirl_shadow,Poliwhirl (Shadow),74.4,,,,,MUD_SHOT,MUD_BOMB,SCALD
+haxorus,Haxorus,74.3,,,,,COUNTER,DRAGON_CLAW,NIGHT_SLASH
+ledian,Ledian,74.3,,,,,BUG_BITE,AERIAL_ACE,BUG_BUZZ
+luxio,Luxio,74.3,,,,,SPARK,WILD_CHARGE,CRUNCH
+poliwhirl,Poliwhirl,74.3,,,,,MUD_SHOT,MUD_BOMB,SCALD
+farfetchd,Farfetch'd,74.2,,,,,FURY_CUTTER,LEAF_BLADE,AERIAL_ACE
+golduck_shadow,Golduck (Shadow),74.2,,,,,WATER_GUN,CROSS_CHOP,ICE_BEAM
+nidorino,Nidorino,74.2,,,,,POISON_JAB,SLUDGE_BOMB,HORN_ATTACK
+uxie,Uxie,74.1,,,,,CONFUSION,FUTURE_SIGHT,THUNDER
+croconaw,Croconaw,74,,,,,WATER_GUN,ICE_PUNCH,CRUNCH
+luxray,Luxray,73.9,,,,,SPARK,WILD_CHARGE,CRUNCH
+ursaring,Ursaring,73.9,,,,,SHADOW_CLAW,CLOSE_COMBAT,PLAY_ROUGH
+electabuzz,Electabuzz,73.7,,,,,THUNDER_SHOCK,THUNDER_PUNCH,RETURN
+tangela,Tangela,73.7,,,,,VINE_WHIP,GRASS_KNOT,SLUDGE_BOMB
+omastar_shadow,Omastar (Shadow),73.6,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST
+kingdra,Kingdra,73.5,,,,,DRAGON_BREATH,OUTRAGE,OCTAZOOKA
+ursaring_shadow,Ursaring (Shadow),73.5,,,,,SHADOW_CLAW,CLOSE_COMBAT,PLAY_ROUGH
+banette,Banette,73.3,,,,,SHADOW_CLAW,SHADOW_BALL,THUNDER
+corsola,Corsola,73.3,,,,,BUBBLE,ROCK_BLAST,BUBBLE_BEAM
+cloyster,Cloyster,73.2,,,,,ICE_SHARD,ICY_WIND,HYDRO_PUMP
+dewott,Dewott,73.2,,,,,FURY_CUTTER,AQUA_TAIL,X_SCISSOR
+durant,Durant,73.2,,,,,BUG_BITE,X_SCISSOR,STONE_EDGE
+ho_oh_shadow,Ho-Oh (Shadow),73.2,,,,,INCINERATE,BRAVE_BIRD,EARTHQUAKE
+klinklang,Klinklang,73.2,,,,,THUNDER_SHOCK,MIRROR_SHOT,ZAP_CANNON
+oddish_shadow,Oddish (Shadow),73.2,,,,,RAZOR_LEAF,SEED_BOMB,SLUDGE_BOMB
+scraggy,Scraggy,73.2,,,,,FEINT_ATTACK,FOUL_PLAY,BRICK_BREAK
+simisage,Simisage,73.2,,,,,VINE_WHIP,GRASS_KNOT,CRUNCH
+lileep_shadow,Lileep (Shadow),73.1,,,,,INFESTATION,GRASS_KNOT,ANCIENT_POWER
+crawdaunt,Crawdaunt,73,,,,,SNARL,NIGHT_SLASH,CRABHAMMER
+marowak_shadow,Marowak (Shadow),72.8,,,,,MUD_SLAP,BONE_CLUB,EARTHQUAKE
+mewtwo_shadow,Mewtwo (Shadow),72.8,,,,,PSYCHO_CUT,PSYSTRIKE,THUNDERBOLT
+nuzleaf_shadow,Nuzleaf (Shadow),72.8,,,,,FEINT_ATTACK,LEAF_BLADE,FOUL_PLAY
+rufflet,Rufflet,72.8,,,,,WING_ATTACK,BRAVE_BIRD,AERIAL_ACE
+sliggoo,Sliggoo,72.8,,,,,WATER_GUN,MUDDY_WATER,DRAGON_PULSE
+infernape,Infernape,72.7,,,,,FIRE_SPIN,CLOSE_COMBAT,BLAST_BURN
+mamoswine_shadow,Mamoswine (Shadow),72.7,,,,,POWDER_SNOW,AVALANCHE,BULLDOZE
+slowbro_galarian,Slowbro (Galarian),72.7,,,,,POISON_JAB,SLUDGE_BOMB,FOCUS_BLAST
+geodude_alolan,Geodude (Alolan),72.6,,,,,VOLT_SWITCH,ROCK_SLIDE,THUNDERBOLT
+torterra,Torterra,72.6,,,,,RAZOR_LEAF,FRENZY_PLANT,STONE_EDGE
+turtwig_shadow,Turtwig (Shadow),72.6,,,,,RAZOR_LEAF,BODY_SLAM,SEED_BOMB
+exeggutor_alolan,Exeggutor (Alolan),72.5,,,,,DRAGON_TAIL,SEED_BOMB,DRAGON_PULSE
+pawniard,Pawniard,72.5,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR
+wartortle,Wartortle,72.5,,,,,WATER_GUN,ICE_BEAM,HYDRO_PUMP
+manectric_shadow,Manectric (Shadow),72.4,,,,,SNARL,WILD_CHARGE,FLAME_BURST
+marowak,Marowak,72.4,,,,,MUD_SLAP,BONE_CLUB,EARTHQUAKE
+porygon2_shadow,Porygon2 (Shadow),72.4,,,,,LOCK_ON,TRI_ATTACK,ZAP_CANNON
+manectric,Manectric,72.3,,,,,SNARL,WILD_CHARGE,FLAME_BURST
+magmortar,Magmortar,72.2,,,,,KARATE_CHOP,FIRE_PUNCH,THUNDERBOLT
+tangela_shadow,Tangela (Shadow),72.2,,,,,VINE_WHIP,GRASS_KNOT,SLUDGE_BOMB
+charmeleon_shadow,Charmeleon (Shadow),72,,,,,EMBER,FIRE_PUNCH,FLAMETHROWER
+machop_shadow,Machop (Shadow),72,,,,,KARATE_CHOP,CROSS_CHOP,BRICK_BREAK
+mamoswine,Mamoswine,72,,,,,POWDER_SNOW,AVALANCHE,BULLDOZE
+bisharp,Bisharp,71.9,,,,,SNARL,DARK_PULSE,X_SCISSOR
+cloyster_shadow,Cloyster (Shadow),71.9,,,,,ICE_SHARD,ICY_WIND,HYDRO_PUMP
+moltres,Moltres,71.9,,,,,FIRE_SPIN,SKY_ATTACK,OVERHEAT
+nuzleaf,Nuzleaf,71.9,,,,,FEINT_ATTACK,LEAF_BLADE,FOUL_PLAY
+swellow,Swellow,71.9,,,,,WING_ATTACK,BRAVE_BIRD,SKY_ATTACK
+greninja,Greninja,71.8,,,,,BUBBLE,NIGHT_SLASH,SURF
+porygon2,Porygon2,71.8,,,,,LOCK_ON,TRI_ATTACK,ZAP_CANNON
+houndoom_shadow,Houndoom (Shadow),71.7,,,,,SNARL,CRUNCH,FLAMETHROWER
+kingler,Kingler,71.7,,,,,MUD_SHOT,CRABHAMMER,X_SCISSOR
+banette_shadow,Banette (Shadow),71.6,,,,,SHADOW_CLAW,SHADOW_BALL,THUNDER
+graveler,Graveler,71.6,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST
+aggron_shadow,Aggron (Shadow),71.5,,,,,SMACK_DOWN,STONE_EDGE,HEAVY_SLAM
+rayquaza,Rayquaza,71.5,,,,,DRAGON_TAIL,OUTRAGE,AERIAL_ACE
+fletchinder,Fletchinder,71.4,,,,,EMBER,FLAME_CHARGE,AERIAL_ACE
+growlithe_shadow,Growlithe (Shadow),71.4,,,,,EMBER,BODY_SLAM,FLAMETHROWER
+moltres_shadow,Moltres (Shadow),71.4,,,,,FIRE_SPIN,SKY_ATTACK,OVERHEAT
+alakazam,Alakazam,71.3,,,,,COUNTER,FIRE_PUNCH,SHADOW_BALL
+latias,Latias,71.3,,,,,DRAGON_BREATH,OUTRAGE,PSYCHIC
+dunsparce,Dunsparce,71.2,,,,,BITE,DRILL_RUN,ROCK_SLIDE
+litleo,Litleo,71.1,,,,,EMBER,FLAME_CHARGE,CRUNCH
+garchomp,Garchomp,71,,,,,DRAGON_TAIL,SAND_TOMB,OUTRAGE
+lombre,Lombre,71,,,,,BUBBLE,GRASS_KNOT,ICE_BEAM
+torkoal,Torkoal,71,,,,,FIRE_SPIN,OVERHEAT,EARTHQUAKE
+kingdra_shadow,Kingdra (Shadow),70.9,,,,,DRAGON_BREATH,OUTRAGE,OCTAZOOKA
+alakazam_shadow,Alakazam (Shadow),70.8,,,,,COUNTER,FIRE_PUNCH,SHADOW_BALL
+staraptor,Staraptor,70.8,,,,,WING_ATTACK,BRAVE_BIRD,CLOSE_COMBAT
+aggron,Aggron,70.7,,,,,SMACK_DOWN,STONE_EDGE,HEAVY_SLAM
+arcanine_shadow,Arcanine (Shadow),70.7,,,,,SNARL,WILD_CHARGE,FLAMETHROWER
+huntail,Huntail,70.7,,,,,WATER_GUN,AQUA_TAIL,CRUNCH
+hydreigon,Hydreigon,70.7,,,,,DRAGON_BREATH,DARK_PULSE,DRAGON_PULSE
+lairon_shadow,Lairon (Shadow),70.6,,,,,METAL_CLAW,ROCK_SLIDE,BODY_SLAM
+rotom_wash,Rotom (Wash),70.6,,,,,THUNDER_SHOCK,THUNDERBOLT,HYDRO_PUMP
+amoonguss,Amoonguss,70.5,,,,,FEINT_ATTACK,GRASS_KNOT,SLUDGE_BOMB
+charmeleon,Charmeleon,70.4,,,,,EMBER,FIRE_PUNCH,RETURN
+golurk,Golurk,70.4,,,,,MUD_SLAP,SHADOW_PUNCH,EARTH_POWER
+slowpoke_galarian,Slowpoke (Galarian),70.4,,,,,CONFUSION,SURF,PSYSHOCK
+tranquill,Tranquill,70.4,,,,,AIR_SLASH,SKY_ATTACK,AERIAL_ACE
+chandelure,Chandelure,70.3,,,,,INCINERATE,SHADOW_BALL,FLAME_CHARGE
+darmanitan_standard,Darmanitan (Standard),70.3,,,,,INCINERATE,ROCK_SLIDE,OVERHEAT
+eelektrik,Eelektrik,70.3,,,,,SPARK,DISCHARGE,CRUNCH
+mightyena,Mightyena,70.3,,,,,THUNDER_FANG,CRUNCH,POISON_FANG
+mightyena_shadow,Mightyena (Shadow),70.3,,,,,THUNDER_FANG,CRUNCH,POISON_FANG
+mismagius,Mismagius,70.3,,,,,HEX,SHADOW_BALL,DARK_PULSE
+omastar,Omastar,70.3,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST
+beartic,Beartic,70.2,,,,,POWDER_SNOW,ICE_PUNCH,SURF
+omanyte_shadow,Omanyte (Shadow),70.2,,,,,MUD_SHOT,ROCK_BLAST,BRINE
+cryogonal,Cryogonal,70.1,,,,,ICE_SHARD,NIGHT_SLASH,AURORA_BEAM
+turtwig,Turtwig,70.1,,,,,RAZOR_LEAF,BODY_SLAM,SEED_BOMB
+vibrava_shadow,Vibrava (Shadow),70.1,,,,,DRAGON_BREATH,SAND_TOMB,BUG_BUZZ
+simipour,Simipour,70,,,,,WATER_GUN,SURF,CRUNCH
+weavile_shadow,Weavile (Shadow),70,,,,,SNARL,AVALANCHE,FOUL_PLAY
+claydol,Claydol,69.9,,,,,CONFUSION,EARTH_POWER,SHADOW_BALL
+plusle,Plusle,69.9,,,,,SPARK,THUNDERBOLT,GRASS_KNOT
+purugly,Purugly,69.9,,,,,SHADOW_CLAW,THUNDER,AERIAL_ACE
+sharpedo_shadow,Sharpedo (Shadow),69.9,,,,,WATERFALL,CRUNCH,POISON_FANG
+spinda,Spinda,69.9,,,,,PSYCHO_CUT,ICY_WIND,ROCK_TOMB
+oddish,Oddish,69.8,,,,,RAZOR_LEAF,SEED_BOMB,SLUDGE_BOMB
+scyther_shadow,Scyther (Shadow),69.8,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR
+shelgon_shadow,Shelgon (Shadow),69.8,,,,,DRAGON_BREATH,FLAMETHROWER,DRAGON_PULSE
+sunflora,Sunflora,69.8,,,,,BULLET_SEED,LEAF_STORM,SLUDGE_BOMB
+dwebble,Dwebble,69.6,,,,,SMACK_DOWN,X_SCISSOR,ROCK_BLAST
+darumaka,Darumaka,69.5,,,,,FIRE_FANG,FIRE_PUNCH,FLAME_CHARGE
+growlithe,Growlithe,69.5,,,,,EMBER,BODY_SLAM,FLAMETHROWER
+togetic,Togetic,69.5,,,,,HIDDEN_POWER_FLYING,AERIAL_ACE,DAZZLING_GLEAM
+weepinbell_shadow,Weepinbell (Shadow),69.5,,,,,BULLET_SEED,POWER_WHIP,SEED_BOMB
+slowpoke,Slowpoke,69.4,,,,,CONFUSION,PSYSHOCK,WATER_PULSE
+staraptor_shadow,Staraptor (Shadow),69.4,,,,,WING_ATTACK,BRAVE_BIRD,CLOSE_COMBAT
+weepinbell,Weepinbell,69.4,,,,,BULLET_SEED,POWER_WHIP,SEED_BOMB
+jolteon,Jolteon,69.3,,,,,VOLT_SWITCH,DISCHARGE,LAST_RESORT
+dustox,Dustox,69.2,,,,,CONFUSION,SLUDGE_BOMB,BUG_BUZZ
+magmar,Magmar,69.1,,,,,KARATE_CHOP,FIRE_PUNCH,RETURN
+swadloon,Swadloon,69.1,,,,,BUG_BITE,ENERGY_BALL,BUG_BUZZ
+breloom,Breloom,69,,,,,COUNTER,DYNAMIC_PUNCH,GRASS_KNOT
+celebi,Celebi,69,,,,,CONFUSION,SEED_BOMB,PSYCHIC
+hippowdon,Hippowdon,69,,,,,THUNDER_FANG,WEATHER_BALL_ROCK,BODY_SLAM
+houndoom,Houndoom,69,,,,,SNARL,CRUNCH,FLAMETHROWER
+lairon,Lairon,69,,,,,METAL_CLAW,ROCK_SLIDE,BODY_SLAM
+monferno,Monferno,69,,,,,EMBER,FLAMETHROWER,LOW_SWEEP
+masquerain,Masquerain,68.9,,,,,AIR_SLASH,BUBBLE_BEAM,LUNGE
+slowpoke_shadow,Slowpoke (Shadow),68.9,,,,,CONFUSION,PSYSHOCK,WATER_PULSE
+staravia,Staravia,68.9,,,,,WING_ATTACK,BRAVE_BIRD,AERIAL_ACE
+tyranitar_shadow,Tyranitar (Shadow),68.9,,,,,SMACK_DOWN,CRUNCH,STONE_EDGE
+weavile,Weavile,68.9,,,,,SNARL,AVALANCHE,FOUL_PLAY
+arcanine,Arcanine,68.8,,,,,SNARL,WILD_CHARGE,FLAMETHROWER
+entei,Entei,68.8,,,,,FIRE_SPIN,FLAME_CHARGE,OVERHEAT
+kangaskhan,Kangaskhan,68.8,,,,,MUD_SLAP,STOMP,CRUNCH
+kricketune,Kricketune,68.8,,,,,FURY_CUTTER,X_SCISSOR,AERIAL_ACE
+nidoking,Nidoking,68.8,,,,,POISON_JAB,EARTH_POWER,MEGAHORN
+rapidash,Rapidash,68.8,,,,,INCINERATE,DRILL_RUN,FLAME_CHARGE
+frillish,Frillish,68.7,,,,,HEX,ICE_BEAM,OMINOUS_WIND
+lumineon,Lumineon,68.7,,,,,WATER_GUN,BLIZZARD,WATER_PULSE
+sharpedo,Sharpedo,68.7,,,,,WATERFALL,CRUNCH,POISON_FANG
+wartortle_shadow,Wartortle (Shadow),68.7,,,,,WATER_GUN,ICE_BEAM,HYDRO_PUMP
+glaceon,Glaceon,68.6,,,,,ICE_SHARD,AVALANCHE,ICY_WIND
+gothitelle,Gothitelle,68.6,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC
+gigalith,Gigalith,68.5,,,,,SMACK_DOWN,ROCK_SLIDE,SUPER_POWER
+golem,Golem,68.5,,,,,MUD_SHOT,STONE_EDGE,EARTHQUAKE
+metagross,Metagross,68.5,,,,,BULLET_PUNCH,METEOR_MASH,PSYCHIC
+sneasel,Sneasel,68.5,,,,,ICE_SHARD,AVALANCHE,FOUL_PLAY
+staravia_shadow,Staravia (Shadow),68.5,,,,,WING_ATTACK,BRAVE_BIRD,AERIAL_ACE
+ninjask,Ninjask,68.4,,,,,FURY_CUTTER,SHADOW_BALL,AERIAL_ACE
+slowking,Slowking,68.4,,,,,CONFUSION,PSYCHIC,BLIZZARD
+smoochum,Smoochum,68.4,,,,,POWDER_SNOW,ICE_PUNCH,PSYSHOCK
+cinccino,Cinccino,68.3,,,,,CHARM,AQUA_TAIL,THUNDERBOLT
+dugtrio_shadow,Dugtrio (Shadow),68.3,,,,,MUD_SLAP,MUD_BOMB,STONE_EDGE
+magcargo,Magcargo,68.3,,,,,EMBER,STONE_EDGE,OVERHEAT
+murkrow,Murkrow,68.3,,,,,FEINT_ATTACK,DRILL_PECK,FOUL_PLAY
+vibrava,Vibrava,68.3,,,,,DRAGON_BREATH,SAND_TOMB,BUG_BUZZ
+clamperl,Clamperl,68.2,,,,,WATER_GUN,BODY_SLAM,ICE_BEAM
+combusken,Combusken,68.2,,,,,EMBER,ROCK_SLIDE,FLAME_CHARGE
+metang,Metang,68.2,,,,,METAL_CLAW,PSYSHOCK,GYRO_BALL
+persian_alolan,Persian (Alolan),68.2,,,,,FEINT_ATTACK,FOUL_PLAY,PLAY_ROUGH
+skrelp,Skrelp,68.2,,,,,WATER_GUN,AQUA_TAIL,SLUDGE_BOMB
+chimecho,Chimecho,68.1,,,,,EXTRASENSORY,PSYSHOCK,SHADOW_BALL
+gothorita,Gothorita,68.1,,,,,CONFUSION,PSYCHIC,FUTURE_SIGHT
+ponyta,Ponyta,68.1,,,,,EMBER,FLAME_CHARGE,STOMP
+rhyperior,Rhyperior,68.1,,,,,MUD_SLAP,ROCK_WRECKER,SURF
+armaldo_shadow,Armaldo (Shadow),68,,,,,FURY_CUTTER,ROCK_BLAST,CROSS_POISON
+kabutops,Kabutops,68,,,,,MUD_SHOT,STONE_EDGE,ANCIENT_POWER
+slowbro_shadow,Slowbro (Shadow),68,,,,,CONFUSION,PSYCHIC,ICE_BEAM
+braixen,Braixen,67.9,,,,,EMBER,FLAME_CHARGE,PSYSHOCK
+metagross_shadow,Metagross (Shadow),67.9,,,,,BULLET_PUNCH,METEOR_MASH,PSYCHIC
+slowbro,Slowbro,67.9,,,,,CONFUSION,PSYCHIC,ICE_BEAM
+basculin,Basculin,67.8,,,,,WATER_GUN,AQUA_TAIL,MUDDY_WATER
+quilava,Quilava,67.8,,,,,EMBER,FLAME_CHARGE,FLAMETHROWER
+bulbasaur_shadow,Bulbasaur (Shadow),67.7,,,,,VINE_WHIP,POWER_WHIP,SEED_BOMB
+heatmor,Heatmor,67.7,,,,,FIRE_SPIN,FLAMETHROWER,THUNDER_PUNCH
+onix,Onix,67.7,,,,,ROCK_THROW,ROCK_SLIDE,SAND_TOMB
+parasect,Parasect,67.7,,,,,FURY_CUTTER,X_SCISSOR,CROSS_POISON
+rhydon,Rhydon,67.7,,,,,MUD_SLAP,STONE_EDGE,SURF
+slowking_shadow,Slowking (Shadow),67.6,,,,,CONFUSION,PSYCHIC,BLIZZARD
+entei_shadow,Entei (Shadow),67.4,,,,,FIRE_SPIN,FLAME_CHARGE,OVERHEAT
+snover,Snover,67.4,,,,,POWDER_SNOW,ICE_BEAM,ENERGY_BALL
+braviary,Braviary,67.3,,,,,AIR_SLASH,BRAVE_BIRD,CLOSE_COMBAT
+weezing,Weezing,67.3,,,,,INFESTATION,SLUDGE_BOMB,SHADOW_BALL
+aerodactyl_shadow,Aerodactyl (Shadow),67,,,,,ROCK_THROW,ROCK_SLIDE,EARTH_POWER
+espurr,Espurr,67,,,,,CONFUSION,PSYSHOCK,ENERGY_BALL
+karrablast,Karrablast,66.9,,,,,FURY_CUTTER,DRILL_RUN,X_SCISSOR
+sneasel_shadow,Sneasel (Shadow),66.9,,,,,ICE_SHARD,AVALANCHE,FOUL_PLAY
+magby,Magby,66.8,,,,,KARATE_CHOP,FIRE_PUNCH,BRICK_BREAK
+emboar,Emboar,66.7,,,,,EMBER,BLAST_BURN,ROCK_SLIDE
+murkrow_shadow,Murkrow (Shadow),66.6,,,,,FEINT_ATTACK,DRILL_PECK,FOUL_PLAY
+garbodor,Garbodor,66.5,,,,,INFESTATION,BODY_SLAM,SEED_BOMB
+sandslash,Sandslash,66.5,,,,,MUD_SHOT,EARTHQUAKE,BULLDOZE
+teddiursa_shadow,Teddiursa (Shadow),66.4,,,,,LICK,CROSS_CHOP,CRUNCH
+dugtrio_alolan,Dugtrio (Alolan),66.3,,,,,MUD_SLAP,MUD_BOMB,IRON_HEAD
+pignite,Pignite,66.3,,,,,EMBER,FLAME_CHARGE,FLAMETHROWER
+tyranitar,Tyranitar,66.3,,,,,SMACK_DOWN,CRUNCH,STONE_EDGE
+exeggcute,Exeggcute,66.2,,,,,BULLET_SEED,SEED_BOMB,PSYCHIC
+gabite,Gabite,66.2,,,,,MUD_SHOT,FLAMETHROWER,TWISTER
+metang_shadow,Metang (Shadow),66.2,,,,,METAL_CLAW,PSYSHOCK,GYRO_BALL
+sawk,Sawk,66.2,,,,,POISON_JAB,BODY_SLAM,FOCUS_BLAST
+wormadam_plant,Wormadam (Plant),66.2,,,,,BUG_BITE,ENERGY_BALL,BUG_BUZZ
+yanmega,Yanmega,66.2,,,,,WING_ATTACK,AERIAL_ACE,BUG_BUZZ
+darumaka_galarian,Darumaka (Galarian),66.1,,,,,ICE_FANG,ICE_PUNCH,ICE_BEAM
+delphox,Delphox,66.1,,,,,FIRE_SPIN,FLAME_CHARGE,PSYCHIC
+exeggcute_shadow,Exeggcute (Shadow),66.1,,,,,BULLET_SEED,SEED_BOMB,PSYCHIC
+weezing_shadow,Weezing (Shadow),66.1,,,,,INFESTATION,SLUDGE_BOMB,SHADOW_BALL
+elekid,Elekid,66,,,,,THUNDER_SHOCK,THUNDER_PUNCH,BRICK_BREAK
+salamence_shadow,Salamence (Shadow),66,,,,,DRAGON_TAIL,OUTRAGE,HYDRO_PUMP
+scyther,Scyther,66,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR
+dusknoir_shadow,Dusknoir (Shadow),65.9,,,,,HEX,DARK_PULSE,OMINOUS_WIND
+lilligant,Lilligant,65.9,,,,,CHARM,PETAL_BLIZZARD,HYPER_BEAM
+exeggutor,Exeggutor,65.8,,,,,BULLET_SEED,SEED_BOMB,PSYCHIC
+mr_rime,Mr. Rime,65.8,,,,,CONFUSION,ICY_WIND,PSYCHIC
+snover_shadow,Snover (Shadow),65.8,,,,,POWDER_SNOW,ICE_BEAM,ENERGY_BALL
+vanillish,Vanillish,65.7,,,,,FROST_BREATH,ICY_WIND,SIGNAL_BEAM
+flareon,Flareon,65.6,,,,,FIRE_SPIN,SUPER_POWER,FLAMETHROWER
+mienshao,Mienshao,65.6,,,,,POISON_JAB,BRICK_BREAK,GRASS_KNOT
+pyroar,Pyroar,65.6,,,,,FIRE_FANG,FLAME_CHARGE,OVERHEAT
+wormadam_sandy,Wormadam (Sandy),65.6,,,,,BUG_BITE,BUG_BUZZ,BULLDOZE
+golett,Golett,65.5,,,,,MUD_SLAP,SHADOW_PUNCH,BRICK_BREAK
+nidoking_shadow,Nidoking (Shadow),65.5,,,,,POISON_JAB,EARTH_POWER,MEGAHORN
+omanyte,Omanyte,65.5,,,,,MUD_SHOT,ROCK_BLAST,BRINE
+rhyhorn,Rhyhorn,65.5,,,,,MUD_SLAP,STOMP,HORN_ATTACK
+stoutland,Stoutland,65.5,,,,,LICK,WILD_CHARGE,CRUNCH
+mismagius_shadow,Mismagius (Shadow),65.4,,,,,HEX,SHADOW_BALL,DARK_PULSE
+exeggutor_shadow,Exeggutor (Shadow),65.3,,,,,BULLET_SEED,SEED_BOMB,PSYCHIC
+blissey,Blissey,65.2,,,,,POUND,PSYCHIC,HYPER_BEAM
+boldore,Boldore,65.2,,,,,SMACK_DOWN,ROCK_SLIDE,BULLDOZE
+misdreavus_shadow,Misdreavus (Shadow),65.2,,,,,HEX,DARK_PULSE,OMINOUS_WIND
+unfezant,Unfezant,65.2,,,,,AIR_SLASH,SKY_ATTACK,HYPER_BEAM
+walrein_shadow,Walrein (Shadow),65.2,,,,,WATERFALL,BLIZZARD,EARTHQUAKE
+bulbasaur,Bulbasaur,65.1,,,,,VINE_WHIP,POWER_WHIP,SEED_BOMB
+furret,Furret,65.1,,,,,QUICK_ATTACK,BRICK_BREAK,HYPER_BEAM
+maractus,Maractus,65,,,,,BULLET_SEED,AERIAL_ACE,PETAL_BLIZZARD
+armaldo,Armaldo,64.9,,,,,FURY_CUTTER,CROSS_POISON,ROCK_BLAST
+frogadier,Frogadier,64.9,,,,,BUBBLE,SURF,AERIAL_ACE
+roggenrola,Roggenrola,64.7,,,,,SMACK_DOWN,STONE_EDGE,ROCK_BLAST
+archen,Archen,64.6,,,,,WING_ATTACK,DRAGON_CLAW,CRUNCH
+simisear,Simisear,64.6,,,,,FIRE_SPIN,FLAMETHROWER,CRUNCH
+aerodactyl,Aerodactyl,64.5,,,,,ROCK_THROW,ROCK_SLIDE,EARTH_POWER
+archeops,Archeops,64.4,,,,,WING_ATTACK,DRAGON_CLAW,CRUNCH
+meowstic_female,Meowstic (Female),64.4,,,,,CONFUSION,PSYCHIC,SHADOW_BALL
+stunky_shadow,Stunky (Shadow),64.4,,,,,BITE,CRUNCH,SLUDGE_BOMB
+swoobat,Swoobat,64.3,,,,,CONFUSION,AERIAL_ACE,PSYCHIC
+chespin,Chespin,64.2,,,,,VINE_WHIP,BODY_SLAM,SEED_BOMB
+miltank,Miltank,64.2,,,,,TACKLE,BODY_SLAM,THUNDERBOLT
+teddiursa,Teddiursa,64.1,,,,,LICK,CROSS_CHOP,CRUNCH
+aipom_shadow,Aipom (Shadow),64,,,,,SCRATCH,AERIAL_ACE,LOW_SWEEP
+misdreavus,Misdreavus,63.8,,,,,HEX,DARK_PULSE,OMINOUS_WIND
+porygon,Porygon,63.8,,,,,QUICK_ATTACK,DISCHARGE,HYPER_BEAM
+lampent,Lampent,63.7,,,,,EMBER,ENERGY_BALL,FLAME_BURST
+roselia,Roselia,63.7,,,,,POISON_JAB,SLUDGE_BOMB,PETAL_BLIZZARD
+aron_shadow,Aron (Shadow),63.6,,,,,METAL_CLAW,BODY_SLAM,IRON_HEAD
+dusknoir,Dusknoir,63.6,,,,,HEX,DARK_PULSE,OMINOUS_WIND
+meowstic,Meowstic (Male),63.6,,,,,CONFUSION,PSYCHIC,THUNDERBOLT
+geodude,Geodude,63.5,,,,,ROCK_THROW,ROCK_SLIDE,DIG
+hippopotas,Hippopotas,63.5,,,,,BITE,BODY_SLAM,DIG
+sandshrew_shadow,Sandshrew (Shadow),63.5,,,,,MUD_SHOT,ROCK_SLIDE,SAND_TOMB
+shellos_east_sea,Shellos (East),63.5,,,,,MUD_SLAP,BODY_SLAM,MUD_BOMB
+shellos_west_sea,Shellos (West),63.5,,,,,MUD_SLAP,BODY_SLAM,MUD_BOMB
+dubwool,Dubwool,63.3,,,,,TACKLE,BODY_SLAM,WILD_CHARGE
+whirlipede,Whirlipede,63.1,,,,,POISON_STING,SLUDGE_BOMB,SIGNAL_BEAM
+lunatone,Lunatone,63,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC
+mr_mime_galarian,Mr. Mime (Galarian),63,,,,,CONFUSION,ICE_PUNCH,PSYCHIC
+solrock,Solrock,63,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC
+walrein,Walrein,63,,,,,WATERFALL,BLIZZARD,EARTHQUAKE
+arbok,Arbok,62.9,,,,,DRAGON_TAIL,DARK_PULSE,SLUDGE_WAVE
+persian_shadow,Persian (Shadow),62.9,,,,,FEINT_ATTACK,NIGHT_SLASH,PLAY_ROUGH
+grumpig,Grumpig,62.8,,,,,EXTRASENSORY,SHADOW_BALL,PSYCHIC
+salamence,Salamence,62.8,,,,,DRAGON_TAIL,OUTRAGE,HYDRO_PUMP
+yanma,Yanma,62.8,,,,,WING_ATTACK,AERIAL_ACE,SILVER_WIND
+seel,Seel,62.7,,,,,WATER_GUN,AQUA_TAIL,ICY_WIND
+porygon_z,Porygon-Z,62.6,,,,,LOCK_ON,TRI_ATTACK,ZAP_CANNON
+donphan,Donphan,62.5,,,,,COUNTER,EARTHQUAKE,PLAY_ROUGH
+krokorok,Krokorok,62.5,,,,,MUD_SLAP,CRUNCH,EARTHQUAKE
+persian,Persian,62.3,,,,,FEINT_ATTACK,NIGHT_SLASH,RETURN
+aron,Aron,62.2,,,,,METAL_CLAW,BODY_SLAM,IRON_HEAD
+liepard,Liepard,62.2,,,,,SNARL,DARK_PULSE,PLAY_ROUGH
+skorupi_shadow,Skorupi (Shadow),62.2,,,,,POISON_STING,CROSS_POISON,AQUA_TAIL
+ambipom_shadow,Ambipom (Shadow),61.9,,,,,SCRATCH,AERIAL_ACE,LOW_SWEEP
+sandshrew,Sandshrew,61.9,,,,,MUD_SHOT,ROCK_SLIDE,SAND_TOMB
+darmanitan_galarian_standard,Darmanitan (Galarian),61.8,,,,,ICE_FANG,AVALANCHE,SUPER_POWER
+houndour_shadow,Houndour (Shadow),61.8,,,,,EMBER,CRUNCH,FLAMETHROWER
+sandslash_shadow,Sandslash (Shadow),61.8,,,,,MUD_SHOT,EARTHQUAKE,BULLDOZE
+flaaffy_shadow,Flaaffy (Shadow),61.5,,,,,CHARGE_BEAM,DISCHARGE,THUNDERBOLT
+mr_mime,Mr. Mime,61.5,,,,,CONFUSION,SHADOW_BALL,PSYCHIC
+samurott,Samurott,61.5,,,,,FURY_CUTTER,MEGAHORN,HYDRO_PUMP
+floatzel,Floatzel,61.4,,,,,WATERFALL,HYDRO_PUMP,AQUA_JET
+houndour,Houndour,61.4,,,,,EMBER,CRUNCH,FLAMETHROWER
+klefki,Klefki,61.4,,,,,ASTONISH,FOUL_PLAY,PLAY_ROUGH
+porygon_z_shadow,Porygon-Z (Shadow),61.2,,,,,LOCK_ON,TRI_ATTACK,ZAP_CANNON
+skorupi,Skorupi,61.2,,,,,POISON_STING,CROSS_POISON,AQUA_TAIL
+dodrio,Dodrio,61.1,,,,,FEINT_ATTACK,BRAVE_BIRD,DRILL_PECK
+mothim,Mothim,61.1,,,,,AIR_SLASH,AERIAL_ACE,BUG_BUZZ
+beheeyem,Beheeyem,61,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC
+flaaffy,Flaaffy,60.9,,,,,CHARGE_BEAM,DISCHARGE,RETURN
+clawitzer,Clawitzer,60.8,,,,,WATER_GUN,CRABHAMMER,ICE_BEAM
+exploud,Exploud,60.8,,,,,BITE,DISARMING_VOICE,CRUNCH
+stunky,Stunky,60.8,,,,,BITE,CRUNCH,SLUDGE_BOMB
+xatu,Xatu,60.6,,,,,AIR_SLASH,AERIAL_ACE,FUTURE_SIGHT
+arbok_shadow,Arbok (Shadow),60.2,,,,,DRAGON_TAIL,DARK_PULSE,SLUDGE_WAVE
+fearow,Fearow,60.1,,,,,PECK,SKY_ATTACK,DRILL_RUN
+musharna,Musharna,60.1,,,,,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM
+camerupt,Camerupt,59.9,,,,,EMBER,OVERHEAT,EARTH_POWER
+loudred,Loudred,59.9,,,,,BITE,STOMP,DISARMING_VOICE
+trapinch_shadow,Trapinch (Shadow),59.9,,,,,MUD_SHOT,CRUNCH,SAND_TOMB
+elgyem,Elgyem,59.3,,,,,CONFUSION,PSYCHIC,DARK_PULSE
+pidgeotto,Pidgeotto,59.3,,,,,WING_ATTACK,AERIAL_ACE,TWISTER
+sawsbuck,Sawsbuck,59.3,,,,,FEINT_ATTACK,WILD_CHARGE,MEGAHORN
+girafarig,Girafarig,59.2,,,,,CONFUSION,PSYCHIC,THUNDERBOLT
+aipom,Aipom,59.1,,,,,SCRATCH,AERIAL_ACE,RETURN
+goldeen,Goldeen,59,,,,,MUD_SHOT,AQUA_TAIL,HORN_ATTACK
+raticate,Raticate,59,,,,,QUICK_ATTACK,HYPER_FANG,RETURN
+clauncher,Clauncher,58.9,,,,,WATER_GUN,CRABHAMMER,AQUA_JET
+drilbur,Drilbur,58.9,,,,,MUD_SLAP,DRILL_RUN,ROCK_TOMB
+trapinch,Trapinch,58.9,,,,,MUD_SHOT,CRUNCH,RETURN
+cubone_shadow,Cubone (Shadow),58.7,,,,,MUD_SLAP,BONE_CLUB,BULLDOZE
+sigilyph,Sigilyph,58.7,,,,,AIR_SLASH,ANCIENT_POWER,SIGNAL_BEAM
+absol,Absol,58.6,,,,,SNARL,DARK_PULSE,MEGAHORN
+cacturne,Cacturne,58.4,,,,,POISON_JAB,GRASS_KNOT,PAYBACK
+jynx,Jynx,58.4,,,,,CONFUSION,AVALANCHE,ICE_PUNCH
+cubone,Cubone,58.3,,,,,MUD_SLAP,BONE_CLUB,RETURN
+pupitar_shadow,Pupitar (Shadow),58.2,,,,,BITE,CRUNCH,ANCIENT_POWER
+runerigus,Runerigus,58.1,,,,,ASTONISH,SHADOW_BALL,SAND_TOMB
+starmie,Starmie,58.1,,,,,WATER_GUN,PSYCHIC,ICE_BEAM
+swanna,Swanna,58.1,,,,,AIR_SLASH,HURRICANE,ICE_BEAM
+drowzee_shadow,Drowzee (Shadow),57.8,,,,,CONFUSION,PSYSHOCK,PSYCHIC
+noivern,Noivern,57.8,,,,,AIR_SLASH,HURRICANE,PSYCHIC
+drowzee,Drowzee,57.7,,,,,CONFUSION,PSYSHOCK,RETURN
+octillery,Octillery,57.6,,,,,WATER_GUN,OCTAZOOKA,AURORA_BEAM
+volbeat,Volbeat,57.6,,,,,STRUGGLE_BUG,THUNDERBOLT,SIGNAL_BEAM
+snubbull_shadow,Snubbull (Shadow),57.5,,,,,BITE,CRUNCH,BRICK_BREAK
+watchog,Watchog,57.5,,,,,BITE,HYPER_FANG,GRASS_KNOT
+ambipom,Ambipom,57.4,,,,,SCRATCH,AERIAL_ACE,RETURN
+totodile,Totodile,57.4,,,,,WATER_GUN,CRUNCH,AQUA_JET
+illumise,Illumise,57.3,,,,,STRUGGLE_BUG,BUG_BUZZ,SILVER_WIND
+koffing,Koffing,57.3,,,,,INFESTATION,DARK_PULSE,SLUDGE_BOMB
+mesprit,Mesprit,57.3,,,,,CONFUSION,FUTURE_SIGHT,BLIZZARD
+absol_shadow,Absol (Shadow),57,,,,,SNARL,DARK_PULSE,MEGAHORN
+seadra_shadow,Seadra (Shadow),56.8,,,,,DRAGON_BREATH,HYDRO_PUMP,BLIZZARD
+eevee,Eevee,56.6,,,,,QUICK_ATTACK,BODY_SLAM,LAST_RESORT
+beautifly,Beautifly,56.2,,,,,INFESTATION,BUG_BUZZ,SILVER_WIND
+herdier,Herdier,56.2,,,,,LICK,THUNDERBOLT,PLAY_ROUGH
+nosepass_shadow,Nosepass (Shadow),56.1,,,,,SPARK,ROCK_SLIDE,ROCK_BLAST
+pupitar,Pupitar,56,,,,,BITE,CRUNCH,ANCIENT_POWER
+buneary,Buneary,55.8,,,,,QUICK_ATTACK,FIRE_PUNCH,SWIFT
+throh,Throh,55.7,,,,,LOW_KICK,BODY_SLAM,FOCUS_BLAST
+nosepass,Nosepass,55.5,,,,,SPARK,ROCK_SLIDE,ROCK_BLAST
+snubbull,Snubbull,55.5,,,,,BITE,CRUNCH,BRICK_BREAK
+koffing_shadow,Koffing (Shadow),55.4,,,,,INFESTATION,DARK_PULSE,SLUDGE_BOMB
+chatot,Chatot,55.2,,,,,PECK,SKY_ATTACK,NIGHT_SHADE
+gorebyss,Gorebyss,55.2,,,,,WATER_GUN,PSYCHIC,WATER_PULSE
+audino,Audino,55,,,,,POUND,DISARMING_VOICE,HYPER_BEAM
+accelgor,Accelgor,54.8,,,,,INFESTATION,BUG_BUZZ,ACID_SPRAY
+cofagrigus,Cofagrigus,54.8,,,,,ASTONISH,SHADOW_BALL,DARK_PULSE
+phanpy,Phanpy,54.7,,,,,ROCK_SMASH,BODY_SLAM,ROCK_SLIDE
+pineco_shadow,Pineco (Shadow),54.7,,,,,BUG_BITE,SAND_TOMB,GYRO_BALL
+tentacool,Tentacool,54.4,,,,,BUBBLE,WRAP,BUBBLE_BEAM
+kabuto,Kabuto,54.3,,,,,MUD_SHOT,ANCIENT_POWER,AQUA_JET
+butterfree,Butterfree,54.2,,,,,CONFUSION,PSYCHIC,SIGNAL_BEAM
+cherrim_overcast,Cherrim (Overcast),54.2,,,,,BULLET_SEED,SOLAR_BEAM,DAZZLING_GLEAM
+piplup,Piplup,54.2,,,,,BUBBLE,DRILL_PECK,ICY_WIND
+seadra,Seadra,53.9,,,,,DRAGON_BREATH,HYDRO_PUMP,BLIZZARD
+raticate_shadow,Raticate (Shadow),53.6,,,,,QUICK_ATTACK,HYPER_FANG,DIG
+axew,Axew,53.4,,,,,SCRATCH,DRAGON_CLAW,AQUA_TAIL
+espeon,Espeon,53.3,,,,,CONFUSION,SHADOW_BALL,PSYCHIC
+vanilluxe,Vanilluxe,53.2,,,,,FROST_BREATH,BLIZZARD,SIGNAL_BEAM
+krabby,Krabby,52.7,,,,,BUBBLE,VICE_GRIP,BUBBLE_BEAM
+pineco,Pineco,52.6,,,,,BUG_BITE,RETURN,SAND_TOMB
+weezing_galarian,Weezing (Galarian),52.6,,,,,TACKLE,SLUDGE,PLAY_ROUGH
+azelf,Azelf,52.5,,,,,CONFUSION,FUTURE_SIGHT,FIRE_BLAST
+pancham,Pancham,52.3,,,,,LOW_KICK,BODY_SLAM,CRUNCH
+deoxys_speed,Deoxys (Speed),52.1,,,,,CHARGE_BEAM,PSYCHO_BOOST,THUNDERBOLT
+anorith_shadow,Anorith (Shadow),51,,,,,STRUGGLE_BUG,CROSS_POISON,ANCIENT_POWER
+corphish,Corphish,51,,,,,BUBBLE,AQUA_JET,VICE_GRIP
+ferroseed,Ferroseed,50.5,,,,,METAL_CLAW,IRON_HEAD,FLASH_CANNON
+hitmonlee_shadow,Hitmonlee (Shadow),50.4,,,,,ROCK_SMASH,CLOSE_COMBAT,STONE_EDGE
+porygon_shadow,Porygon (Shadow),50.1,,,,,CHARGE_BEAM,DISCHARGE,SIGNAL_BEAM
+ponyta_galarian,Ponyta (Galarian),50,,,,,PSYCHO_CUT,PLAY_ROUGH,PSYBEAM
+timburr,Timburr,49.8,,,,,LOW_KICK,BRICK_BREAK,ROCK_TOMB
+tauros,Tauros,49.3,,,,,TACKLE,HORN_ATTACK,EARTHQUAKE
+anorith,Anorith,48.7,,,,,STRUGGLE_BUG,CROSS_POISON,ANCIENT_POWER
+hitmonlee,Hitmonlee,48.4,,,,,ROCK_SMASH,CLOSE_COMBAT,STONE_EDGE
+stantler_shadow,Stantler (Shadow),48.4,,,,,TACKLE,WILD_CHARGE,STOMP
+munna,Munna,48.2,,,,,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM
+stantler,Stantler,48,,,,,TACKLE,WILD_CHARGE,STOMP
+deerling,Deerling,45.9,,,,,TACKLE,WILD_CHARGE,SEED_BOMB
+reuniclus,Reuniclus,45.8,,,,,HIDDEN_POWER_FIGHTING,SHADOW_BALL,FUTURE_SIGHT
+lopunny,Lopunny,45.4,,,,,LOW_KICK,FIRE_PUNCH,FOCUS_BLAST
+duosion,Duosion,44.8,,,,,HIDDEN_POWER_PSYCHIC,PSYSHOCK,THUNDER
+swirlix,Swirlix,43.9,,,,,TACKLE,ENERGY_BALL,DRAINING_KISS
+solosis,Solosis,43.7,,,,,HIDDEN_POWER_PSYCHIC,PSYSHOCK,THUNDER
+clefairy,Clefairy,43.2,,,,,ZEN_HEADBUTT,BODY_SLAM,DISARMING_VOICE
+mienfoo,Mienfoo,42.2,,,,,LOW_KICK,BRICK_BREAK,FOCUS_BLAST
+spoink,Spoink,41.5,,,,,ZEN_HEADBUTT,SHADOW_BALL,MIRROR_COAT
+unown,Unown,38.8,,,,,HIDDEN_POWER_PSYCHIC,STRUGGLE,
+slaking,Slaking,28.6,,,,,YAWN,BODY_SLAM,EARTHQUAKE

@@ -1,23 +1,123 @@
 [
-  { "file": "cp1500_all_overall_rankings.csv", "label": "Great League" },
-  { "file": "cp2500_all_overall_rankings.csv", "label": "Ultra League" },
-  { "file": "cp1500_classic_overall_rankings.csv", "label": "Classic GL", "restricted": true },
-  { "file": "cp1500_remix_overall_rankings.csv",   "label": "GL Remix",   "restricted": true },
-  { "file": "cp1500_premier_overall_rankings.csv", "label": "Premier Cup","restricted": true },
-  { "file": "cp1500_fantasy_overall_rankings.csv", "label": "Fantasy Cup","restricted": true },
-  { "file": "cp1500_spring_overall_rankings.csv",  "label": "Spring Cup", "restricted": true },
-  { "file": "cp1500_jungle_overall_rankings.csv",  "label": "Jungle Cup", "restricted": true },
-  { "file": "cp1500_electric_overall_rankings.csv","label": "Electric Cup","restricted": true },
-  { "file": "cp1500_retro_overall_rankings.csv",   "label": "Retro Cup",  "restricted": true },
-  { "file": "cp1500_maelstrom_overall_rankings.csv","label":"Maelstrom Cup","restricted": true },
-  { "file": "cp1500_spellcraft_overall_rankings.csv","label":"Spellcraft Cup","restricted": true },
-  { "file": "cp1500_equinox_overall_rankings.csv", "label": "Equinox Cup","restricted": true },
-  { "file": "cp1500_chrono_overall_rankings.csv",  "label": "Chrono Cup", "restricted": true },
-  { "file": "cp1500_bayou_overall_rankings.csv",   "label": "Bayou Cup",  "restricted": true },
-  { "file": "cp1500_catch_overall_rankings.csv",   "label": "Catch Cup",  "restricted": true },
-  { "file": "cp500_little_overall_rankings.csv",   "label": "Little Cup", "restricted": true },
-  { "file": "cp1500_laic2025remix_overall_rankings.csv","label":"LAIC 2025 Remix","restricted": true },
-  { "file": "cp10000_battlefrontiermaster_overall_rankings.csv","label":"Battle Frontier Master","restricted": true },
-  { "file": "cp1500_bfretro_overall_rankings.csv","label":"Battle Frontier Retro","restricted": true },
-  { "file": "cp1500_littlegeneral_overall_rankings.csv","label":"Little General Cup","restricted": true }
+  {
+    "file": "cp500_all_overall_rankings.csv",
+    "label": "Little (500)"
+  },
+  {
+    "file": "cp1500_all_overall_rankings.csv",
+    "label": "Great League"
+  },
+  {
+    "file": "cp2500_all_overall_rankings.csv",
+    "label": "Ultra League"
+  },
+  {
+    "file": "cp10000_all_overall_rankings.csv",
+    "label": "Master League"
+  },
+  {
+    "file": "cp500_classic_overall_rankings.csv",
+    "label": "Classic GL (500)",
+    "restricted": true
+  },
+  {
+    "file": "cp500_little_overall_rankings.csv",
+    "label": "Little Cup (500)",
+    "restricted": true
+  },
+  {
+    "file": "cp500_premier_overall_rankings.csv",
+    "label": "Premier Cup (500)",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_bayou_overall_rankings.csv",
+    "label": "Bayou Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_catch_overall_rankings.csv",
+    "label": "Catch Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_chrono_overall_rankings.csv",
+    "label": "Chrono Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_classic_overall_rankings.csv",
+    "label": "Classic GL",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_electric_overall_rankings.csv",
+    "label": "Electric Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_equinox_overall_rankings.csv",
+    "label": "Equinox Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_fantasy_overall_rankings.csv",
+    "label": "Fantasy Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_jungle_overall_rankings.csv",
+    "label": "Jungle Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_laic2025remix_overall_rankings.csv",
+    "label": "LAIC 2025 Remix",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_maelstrom_overall_rankings.csv",
+    "label": "Maelstrom Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_premier_overall_rankings.csv",
+    "label": "Premier Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_remix_overall_rankings.csv",
+    "label": "GL Remix",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_retro_overall_rankings.csv",
+    "label": "Retro Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_spellcraft_overall_rankings.csv",
+    "label": "Spellcraft Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp1500_spring_overall_rankings.csv",
+    "label": "Spring Cup",
+    "restricted": true
+  },
+  {
+    "file": "cp2500_bfretro_overall_rankings.csv",
+    "label": "Battle Frontier Retro (2500)",
+    "restricted": true
+  },
+  {
+    "file": "cp2500_classic_overall_rankings.csv",
+    "label": "Classic GL (2500)",
+    "restricted": true
+  },
+  {
+    "file": "cp2500_premier_overall_rankings.csv",
+    "label": "Premier Cup (2500)",
+    "restricted": true
+  }
 ]
