@@ -1243,40 +1243,46 @@ function scoreChargedMove(moveId, pokemonTypes) {
     const stab = pokemonTypes.includes(cm.type);
     const effectiveDpe = dpe * (stab ? STAB_MULT : 1);
 
-    // Determine role: bait (<=40 energy), closer/nuke (>=55), mid-range
+    // Determine role: bait (<=45 energy), nuke (>=60), mid-range.
+    // 45e moves (Rock Slide, Icy Wind, Aqua Tail) are fast enough to create
+    // genuine shield pressure and qualify as baits alongside 35-40e moves.
     let role = 'mid';
-    if (cm.nrg <= 40) role = 'bait';
-    else if (cm.nrg >= 55) role = 'nuke';
+    if (cm.nrg <= 45) role = 'bait';
+    else if (cm.nrg >= 60) role = 'nuke';
 
     // Special effect value (stat buffs/debuffs)
     let effectValue = 0;
     const eff = typeof MOVE_EFFECTS !== 'undefined' ? MOVE_EFFECTS[moveId] : null;
     if (eff) {
-        // Self buffs are very valuable (Power-Up Punch = game-changing)
+        // Self ATK buff: each +1 stage = ×(4/3) ≈ +33% damage to all future moves.
+        // This compounds (two PUPs ≈ ×1.78 ATK), making it the single most impactful
+        // secondary effect in the game. Weight it accordingly.
         if (eff.selfBuff) {
             const [atkBuff, defBuff] = eff.selfBuff;
-            effectValue += (atkBuff * 0.4 + defBuff * 0.25) * eff.chance;
+            effectValue += (atkBuff * 1.5 + defBuff * 0.5) * eff.chance;
         }
-        // Self debuffs are a cost (Close Combat, Superpower)
+        // Self debuffs are a cost (Close Combat = -1 DEF, Overheat = -2 DEF)
         if (eff.selfDebuff) {
             const [atkDeb, defDeb] = eff.selfDebuff;
             effectValue += (atkDeb * 0.15 + defDeb * 0.15) * eff.chance; // negative values = penalty
         }
-        // Opponent debuffs are valuable (Icy Wind, Acid Spray)
+        // Opponent ATK debuff (-1 stage) cuts all their future fast-move damage by 25%.
+        // Opponent DEF debuff (+effective DPE on your next charged move).
         if (eff.oppDebuff) {
             const [atkDeb, defDeb] = eff.oppDebuff;
-            effectValue += (Math.abs(atkDeb) * 0.3 + Math.abs(defDeb) * 0.3) * eff.chance;
+            effectValue += (Math.abs(atkDeb) * 0.7 + Math.abs(defDeb) * 0.4) * eff.chance;
         }
     }
 
-    // Composite: DPE weighted by role + effect value
-    // Bait moves: value cheapness (low energy) more than raw damage
-    // Nukes: value raw damage output
+    // Composite: DPE weighted by role + effect value.
+    // Nukes no longer get a raw-power bonus — DPE already captures efficiency,
+    // and large raw numbers (Zap Cannon 150) shouldn't beat tighter alternatives
+    // (Flash Cannon 110) purely on power.
     let score;
     if (role === 'bait') {
         score = effectiveDpe * 0.5 + (1 - cm.nrg / 80) * 0.8 + effectValue * 0.6;
     } else if (role === 'nuke') {
-        score = effectiveDpe * 0.8 + (cm.pow / 150) * 0.4 + effectValue * 0.3;
+        score = effectiveDpe * 0.9 + effectValue * 0.3;
     } else {
         score = effectiveDpe * 0.7 + (1 - cm.nrg / 80) * 0.3 + effectValue * 0.5;
     }
@@ -1333,32 +1339,44 @@ function pickOptimalMoveset(speciesId, metaEntries) {
                 const c1 = chargedScored[i], c2 = chargedScored[j];
 
                 // ── Bait + Nuke structure bonus ──
-                // Reward having one cheap move and one heavy hitter
+                // Reward having one cheap move (≤50e) and one heavy hitter (≥55e).
+                // Flat bonus — no energy-gap scaling. Scaling caused lower-energy baits
+                // (e.g. Muddy Water 35e) to beat higher-quality ones (Rock Slide 45e)
+                // purely because of the energy gap, not because they're better moves.
                 let structureBonus = 0;
                 const cheapest = Math.min(c1.nrg, c2.nrg);
                 const costliest = Math.max(c1.nrg, c2.nrg);
-                const hasBait = cheapest <= 40;
-                const hasNuke = costliest >= 50;
+                const hasBait = cheapest <= 50;
+                const hasNuke = costliest >= 55;
                 if (hasBait && hasNuke && i !== j) {
-                    structureBonus = 0.3; // strong bait+nuke structure
-                    // Extra bonus for big energy gap (more baiting potential)
-                    structureBonus += Math.min(0.15, (costliest - cheapest) / 200);
+                    structureBonus = 0.3; // flat bait+nuke bonus
                 } else if (i !== j) {
                     structureBonus = 0.1; // two charged moves always better than one
                 }
 
                 // ── Type coverage diversity bonus ──
+                // Only count charged-move type diversity; the fast move's type is
+                // not a meaningful coverage dimension (it fires every turn regardless).
+                // Rewarding fast-type uniqueness caused e.g. Peck to edge out
+                // Dragon Breath on Altaria due to spurious "Flying ≠ Dragon" bonus.
                 const moveTypeSet = new Set([fast.type, c1.type, c2.type]);
                 let coverageBonus = 0;
                 if (i !== j && c1.type !== c2.type) coverageBonus += 0.2; // different charged types
-                if (fast.type !== c1.type && fast.type !== c2.type) coverageBonus += 0.1; // fast adds coverage
 
                 // ── Meta SE coverage ──
                 const metaOff = metaOffScore(moveTypeSet);
 
-                // ── Shield pressure: turns to first charged move ──
-                const turnsToCharge = cheapest / fast.ept;
-                const pressureScore = Math.max(0, Math.min(1, (18 - turnsToCharge) / 14));
+                // ── Shield pressure: cost of cheapest charged move ──
+                // Intentionally does NOT use fast.ept here — EPT is already captured in
+                // fast move score. Using cheapest/fast.ept double-counts EPT and causes
+                // high-EPT moves (Psycho Cut, Peck) to dominate over higher-damage
+                // alternatives (Counter, Dragon Breath) due to a second EPT reward.
+                // Clamp cheapest at 38 so very cheap moves (35e) don't gain a runaway
+                // pressure advantage over quality 45e baits (e.g. Muddy Water 35e vs
+                // Rock Slide 45e). Value 38 is the tight threshold: high enough to let
+                // RS beat MW on individual quality, low enough for WBW to still beat
+                // mid-cost alternatives on Politoed.
+                const pressureScore = Math.max(0, Math.min(1, (80 - Math.max(cheapest, 38)) / 60));
 
                 // ── Composite scoring ──
                 // Move quality (individual scores)
