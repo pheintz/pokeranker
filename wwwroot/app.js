@@ -1216,20 +1216,58 @@ const STAB_MULT = 1.2;
 
 /**
  * Score a single fast move for PvP quality.
- * Returns a composite score weighting EPT (energy generation) and DPT (damage).
- * Competitive baseline: 3 DPT / 3 EPT. Counter (4 DPT / 3.5 EPT) is the gold standard.
+ *
+ * Uses PvPoke's geometric quality form (Pokemon.js::generateMoveUsage):
+ *     quality = (dpt * ept^4)^(1/5)
+ * EPT is raised to the 4th power before the geometric mean — PvP rewards
+ * shield pressure much more than raw fast-move chip. The `bestChargedDPE`
+ * argument (optional) further scales quality: Pokemon that own a high-DPE
+ * charged move reward a spam fast move more than Pokemon with mid-DPE options.
+ *
+ * Adds three guards the old linear blend lacked:
+ *  - Viability floor: (DPT>=3 OR EPT>=3) AND DPT+EPT>=6. Caller is expected
+ *    to filter `viable:false` moves but fall back if no legal move is viable.
+ *  - Tempo factor: 1-turn moves get +5%, 4-5T moves get a small penalty.
+ *    Carve-out for moves that are simultaneously DPT>=3.5 AND EPT>=3.5
+ *    (Incinerate, Confusion, Volt Switch) — those earn their length.
+ *  - STAB only multiplies DPT (energy generation is unaffected by STAB).
  */
-function scoreFastMove(moveId, pokemonTypes) {
+function scoreFastMove(moveId, pokemonTypes, bestChargedDPE) {
     const fm = FAST_MOVES[moveId];
-    if (!fm) return { id: moveId, score: 0, ept: 0, dpt: 0, type: 'normal', stab: false };
+    if (!fm) return { id: moveId, score: 0, ept: 0, dpt: 0, type: 'normal', stab: false, viable: false };
     const ept = fm.nrg / fm.turns;
     const dpt = fm.pow / fm.turns;
     const stab = pokemonTypes.includes(fm.type);
     const effectiveDpt = dpt * (stab ? STAB_MULT : 1);
-    // EPT weighted 60%, DPT 40% — energy generation is king in PvP
-    // but DPT matters for farm-down scenarios and closing without charged moves
-    const score = ept * 0.6 + effectiveDpt * 0.4;
-    return { id: moveId, score, ept, dpt, effectiveDpt, type: fm.type, stab, turns: fm.turns };
+
+    // ── Viability floor ──
+    // At least one dimension must clear a 3.0 baseline AND the combined
+    // quality must be >= 6. Filters Pound (4.0), Take Down (4.33),
+    // Zen Headbutt (4.67), Cut (5.0), Present (5.0), Rock Smash (5.33),
+    // Hidden Power (5.67), Iron Tail (5.67), Struggle Bug (5.67), and below.
+    const viable = (dpt >= 3.0 || ept >= 3.0) && (dpt + ept) >= 6.0;
+
+    // ── PvPoke geometric quality ──
+    // Squeeze DPT by STAB before mixing. Energy is unaffected by STAB.
+    const base = Math.pow(effectiveDpt * Math.pow(ept, 4), 1 / 5);
+
+    // ── Tempo factor ──
+    // Short moves are easier to use (tighter baits, less punishable).
+    // Carve-out for elite high-D/high-E moves so Incinerate isn't punished.
+    const eliteBoth = dpt >= 3.5 && ept >= 3.5;
+    const tempo = eliteBoth ? 1.00
+        : ({ 1: 1.05, 2: 1.00, 3: 1.00, 4: 0.96, 5: 0.94 }[fm.turns] ?? 1.00);
+
+    // ── Charged-DPE coupling (P3) ──
+    // PvPoke scales fast-move usage by max(highestDPE - 1, 1). When the
+    // Pokemon owns a >=2.0 DPE nuke, a spam fast move is worth noticeably
+    // more than when the options are mid-DPE. Clamp 1..1.5 so the effect
+    // is a nudge, not a dominant factor.
+    const dpeMult = bestChargedDPE == null ? 1.0
+        : Math.max(1.0, Math.min(1.5, bestChargedDPE));
+
+    const score = base * tempo * dpeMult;
+    return { id: moveId, score, ept, dpt, effectiveDpt, type: fm.type, stab, turns: fm.turns, viable };
 }
 
 /**
@@ -1307,28 +1345,66 @@ function pickOptimalMoveset(speciesId, metaEntries) {
     const eliteSet = new Set(moveset.elite || []);
     const pokemonTypes = POKEMON_TYPES[speciesId] || ['normal'];
 
-    // Score all fast moves
-    const fastScored = moveset.fast.map(fid => scoreFastMove(fid, pokemonTypes)).filter(f => f.score > 0);
-    if (fastScored.length === 0) return null;
-
-    // Score all charged moves
+    // Score all charged moves first so we know the Pokemon's best DPE,
+    // then feed it into fast-move scoring (P3: charged-DPE coupling).
     const chargedScored = moveset.charged.map(cid => scoreChargedMove(cid, pokemonTypes)).filter(c => c.score > 0);
     if (chargedScored.length === 0) return null;
+    const bestChargedDPE = Math.max(...chargedScored.map(c => c.effectiveDpe));
 
-    // Meta offensive scoring function
-    function metaOffScore(moveTypeSet) {
-        if (!metaEntries || metaEntries.length === 0) return 1.0;
-        let offSum = 0, wSum = 0;
+    // Score all fast moves with DPE coupling, then apply the viability floor.
+    // Fallback: if no fast move clears the floor, keep the full list so
+    // Pokemon stuck with only trash moves (e.g. Farfetch'd-class) can still
+    // be evaluated — but only then.
+    const fastScoredAll = moveset.fast.map(fid => scoreFastMove(fid, pokemonTypes, bestChargedDPE)).filter(f => f.score > 0);
+    if (fastScoredAll.length === 0) return null;
+    const fastViable = fastScoredAll.filter(f => f.viable);
+    const fastScored = fastViable.length > 0 ? fastViable : fastScoredAll;
+
+    // ── Meta offensive scoring (P5 + P9 + P10) ──
+    // Split into three terms: fastOff (the fast move's meta coverage,
+    // squared-then-RMSd so STAB×SE peaks dominate), c1Off and c2Off
+    // (charged-move coverage, linear). Fast fires every turn and gets
+    // a much bigger share of the composite than either charged move.
+    const NO_META = !metaEntries || metaEntries.length === 0;
+    const totalMetaW = NO_META ? 1 : metaEntries.reduce((s, e) => s + e.weight, 0) || 1;
+
+    // RMS (root-mean-square) of the effectiveness multiplier across meta.
+    // Squaring rewards peaks: a 1.92x STAB×SE hit contributes 3.69 to the
+    // weighted mean, vs 1.21 for a plain 1.1x neutral hit. Taking sqrt at
+    // the end keeps the resulting number in a comparable scale (~0.6–1.3).
+    function fastMetaRms(moveType) {
+        if (NO_META) return 1.0;
+        const stab = pokemonTypes.includes(moveType);
+        let sum = 0;
         for (const { types: oppTypes, weight } of metaEntries) {
-            let bestMult = 0;
-            for (const mt of moveTypeSet) {
-                const mult = typeEffectiveness(mt, oppTypes[0], oppTypes[1] || null);
-                if (mult > bestMult) bestMult = mult;
-            }
-            offSum += bestMult * weight;
-            wSum += weight;
+            let mult = typeEffectiveness(moveType, oppTypes[0], oppTypes[1] || null);
+            if (stab) mult *= STAB_MULT;
+            sum += (mult * mult) * weight;
         }
-        return wSum > 0 ? offSum / wSum : 1.0;
+        return Math.sqrt(sum / totalMetaW);
+    }
+
+    function chargedMetaAvg(moveType) {
+        if (NO_META) return 1.0;
+        const stab = pokemonTypes.includes(moveType);
+        let sum = 0;
+        for (const { types: oppTypes, weight } of metaEntries) {
+            let mult = typeEffectiveness(moveType, oppTypes[0], oppTypes[1] || null);
+            if (stab) mult *= STAB_MULT;
+            sum += mult * weight;
+        }
+        return sum / totalMetaW;
+    }
+
+    // Legacy helper retained for `moveTypeSet` callers that still want a
+    // single number — composes the split terms with fast-weighted mixing.
+    function metaOffScore(fastType, c1Type, c2Type) {
+        const fastOff = fastMetaRms(fastType);
+        const c1Off = chargedMetaAvg(c1Type);
+        const c2Off = c2Type ? chargedMetaAvg(c2Type) : c1Off;
+        // Fast fires every turn (~15-30 times/match); each charged fires 2-4.
+        // Weight fast 60% of the meta-offense vote.
+        return fastOff * 0.6 + c1Off * 0.25 + c2Off * 0.15;
     }
 
     let bestCombo = null, bestScore = -Infinity;
@@ -1363,8 +1439,12 @@ function pickOptimalMoveset(speciesId, metaEntries) {
                 let coverageBonus = 0;
                 if (i !== j && c1.type !== c2.type) coverageBonus += 0.2; // different charged types
 
-                // ── Meta SE coverage ──
-                const metaOff = metaOffScore(moveTypeSet);
+                // ── Meta SE coverage (P5 + P9) ──
+                // Fast move gets its own RMS-weighted term (peaks matter —
+                // STAB×SE = 1.92x chip every turn is a different weapon from
+                // a flat 1.1x neutral). Charged moves share the remaining
+                // 40% with a linear average since they fire only 2–4 times.
+                const metaOff = metaOffScore(fast.type, c1.type, i === j ? null : c2.type);
 
                 // ── Shield pressure: cost of cheapest charged move ──
                 // Intentionally does NOT use fast.ept here — EPT is already captured in
@@ -1622,9 +1702,13 @@ function computeBreakpoints(row, cpCap, metaEntries) {
  * @param {number} shieldsA  Shields for attacker (0-2)
  * @param {number} shieldsB  Shields for defender (0-2)
  * @param {number} [seed]    Optional PRNG seed for reproducible stochastic decisions
+ * @param {number} [aStartEnergy]  Carryover energy for A (0-100)
+ * @param {number} [bStartEnergy]  Carryover energy for B (0-100)
+ * @param {number} [aStartHpPct]   Starting HP fraction for A (0-1, default 1.0)
+ * @param {number} [bStartHpPct]   Starting HP fraction for B (0-1, default 1.0)
  * @returns {{ winner: 'a'|'b'|'tie', aHpLeft: number, bHpLeft: number, aHpPct: number, bHpPct: number }}
  */
-function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEnergy) {
+function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEnergy, aStartHpPct, bStartHpPct) {
     // ── Seeded PRNG (mulberry32) ─────────────────────────────────────────────
     let _seed = seed != null ? seed : ((a.hp * 7919 + b.hp * 6271 + shieldsA * 31 + shieldsB) >>> 0);
     function rand() {
@@ -1712,7 +1796,13 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
                               : (rand() < 0.85 ? nuke : bait);
     }
 
-    let aHp = a.hp, bHp = b.hp;
+    // HP carryover: start fraction ≤ 1.0 allows the chain sim to represent
+    // a Pokemon entering after a prior KO'd teammate while the opponent
+    // retains residual HP (rather than magically healing back to full).
+    const aHpPctStart = (aStartHpPct == null || aStartHpPct > 1) ? 1 : Math.max(0, aStartHpPct);
+    const bHpPctStart = (bStartHpPct == null || bStartHpPct > 1) ? 1 : Math.max(0, bStartHpPct);
+    let aHp = Math.max(1, Math.round(a.hp * aHpPctStart));
+    let bHp = Math.max(1, Math.round(b.hp * bHpPctStart));
     let aEnergy = Math.min(100, Math.max(0, aStartEnergy || 0));
     let bEnergy = Math.min(100, Math.max(0, bStartEnergy || 0));
     let aShields = shieldsA, bShields = shieldsB;
@@ -1735,21 +1825,31 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
         // Ties broken deterministically (a wins, matching PvPoke default).
         const aFirst = !bPick || (aPick && a.atk >= b.atk);
 
+        // Damage is recomputed at fire time (not reused from the pre-turn
+        // snapshot in aPick/bPick) so that when two charged moves resolve
+        // in the same turn, the second fire reflects any stat-stage changes
+        // applied by the first (e.g. Acid Spray debuffing DEF → next same-
+        // turn charged move hits harder; Power-Up Punch buffing ATK does
+        // NOT benefit the triggering move, matching PoGo PvP semantics
+        // because stage updates are applied inside fire* after the damage
+        // value is already captured).
         const fireA = () => {
             if (!aPick) return;
             aEnergy -= aPick.nrg;
             const shielded = bShields > 0;
+            const dmg = (aPick.id === a.charged1.id) ? aC1Dmg() : aC2Dmg();
             applyMoveEffects(aPick.id, true, shielded);
             if (shielded) { bShields--; bHp -= 1; }
-            else          { bHp -= aPick.dmg; }
+            else          { bHp -= dmg; }
         };
         const fireB = () => {
             if (!bPick) return;
             bEnergy -= bPick.nrg;
             const shielded = aShields > 0;
+            const dmg = (bPick.id === b.charged1.id) ? bC1Dmg() : bC2Dmg();
             applyMoveEffects(bPick.id, false, shielded);
             if (shielded) { aShields--; aHp -= 1; }
-            else          { aHp -= bPick.dmg; }
+            else          { aHp -= dmg; }
         };
 
         if (aFirst) { fireA(); if (aHp > 0 && bHp > 0) fireB(); }
@@ -1760,14 +1860,17 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
         if (!bPick && bTurnCd === 0) bTurnCd = b.fast.turns;
 
         // ── Fast move completions ────────────────────────────────────────────
-        if (aTurnCd > 0) {
+        // A Pokemon KO'd by a charged move earlier this turn does not get to
+        // complete an in-progress fast move — gate on hp > 0 so leftover fast
+        // damage doesn't skew aHpPct/bHpPct (and therefore battleMargin).
+        if (aTurnCd > 0 && aHp > 0) {
             aTurnCd--;
             if (aTurnCd === 0) {
                 bHp -= aFastDmg();
                 aEnergy = Math.min(100, aEnergy + a.fast.nrg);
             }
         }
-        if (bTurnCd > 0) {
+        if (bTurnCd > 0 && bHp > 0) {
             bTurnCd--;
             if (bTurnCd === 0) {
                 aHp -= bFastDmg();
@@ -1779,7 +1882,15 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
     aHp = Math.max(0, aHp);
     bHp = Math.max(0, bHp);
     const winner = aHp > bHp ? 'a' : bHp > aHp ? 'b' : 'tie';
-    return { winner, aHpLeft: aHp, bHpLeft: bHp, aHpPct: aHp / a.hp, bHpPct: bHp / b.hp };
+    // Return final energy so the chain sim can propagate opp residual energy
+    // (Tier-6): when the lead loses, opp0 doesn't reset to 0 energy on the
+    // next matchup — they've been accumulating fast-move energy all fight.
+    return {
+        winner,
+        aHpLeft: aHp, bHpLeft: bHp,
+        aHpPct: aHp / Math.max(1, a.hp), bHpPct: bHp / Math.max(1, b.hp),
+        aEnergy, bEnergy
+    };
 }
 
 /**
@@ -2048,7 +2159,7 @@ function applyRRF(scored, cpCap, metaEntries) {
  *   - Meta-optimized moveset selection (bait+nuke, STAB, stat effects)
  *   - Type coverage against top 30 meta weighted by rank
  *   - Defensive resilience (resistance profile vs meta attackers)
- *   - Anti-meta / spice bonus: off-meta picks get a familiarity advantage
+ *   - Anti-meta value: empirical wins vs top-15 over meta-baseline
  *   - Shield pressure: fast energy generation for bait potential
  * Team building uses role-aware greedy coverage with ABB detection.
  */
@@ -2137,12 +2248,82 @@ function classifyTeamArchetype(team) {
  * @param {Function|null} slotFilter  (cand, slot, team) → bool — optional per-slot gate
  * @param {Object}        [ctx]       { rank1Battler, rank2Battler } — pre-built battlers
  */
+// ── Defensive cores (P11) — derived per cup ──
+// The Pokemon that absorb fast-move chip in whatever format is currently
+// loaded. For each of the top N meta species we collect the attack types
+// that hit ≥1.6x against its typing; teams get a bonus per fast-move type
+// that "cracks" a core no prior teammate could.
+//
+// This used to be a hard-coded Open-GL list (Azumarill / Altaria / Registeel /
+// Clodsire / Umbreon). Deriving from the cup's CSV makes the bonus correct
+// in restricted cups (Remix, Retro, Fantasy, …) and at higher CP caps
+// (Ultra 2500, Master 10000), where the walls are entirely different.
+function deriveDefensiveCores(metaEntries, topN) {
+    const cores = [];
+    const limit = Math.min(topN || 8, metaEntries.length);
+    for (let i = 0; i < limit; i++) {
+        const entry = metaEntries[i];
+        const t1 = entry.types[0];
+        const t2 = entry.types[1] || null;
+        const breaks = new Set();
+        for (const atk of TYPES_LIST) {
+            if (typeEffectiveness(atk, t1, t2) >= 1.6) breaks.add(atk);
+        }
+        if (breaks.size > 0) cores.push({ name: entry.id, breaks });
+    }
+    return cores;
+}
+
+// ── Meta attack-type prevalence (Tier 1 + Tier 3) ──
+// For each of the 18 types, how "loud" is that type as an attacker in the
+// current cup? We walk the top N meta entries, resolve each one's optimal
+// moveset (so coverage moves like Altaria's Flamethrower count, not just
+// STAB), and accumulate rank-weighted "move votes" per type. Fast moves
+// weigh 2× charged because they fire every turn.
+//
+// Output is normalized so the mean across all 18 types = 1.0. Types the
+// meta never uses return 0, which zeroes out penalties/bonuses tied to
+// them in buildTeamsGreedy and scoreTeamFull. Types used heavily (e.g.
+// Water in a water-leaning cup) return >1, scaling their terms up.
+function computeAttackPrevalence(metaEntries, topN) {
+    const limit = Math.min(topN || 30, metaEntries.length);
+    const totals = {};
+    for (let i = 0; i < limit; i++) {
+        const entry = metaEntries[i];
+        const optimal = pickOptimalMoveset(entry.id, metaEntries);
+        if (!optimal) continue;
+        // Defensive default — current callers always set weight, but guard
+        // against future callers (or stale cached metaEntries) that might not.
+        const w = entry.weight ?? 1;
+        const ft = optimal.fastInfo && optimal.fastInfo.type;
+        const c1 = optimal.charged1Info && optimal.charged1Info.type;
+        const c2 = optimal.charged2Info && optimal.charged2Info.type;
+        if (ft) totals[ft] = (totals[ft] || 0) + w * 2;
+        if (c1) totals[c1] = (totals[c1] || 0) + w;
+        if (c2 && c2 !== c1) totals[c2] = (totals[c2] || 0) + w;
+    }
+    const sum = TYPES_LIST.reduce((s, t) => s + (totals[t] || 0), 0);
+    const mean = sum / TYPES_LIST.length;
+    const prevalence = {};
+    for (const t of TYPES_LIST) {
+        prevalence[t] = mean > 0 ? (totals[t] || 0) / mean : 1;
+    }
+    return prevalence;
+}
+
 function buildTeamsGreedy(candidates, count, scoreFn, slotFilter, ctx) {
-    const { rank1Battler = null } = ctx || {};
+    const { rank1Battler = null, defensiveCores = [], attackPrevalence = null } = ctx || {};
+    // prev(t) → defensive multiplier. 1.0 when no prevalence data, so callers
+    // that don't supply attackPrevalence get the original (type-agnostic) behaviour.
+    const prev = (t) => attackPrevalence ? (attackPrevalence[t] ?? 1) : 1;
     const teams = [], usedAsLead = new Set(), seenKeys = new Set();
 
     for (let t = 0; t < count * 4 && teams.length < count; t++) {
         const team = [], teamTypes = new Set(), teamWeak = [];
+        // P11 team state: cores already broken by a prior teammate's fast move.
+        const coresBroken = new Set();
+        // P6 team state: count of teammates per fast-move type (for diversity penalty).
+        const fastTypeCount = {};
 
         for (let slot = 0; slot < 3; slot++) {
             const pool = slotFilter ? candidates.filter(c => slotFilter(c, slot, team)) : candidates;
@@ -2154,21 +2335,49 @@ function buildTeamsGreedy(candidates, count, scoreFn, slotFilter, ctx) {
 
                 let val = scoreFn(cand, slot);
 
-                // Offensive novelty: bonus per new attack type
-                for (const mt of cand.moveTypes) if (!teamTypes.has(mt)) val += 0.12;
-
-                // Defensive synergy: bonus for covering existing weaknesses
-                for (const wt of teamWeak) {
-                    const m = typeEffectiveness(wt, cand.types[0], cand.types[1] || null);
-                    if (m < 1) val += 0.15 * (1 - m);
+                // Offensive novelty: bonus per new attack type.
+                // P6: the fast move type counts more than charged-move types
+                // because the fast move fires every turn and drives chip pressure.
+                const fastType = cand.optimal?.fastInfo?.type;
+                for (const mt of cand.moveTypes) {
+                    if (!teamTypes.has(mt)) {
+                        val += (mt === fastType) ? 0.18 : 0.10;
+                    }
                 }
 
-                // Shared weakness penalty
+                // P6: diversity penalty — third+ teammate sharing a fast-move type.
+                // Two of the same is sometimes correct (double Fighting cores exist);
+                // three+ is almost always redundant pressure.
+                if (fastType && (fastTypeCount[fastType] || 0) >= 2) val -= 0.08;
+
+                // P11: core-break bonus — reward picks whose fast move cracks
+                // a defensive core that no prior teammate cracked. Strongest
+                // incentive for the first crack of each core.
+                if (fastType) {
+                    for (const core of defensiveCores) {
+                        if (!coresBroken.has(core.name) && core.breaks.has(fastType)) {
+                            val += 0.07;
+                        }
+                    }
+                }
+
+                // Defensive synergy: bonus for covering existing weaknesses.
+                // Tier 1: scale by how prevalent that attack type is in the meta —
+                // covering a hole to a common type matters more than a rare one.
+                for (const wt of teamWeak) {
+                    const m = typeEffectiveness(wt, cand.types[0], cand.types[1] || null);
+                    if (m < 1) val += 0.15 * (1 - m) * prev(wt);
+                }
+
+                // Shared weakness penalty.
+                // Tier 1: same prevalence weighting — doubling up on a weakness
+                // to the cup's dominant attack type is much costlier than to a
+                // rare one. Types absent from the meta contribute zero.
                 for (const tp of TYPES_LIST) {
                     if (typeEffectiveness(tp, cand.types[0], cand.types[1] || null) > 1.0) {
                         const already = team.filter(tm =>
                             typeEffectiveness(tp, tm.types[0], tm.types[1] || null) > 1.0).length;
-                        if (already > 0) val -= 0.12 * already;
+                        if (already > 0) val -= 0.12 * already * prev(tp);
                     }
                 }
 
@@ -2186,17 +2395,22 @@ function buildTeamsGreedy(candidates, count, scoreFn, slotFilter, ctx) {
                 // Safe-swap energy-momentum bonus
                 if (slot === 1) val += (cand.energyMomentum || 0) * 0.25;
 
-                // Lead fragility penalty
+                // Lead fragility penalty.
+                // Tier 1: only count weaknesses to attack types the meta actually
+                // uses (prevalence >= 0.5). A lead with 4 weaknesses to rare
+                // types is fine; 3 weaknesses to common types is fatal.
                 if (slot === 0) {
                     const wc = TYPES_LIST.filter(tp =>
-                        typeEffectiveness(tp, cand.types[0], cand.types[1] || null) > 1.0).length;
+                        typeEffectiveness(tp, cand.types[0], cand.types[1] || null) > 1.0 &&
+                        prev(tp) >= 0.5).length;
                     if (wc >= 3) val -= 0.10 * (wc - 2);
                 }
 
-                // Pivot quality bonus (non-lead: ≤2 weaknesses + ≤45 energy move)
+                // Pivot quality bonus (non-lead: ≤2 dangerous weaknesses + ≤45 energy move)
                 if (slot >= 1) {
                     const wc  = TYPES_LIST.filter(tp =>
-                        typeEffectiveness(tp, cand.types[0], cand.types[1] || null) > 1.0).length;
+                        typeEffectiveness(tp, cand.types[0], cand.types[1] || null) > 1.0 &&
+                        prev(tp) >= 0.5).length;
                     const nrg = Math.min(
                         cand.optimal?.charged1Info?.nrg ?? 55,
                         cand.optimal?.charged2Info?.nrg ?? 55);
@@ -2216,6 +2430,15 @@ function buildTeamsGreedy(candidates, count, scoreFn, slotFilter, ctx) {
                 for (const tp of TYPES_LIST)
                     if (typeEffectiveness(tp, bestPick.types[0], bestPick.types[1] || null) > 1.0)
                         teamWeak.push(tp);
+                // P11 / P6 state: record the fast-move type and cores cracked
+                // so subsequent slots see the updated team state.
+                const pickedFastType = bestPick.optimal?.fastInfo?.type;
+                if (pickedFastType) {
+                    fastTypeCount[pickedFastType] = (fastTypeCount[pickedFastType] || 0) + 1;
+                    for (const core of defensiveCores) {
+                        if (core.breaks.has(pickedFastType)) coresBroken.add(core.name);
+                    }
+                }
             }
         }
 
@@ -2229,52 +2452,144 @@ function buildTeamsGreedy(candidates, count, scoreFn, slotFilter, ctx) {
 
 /**
  * Full 3v3 team score (0–1000) with matchup detail stats.
- * Weights validated by Spearman ρ against gauntlet simulation (n=400 teams):
- *   Coverage   ρ=0.83  →  30%
- *   Role chain ρ=0.86  →  60%
- *   Synergy    ρ=-0.09 →  10%
+ * Weights (Tier-4 rebalance; prior weights 30/60/10 retained in history):
+ *   Coverage   → 25%  (multi-shield blend)
+ *   Role chain → 50%
+ *   Synergy    → 10%
+ *   Lead tree  → 15%  (new — lead slot vs cup's top leads)
+ *
+ * Tier-4 additions:
+ *   - Coverage uses a 3-shield blend (0s/1s/2s) per matchup, not just 1s/1s.
+ *     Many matchups flip on shield count: closers win at 0s, bait-dependent
+ *     picks lose at 0s. Matches PvPoke's 0-shield + 1-shield methodology.
+ *   - Species-level threat score: for each meta opponent, count how many
+ *     team members lose (blended margin < 0.45). ≥2 losers → rank-weighted
+ *     penalty. Catches "team killers" that pure type-overlap analysis misses.
+ *   - Lead matchup tree: dedicated sim of battlers[0] (the lead) vs the
+ *     cup's top LEAD_TOP_N meta picks at 1s/1s. Lead-vs-lead decides the
+ *     opening — whether you stay in or burn your switch.
+ *
+ * Tier-6 additions:
+ *   - Asymmetric shield scenarios: coverage blend now also tests 1v0
+ *     (up-a-shield pressure) and 0v1 (down-a-shield stabilization),
+ *     matching PvPoke's "attackers/chargers" methodology.
+ *   - Opponent residual energy carryover: when lead loses, opp0 enters
+ *     the safe-swap matchup with its actual remaining energy (from the
+ *     prior fight) rather than resetting to 0 — a realistic "immediate
+ *     nuke" pressure test for the safe swap.
+ *   - Offensive type diversity: penalize teams whose primary (nuke-slot)
+ *     charged moves are mono- or duo-type — these get walled by a single
+ *     resistor. Counts distinct nuke types across all team members.
  *
  * @returns {{ score: number, stats: object }}
  */
-function scoreTeamFull(team, cpCap, metaEntries, topN) {
+function scoreTeamFull(team, cpCap, metaEntries, topN, attackPrevalence) {
     topN = topN || 30;
-    const battlers = team.map(m => getCachedBattler(m.id, cpCap, metaEntries, m.isShadow))
-                         .filter(Boolean);
+    const battlers = [];
+    for (const m of team) {
+        const b = getCachedBattler(m.id, cpCap, metaEntries, m.isShadow);
+        if (b) battlers.push(b);
+        else console.warn(`scoreTeamFull: getCachedBattler returned null for ${m.id}${m.isShadow ? ' (shadow)' : ''} at cpCap=${cpCap}`);
+    }
     if (battlers.length < 2) return { score: 0, stats: null };
 
-    // ── 1. Coverage score (30%) ──────────────────────────────────────────
-    let covSum = 0, hardHoles = 0, oppCount = 0;
+    // ── 1. Coverage score (25%) + threat + lead capture ──────────────────
+    // Run each matchup across FIVE shield scenarios and blend them.
+    // Symmetric:   0v0 (closer mirror),  1v1 (standard),   2v2 (lead mirror)
+    // Asymmetric:  1v0 (up-shield pressure), 0v1 (down-shield stabilization)
+    //   Tier-6 addition: PvPoke's published methodology uses asymmetric
+    //   scenarios (attackers=0v2, chargers=energy-advantage, etc). A team
+    //   that only wins symmetric 1v1s but folds when up a shield can't
+    //   close; one that collapses when down a shield can't recover.
+    //   Weights sum to 1.00 and emphasize the common 1v1 outcome while
+    //   still testing pressure/recovery behavior.
+    // hardHole: best team member's blended margin < 0.45 (no good answer).
+    // Threat score: per opponent, count team members with blended < 0.45;
+    //               ≥2 losers → rank-weighted penalty (team killer).
+    // Lead capture: battlers[0] 1s-margin vs top LEAD_TOP_N opponents,
+    //               reused for the leadScore term (no duplicate sims).
+    const LEAD_TOP_N = 8;
+    const W_00 = 0.15, W_11 = 0.35, W_22 = 0.15, W_10 = 0.20, W_01 = 0.15;
+    let covWeightedSum = 0, totalWeight = 0;
+    let hardHoles = 0, oppCount = 0;
     let wins = 0, winHpSum = 0, losses = 0, lossHpSum = 0;
+    let threatPenalty = 0, threatCount = 0;
+    const topKillers = [];
+    let leadMarginSum = 0, leadMarginCount = 0;
 
-    for (const oppEntry of metaEntries.slice(0, topN)) {
+    const limit = Math.min(topN, metaEntries.length);
+    for (let i = 0; i < limit; i++) {
+        const oppEntry = metaEntries[i];
         const opp = getCachedBattler(oppEntry.id, cpCap, metaEntries, false);
         if (!opp) continue;
         oppCount++;
-        let bestM = 0, bestR = null;
-        for (const b of battlers) {
-            const r = simulateBattle(b, opp, 1, 1);
-            const m = battleMargin(r);
-            if (m > bestM) { bestM = m; bestR = r; }
+        // Meta-rank weight: favors coverage against the cup's most common
+        // opponents (rank 1 matters more than rank 30). Matches PvPoke's
+        // doctrine: "weighs each Battle Rating by the opponent's average."
+        const weight = oppEntry.weight ?? (limit - i);
+        const rankWeight = 1 - i / limit; // for threat penalty scaling
+
+        let bestBlended = 0, bestR1 = null;
+        let losers = 0;
+        for (let bi = 0; bi < battlers.length; bi++) {
+            const b = battlers[bi];
+            const r00 = simulateBattle(b, opp, 0, 0);
+            const r11 = simulateBattle(b, opp, 1, 1);
+            const r22 = simulateBattle(b, opp, 2, 2);
+            const r10 = simulateBattle(b, opp, 1, 0); // up a shield
+            const r01 = simulateBattle(b, opp, 0, 1); // down a shield
+            const m00 = battleMargin(r00);
+            const m11 = battleMargin(r11);
+            const m22 = battleMargin(r22);
+            const m10 = battleMargin(r10);
+            const m01 = battleMargin(r01);
+            const blended = W_00*m00 + W_11*m11 + W_22*m22 + W_10*m10 + W_01*m01;
+            if (blended > bestBlended) { bestBlended = blended; bestR1 = r11; }
+            if (blended < 0.45) losers++;
+            // Lead slot: capture 1-shield margin vs the top common leads.
+            if (bi === 0 && i < LEAD_TOP_N) {
+                leadMarginSum += m11;
+                leadMarginCount++;
+            }
         }
-        covSum += bestM;
-        if (bestM < 0.45) hardHoles++;
-        if (bestR) {
-            if (bestR.winner === 'a')    { wins++;   winHpSum  += bestR.aHpPct; }
-            else if (bestR.winner !== 'tie') { losses++; lossHpSum += bestR.bHpPct; }
+        covWeightedSum += bestBlended * weight;
+        totalWeight += weight;
+        if (bestBlended < 0.45) hardHoles++;
+        if (bestR1) {
+            if (bestR1.winner === 'a')    { wins++;   winHpSum  += bestR1.aHpPct; }
+            else if (bestR1.winner !== 'tie') { losses++; lossHpSum += bestR1.bHpPct; }
+        }
+        if (losers >= 2) {
+            threatPenalty += (losers - 1) * (losers - 1) * rankWeight;
+            threatCount++;
+            topKillers.push({ id: oppEntry.id, losers, rankWeight });
         }
     }
-    if (oppCount === 0) return { score: 0, stats: null };
-    const coverageScore = Math.max(0, covSum / oppCount - hardHoles * 0.04);
+    if (oppCount === 0 || totalWeight === 0) return { score: 0, stats: null };
+    const coverageScore = Math.max(0,
+        covWeightedSum / totalWeight - hardHoles * 0.04 - threatPenalty * 0.02);
 
-    // ── 2. Role-chain score (60%) ────────────────────────────────────────
+    // ── 2. Role-chain score (50%) ────────────────────────────────────────
     let roleScore = 0.5;
     if (battlers.length >= 3) {
         const chain = metaEntries.slice(0, 30)
             .map(e => getCachedBattler(e.id, cpCap, metaEntries, false)).filter(Boolean);
         function runChain(o0, o1, o2) {
             const r1 = simulateBattle(battlers[0], o0, 1, 1);
-            const swE = r1.winner === 'a' ? Math.round(r1.aHpPct * 30) : 0;
-            const r2  = simulateBattle(battlers[1], r1.winner === 'a' ? o1 : o0, 1, 1, null, swE, 0);
+            const leadWon = r1.winner === 'a';
+            const swE = leadWon ? Math.round(r1.aHpPct * 30) : 0;
+            // If lead lost, safe swap faces the SAME opponent (o0) at their
+            // residual HP (bHpPct) after KO'ing the lead — not a freshly-
+            // healed o0. If lead won, next opponent o1 enters fresh.
+            // Tier-6: when lead loses, opp0 has been banking fast-move energy
+            // all fight and typically retains meaningful residual energy.
+            // Carry r1.bEnergy directly (simulateBattle returns final energy
+            // state) rather than resetting opp0 to 0 — this realistically
+            // tests whether the safe swap can weather an immediate nuke.
+            const r2 = leadWon
+                ? simulateBattle(battlers[1], o1, 1, 1, null, swE, 0)
+                : simulateBattle(battlers[1], o0, 1, 1, null, swE, r1.bEnergy || 0, 1.0, r1.bHpPct);
+            // Closer faces o2 with no shields on either side.
             const r3  = simulateBattle(battlers[2], o2, 0, 0, null, Math.round(r2.aHpPct * 25), 0);
             return (battleMargin(r1) + battleMargin(r2) + battleMargin(r3)) / 3;
         }
@@ -2286,33 +2601,149 @@ function scoreTeamFull(team, cpCap, metaEntries, topN) {
     }
 
     // ── 3. Type-synergy score (10%) ──────────────────────────────────────
-    let sharedWeak = 0, tripleWeak = 0;
+    // Tier 1: each shared/triple weakness is weighted by how prevalent that
+    // attack type is in the cup's meta (mean across 18 types = 1.0). Sharing
+    // a weakness to the dominant type hurts more than to a rare one.
+    // Tier 2: additionally count "coverage holes" — attack types with
+    // prevalence >= 0.7 that NO team member resists. An all-three-fold
+    // scenario to a common attack type is a hard red flag.
+    const prev = (t) => attackPrevalence ? (attackPrevalence[t] ?? 1) : 1;
+    let sharedWeak = 0, tripleWeak = 0, coverageHoles = 0;
     for (const tp of TYPES_LIST) {
         const wc = battlers.filter(b =>
             typeEffectiveness(tp, b.types[0], b.types[1] || null) > 1.0).length;
-        if (wc >= 2) sharedWeak++;
-        if (wc === 3) tripleWeak++;
+        const p = prev(tp);
+        if (wc >= 2) sharedWeak += p;
+        if (wc === 3) tripleWeak += p;
+        if (p >= 0.7) {
+            const anyResist = battlers.some(b =>
+                typeEffectiveness(tp, b.types[0], b.types[1] || null) < 1.0);
+            if (!anyResist) coverageHoles += 1;
+        }
     }
-    const synergyScore = Math.max(0, 1 - sharedWeak * 0.08 - tripleWeak * 0.15);
+    // Tier-6: offensive charged-move type diversity. A team whose primary
+    // nukes are all the same type gets walled by a single resistor
+    // (e.g., all-Fighting nukes → Togekiss/Clefable shut down the team).
+    // For each Pokemon, pick the higher-DPE charged move (the "nuke" slot)
+    // and count distinct types across the team.
+    const nukeTypes = new Set();
+    for (const b of battlers) {
+        const c1 = b.charged1, c2 = b.charged2;
+        if (!c1) continue;
+        // DPE = damage-per-energy at neutral attacker stats (power/energy
+        // is a reasonable proxy — STAB/effectiveness vary by matchup).
+        const c1Dpe = c1.pow / Math.max(1, c1.nrg);
+        const c2Dpe = c2 ? c2.pow / Math.max(1, c2.nrg) : -1;
+        const nuke = c2Dpe > c1Dpe ? c2 : c1;
+        if (nuke && nuke.type) nukeTypes.add(nuke.type);
+    }
+    // 1 distinct type across 3 battlers → severe wall risk; 2 → moderate.
+    let offensiveDiversityPenalty = 0;
+    if (battlers.length >= 2 && nukeTypes.size === 1)      offensiveDiversityPenalty = 0.20;
+    else if (battlers.length >= 3 && nukeTypes.size === 2) offensiveDiversityPenalty = 0.05;
+
+    const synergyScore = Math.max(0,
+        1 - sharedWeak * 0.08 - tripleWeak * 0.15 - coverageHoles * 0.10
+          - offensiveDiversityPenalty);
+
+    // ── 4. Lead matchup tree score (15%) ─────────────────────────────────
+    // battlers[0] vs the cup's top LEAD_TOP_N picks, averaged 1s-margin.
+    // Already accumulated inside the coverage loop — no extra sims.
+    const leadScore = leadMarginCount > 0 ? leadMarginSum / leadMarginCount : 0.5;
 
     // ── Blend and scale ──────────────────────────────────────────────────
     const score = Math.round(Math.max(0, Math.min(1,
-        coverageScore * 0.30 + roleScore * 0.60 + synergyScore * 0.10
+          coverageScore * 0.25
+        + roleScore     * 0.50
+        + synergyScore  * 0.10
+        + leadScore     * 0.15
     )) * 1000);
+
+    // Sort team killers by losers desc, then by rank weight desc.
+    topKillers.sort((a, b) =>
+        (b.losers - a.losers) || (b.rankWeight - a.rankWeight));
 
     return {
         score,
         stats: {
-            wins, losses, oppCount, hardHoles,
+            wins, losses, oppCount, hardHoles, coverageHoles,
+            threatCount,
+            topKillers: topKillers.slice(0, 3).map(k => k.id),
             avgWinMargin:  wins   > 0 ? Math.round(winHpSum  / wins   * 100) : 0,
             avgLossMargin: losses > 0 ? Math.round(lossHpSum / losses * 100) : 0,
             coverageScore: Math.round(coverageScore * 100),
             chainScore:    Math.round(roleScore * 100),
+            leadScore:     Math.round(leadScore * 100),
         },
     };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Anti-meta value: empirical "spice" replacement.
+ *
+ * The old spice bonus was a flat +0.08 for any Pokemon outside the top-100
+ * rank cliff, rewarding obscurity rather than effectiveness. This version
+ * measures what actually matters: does this candidate beat top-meta picks
+ * that an average top-20 meta pick would NOT beat?
+ *
+ * Method:
+ *   1. Compute baseline = median 1v1/1v1 wins of top-20 ranked Pokemon vs.
+ *      the top-15 meta. This captures "how many top-15 a typical meta pick
+ *      beats" — the bar a spice pick must clear to be worth including.
+ *   2. For each non-top-20 candidate, count its 1v1/1v1 wins vs. top-15.
+ *   3. antimetaValue = clamp(wins − baseline) × 0.03, capped at 0.15.
+ *
+ * Result: Galvantula-like picks that genuinely punch up at meta rise;
+ * obscure-but-useless picks (rank ~500 with no wins) drop to 0 bonus.
+ * Top-20 meta picks never get the bonus — they're already meta.
+ */
+function computeAntimetaBaseline(cpCap, metaEntries, top15Battlers) {
+    const winsList = [];
+    const sampleSize = Math.min(20, metaEntries.length);
+    for (let i = 0; i < sampleSize; i++) {
+        const cand = getCachedBattler(metaEntries[i].id, cpCap, metaEntries, false);
+        if (!cand) continue;
+        let wins = 0;
+        for (const opp of top15Battlers) {
+            if (!opp || opp === cand) continue; // skip self-mirror
+            const r = simulateBattle(cand, opp, 1, 1);
+            if (r.winner === 'a') wins++;
+        }
+        winsList.push(wins);
+    }
+    if (winsList.length === 0) return 0;
+    winsList.sort((a, b) => a - b);
+    return winsList[Math.floor(winsList.length / 2)]; // median
+}
+
+/**
+ * Per-candidate anti-meta value. Returns 0 for top-20 meta picks.
+ * @param {string}      candidateId
+ * @param {number}      cpCap
+ * @param {Array}       metaEntries
+ * @param {Array}       top15Battlers  precomputed via getCachedBattler
+ * @param {number}      baseline        median wins across top-20 meta
+ * @param {boolean}     isShadow
+ * @param {number|null} metaRank        0-indexed rank, or null if unranked
+ * @returns {number} 0 to 0.15
+ */
+function computeAntimetaValue(candidateId, cpCap, metaEntries, top15Battlers, baseline, isShadow, metaRank) {
+    // Top-20 meta picks don't get antimeta — they ARE the meta we score against.
+    if (metaRank != null && metaRank < 20) return 0;
+    const cand = getCachedBattler(candidateId, cpCap, metaEntries, isShadow);
+    if (!cand) return 0;
+    let wins = 0;
+    for (const opp of top15Battlers) {
+        if (!opp || opp === cand) continue;
+        const r = simulateBattle(cand, opp, 1, 1);
+        if (r.winner === 'a') wins++;
+    }
+    const margin = wins - baseline;
+    if (margin <= 0) return 0;
+    return Math.min(0.15, margin * 0.03);
+}
 
 function buildMetaBreakerTeams(leagueKey, cpCap) {
     const leagueInfo = getLeagueInfo(leagueKey);
@@ -2332,10 +2763,13 @@ function buildMetaBreakerTeams(leagueKey, cpCap) {
         weight: metaIds.length - i // #1 meta = highest weight
     }));
 
-    // Top 100 meta set for spice calculation
-    const top100Meta = new Set(
-        Object.entries(rankMap).sort(([,a],[,b]) => a - b).slice(0, 100).map(([id]) => id)
-    );
+    // ── Precompute anti-meta baseline once per run ──────────────────────
+    // Top-15 battlers are the opponents we test each candidate against.
+    // Baseline = median wins of top-20 meta picks vs. these top-15.
+    const top15Battlers = metaEntries.slice(0, 15)
+        .map(e => getCachedBattler(e.id, cpCap, metaEntries, false))
+        .filter(Boolean);
+    const antimetaBaseline = computeAntimetaBaseline(cpCap, metaEntries, top15Battlers);
 
     // Score every Pokémon in the DB (restricted formats only score eligible species)
     const allScored = [];
@@ -2364,15 +2798,15 @@ function buildMetaBreakerTeams(leagueKey, cpCap) {
             pressureScore = optimal.pressureScore || 0;
         }
 
-        // ── Anti-meta / spice bonus ──
-        // Pokemon outside top 100 get a bonus representing the "unpredictability tax":
-        // opponents don't know their move counts, can't predict charge timing, misplay shields
-        let spiceBonus = 0;
-        if (!top100Meta.has(speciesId)) {
-            spiceBonus = 0.08; // base surprise factor
-            // Even bigger bonus if they have a curated moveset (viable spice, not meme)
-            if (optimal && optimal.totalMoveScore > 1.5) spiceBonus += 0.05;
-        }
+        // ── Anti-meta value (empirical "spice" replacement) ──────────
+        // Earned coverage: wins vs. top-15 meta minus the baseline that a
+        // typical top-20 meta pick achieves. Obscurity alone no longer
+        // earns a bonus — a candidate must out-beat the meta.
+        const metaRankIdx = rankMap[speciesId];
+        const antimetaValue = computeAntimetaValue(
+            speciesId, cpCap, metaEntries, top15Battlers, antimetaBaseline,
+            false, metaRankIdx != null ? metaRankIdx : null
+        );
 
         // ── Stat effect bonus ──
         // Pokemon with stat-changing moves (PuP, Icy Wind, Acid Spray) get extra value
@@ -2387,7 +2821,7 @@ function buildMetaBreakerTeams(leagueKey, cpCap) {
         const finalScore = (coverage.totalScore * 0.45)           // type matchup is still king
             + (efficiency * 0.25)                                  // move quality (EPT/DPT, bait+nuke)
             + (pressureScore * 0.10)                               // shield pressure ability
-            + spiceBonus                                           // anti-meta surprise value
+            + antimetaValue                                        // empirical anti-meta coverage
             + statEffectBonus                                      // stat buff/debuff utility
             + (coverage.offScore > 1.3 ? 0.05 : 0);              // SE coverage jackpot
 
@@ -2400,7 +2834,7 @@ function buildMetaBreakerTeams(leagueKey, cpCap) {
             coverageScore: coverage.totalScore,
             efficiency,
             pressureScore,
-            spiceBonus,
+            antimetaValue,
             finalScore,
             metaRank: rankMap[speciesId] ?? null,
             optimal,
@@ -2428,16 +2862,18 @@ function buildMetaBreakerTeams(leagueKey, cpCap) {
     }
 
     // ── Team building via shared greedy engine ────────────────────────────
+    const defensiveCores = deriveDefensiveCores(metaEntries);
+    const attackPrevalence = computeAttackPrevalence(metaEntries);
     const teams = buildTeamsGreedy(
         allScored, 5,
         (cand, _slot) => cand.finalScore,   // base score from RRF heuristic
         null,
-        { rank1Battler, rank2Battler }
+        { rank1Battler, rank2Battler, defensiveCores, attackPrevalence }
     );
 
     // ── Score and classify every team ─────────────────────────────────────
     for (const team of teams) {
-        const { score, stats } = scoreTeamFull(team, cpCap, metaEntries);
+        const { score, stats } = scoreTeamFull(team, cpCap, metaEntries, 30, attackPrevalence);
         team._chainScore    = score;
         team._matchupStats  = stats;
         team._archetype     = classifyTeamArchetype(team);
@@ -2473,9 +2909,9 @@ function renderMonCard(mon, opts) {
     const metaTag = mon.metaRank != null
         ? `<span style="color:#f59e0b;font-size:10px;"> Meta #${mon.metaRank+1}</span>`
         : '';
-    const spiceVal = mon.spiceBonus || mon.spiceValue || 0;
-    const spiceTag = (spiceVal > 0)
-        ? ' <span style="background:#d946ef;color:#fff;padding:0 4px;border-radius:3px;font-size:8px;">SPICE</span>'
+    const antimetaVal = mon.antimetaValue || 0;
+    const spiceTag = (antimetaVal > 0)
+        ? ` <span style="background:#d946ef;color:#fff;padding:0 4px;border-radius:3px;font-size:8px;" title="Anti-meta value: +${antimetaVal.toFixed(2)} from wins vs top-15 meta">ANTI-META</span>`
         : '';
     const roleTag = role
         ? `<span style="color:${ROLE_COLORS[role] || '#94a3b8'};font-size:9px;font-weight:600;display:block;margin-bottom:2px;">${role}</span>`
@@ -2580,8 +3016,8 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
         const s = allScored[i];
         const inBox = (userBox || new Set()).has(s.id);
         const boxTag = inBox ? ' <span style="background:#22c55e;color:#000;padding:0 4px;border-radius:3px;font-size:9px;">IN BOX</span>' : '';
-        const spiceVal = s.spiceBonus || s.spiceValue || 0;
-        const spiceTag = (spiceVal > 0) ? ' <span style="background:#d946ef;color:#fff;padding:0 3px;border-radius:2px;font-size:8px;">SPICE</span>' : '';
+        const antimetaVal = s.antimetaValue || 0;
+        const spiceTag = (antimetaVal > 0) ? ` <span style="background:#d946ef;color:#fff;padding:0 3px;border-radius:2px;font-size:8px;" title="Anti-meta: +${antimetaVal.toFixed(2)} from empirical wins vs top-15">ANTI-META</span>` : '';
         const typesTags = s.types.map(t => `<span class="type-badge type-${t}" style="font-size:10px;">${t}</span>`).join(' ');
 
         let movesetCell = '<span style="color:#555;">STAB only</span>';
@@ -2769,8 +3205,17 @@ function buildBoxTeams(leagueKey, cpCap) {
         weight: metaIds.length - i
     }));
 
+    // Top-100 set retained for the isMeta flag used in team categorization
+    // (Meta / Semi-Meta / Full Disruption slotting logic). The antimeta
+    // VALUE no longer uses this cutoff — it's computed empirically below.
     const top100Meta = new Set(metaIds);
     const minIvPct = getMinIvPct();
+
+    // Anti-meta scoring infrastructure (see computeAntimetaValue above).
+    const top15Battlers = metaEntries.slice(0, 15)
+        .map(e => getCachedBattler(e.id, cpCap, metaEntries, false))
+        .filter(Boolean);
+    const antimetaBaseline = computeAntimetaBaseline(cpCap, metaEntries, top15Battlers);
 
     // Use the species sets cached from the last Analyze run.
     // If a min IV% filter is active, use only species that met it.
@@ -2787,8 +3232,8 @@ function buildBoxTeams(leagueKey, cpCap) {
         }
     }
 
-    // Score each box Pokémon — we compute a base score without spice,
-    // then store spice separately so each category can apply it differently.
+    // Score each box Pokémon — we compute a base score without anti-meta,
+    // then store anti-meta separately so each category can apply it differently.
     // userBox entries may carry _shadow suffix; extract base ID for stat lookups.
     const boxScored = [];
     for (const rawId of userBox) {
@@ -2814,12 +3259,14 @@ function buildBoxTeams(leagueKey, cpCap) {
 
         const isMeta = top100Meta.has(speciesId);
 
-        // Spice value (stored but not baked into finalScore)
-        let spiceValue = 0;
-        if (!isMeta) {
-            spiceValue = 0.08;
-            if (optimal.totalMoveScore > 1.5) spiceValue += 0.05;
-        }
+        // Anti-meta value: empirical wins vs top-15 meta over baseline.
+        // Stored separately from baseScore so each team category (Meta /
+        // Semi-Meta / Full Disruption) can weight it differently.
+        const metaRankIdx = rankMap[speciesId];
+        const antimetaValue = computeAntimetaValue(
+            speciesId, cpCap, metaEntries, top15Battlers, antimetaBaseline,
+            isShadow, metaRankIdx != null ? metaRankIdx : null
+        );
 
         // Stat effect bonus
         let statEffectBonus = 0;
@@ -2846,9 +3293,9 @@ function buildBoxTeams(leagueKey, cpCap) {
             coverageScore: coverage.totalScore,
             efficiency,
             pressureScore,
-            spiceValue,
+            antimetaValue,
             baseScore,
-            finalScore: baseScore + spiceValue, // default combined for table display
+            finalScore: baseScore + antimetaValue, // default combined for table display
             isMeta,
             metaRank: rankMap[speciesId] ?? null,
         });
@@ -2879,7 +3326,7 @@ function buildBoxTeams(leagueKey, cpCap) {
         cand.beatsRank2 = !!(cb && rank2Battler && simulateBattle(cb, rank2Battler, 1, 1).winner === 'a');
     }
 
-    // ── Category 1: Meta Teams (best proven picks, no spice) ────────────
+    // ── Category 1: Meta Teams (best proven picks, no anti-meta) ───────
     // Prefer meta-ranked Pokémon. Score = base + meta preference bonus.
     const metaScoreFn = (cand, slot) => {
         let s = cand.baseScore;
@@ -2894,19 +3341,21 @@ function buildBoxTeams(leagueKey, cpCap) {
         }
         return s;
     };
-    const metaTeams = buildTeamsGreedy(boxScored, 5, metaScoreFn, null, { rank1Battler, rank2Battler });
+    const defensiveCores = deriveDefensiveCores(metaEntries);
+    const attackPrevalence = computeAttackPrevalence(metaEntries);
+    const metaTeams = buildTeamsGreedy(boxScored, 5, metaScoreFn, null, { rank1Battler, rank2Battler, defensiveCores, attackPrevalence });
 
     // ── Category 2: Semi-Meta (2 meta + 1 breaker) ─────────────────────
-    // Slots 0 & 1 prefer meta, slot 2 must be off-meta.
+    // Slots 0 & 1 prefer meta, slot 2 rewards empirical anti-meta coverage.
     const semiScoreFn = (cand, slot) => {
         let s = cand.baseScore;
         if (slot < 2) {
             // Meta slots: slight meta preference
             if (cand.isMeta) s += 0.08;
         } else {
-            // Breaker slot: reward spice + anti-meta coverage
-            s += cand.spiceValue * 1.5;
-            if (!cand.isMeta) s += 0.06;
+            // Breaker slot: reward anti-meta wins (Galvantula-style picks
+            // that beat top-15 where typical meta can't).
+            s += cand.antimetaValue * 1.5;
         }
         return s;
     };
@@ -2921,25 +3370,24 @@ function buildBoxTeams(leagueKey, cpCap) {
         }
         return true;
     };
-    const semiMetaTeams = buildTeamsGreedy(boxScored, 5, semiScoreFn, semiSlotFilter, { rank1Battler, rank2Battler });
+    const semiMetaTeams = buildTeamsGreedy(boxScored, 5, semiScoreFn, semiSlotFilter, { rank1Battler, rank2Battler, defensiveCores, attackPrevalence });
 
-    // ── Category 3: Full Disruption (maximize anti-meta spice) ──────────
-    // Boost spice picks, penalize meta-standard choices.
+    // ── Category 3: Full Disruption (maximize empirical anti-meta) ──────
+    // Boost picks with real anti-meta wins; penalize meta-standard choices
+    // SOFTLY (no longer a flat off-meta bonus that rewarded obscurity).
+    // A meta pick with great anti-meta wins shouldn't be locked out.
     const disruptionScoreFn = (cand, slot) => {
         let s = cand.baseScore;
-        // Heavy spice bonus
-        s += cand.spiceValue * 2.0;
-        if (!cand.isMeta) {
-            s += 0.10; // flat off-meta bonus
-            // Extra reward for good coverage from unexpected picks
-            if (cand.offScore > 1.2) s += 0.06;
-        } else {
-            // Discourage meta picks in disruption teams
-            s -= 0.10;
-        }
+        // Heavy anti-meta weight — this is what Full Disruption is about.
+        s += cand.antimetaValue * 3.0;
+        // Mild penalty for being top-20 meta (these belong in Meta Teams),
+        // but no bonus for being off-meta without proven coverage.
+        if (cand.isMeta && cand.metaRank != null && cand.metaRank < 20) s -= 0.05;
+        // Extra reward for good offensive type coverage
+        if (cand.offScore > 1.2) s += 0.06;
         return s;
     };
-    const disruptionTeams = buildTeamsGreedy(boxScored, 5, disruptionScoreFn, null, { rank1Battler, rank2Battler });
+    const disruptionTeams = buildTeamsGreedy(boxScored, 5, disruptionScoreFn, null, { rank1Battler, rank2Battler, defensiveCores, attackPrevalence });
 
     // ── Score, classify and sort all teams ───────────────────────────────
     // Uses top-level scoreTeamFull / classifyTeamArchetype so the logic is
@@ -2950,7 +3398,7 @@ function buildBoxTeams(leagueKey, cpCap) {
     // Annotate and sort each team list by full score (best first)
     for (const teamList of [metaTeams, semiMetaTeams, disruptionTeams]) {
         for (const team of teamList) {
-            const { score, stats } = scoreTeamFull(team, cpCap, metaEntries);
+            const { score, stats } = scoreTeamFull(team, cpCap, metaEntries, 30, attackPrevalence);
             team._chainScore = score;
             team._matchupStats = stats;
             team._archetype  = classifyTeamArchetype(team);
@@ -3082,7 +3530,7 @@ async function runBoxBuilder() {
         // Category 3: Full Disruption
         html += renderTeamCategory(disruptionTeams,
             '🔥 Full Disruption Teams',
-            'Maximum spice — unexpected picks with strong coverage to catch opponents off-guard',
+            'Maximum anti-meta — picks with empirical wins vs top-15 that typical meta picks miss',
             '#7c2d12', '#fb923c');
 
         // Top box Pokémon table (with battle sim)
