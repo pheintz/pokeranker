@@ -858,7 +858,7 @@ async function run() {
     const outputEl    = document.getElementById('out');
 
     if (!csvText) {
-        outputEl.innerHTML = '<p style="color:#555;font-size:13px;">Paste your CalcyIV export first.</p>';
+        outputEl.innerHTML = '<p style="color:#b4b4b4;font-size:13px;">Paste your CalcyIV export first.</p>';
         return;
     }
 
@@ -868,7 +868,7 @@ async function run() {
         return;
     }
     if (!rows.length) {
-        outputEl.innerHTML = '<p style="color:#555;">No valid rows.</p>';
+        outputEl.innerHTML = '<p style="color:#b4b4b4;">No valid rows.</p>';
         return;
     }
 
@@ -885,7 +885,7 @@ async function run() {
         console.error('Rankings load failed:', err);
     }
 
-    outputEl.innerHTML = `<p style="color:#555;font-size:13px;">Computing ranks for ${rows.length} Pokémon…</p>`;
+    outputEl.innerHTML = `<p style="color:#b4b4b4;font-size:13px;">Computing ranks for ${rows.length} Pokémon…</p>`;
 
     // Defer the CPU-heavy rank computation so the browser can repaint first.
     // Wrapped in a promise so callers can await run() (e.g. Box Builder).
@@ -1497,35 +1497,6 @@ function pickOptimalMoveset(speciesId, metaEntries) {
     return bestCombo;
 }
 
-/**
- * Get the move types from a Pokémon's optimal moveset (1 fast + up to 2 charged).
- * Falls back to STAB types if no curated moveset exists.
- */
-function getMoveTypes(speciesId) {
-    const optimal = pickOptimalMoveset(speciesId, null);
-    if (optimal) return optimal.moveTypes;
-    const pokemonTypes = typeof POKEMON_TYPES !== 'undefined' ? POKEMON_TYPES[speciesId] : null;
-    return pokemonTypes ? [...pokemonTypes] : [];
-}
-
-/**
- * Compute a composite efficiency score (0–1) for a Pokémon.
- * Considers: best fast move quality, bait potential, charged move damage output.
- */
-function moveEfficiencyScore(speciesId) {
-    const optimal = pickOptimalMoveset(speciesId, null);
-    if (!optimal) return 0.5;
-    // Normalise: totalMoveScore typically ranges from ~1.0 (bad) to ~3.0 (elite)
-    return Math.max(0, Math.min(1, (optimal.totalMoveScore - 0.8) / 2.2));
-}
-
-/**
- * Legacy wrapper — returns the optimal moveset in the format the UI expects.
- */
-function getOptimalMoveset(speciesId) {
-    return pickOptimalMoveset(speciesId, null);
-}
-
 // ─── Mini Battle Simulator ──────────────────────────────────────────────────
 // Simulates turn-by-turn 1v1 PvP battles using real Pokemon GO mechanics.
 // Used to produce a "Battle Rating" that combines stats + movesets into one number.
@@ -1801,23 +1772,48 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
     // retains residual HP (rather than magically healing back to full).
     const aHpPctStart = (aStartHpPct == null || aStartHpPct > 1) ? 1 : Math.max(0, aStartHpPct);
     const bHpPctStart = (bStartHpPct == null || bStartHpPct > 1) ? 1 : Math.max(0, bStartHpPct);
-    let aHp = Math.max(1, Math.round(a.hp * aHpPctStart));
-    let bHp = Math.max(1, Math.round(b.hp * bHpPctStart));
+    const aMaxHp = Math.max(1, a.hp);
+    const bMaxHp = Math.max(1, b.hp);
+    let aHp = Math.max(1, Math.round(aMaxHp * aHpPctStart));
+    let bHp = Math.max(1, Math.round(bMaxHp * bHpPctStart));
     let aEnergy = Math.min(100, Math.max(0, aStartEnergy || 0));
     let bEnergy = Math.min(100, Math.max(0, bStartEnergy || 0));
     let aShields = shieldsA, bShields = shieldsB;
     let aTurnCd = 0, bTurnCd = 0;
+    // Shared charged-move lockout: after any charged move fires, both sides
+    // lose one turn of charged-move action (animation lock). Fast moves
+    // already in progress still complete. Matches PvPoke's chargedMoveLockOut.
+    let chargedLockout = 0;
+
+    // PvPoke-style shield AI: defender shields if the incoming charged move
+    //   (a) would KO them, OR
+    //   (b) deals ≥35% of defender's max HP, OR
+    //   (c) the attacker's OTHER charged move hits this defender HARDER
+    //       (i.e. the current hit is likely a bait to burn shields for the nuke).
+    // Returns true → shield the move; false → eat it.
+    function shouldShield(incomingDmg, defHp, defMaxHp, otherChargedDmg) {
+        if (incomingDmg <= 0) return false;
+        if (incomingDmg >= defHp) return true;                 // lethal
+        if (incomingDmg >= 0.35 * defMaxHp) return true;       // significant
+        if (otherChargedDmg != null && otherChargedDmg > incomingDmg) return true; // bait-aware
+        return false;
+    }
 
     for (let turn = 0; turn < 500; turn++) {
         if (aHp <= 0 || bHp <= 0) break;
 
+        // Charged-move lockout: during the lockout turn, neither side picks
+        // a charged move, but fast-move countdowns/completions still tick.
+        const locked = chargedLockout > 0;
+        if (chargedLockout > 0) chargedLockout--;
+
         // ── Charged move phase ───────────────────────────────────────────────
         // Both sides decide independently; if both fire on the same turn,
         // CMP (Charge Move Priority) resolves by ATK stat — higher goes first.
-        const aPick = (aTurnCd === 0)
+        const aPick = (!locked && aTurnCd === 0)
             ? pickChargedMove(aEnergy, a.charged1, aC1Dmg(), a.charged2, aC2Dmg(), bHp, bShields)
             : null;
-        const bPick = (bTurnCd === 0)
+        const bPick = (!locked && bTurnCd === 0)
             ? pickChargedMove(bEnergy, b.charged1, bC1Dmg(), b.charged2, bC2Dmg(), aHp, aShields)
             : null;
 
@@ -1836,8 +1832,18 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
         const fireA = () => {
             if (!aPick) return;
             aEnergy -= aPick.nrg;
-            const shielded = bShields > 0;
             const dmg = (aPick.id === a.charged1.id) ? aC1Dmg() : aC2Dmg();
+            // Smart defender: shield only if the incoming hit meets the
+            // PvPoke-style threshold. Compute B's "other charged move" damage
+            // dealt TO B (i.e. damage A would deal with the other move) so
+            // the defender can anticipate a bigger nuke and save shields.
+            let shielded = false;
+            if (bShields > 0) {
+                const otherDmg = (aPick.id === a.charged1.id)
+                    ? (a.charged2 ? aC2Dmg() : null)
+                    : aC1Dmg();
+                shielded = shouldShield(dmg, bHp, bMaxHp, otherDmg);
+            }
             applyMoveEffects(aPick.id, true, shielded);
             if (shielded) { bShields--; bHp -= 1; }
             else          { bHp -= dmg; }
@@ -1845,8 +1851,14 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
         const fireB = () => {
             if (!bPick) return;
             bEnergy -= bPick.nrg;
-            const shielded = aShields > 0;
             const dmg = (bPick.id === b.charged1.id) ? bC1Dmg() : bC2Dmg();
+            let shielded = false;
+            if (aShields > 0) {
+                const otherDmg = (bPick.id === b.charged1.id)
+                    ? (b.charged2 ? bC2Dmg() : null)
+                    : bC1Dmg();
+                shielded = shouldShield(dmg, aHp, aMaxHp, otherDmg);
+            }
             applyMoveEffects(bPick.id, false, shielded);
             if (shielded) { aShields--; aHp -= 1; }
             else          { aHp -= dmg; }
@@ -1854,6 +1866,10 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
 
         if (aFirst) { fireA(); if (aHp > 0 && bHp > 0) fireB(); }
         else        { fireB(); if (aHp > 0 && bHp > 0) fireA(); }
+
+        // If either side fired a charged move, lock out charged moves for
+        // the next turn on both sides (animation freeze).
+        if (aPick || bPick) chargedLockout = 1;
 
         // If neither fired a charged move, use a fast move instead
         if (!aPick && aTurnCd === 0) aTurnCd = a.fast.turns;
@@ -2021,38 +2037,73 @@ const SHIELD_SCENARIOS_CLOSER = [
  * @returns {{ battleRating, wins, losses, ties, total }|null}
  */
 function computeBattleRatingWithScenarios(speciesId, cpCap, metaEntries, scenarios, topN, isShadow) {
-    topN = topN || 50;
+    topN = topN || 80;
+
     const attacker = getCachedBattler(speciesId, cpCap, metaEntries, isShadow);
     if (!attacker) return null;
 
     const opponents = metaEntries.slice(0, topN);
-    let totalScore = 0, wins = 0, losses = 0, ties = 0, simCount = 0;
+    let totalScore = 0, totalWeight = 0, wins = 0, losses = 0, ties = 0, simCount = 0;
 
-    for (const opp of opponents) {
-        // Skip pure mirrors (same base ID); shadow vs. non-shadow of same species is a valid matchup
-        const { baseId: oppBaseId } = parseShadowId(opp.id);
-        const { baseId: atkBaseId } = parseShadowId(speciesId);
-        if (oppBaseId === atkBaseId && !isShadow && !opp.isShadow) continue;
+    // Rank-weighted scoring: each opponent's matchup contribution is scaled
+    // by its meta weight (metaEntries are ordered by PvPoke meta rank, with
+    // weight = metaIds.length - rankIndex → #1 opponent weighs most). This
+    // lets us safely widen the pool (top-80 instead of top-50) to catch
+    // fringe-meta coverage without fringe picks diluting the signal.
+    // Fallback to uniform weighting if metaEntries lack a weight field.
+    const { baseId: atkBaseId, isShadow: atkShadowFromId } = parseShadowId(speciesId);
+    const atkIsShadow = !!(isShadow || atkShadowFromId);
+
+    for (let i = 0; i < opponents.length; i++) {
+        const opp = opponents[i];
+        // Skip true mirrors only (same base ID AND same shadow status).
+        // Shadow-vs-non-shadow of the same species IS a valid matchup.
+        // Derive opp shadow status from the ID suffix — metaEntries don't
+        // carry an explicit .isShadow field, so relying on opp.isShadow
+        // was skipping shadow-vs-non-shadow mirrors unintentionally.
+        const { baseId: oppBaseId, isShadow: oppIsShadow } = parseShadowId(opp.id);
+        if (oppBaseId === atkBaseId && atkIsShadow === oppIsShadow) continue;
 
         const defender = getCachedBattler(opp.id, cpCap, metaEntries, false);
         if (!defender) continue;
 
         simCount++;
+        // Weight: prefer explicit .weight from metaEntries; otherwise synthesise
+        // a rank-based weight that decays gently so the top 20 dominate but the
+        // bottom of the pool still contributes (prevents deep-meta noise from
+        // drowning out core matchups).
+        const w = (typeof opp.weight === 'number' && opp.weight > 0)
+            ? opp.weight
+            : 1 / Math.log2(i + 2); // i=0 → 1.0, i=19 → 0.33, i=79 → 0.158
         let matchupScore = 0;
 
+        // Multi-seed averaging: the battle sim has stochastic bait/nuke
+        // decisions and stat-effect procs (gated on rand() < chance). A
+        // single seed can land on an unrepresentative extreme. Averaging
+        // over a few deterministic seeds smooths that noise without adding
+        // meaningful cost (3 seeds × N scenarios, still O(1) per matchup).
+        const SEEDS = [17, 101, 257];
         for (const sc of scenarios) {
-            matchupScore += battleMargin(simulateBattle(attacker, defender, sc.sA, sc.sB)) * sc.weight;
+            let avgMargin = 0;
+            for (const seed of SEEDS) {
+                avgMargin += battleMargin(simulateBattle(attacker, defender, sc.sA, sc.sB, seed));
+            }
+            avgMargin /= SEEDS.length;
+            matchupScore += avgMargin * sc.weight;
         }
 
-        totalScore += matchupScore;
+        totalScore  += matchupScore * w;
+        totalWeight += w;
+        // Win/loss/tie tallies are unweighted counts — useful for the
+        // "X wins, Y losses" display. The rating itself is the weighted mean.
         if (matchupScore >= 0.55) wins++;
         else if (matchupScore <= 0.45) losses++;
         else ties++;
     }
 
-    if (simCount === 0) return null;
+    if (simCount === 0 || totalWeight === 0) return null;
     return {
-        battleRating: Math.round((totalScore / simCount) * 1000),
+        battleRating: Math.round((totalScore / totalWeight) * 1000),
         wins, losses, ties, total: simCount,
     };
 }
@@ -2063,7 +2114,7 @@ function computeBattleRatingWithScenarios(speciesId, cpCap, metaEntries, scenari
  */
 function computeBattleRating(speciesId, cpCap, metaEntries, topN, isShadow) {
     return computeBattleRatingWithScenarios(
-        speciesId, cpCap, metaEntries, SHIELD_SCENARIOS_STANDARD, topN || 50, isShadow
+        speciesId, cpCap, metaEntries, SHIELD_SCENARIOS_STANDARD, topN || 80, isShadow
     );
 }
 
@@ -2110,7 +2161,7 @@ function applyRRF(scored, cpCap, metaEntries) {
     for (const entry of scored) {
         const shadow = entry.isShadow || false;
         if (entry.battleRating == null) {
-            const br = computeBattleRating(entry.id, cpCap, metaEntries, 50, shadow);
+            const br = computeBattleRating(entry.id, cpCap, metaEntries, 80, shadow);
             entry.battleRating  = br ? br.battleRating  : null;
             entry.battleWins    = br ? br.wins           : null;
             entry.battleLosses  = br ? br.losses         : null;
@@ -3003,14 +3054,14 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
     const battleRatings = {};
     if (cpCap && metaEntries && metaEntries.length > 0) {
         for (let i = 0; i < n; i++) {
-            const br = computeBattleRating(allScored[i].id, cpCap, metaEntries, 50);
+            const br = computeBattleRating(allScored[i].id, cpCap, metaEntries, 80);
             if (br) battleRatings[allScored[i].id] = br;
         }
     }
     const hasBR = Object.keys(battleRatings).length > 0;
 
     html += `<table style="width:100%;"><thead><tr>
-        <th>#</th><th>Pokémon</th><th>Types</th><th>Moveset</th>${hasBR ? '<th title="1v1 battle sim vs top 50 meta (0s/1s/2s weighted 20/60/20)">Battle</th>' : ''}<th>Coverage</th><th>Pressure</th><th title="Reciprocal Rank Fusion of heuristic + battle sim (0–1000 scale)">RRF Score</th>
+        <th>#</th><th>Pokémon</th><th>Types</th><th>Moveset</th>${hasBR ? '<th title="1v1 battle sim vs top 80 meta (rank-weighted, 3-seed averaged, asymmetric shield scenarios)">Battle</th>' : ''}<th>Coverage</th><th>Pressure</th><th title="Reciprocal Rank Fusion of heuristic + battle sim (0–1000 scale)">RRF Score</th>
     </tr></thead><tbody>`;
     for (let i = 0; i < n; i++) {
         const s = allScored[i];
@@ -3020,7 +3071,7 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
         const spiceTag = (antimetaVal > 0) ? ` <span style="background:#d946ef;color:#fff;padding:0 3px;border-radius:2px;font-size:8px;" title="Anti-meta: +${antimetaVal.toFixed(2)} from empirical wins vs top-15">ANTI-META</span>` : '';
         const typesTags = s.types.map(t => `<span class="type-badge type-${t}" style="font-size:10px;">${t}</span>`).join(' ');
 
-        let movesetCell = '<span style="color:#555;">STAB only</span>';
+        let movesetCell = '<span style="color:#b4b4b4;">STAB only</span>';
         if (s.optimal) {
             const o = s.optimal;
             const eliteTag = id => (o.eliteMoves.includes(id)
@@ -3042,7 +3093,7 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
                 const brColor = br.battleRating >= 600 ? '#4ade80' : br.battleRating >= 450 ? '#60a5fa' : br.battleRating >= 300 ? '#fbbf24' : '#fb923c';
                 brCell = `<td><span style="font-weight:600;color:${brColor};">${br.battleRating}</span><br><span style="font-size:9px;color:#64748b;">${br.wins}W ${br.losses}L</span></td>`;
             } else {
-                brCell = `<td style="color:#555;">—</td>`;
+                brCell = `<td style="color:#b4b4b4;">—</td>`;
             }
         }
 
@@ -3081,7 +3132,7 @@ async function runMetaBreaker() {
         return;
     }
 
-    outEl.innerHTML = '<p style="color:#555;">Computing meta-busting teams (running battle simulations — may take a few seconds)...</p>';
+    outEl.innerHTML = '<p style="color:#b4b4b4;">Computing meta-busting teams (running battle simulations — may take a few seconds)...</p>';
 
     setTimeout(() => {
         const { metaEntries, teams, allScored } = buildMetaBreakerTeams(leagueKey, cpCap);
@@ -3433,11 +3484,11 @@ async function runBoxBuilder() {
 
     // If Analyze hasn't been run yet (box sets empty), run it in the background first
     if (lastAnalysisBox.size === 0) {
-        outEl.innerHTML = '<p style="color:#555;">Analyzing your box first...</p>';
+        outEl.innerHTML = '<p style="color:#b4b4b4;">Analyzing your box first...</p>';
         await run();
     }
 
-    outEl.innerHTML = '<p style="color:#555;">Building teams from your box (running battle simulations — may take a few seconds)...</p>';
+    outEl.innerHTML = '<p style="color:#b4b4b4;">Building teams from your box (running battle simulations — may take a few seconds)...</p>';
 
     setTimeout(() => {
         const { metaEntries, metaTeams, semiMetaTeams, disruptionTeams, boxScored } = buildBoxTeams(leagueKey, cpCap);
@@ -3552,3 +3603,4 @@ function typeColor(type) {
     };
     return colors[type] || '#888';
 }
+

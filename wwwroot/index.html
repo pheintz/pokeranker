@@ -7,49 +7,137 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>CalcyIV PVP Analyzer</h1>
-    <p class="sub">
-        Paste CalcyIV CSV export · groups by species · ordered by PvPoke GL meta rank ·
-        IV rank within each group · HP IV solved exactly from in-game HP + level
-    </p>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <textarea id="csv" placeholder="Paste CalcyIV CSV here (semicolon or comma delimited)…"></textarea>
+    <header class="app-header">
+        <div>
+            <h1>CalcyIV PVP Analyzer</h1>
+            <p class="sub">
+                Paste a CalcyIV CSV export · grouped by species · ordered by PvPoke meta rank ·
+                IV rank within each group.
+            </p>
+        </div>
+        <span id="rank-status" class="rank-status rank-loading" role="status" aria-live="polite">Loading rankings…</span>
+    </header>
 
-    <div class="ctrl">
-        <button class="primary" onclick="run()">Analyze</button>
-        <select id="league" onchange="onLeagueChange()">
-            <!-- Options are injected by populateLeagueDropdown() from LEAGUE_FORMATS in app.js.
-                 To add a new league/cup, add one entry to LEAGUE_FORMATS — no HTML changes needed. -->
-        </select>
-        <span id="rank-status" class="rank-status rank-loading">Loading rankings…</span>
-        <label><input type="checkbox" id="xl"> XL (to 50)</label>
-        <label><input type="checkbox" id="dedup" checked> Highest evo only</label>
-        <label>Min IV%: <input type="number" id="f98" min="0" max="100" step="0.1" placeholder="—" style="width:60px;"></label>
-        <button onclick="demo()">Load demo</button>
-        <button class="meta-btn" onclick="runMetaBreaker()">Meta Breaker</button>
-        <button class="meta-btn" style="background:linear-gradient(135deg,#059669,#0891b2);" onclick="runBoxBuilder()">My Box Builder</button>
-    </div>
+    <main id="main">
+        <section aria-labelledby="input-heading">
+            <h2 id="input-heading" class="section-title">1. Paste your box</h2>
+            <div class="drop-zone" id="drop-zone">
+                <label for="csv" class="sr-only">CalcyIV CSV export</label>
+                <textarea id="csv" aria-describedby="csv-help"
+                    placeholder="Paste CalcyIV CSV here, or drop a .csv file on this box…"></textarea>
+                <p id="csv-help" class="form-help">
+                    Semicolon or comma delimited.
+                    Or <button type="button" class="link-btn" id="upload-btn">choose a file</button>.
+                    Processed entirely in your browser — nothing is uploaded.
+                </p>
+                <input type="file" id="file-input" accept=".csv,text/csv,text/plain" hidden>
+                <div class="textarea-actions">
+                    <button type="button" class="ghost" id="demo-btn">Load demo data</button>
+                    <button type="button" class="ghost" id="clear-btn">Clear</button>
+                </div>
+            </div>
+        </section>
 
-    <div id="out"></div>
-    <div id="meta-out"></div>
-    <div id="box-out"></div>
+        <section aria-labelledby="controls-heading">
+            <h2 id="controls-heading" class="section-title">2. League &amp; filters</h2>
+            <div class="control-grid">
+                <div class="field">
+                    <label for="league">League / cup</label>
+                    <select id="league"></select>
+                </div>
 
-    <div class="footer">
-        Rankings: <a href="https://pvpoke.com" target="_blank">pvpoke.com</a> overall ·
-        CSV files in <code>wwwroot/csv/</code> · configured in <code>LEAGUE_FORMATS</code> in app.js ·
-        Runs entirely in your browser, nothing is uploaded.
-    </div>
+                <div class="field">
+                    <label for="f98">
+                        Minimum IV%
+                        <abbr title="Hide any Pokémon whose best rank falls below this percentage of the theoretical #1 IV spread. Leave blank for no filter.">?</abbr>
+                    </label>
+                    <input type="number" id="f98" min="0" max="100" step="0.1" placeholder="None (show all)">
+                </div>
 
-    <!-- Static game data: CPM table, Pokémon base stats, evolution chains -->
+                <div class="field">
+                    <label class="checkbox-field" for="xl">
+                        <input type="checkbox" id="xl">
+                        <span>Allow XL (level 41–50)
+                            <abbr title="Include optimal levels above 40, which require XL candy.">?</abbr>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="field">
+                    <label class="checkbox-field" for="dedup">
+                        <input type="checkbox" id="dedup" checked>
+                        <span>Highest evolution only
+                            <abbr title="Hide pre-evolutions when a later form in the same chain is also eligible.">?</abbr>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="actions-heading">
+            <h2 id="actions-heading" class="section-title">3. Run</h2>
+            <div class="actions-primary">
+                <button type="button" class="primary" id="analyze-btn">
+                    <span>Analyze box</span>
+                    <span class="btn-hint" aria-hidden="true">Ctrl + Enter</span>
+                </button>
+            </div>
+            <div class="actions-secondary">
+                <span class="actions-secondary-label">Exploration tools</span>
+                <button type="button" class="meta-btn" id="meta-btn">Find meta-busting teams</button>
+                <button type="button" class="meta-btn meta-btn-alt" id="box-btn">Build teams from my box</button>
+            </div>
+        </section>
+
+        <section aria-labelledby="results-heading">
+            <h2 id="results-heading" class="sr-only">Results</h2>
+
+            <div class="tabs" role="tablist" aria-label="Results">
+                <button type="button" role="tab" id="tab-analyze" aria-controls="panel-analyze" aria-selected="true" class="tab active">Box analysis</button>
+                <button type="button" role="tab" id="tab-meta"    aria-controls="panel-meta"    aria-selected="false" class="tab" tabindex="-1">Meta-busting teams</button>
+                <button type="button" role="tab" id="tab-box"     aria-controls="panel-box"     aria-selected="false" class="tab" tabindex="-1">Teams from my box</button>
+            </div>
+
+            <div id="panel-analyze" role="tabpanel" aria-labelledby="tab-analyze" class="tab-panel">
+                <div id="empty-analyze" class="empty-state">
+                    <p>No analysis yet. Paste your CalcyIV export above, then hit <kbd>Analyze box</kbd>
+                    (or <kbd>Ctrl + Enter</kbd>).</p>
+                </div>
+                <div id="out" aria-live="polite" aria-busy="false"></div>
+            </div>
+
+            <div id="panel-meta" role="tabpanel" aria-labelledby="tab-meta" class="tab-panel" hidden>
+                <div id="empty-meta" class="empty-state">
+                    <p>Hit <kbd>Find meta-busting teams</kbd> to surface teams that counter the current top meta —
+                    independent of what's in your box.</p>
+                </div>
+                <div id="meta-out" aria-live="polite" aria-busy="false"></div>
+            </div>
+
+            <div id="panel-box" role="tabpanel" aria-labelledby="tab-box" class="tab-panel" hidden>
+                <div id="empty-box" class="empty-state">
+                    <p>Analyze your box first, then hit <kbd>Build teams from my box</kbd> to find the best teams
+                    you can actually field with what you own.</p>
+                </div>
+                <div id="box-out" aria-live="polite" aria-busy="false"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        Rankings from <a href="https://pvpoke.com" target="_blank" rel="noopener">pvpoke.com</a> (overall) ·
+        CSV files live in <code>wwwroot/csv/</code> ·
+        configured in <code>LEAGUE_FORMATS</code> in <code>app.js</code> ·
+        runs entirely in your browser, nothing is uploaded.
+    </footer>
+
     <script src="data.js"></script>
-    <!-- Meta breaker data: type chart, Pokémon types, move database, movesets -->
     <script src="meta.js"></script>
-    <!-- Application logic: rankings loading, calculations, CSV parsing, UI -->
     <script src="app.js"></script>
+    <script src="ui-enhance.js"></script>
     <script>
-        // Load league definitions from csv/index.json, then build the dropdown
-        // and trigger the initial rankings fetch.  Adding a new cup requires only
-        // dropping a CSV into wwwroot/csv/ and adding one line to index.json.
         initLeagues().then(() => {
             populateLeagueDropdown();
             onLeagueChange();
