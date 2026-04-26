@@ -248,8 +248,23 @@
             if (typeof onLeagueChange === 'function') onLeagueChange();
         });
 
+        // Analyze flow: run box analysis, then auto-chain into the team builder
+        // so the user lands on a team recommendation instead of a sorted list.
+        // The "Box analysis" tab stays populated for reference; we switch to
+        // "Teams from my box" once teams are ready (~few seconds of sim work).
+        // If analysis produced nothing usable (empty box, parse error), skip
+        // the chain — runBoxBuilder bails on empty input anyway, but switching
+        // tabs to a dead view is worse UX than staying on the analysis pane.
         analyzeBtn?.addEventListener('click', withLoading(analyzeBtn, async () => {
-            if (typeof run === 'function') await run();
+            if (typeof run !== 'function') return;
+            await run();
+            // Heuristic: only auto-chain if Analyze populated the box species set.
+            // (lastAnalysisBox is set inside run() on success.)
+            const boxReady = typeof lastAnalysisBox !== 'undefined' && lastAnalysisBox.size > 0;
+            if (boxReady && typeof runBoxBuilder === 'function') {
+                activateTab('tab-box');
+                await runBoxBuilder();
+            }
         }));
 
         demoBtn?.addEventListener('click', () => {

@@ -1405,61 +1405,104 @@ function scoreFastMove(moveId, pokemonTypes, bestChargedDPE) {
 }
 
 /**
- * Score a single charged move for PvP quality.
- * Accounts for DPE, energy cost, STAB, and special effects (buffs/debuffs).
+ * Score a single charged move for PvP quality, mirroring PvPoke's
+ * `move.uses = damage² / energy⁴ × statChangeFactor²` from
+ * github.com/pvpoke/pvpoke/blob/master/src/js/pokemon/Pokemon.js (~line 1529).
+ *
+ * Why squared / quartic:
+ *   - damage² rewards higher-impact moves
+ *   - energy⁴ heavily favors cheap moves (cycle frequency dominates over per-hit damage)
+ *   - statChangeFactor² makes a 100% +1 atk (PuP) outrank a 30% +2 atk (squared
+ *     dampens low-chance procs and amplifies guaranteed buffs)
+ *
+ * Self-debuff moves (Brave Bird -3 def, Wild Charge -2 def, Overheat -2 atk,
+ * Close Combat -2/-2, Superpower -1/-1) get `hasSelfDebuff: true` so
+ * pickOptimalMoveset can ban them from the bait/primary slot. They're
+ * sacrificial closers — only fire when KO is guaranteed (handled in
+ * pickChargedMove inside the battle engine).
  */
 function scoreChargedMove(moveId, pokemonTypes) {
     const cm = CHARGED_MOVES[moveId];
-    if (!cm) return { id: moveId, score: 0, dpe: 0, nrg: 100, type: 'normal', stab: false, role: 'none', effectValue: 0 };
-    const dpe = cm.pow / cm.nrg;
+    if (!cm) return { id: moveId, score: 0, dpe: 0, nrg: 100, type: 'normal', stab: false, role: 'none', effectValue: 0, hasSelfDebuff: false };
     const stab = pokemonTypes.includes(cm.type);
-    const effectiveDpe = dpe * (stab ? STAB_MULT : 1);
+    const stabMult = stab ? STAB_MULT : 1;
+    const effDamage = cm.pow * stabMult;
+    const dpe = cm.pow / cm.nrg;
+    const effectiveDpe = dpe * stabMult;
 
-    // Determine role: bait (<=45 energy), nuke (>=60), mid-range.
+    // Determine role: bait (≤45 energy), nuke (≥60), mid (46–59).
     // 45e moves (Rock Slide, Icy Wind, Aqua Tail) are fast enough to create
-    // genuine shield pressure and qualify as baits alongside 35-40e moves.
+    // genuine shield pressure and qualify as baits alongside 35–40e moves.
     let role = 'mid';
     if (cm.nrg <= 45) role = 'bait';
     else if (cm.nrg >= 60) role = 'nuke';
 
-    // Special effect value (stat buffs/debuffs)
-    let effectValue = 0;
+    // statChangeFactor: a multiplier on top of base score that accounts for
+    // buffs / opp-debuffs. Folded as `(1 + buff_weight × chance)²` so
+    // guaranteed +1 atk roughly doubles the move's score (factor² = 4 when
+    // buff_weight = 1) while a 30% +2 atk gets factor² ≈ 2.56 — matching
+    // PvPoke's quadratic weighting of stat change reliability.
+    let statChangeFactor = 1;
+    let hasSelfDebuff = false;
+    let effectValue = 0; // legacy field, kept for the team-builder's stat-effect bonus
+
     const eff = typeof MOVE_EFFECTS !== 'undefined' ? MOVE_EFFECTS[moveId] : null;
     if (eff) {
-        // Self ATK buff: each +1 stage = ×(4/3) ≈ +33% damage to all future moves.
-        // This compounds (two PUPs ≈ ×1.78 ATK), making it the single most impactful
-        // secondary effect in the game. Weight it accordingly.
         if (eff.selfBuff) {
+            // Self atk buff is the dominant compounding stat change (each +1
+            // stage = ×4/3 attack → ~33% more damage on every subsequent hit).
+            // Weight atk buffs at 0.5 per stage (squared in factor² → 2.25× for
+            // a 100% +1 atk like Power-Up Punch). Higher weights (1.0) caused
+            // Flame Charge to outrank Brave Bird on Talonflame purely on the
+            // buff factor — but FC isn't a "primary buff" move; its buff is
+            // incidental on top of decent damage. Lower weight keeps PuP
+            // attractive without making every buff move dominate.
             const [atkBuff, defBuff] = eff.selfBuff;
+            statChangeFactor += (atkBuff * 0.5 + defBuff * 0.3) * eff.chance;
             effectValue += (atkBuff * 1.5 + defBuff * 0.5) * eff.chance;
         }
-        // Self debuffs are a cost (Close Combat = -1 DEF, Overheat = -2 DEF)
-        if (eff.selfDebuff) {
-            const [atkDeb, defDeb] = eff.selfDebuff;
-            effectValue += (atkDeb * 0.15 + defDeb * 0.15) * eff.chance; // negative values = penalty
-        }
-        // Opponent ATK debuff (-1 stage) cuts all their future fast-move damage by 25%.
-        // Opponent DEF debuff (+effective DPE on your next charged move).
         if (eff.oppDebuff) {
+            // Opp atk debuff cuts their fast-move chip; opp def debuff boosts
+            // our follow-up charged. Both compound similarly to a self-buff.
             const [atkDeb, defDeb] = eff.oppDebuff;
+            statChangeFactor += (Math.abs(atkDeb) * 0.7 + Math.abs(defDeb) * 0.5) * eff.chance;
             effectValue += (Math.abs(atkDeb) * 0.7 + Math.abs(defDeb) * 0.4) * eff.chance;
         }
+        if (eff.selfDebuff) {
+            const [atkDeb, defDeb] = eff.selfDebuff;
+            if (atkDeb < 0 || defDeb < 0) hasSelfDebuff = true;
+            // Don't compress the score here — pickOptimalMoveset bans these
+            // from the primary slot outright. effectValue stays informative
+            // for any callers that key off it.
+            effectValue += (atkDeb * 0.15 + defDeb * 0.15) * eff.chance;
+        }
     }
 
-    // Composite: DPE weighted by role + effect value.
-    // Nukes no longer get a raw-power bonus — DPE already captures efficiency,
-    // and large raw numbers (Zap Cannon 150) shouldn't beat tighter alternatives
-    // (Flash Cannon 110) purely on power.
-    let score;
-    if (role === 'bait') {
-        score = effectiveDpe * 0.5 + (1 - cm.nrg / 80) * 0.8 + effectValue * 0.6;
-    } else if (role === 'nuke') {
-        score = effectiveDpe * 0.9 + effectValue * 0.3;
-    } else {
-        score = effectiveDpe * 0.7 + (1 - cm.nrg / 80) * 0.3 + effectValue * 0.5;
-    }
+    // PvPoke base: damage² / energy⁴, scaled by statChangeFactor².
+    // Multiply by 1e3 so scores land in a comparable 0.5–5 range.
+    //
+    // Nuke-power bonus: PvPoke's energy⁴ in the denominator heavily favors
+    // cheap moves — the algorithm relies on sim-based incremental coverage
+    // (in their `score(move2 | move1)` step) to recover the value of
+    // expensive nukes for matchups where chip alone can't win. Without
+    // full sims, we approximate that recovery with a flat bonus scaled by
+    // raw effective damage above 100. Examples:
+    //   Earthquake (132 effDamage) → +0.64
+    //   Brave Bird (156 effDamage) → +1.12
+    //   Hyper Beam (150 effDamage) → +1.00
+    //   Hydro Cannon (96 effDamage at STAB on Swampert) → +0 (under threshold)
+    // Restores Swampert's canonical Hydro Cannon + Earthquake over HC + Sludge,
+    // and Lickilicky's Body Slam + Hyper Beam over Body Slam + Shadow Ball.
+    const base = (effDamage * effDamage) / Math.pow(cm.nrg, 4);
+    const factorSq = statChangeFactor * statChangeFactor;
+    const baseScore = base * factorSq * 1e3;
+    const nukeBonus = (cm.nrg >= 55 && effDamage >= 100) ? (effDamage - 100) * 0.02 : 0;
+    const score = baseScore + nukeBonus;
 
-    return { id: moveId, score, dpe, effectiveDpe, nrg: cm.nrg, pow: cm.pow, type: cm.type, stab, role, effectValue };
+    return {
+        id: moveId, score, dpe, effectiveDpe, nrg: cm.nrg, pow: cm.pow,
+        type: cm.type, stab, role, effectValue, hasSelfDebuff,
+    };
 }
 
 /**
@@ -1564,14 +1607,113 @@ function pickOptimalMoveset(speciesId, metaEntries) {
                     structureBonus = 0.1; // two charged moves always better than one
                 }
 
-                // ── Type coverage diversity bonus ──
-                // Only count charged-move type diversity; the fast move's type is
-                // not a meaningful coverage dimension (it fires every turn regardless).
-                // Rewarding fast-type uniqueness caused e.g. Peck to edge out
-                // Dragon Breath on Altaria due to spurious "Flying ≠ Dragon" bonus.
+                // ── Type coverage diversity ──
+                // Penalize mono-type movesets (everything resists one typing) and
+                // leave 2-type (typical) and 3-type (broader coverage) on equal
+                // footing. The metaOff term already rewards good per-type
+                // effectiveness against the cup; an explicit "3-type bonus" was
+                // double-counting and pulled Swampert toward Sludge Wave (Poison
+                // is a 3rd type but scores poorly vs the actual meta) over the
+                // canonical Earthquake. Same baseline keeps Talonflame's
+                // double-Flying Brave Bird + Fly competitive against same-type-
+                // count alternatives like Fire Blast + Fly.
                 const moveTypeSet = new Set([fast.type, c1.type, c2.type]);
                 let coverageBonus = 0;
-                if (i !== j && c1.type !== c2.type) coverageBonus += 0.2; // different charged types
+                if (moveTypeSet.size <= 1) coverageBonus = -0.10;
+
+                // ── Fast/charged type-redundancy penalty (alternative-aware) ──
+                // A charged move whose type matches the fast move only gets
+                // penalized if a comparable-quality alternative of a different
+                // type EXISTS at similar energy cost. Talonflame's Fly is the
+                // canonical example: Fly is Flying like the rest of Talonflame's
+                // charged pool, but it's the best 45 nrg move available — no
+                // off-typed alternative is competitive, so no penalty applies.
+                // Conversely Flame Charge (Fire = fast Fire) DOES get penalized
+                // because Fly is a strictly better 45 nrg coverage option.
+                //
+                // "Comparable quality" = within 0.10 effective DPE of the
+                // same-type move's DPE. This lets a slightly weaker but
+                // genuinely off-typed move take precedence (the canonical "use
+                // coverage even if 5% weaker DPE" doctrine).
+                function alternativeExists(target) {
+                    if (target.type !== fast.type) return false;
+                    const tolerance = 0.10;
+                    return chargedScored.some(other =>
+                        other.id !== target.id
+                        && other.type !== fast.type
+                        && Math.abs(other.nrg - target.nrg) <= 10
+                        && other.effectiveDpe >= target.effectiveDpe - tolerance);
+                }
+                const redundancyMag = (m) => m.nrg <= 50 ? 0.20 : 0.05;
+                let redundancyPenalty = 0;
+                if (c1.type === fast.type && alternativeExists(c1)) redundancyPenalty += redundancyMag(c1);
+                if (i !== j && c2.type === fast.type && alternativeExists(c2)) redundancyPenalty += redundancyMag(c2);
+
+                // ── Same-type same-role redundancy ──
+                // Two cheap (≤50 nrg) same-type moves both serve as baits — same
+                // coverage spammed twice. Two expensive same-type moves are
+                // redundant nukes. Talonflame's Brave Bird + Fly is OK because
+                // they're DIFFERENT roles (BB = mid-tier sacrificial closer, Fly
+                // = cheap bait); the canonical Pidgeot pattern (Air Cutter +
+                // Brave Bird) is similar.
+                //
+                // Catches Swampert's Surf + Hydro Cannon (both 35-40 nrg Water
+                // STAB) which the energy⁴ formula otherwise prefers over the
+                // canonical Hydro Cannon + Earthquake.
+                let sameTypeRolePenalty = 0;
+                if (i !== j && c1.type === c2.type) {
+                    const c1Bait = c1.nrg <= 50;
+                    const c2Bait = c2.nrg <= 50;
+                    if (c1Bait && c2Bait) sameTypeRolePenalty = 0.30;
+                    else if (!c1Bait && !c2Bait) sameTypeRolePenalty = 0.20;
+                }
+
+                // ── Self-debuff hard exclusion from primary slot ──
+                // PvPoke excludes self-debuff moves from primary scoring entirely
+                // (Pokemon.js > generateMoveUsage). They're sacrificial closers,
+                // tracked separately and only fired when ActionLogic determines a
+                // KO is guaranteed. We mirror this by:
+                //   1. Banning a self-debuff move in the bait slot (c1 if c1.nrg
+                //      < c2.nrg, else c2).
+                //   2. Disqualifying any moveset where BOTH charged moves carry
+                //      a self-debuff (no fallback option — the mon can't fire
+                //      anything without sacrificing itself).
+                // Single self-debuff in the nuke slot is allowed and canonical
+                // (Talonflame's Brave Bird, Pidgeot/Honchkrow's Brave Bird, etc.)
+                let selfDebuffPenalty = 0;
+                if (i !== j) {
+                    if (c1.hasSelfDebuff && c2.hasSelfDebuff) {
+                        selfDebuffPenalty = 0.50; // both sacrifice → severe
+                    } else {
+                        // The bait/cheaper move must NOT be a self-debuff.
+                        const baitIsC1 = c1.nrg <= c2.nrg;
+                        const baitMove = baitIsC1 ? c1 : c2;
+                        if (baitMove.hasSelfDebuff) selfDebuffPenalty = 0.30;
+                    }
+                } else if (c1.hasSelfDebuff) {
+                    // Single-charged self-debuff — penalize since the mon would
+                    // have to fire it as their only option.
+                    selfDebuffPenalty = 0.20;
+                }
+
+                // ── Incremental-coverage bonus for the secondary move ──
+                // Cheap proxy for PvPoke's "score(move2 | move1) = matchups won
+                // by pair − matchups won by move1 alone" rule (PvPoke devnotes:
+                // "two moves used in 90% of matchups > two used in 60%"). We
+                // count meta opponents where c2 is super-effective AND c1 isn't
+                // — those are the threats c2 uniquely opens. Skip when i === j
+                // (single charged move) or when both moves share a type.
+                let incrementalCoverage = 0;
+                if (i !== j && c1.type !== c2.type && !NO_META) {
+                    let unique = 0;
+                    for (const { types: ot, weight } of metaEntries) {
+                        const c1eff = typeEffectiveness(c1.type, ot[0], ot[1] || null);
+                        const c2eff = typeEffectiveness(c2.type, ot[0], ot[1] || null);
+                        if (c2eff >= 1.6 && c1eff < 1.6) unique += weight;
+                        else if (c1eff >= 1.6 && c2eff < 1.6) unique += weight; // c1 covers what c2 misses
+                    }
+                    incrementalCoverage = (unique / totalMetaW) * 0.20; // up to ~0.10 in practice
+                }
 
                 // ── Meta SE coverage (P5 + P9) ──
                 // Fast move gets its own RMS-weighted term (peaks matter —
@@ -1593,18 +1735,24 @@ function pickOptimalMoveset(speciesId, metaEntries) {
                 const pressureScore = Math.max(0, Math.min(1, (80 - Math.max(cheapest, 38)) / 60));
 
                 // ── Composite scoring ──
-                // Move quality (individual scores)
+                // Move quality: sum each move's individual score at 0.35 weight.
+                // The previous "(c1+c2)*0.5" averaged the pair, which meant a
+                // single dominant move (Hydro Cannon) outranked the canonical
+                // pair (HC + EQ) just because EQ averaged the score down. Sum
+                // semantics correctly reward "having a second usable move" over
+                // "having one great move and nothing else" — and the structure
+                // bonus + incremental coverage further reward the right pair.
                 const moveQuality = fast.score * 0.35
-                    + (i !== j ? (c1.score + c2.score) * 0.5 : c1.score)
-                    * 0.35;
+                    + c1.score * 0.35
+                    + (i !== j ? c2.score * 0.35 : 0);
 
                 // Meta effectiveness
                 const metaScore = metaOff * 0.6;
 
                 // Structure & pressure
-                const tacticsScore = structureBonus + coverageBonus + pressureScore * 0.15;
+                const tacticsScore = structureBonus + coverageBonus + pressureScore * 0.15 + incrementalCoverage;
 
-                const total = moveQuality + metaScore + tacticsScore;
+                const total = moveQuality + metaScore + tacticsScore - redundancyPenalty - selfDebuffPenalty - sameTypeRolePenalty;
 
                 if (total > bestScore) {
                     bestScore = total;
@@ -1888,6 +2036,72 @@ function fmtMove(id) { return toTitleCase((id || '').replace(/_/g, ' ')); }
  * get a brighter color and a "PvPoke" badge — those are externally verified
  * shared weaknesses, not just artifacts of our local sim.
  */
+/**
+ * Render a collapsible 3-column threat matrix for a team card.
+ * Rows = top N meta opponents; columns = team's 3 mons in slot order
+ * (Lead / Safe Swap / Closer). Cells are colored by blended margin from
+ * the 5-shield scoreTeamFull blend:
+ *   green (≥0.65)   — strong win
+ *   yellow (0.50–0.65) — coin flip / narrow win
+ *   orange (0.45–0.50) — narrow loss
+ *   red (<0.45)     — hard loss
+ * Tucked inside <details> so users only see it when they want the detail.
+ *
+ * @param {Array} matrix     [{ opp, margins: [m0, m1, m2] }, ...]
+ * @param {Array} teamMons   Team in slot order — each entry needs .id (or .baseId)
+ *                           for the column header.
+ * @param {number} topN      Truncate to first N rows (default 12).
+ */
+function renderMatchupMatrix(matrix, teamMons, topN) {
+    if (!Array.isArray(matrix) || matrix.length === 0) return '';
+    if (!Array.isArray(teamMons) || teamMons.length < 2) return '';
+    const rows = matrix.slice(0, topN || 12);
+    const slotLabels = ['Lead', 'Safe Swap', 'Closer'];
+
+    const colorFor = m => {
+        if (m >= 0.65) return '#14532d';   // green: clean win
+        if (m >= 0.50) return '#854d0e';   // yellow-ish: narrow win / coin-flip
+        if (m >= 0.45) return '#7c2d12';   // orange: narrow loss
+        return '#7f1d1d';                  // red: hard loss
+    };
+    const textColorFor = m => {
+        if (m >= 0.65) return '#86efac';
+        if (m >= 0.50) return '#fde68a';
+        if (m >= 0.45) return '#fdba74';
+        return '#fca5a5';
+    };
+
+    let html = `<details style="margin:4px 0 8px;font-size:10px;">
+        <summary style="cursor:pointer;color:#94a3b8;user-select:none;">
+            ▸ Threat matrix (top ${rows.length} meta · margin per team mon)
+        </summary>
+        <table style="margin-top:6px;border-collapse:collapse;font-size:10px;">
+            <thead>
+                <tr>
+                    <th style="text-align:left;padding:2px 8px;color:#64748b;font-weight:600;">Opponent</th>`;
+    for (let i = 0; i < teamMons.length; i++) {
+        const mon = teamMons[i];
+        const id = mon.id || mon.baseId || '';
+        html += `<th style="padding:2px 6px;color:#94a3b8;font-weight:500;text-align:center;" title="${slotLabels[i] || 'Slot ' + (i+1)}">${toTitleCase(id)}</th>`;
+    }
+    html += `   </tr>
+            </thead>
+            <tbody>`;
+    for (const row of rows) {
+        html += `<tr>
+            <td style="padding:2px 8px;color:#cbd5e1;">${toTitleCase(row.opp)}</td>`;
+        for (let i = 0; i < teamMons.length; i++) {
+            const m = row.margins[i] != null ? row.margins[i] : 0.5;
+            html += `<td style="padding:2px 6px;text-align:center;background:${colorFor(m)};color:${textColorFor(m)};border:1px solid #1e293b;font-variant-numeric:tabular-nums;" title="Blended margin (5-shield blend); 0.5 = tie">${(m * 100).toFixed(0)}</td>`;
+        }
+        html += `</tr>`;
+    }
+    html += `   </tbody>
+        </table>
+    </details>`;
+    return html;
+}
+
 function renderThreatLine(killers) {
     if (!Array.isArray(killers) || killers.length === 0) return '';
     const parts = killers.map(k => {
@@ -2175,11 +2389,13 @@ async function runMetaBreaker() {
             })() : '';
 
             const threatLine = ms ? renderThreatLine(ms.topKillers) : '';
+            const threatMatrix = ms && ms.matrix ? renderMatchupMatrix(ms.matrix, team, 12) : '';
 
             html += `<div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px;margin-bottom:12px;">
                 <div style="font-weight:600;color:#94a3b8;margin-bottom:4px;">Team ${i+1}${csTag}${atTag}</div>
                 ${marginBar}
                 ${threatLine}
+                ${threatMatrix}
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">`;
             for (let si = 0; si < team.length; si++) {
                 const mon = team[si];
@@ -2524,11 +2740,13 @@ async function runBoxBuilder() {
                 })() : '';
 
                 const threatLine = ms ? renderThreatLine(ms.topKillers) : '';
+                const threatMatrix = ms && ms.matrix ? renderMatchupMatrix(ms.matrix, team, 12) : '';
 
                 s += `<div style="background:#1e293b;border:1px solid ${borderColor};border-radius:8px;padding:12px;margin-bottom:12px;">
                     <div style="font-weight:600;color:${titleColor};margin-bottom:4px;">Team ${i+1}${csTag}${atTag}</div>
                     ${marginBar}
                     ${threatLine}
+                    ${threatMatrix}
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">`;
                 for (let si = 0; si < team.length; si++) {
                     s += renderMonCard(team[si], { role: roles[si], borderColor });

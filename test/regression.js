@@ -583,6 +583,23 @@ test('scoreTeamFull returns score 0–1000 and stats for a valid team', () => {
     }
 });
 
+test('scoreTeamFull stats includes matrix of per-(opp, battler) margins', () => {
+    if (TEAM_FOR_SCORING.length < 3) return;
+    const r = ctx.scoreTeamFull(TEAM_FOR_SCORING, TEST_CP_CAP, META_ENTRIES_SMALL, 5, null);
+    assert(r.stats && Array.isArray(r.stats.matrix), 'stats.matrix should be an array');
+    assert(r.stats.matrix.length > 0, 'matrix should not be empty');
+    for (const row of r.stats.matrix) {
+        assert(typeof row.opp === 'string' && row.opp.length > 0, 'each row needs an opp id');
+        assert(Array.isArray(row.margins), 'each row needs a margins array');
+        assert(row.margins.length === TEAM_FOR_SCORING.length,
+            `expected ${TEAM_FOR_SCORING.length} margins, got ${row.margins.length}`);
+        for (const m of row.margins) {
+            assert(typeof m === 'number' && m >= 0 && m <= 1,
+                `margin out of [0,1]: ${m}`);
+        }
+    }
+});
+
 test('scoreTeamFull with unknown leagueKey behaves like the no-leagueKey path', () => {
     if (TEAM_FOR_SCORING.length < 3) return;
     const a = ctx.scoreTeamFull(TEAM_FOR_SCORING, TEST_CP_CAP, META_ENTRIES_SMALL, 5, null);

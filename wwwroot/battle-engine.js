@@ -246,16 +246,34 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
 
     // ── Stochastic charged move AI ───────────────────────────────────────────
     // Returns { dmg, nrg, id } — damage snapshotted at decision time with current stages.
+    //
+    // Bait vs nuke is defined by ENERGY COST (cheaper = bait, pricier = nuke),
+    // matching PvPoke's bait theory: "bait" is the shield-pressure tool you can
+    // afford early, "nuke" is the heavy commitment you save up for. Defining it
+    // by DPE breaks against type-disadvantaged matchups: e.g. Talonflame's
+    // brave_bird (Flying, 130 pow, 55 nrg) vs Tinkaton (Steel/Fairy) is RESISTED
+    // and ends up with lower DPE than flame_charge (Fire, 65 pow, 50 nrg, SE),
+    // so DPE-based labeling would call brave_bird the "bait" and bait-prefer it
+    // 75% of the time — which is exactly the wrong move (more energy, less damage).
+    //
+    // Tiebreaker on equal energy: higher raw damage is the nuke (preserves the
+    // canonical labeling for moves like Counter / Mud Shot variants).
+    //
+    // Override: when both moves are affordable but the "nuke" deals less damage
+    // than the "bait" in this matchup (type disadvantage on the high-energy move),
+    // fire the bait — it's strictly dominant (cheaper AND more damage).
+    //
     // Strategy: guarantee KO when possible, 75% bait when shields up, 85% nuke when shields down.
-    // Nuke = higher effective DPE (damage per energy) move; bait = lower effective DPE.
     // When only the bait is affordable but the nuke is within 20 energy, wait for the nuke.
     function pickChargedMove(energy, c1, c1Dmg, c2, c2Dmg, oppHp, oppShields) {
         const have1 = energy >= c1.nrg;
         const have2 = c2 && energy >= c2.nrg;
         if (!have1 && !have2) return null;
 
-        // Identify nuke (higher effective DPE) vs bait (lower effective DPE).
-        const c1IsNuke = !c2 || (c1Dmg / c1.nrg >= c2Dmg / c2.nrg);
+        // Energy-based bait/nuke. Without a c2, c1 is both.
+        const c1IsNuke = !c2
+            || (c1.nrg > c2.nrg)
+            || (c1.nrg === c2.nrg && c1Dmg >= c2Dmg);
         const nuke = c1IsNuke ? { dmg: c1Dmg, nrg: c1.nrg, id: c1.id }
                               : { dmg: c2Dmg, nrg: c2.nrg, id: c2.id };
         const bait = c1IsNuke ? (c2 ? { dmg: c2Dmg, nrg: c2.nrg, id: c2.id } : nuke)
@@ -263,19 +281,53 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
         const haveNuke = c1IsNuke ? have1 : have2;
         const haveBait = c1IsNuke ? (c2 ? have2 : have1) : have1;
 
+        // ── Sacrifice-move detection ──
+        // Self-debuff moves (Brave Bird -3 def, Wild Charge -2 def, Overheat -2
+        // atk, Superpower -1 atk/-1 def) are tactical "spend the mon" finishers,
+        // not pressure tools. After firing, the user takes outsized damage from
+        // every subsequent fast move and effectively can't survive a follow-up.
+        // Rule: only fire a self-debuff move when (a) it KOs, or (b) we have no
+        // other option. This matches PvPoke's published wisdom — Talonflame's
+        // Brave Bird is reserved as the closing nuke, never used for bait.
+        const isSacrifice = (mv) => {
+            const fx = typeof MOVE_EFFECTS !== 'undefined' ? MOVE_EFFECTS[mv.id] : null;
+            if (!fx || !fx.selfDebuff) return false;
+            const [a, d] = fx.selfDebuff;
+            return (a < 0 || d < 0);
+        };
+        const nukeSacrifice = isSacrifice(nuke);
+        const baitSacrifice = bait !== nuke && isSacrifice(bait);
+
         // Only bait affordable: fire bait to waste opponent's shield when shields are up.
         // When opponent has no shields, wait for nuke if it's close (≤20 energy away).
+        // If the bait is a sacrifice move, only fire it when it would KO — otherwise
+        // hold (the cost of the self-debuff is too high to spend on chip).
         if (haveBait && !haveNuke) {
             const nukeNrg = c1IsNuke ? c1.nrg : c2.nrg;
             if (oppShields === 0 && nukeNrg - energy <= 20) return null; // wait for nuke
-            return bait; // fire bait to pressure shields (or nuke is too far away)
+            if (baitSacrifice && !(oppShields === 0 && bait.dmg >= oppHp)) return null; // hold sacrifice
+            return bait;
         }
         // Only nuke affordable (or single-move): fire it.
-        if (haveNuke && !haveBait) return nuke;
+        // Sacrifice nuke gets the same hold-unless-KO treatment when shields are
+        // up (no point trading defense for a hit the opp will just shield).
+        if (haveNuke && !haveBait) {
+            if (nukeSacrifice && oppShields > 0 && nuke.dmg < oppHp) return null;
+            return nuke;
+        }
 
         // Both ready: guarantee KO when possible, then stochastic bait/nuke.
         if (oppShields === 0 && nuke.dmg >= oppHp) return nuke;
         if (oppShields === 0 && bait.dmg >= oppHp) return bait;
+        // Type-disadvantage override: if "bait" out-damages "nuke" in this
+        // specific matchup (the pricey move is being resisted), the bait is
+        // strictly dominant — never fire the nuke.
+        if (bait.dmg > nuke.dmg) return bait;
+        // Sacrifice-aware selection: prefer the non-sacrifice option whenever
+        // both can fire and we're not closing for KO. The sacrifice is reserved
+        // for the moment its damage actually finishes the opponent.
+        if (nukeSacrifice && !baitSacrifice) return bait;
+        if (baitSacrifice && !nukeSacrifice) return nuke;
         return oppShields > 0 ? (rand() < 0.75 ? bait : nuke)
                               : (rand() < 0.85 ? nuke : bait);
     }

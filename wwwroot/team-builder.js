@@ -400,6 +400,10 @@ function scoreTeamFull(team, cpCap, metaEntries, topN, attackPrevalence, leagueK
     let threatPenalty = 0, threatCount = 0;
     const topKillers = [];
     let leadMarginSum = 0, leadMarginCount = 0;
+    // Per-(opp, battler) blended margins for the threat-matrix UI. Built
+    // alongside the existing scoring loop so no extra sims are needed.
+    // Renderer (renderMatchupMatrix in app.js) reads stats.matrix.
+    const matrix = [];
 
     const limit = Math.min(topN, metaEntries.length);
     for (let i = 0; i < limit; i++) {
@@ -415,6 +419,7 @@ function scoreTeamFull(team, cpCap, metaEntries, topN, attackPrevalence, leagueK
 
         let bestBlended = 0, bestR1 = null;
         let losers = 0;
+        const rowMargins = new Array(battlers.length);
         for (let bi = 0; bi < battlers.length; bi++) {
             const b = battlers[bi];
             const r00 = simulateBattle(b, opp, 0, 0);
@@ -428,6 +433,7 @@ function scoreTeamFull(team, cpCap, metaEntries, topN, attackPrevalence, leagueK
             const m10 = battleMargin(r10);
             const m01 = battleMargin(r01);
             const blended = W_00*m00 + W_11*m11 + W_22*m22 + W_10*m10 + W_01*m01;
+            rowMargins[bi] = blended;
             if (blended > bestBlended) { bestBlended = blended; bestR1 = r11; }
             if (blended < 0.45) losers++;
             // Lead slot: capture 1-shield margin vs the top common leads.
@@ -436,6 +442,7 @@ function scoreTeamFull(team, cpCap, metaEntries, topN, attackPrevalence, leagueK
                 leadMarginCount++;
             }
         }
+        matrix.push({ opp: oppEntry.id, margins: rowMargins });
         // Asymmetric ϕ: compresses high wins (diminishing returns) while
         // leaving losses linear, matching PvPoke's loss-averse aggregation.
         // Hard-hole / threat detection keeps the raw `bestBlended` so the
@@ -574,12 +581,15 @@ function scoreTeamFull(team, cpCap, metaEntries, topN, attackPrevalence, leagueK
     // Keep full killer metadata (id, losers, pvpokeAmp) so the team-card UI can
     // render "PvPoke confirms" badges on threats whose shared-weakness was
     // independently corroborated by PvPoke's published matchups list.
+    // `matrix` carries the per-(opp, battler) blended margin grid for the
+    // collapsible threat matrix in the team-card UI.
     return {
         score,
         stats: {
             wins, losses, oppCount, hardHoles, coverageHoles,
             threatCount,
             topKillers: topKillers.slice(0, 3),
+            matrix,
             avgWinMargin:  wins   > 0 ? Math.round(winHpSum  / wins   * 100) : 0,
             avgLossMargin: losses > 0 ? Math.round(lossHpSum / losses * 100) : 0,
             coverageScore: Math.round(coverageScore * 100),
