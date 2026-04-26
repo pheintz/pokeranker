@@ -1,24 +1,73 @@
-This folder contains a pokemon go great league web application.
+# Pokeranker
 
-The application is supposed to do the following.
+A browser-only Pokémon GO PvP analyzer. Paste a CalcyIV CSV export, get back keep/dust/team decisions for the current GO Battle League and Silph Arena meta.
 
-Take in a CSV with the following format through text input:
+## Primary goal
 
+**Help the user beat the current meta with the box they actually own.**
+
+Box analysis (the original feature) is now in service of that goal — a stepping stone, not the destination. Two things matter most:
+
+1. **Team building from the user's box** — given what they own, surface viable 3-mon cores for the selected league/cup.
+2. **Meta-busting** — surface teams (from box or from the wider dex) that counter the current top picks, with role coverage and no shared weaknesses.
+
+## Secondary goal: box analysis
+
+Rank each Pokémon in the imported box for the selected league. Inputs: CalcyIV CSV (headers in any order, comma or semicolon delimited, in any column order). Outputs per Pokémon:
+
+- Optimal level under the league CP cap, computed from the user's actual IVs (not L1 stats)
+- Stat-product rank vs. the theoretical best IV spread for that species
+- Best evolution within the chain that stays under cap
+- PvPoke overall rank for sort priority
+
+### IV filter — clarification
+
+The IV filter input is **stat-product percentage of rank-1 (per species)**, not in-game appraisal %. This matters because for Great/Ultra League, rank-1 PvP spreads are typically 0/15/15 (≈78% by appraisal). A user filtering by appraisal % would hide their best PvP mons. The UI tooltip already says "percentage of the theoretical #1 IV spread" — keep it that way.
+
+For Master League only, appraisal % and stat-product % converge, so the existing input behaves correctly there.
+
+## Input format
+
+CalcyIV CSV export — headers searched by name, any order:
+
+```
 Ancestor?,Scan date,Nr,Name,Temp Evo,Gender,Nickname,Level,possibleLevels,CP,HP,Dust cost,min IV%,ØIV%,max IV%,ØATT IV,ØDEF IV,ØHP IV,Unique?,Fast move,Fast move (ID),Special move,Special move (ID),Special move 2,Special move 2 (ID),DPS,GL Evo,GL Rank (min),GL Rank (max),Box,Custom1,Custom2,Saved,Egg,Lucky?,Favorite,BuddyBoosted,Form,ShadowForm,MultiForm?,Dynamax,Height (cm),Weight (g),Height Tag,Catch Date,Catch Level
 0,3/31/26 20:57:15,162,Furret,-,♀,44☪❁87D,37.5,37.5,1497,159,9000,44.4,44.4,44.4,0.0,12.0,8.0,1,Sucker Punch,98,Trailblaze,301, - , - ,15.8,Furret,134,134,Favorite,,,0,0,0,1,0,2042,1,0, - ,194,43310,0,2018-08-09,?
-0,3/31/26 20:57:24,211,Qwilfish,-,♂,Qwi♂73,26.5,26.5,1493,115,4000,73.3,73.3,73.3,13.0,15.0,5.0,1, - , - , - , - , - , - ,0.0,Qwilfish,2003,2003,Favorite,,,0,0,0,1,0,1974,7,0,?,?,?,0,?,?
+```
 
-assume the csv headers can be taken in any order. functionality needs to search for the headers.
+## Roadmap (prioritized)
 
-after the input. the great league calculator finds the max pvp power levels based on the IV inputs and the pokemon's base stats.
+Driven by the gap between "raw rank list" (what the app currently emphasizes) and "what serious PvP players actually decide on" (role fit, investment cost, team coverage). Order is recommendation, not commitment — confirm priority with user before starting any item.
 
-the application considers further evolutions of pokemon as well if it would stay under the cap.
+### Tier 1 — close the loop on the new primary goal
 
-the application considers the stats of the imported pokemon, not the level 1 stats of the pokemon imported.
+1. **Role-fit ranking per box mon.** PvPoke publishes Leads / Switches / Closers / Attackers ranks separately; surface all four in box analysis instead of overall rank only. Highlight the role each mon is *best at*, not just its average. (Source: PvPoke ranking JSONs already include these — extend `process/download-csv.js`.)
+2. **Threat-coverage heatmap on team output.** For every suggested team, show a 3-column matrix: each team mon vs. the top ~15 meta picks (win/lose/coin-flip). Flag shared weaknesses as the dominant team-building failure mode.
+3. **"Build teams from my box" defaults.** Make this the primary CTA after analysis, not a secondary button. The current default flow ends at a sorted list; it should end at a team.
 
-the pokemon are sorted by meta sheet csv, the top meta pokemon being the most important
+### Tier 2 — investment guidance (the dust/candy questions)
 
-there needs to be a filter so that 98% or greater pokemon can only be shown
+4. **Move-unlock priority.** For each box mon, compute its rank *with* its 2nd charged move unlocked vs *without*. Surface mons where unlocking changes role or unlocks a meta-relevant team slot. Sort by stardust ROI.
+5. **XL candy ROI.** Flag mons that need L41+ to hit cap. Show "marginal stat product gain per XL candy" so users can decide between "good enough at 40" and "must-XL."
+6. **Shadow vs. normal per role.** Where both forms exist in the box (or are obtainable), compare them in their best role. Shadow is a closer-shaped buff, not a universal upgrade.
+
+### Tier 3 — code health (do before Tier 1 if extending team-builder substantially)
+
+7. **Split `app.js`.** ~178KB single file is fine to read, painful to extend. Split into roughly: `csv.js`, `pvp-math.js`, `battle-engine.js` (sim + breakpoints), `team-builder.js`, `ui.js`. Keep dependency direction one-way (no circular).
+8. **Regression tests for parsing + team-builder.** Current tests cover battle math; CSV parsing, evolution chain dedup, and the greedy team-builder are untested. Schema drift in PvPoke CSVs or evolution data would silently break the app today.
+9. **PvPoke schema validation in `process/download-csv.js`.** Fail loudly on unknown columns rather than silent heuristic fallback.
+
+### Tier 4 — nice to have
+
+10. **Cup-aware box value.** Same box, different cup, different keepers. Show "your top 5 for each currently-running cup" on a single screen.
+11. **Rank-1 SP proximity surfaced prominently** (e.g., "rank 47 / 96.4% of #1 SP") — this is the number competitive players grade keepers by.
+12. **GO Battle Log usage data.** PvPoke rank ≠ ladder usage. If a usage feed is available, weight team-builder against actual ladder prevalence, not just sim score.
+
+## Non-goals
+
+- Master League depth. The infrastructure is league-agnostic, but Master is a small and different problem (raid investment > IV optimization).
+- Server-side anything. The app runs entirely in-browser; CSV stays on-device. Don't propose backends.
+- Replacing PvPoke. Pokeranker's value-add is **"applied to your box"**, not generic ranking — link out to PvPoke for raw matchup detail rather than re-implementing it.
 
 
 # CLAUDE.md

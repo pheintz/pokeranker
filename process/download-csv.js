@@ -2,8 +2,11 @@
  * Downloads PvPoke data from the public GitHub repository.
  *
  * Rankings (auto-discovered via GitHub API):
- *   Source: https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/{cup}/overall/rankings-{cp}.json
+ *   Source: https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/{cup}/{category}/rankings-{cp}.json
+ *           where {category} ∈ { overall, leads, switches, closers, attackers }
  *   Output: wwwroot/csv/cp{cp}_{cup}_overall_rankings.csv
+ *           One CSV per cup/CP, with overall ordering and per-role score columns
+ *           (leadScore, switchScore, closerScore, attackerScore) joined on speciesId.
  *
  * Gamemaster (moves + pokemon movesets):
  *   Source: https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster/moves.json
@@ -117,16 +120,36 @@ async function listDir(repoPath) {
 
 // ─── Rankings downloader ──────────────────────────────────────────────────────
 
-function rankingsToCsv(entries) {
-  const header = 'speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2';
-  const rows = entries.map(e => {
+// PvPoke publishes per-role rankings as siblings of overall/. Same filename
+// pattern (rankings-{cp}.json), same entry shape, but `score` is role-specific.
+const ROLE_CATEGORIES = ['leads', 'switches', 'closers', 'attackers'];
+
+async function fetchRoleRankings(cupId, cp) {
+  const fetches = ROLE_CATEGORIES.map(async role => {
+    const url  = `${GITHUB_RAW}/${REPO}/${BRANCH}/src/data/rankings/${cupId}/${role}/rankings-${cp}.json`;
+    const data = await fetchJson(url);
+    return [role, Array.isArray(data) ? data : []];
+  });
+  return Object.fromEntries(await Promise.all(fetches));
+}
+
+function rankingsToCsv({ overall, leads, switches, closers, attackers }) {
+  const scoreById = role => new Map(role.map(e => [e.speciesId, e.score]));
+  const leadScore     = scoreById(leads);
+  const switchScore   = scoreById(switches);
+  const closerScore   = scoreById(closers);
+  const attackerScore = scoreById(attackers);
+
+  const header = 'speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore';
+  const rows = overall.map(e => {
     const moveset = e.moveset || [];
     const fast    = (moveset[0] || '').replace(/,/g, '');
     const cm1     = (moveset[1] || '').replace(/,/g, '');
     const cm2     = (moveset[2] || '').replace(/,/g, '');
     const stats   = e.stats || {};
+    const id      = e.speciesId || '';
     return [
-      e.speciesId || '',
+      id,
       (e.speciesName || '').replace(/,/g, ''),
       e.score ?? '',
       stats.atk ?? '',
@@ -134,6 +157,10 @@ function rankingsToCsv(entries) {
       stats.hp  ?? '',
       stats.product ?? '',
       fast, cm1, cm2,
+      leadScore.get(id)     ?? '',
+      switchScore.get(id)   ?? '',
+      closerScore.get(id)   ?? '',
+      attackerScore.get(id) ?? '',
     ].join(',');
   });
   return [header, ...rows].join('\n');
@@ -187,17 +214,23 @@ async function downloadAllRankings() {
       const outName = `cp${cp}_${cupId}_overall_rankings.csv`;
       const outPath = path.join(csvOutputPath, outName);
 
-      console.log(`  Fetching: ${cupId}/overall/rankings-${cp}.json`);
-      const entries = await fetchJson(rawUrl);
-      if (!Array.isArray(entries) || entries.length === 0) {
+      console.log(`  Fetching: ${cupId}/{overall,leads,switches,closers,attackers}/rankings-${cp}.json`);
+      const overall = await fetchJson(rawUrl);
+      if (!Array.isArray(overall) || overall.length === 0) {
         console.warn(`  [warn] Empty/invalid data — skipping ${outName}`);
         skipped++;
         continue;
       }
 
-      const csv = rankingsToCsv(entries);
+      const roleData = await fetchRoleRankings(cupId, cp);
+      const missingRoles = ROLE_CATEGORIES.filter(r => roleData[r].length === 0);
+      if (missingRoles.length) {
+        console.warn(`  [warn] ${cupId}/cp${cp}: missing role files [${missingRoles.join(', ')}] — those columns will be blank`);
+      }
+
+      const csv = rankingsToCsv({ overall, ...roleData });
       fs.writeFileSync(outPath, csv, 'utf8');
-      console.log(`    Saved ${entries.length} entries → ${outName}`);
+      console.log(`    Saved ${overall.length} entries → ${outName}`);
       downloaded++;
 
       indexEntries.push({
