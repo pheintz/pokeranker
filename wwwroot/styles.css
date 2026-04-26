@@ -533,6 +533,20 @@ input[type="number"]::placeholder { color: var(--text-dim); }
     border: 1px solid var(--border);
 }
 
+/* Per-role badge — color tint hints at the role's combat phase. */
+.role-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--r-sm);
+    border: 1px solid transparent;
+    cursor: help;
+}
+.role-lead     { background: #1e3a5f; color: #93c5fd; border-color: #2c4f7a; }
+.role-switch   { background: #4a3617; color: #fcd34d; border-color: #6b4f24; }
+.role-closer   { background: #4a1e1e; color: #fca5a5; border-color: #6b2a2a; }
+.role-attacker { background: #3b1e4a; color: #d8b4fe; border-color: #5a2c6b; }
+
 .group-count {
     font-size: 0.8125rem;
     color: var(--text-subtle);

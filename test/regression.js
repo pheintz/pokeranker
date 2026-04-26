@@ -31,6 +31,25 @@ function vmGet(expr) {
     return vm.runInContext(expr, ctx);
 }
 
+// Serve local files for the same URLs the browser would hit. Without this,
+// loadPokemon / loadMoves / loadRankings can never populate POKEMON_STATS,
+// POKEMON_TYPES, FAST_MOVES, etc., and most tests fail with "buildBattler
+// returned null" because lookupStats can't find the species.
+function localFetch(url) {
+    const stripped = String(url).replace(/^\.\//, '');
+    const fullPath = path.join(root, stripped);
+    if (!fs.existsSync(fullPath)) {
+        return Promise.resolve({ ok: false, status: 404, text: () => Promise.resolve(''), json: () => Promise.reject(new Error('404')) });
+    }
+    const buf = fs.readFileSync(fullPath, 'utf8');
+    return Promise.resolve({
+        ok: true,
+        status: 200,
+        text: () => Promise.resolve(buf),
+        json: () => Promise.resolve(JSON.parse(buf)),
+    });
+}
+
 const ctx = vm.createContext({
     console,
     Math,
@@ -45,7 +64,7 @@ const ctx = vm.createContext({
     Set,
     Map,
     Promise,
-    fetch: () => Promise.resolve({ ok: true, text: () => Promise.resolve('') }),
+    fetch: localFetch,
     document: {
         getElementById: () => ({
             value: '',
@@ -62,13 +81,70 @@ const ctx = vm.createContext({
 });
 
 // Inject scripts in dependency order
-for (const script of ['data.js', 'meta.js', 'app.js']) {
+for (const script of ['data.js', 'meta.js', 'battle-engine.js', 'team-builder.js', 'app.js']) {
     try {
         vm.runInContext(readScript(script), ctx, { filename: script });
     } catch (e) {
         console.error(`\n✗ Failed to load ${script}:\n`, e.message);
         process.exit(1);
     }
+}
+
+// Populate POKEMON_STATS / POKEMON_TYPES / EVOLUTIONS / POKEMON_MOVESETS /
+// FAST_MOVES / CHARGED_MOVES from the on-disk gamemaster files. In the browser
+// this happens via async loadPokemon()/loadMoves() but the tests are
+// synchronous, so we load and inject inline. The logic mirrors loadMoves +
+// loadPokemon in app.js — keep them in sync if those loaders change.
+function bootstrapGameData() {
+    const movesPath   = path.join(root, 'data', 'moves.json');
+    const pokemonPath = path.join(root, 'data', 'pokemon.json');
+    if (!fs.existsSync(movesPath) || !fs.existsSync(pokemonPath)) {
+        console.warn(`[bootstrap] missing data files — battle/team-builder tests will be skipped`);
+        return false;
+    }
+    ctx.__movesData   = JSON.parse(fs.readFileSync(movesPath, 'utf8'));
+    ctx.__pokemonData = JSON.parse(fs.readFileSync(pokemonPath, 'utf8'));
+    vm.runInContext(`
+        for (const m of __movesData) {
+            try { applyGamemasterMove(m); } catch (e) {}
+        }
+        for (const p of __pokemonData) {
+            if (!p.speciesId) continue;
+            const id = p.speciesId;
+            if (p.baseStats) POKEMON_STATS[id] = [p.baseStats.atk, p.baseStats.def, p.baseStats.hp];
+            if (p.types) {
+                const t = p.types.filter(x => x !== 'none');
+                if (t.length) POKEMON_TYPES[id] = t;
+            }
+            if (p.family && p.family.evolutions && p.family.evolutions.length) {
+                EVOLUTIONS[id] = p.family.evolutions;
+            }
+            if (typeof POKEMON_MOVESETS !== 'undefined') {
+                const fast    = (p.fastMoves    || []).map(s => s.toLowerCase());
+                const charged = (p.chargedMoves || []).map(s => s.toLowerCase());
+                const elite   = (p.eliteMoves   || []).map(s => s.toLowerCase());
+                for (const eid of elite) {
+                    if (FAST_MOVES[eid] !== undefined) {
+                        if (!fast.includes(eid)) fast.push(eid);
+                    } else if (CHARGED_MOVES[eid] !== undefined) {
+                        if (!charged.includes(eid)) charged.push(eid);
+                    }
+                }
+                POKEMON_MOVESETS[id] = { fast, charged, elite };
+            }
+        }
+        for (const [alias, canonical] of Object.entries(POKEMON_ID_ALIASES)) {
+            if (POKEMON_STATS[canonical])    POKEMON_STATS[alias]    = POKEMON_STATS[canonical];
+            if (POKEMON_TYPES[canonical])    POKEMON_TYPES[alias]    = POKEMON_TYPES[canonical];
+            if (POKEMON_MOVESETS[canonical]) POKEMON_MOVESETS[alias] = POKEMON_MOVESETS[canonical];
+            if (EVOLUTIONS[canonical])       EVOLUTIONS[alias]       = EVOLUTIONS[canonical];
+        }
+    `, ctx);
+    return true;
+}
+const dataReady = bootstrapGameData();
+if (!dataReady) {
+    console.warn('Run `node process/download-csv.js` to populate wwwroot/data/*.json before running tests.');
 }
 
 // ─── Test harness ─────────────────────────────────────────────────────────────
@@ -378,7 +454,145 @@ test('sub-rank1 ATK IV shows atBreakpoint where damage differs', () => {
         'Expected breakpoint or equal damage for sub-rank1 ATK entry');
 });
 
-// ─── 9. Summary ──────────────────────────────────────────────────────────────
+// ─── 9. Threat list / role helpers ───────────────────────────────────────────
+console.log('\n[9] Threat list + role helpers');
+
+test('parseThreatList parses packed oppId:rating pairs', () => {
+    const out = ctx.parseThreatList('medicham:612;swampert:587');
+    assert(Array.isArray(out), 'expected array');
+    assert(out.length === 2, `expected 2 entries, got ${out.length}`);
+    assert(out[0].opp === 'medicham' && out[0].rating === 612, 'first entry mismatch');
+    assert(out[1].opp === 'swampert' && out[1].rating === 587, 'second entry mismatch');
+});
+
+test('parseThreatList tolerates empty / malformed cells', () => {
+    assert(ctx.parseThreatList('').length === 0,    'empty cell → []');
+    assert(ctx.parseThreatList(null).length === 0,  'null cell → []');
+    assert(ctx.parseThreatList(';;').length === 0,  'pure separators → []');
+    const partial = ctx.parseThreatList('valid:600;:no_id;no_rating:abc;ok:550');
+    assert(partial.length === 2, `expected only valid pairs through, got ${partial.length}`);
+});
+
+test('getThreats / getBestRole return null when caches are empty', () => {
+    // No loadRankings call has populated either cache for this format key.
+    assert(ctx.getThreats('azumarill', 'cp1500_unknown') === null, 'getThreats should be null');
+    assert(ctx.getBestRole('azumarill', 'cp1500_unknown') === null, 'getBestRole should be null');
+});
+
+test('getBestRole returns highest-scoring role from cache', () => {
+    // Inject a synthetic per-format role-scores cache and verify the helper
+    // picks the max across the four PvPoke role columns.
+    vm.runInContext(`
+        roleScoresCache['__test__'] = {
+            lead:     { azumarill: 92.8 },
+            switch:   { azumarill: 74.2 },
+            closer:   { azumarill: 88.7 },
+            attacker: { azumarill: 90.0 },
+        };
+    `, ctx);
+    const r = ctx.getBestRole('azumarill', '__test__');
+    assert(r !== null, 'expected non-null result');
+    assert(r.role === 'lead', `expected lead, got ${r.role}`);
+    assertApprox(r.score, 92.8, 0.01, 'best score');
+    assert(r.all.closer === 88.7, 'all map populated');
+});
+
+test('getBestRole falls back from _shadow to base id', () => {
+    vm.runInContext(`
+        roleScoresCache['__test_sh__'] = {
+            lead: { azumarill: 80 }, switch: {}, closer: {}, attacker: {},
+        };
+    `, ctx);
+    const r = ctx.getBestRole('azumarill_shadow', '__test_sh__');
+    assert(r !== null, 'shadow fallback should resolve to base');
+    assert(r.role === 'lead' && r.score === 80, 'unexpected role/score');
+});
+
+test('phiMargin: tie / max-win / max-loss reference points', () => {
+    assertApprox(ctx.phiMargin(0.5), 0.5,  0.001, 'tie should stay 0.5');
+    assertApprox(ctx.phiMargin(0.0), 0.0,  0.001, 'max loss should stay 0');
+    // Max win is compressed; exact value depends on the chosen scale (~0.7).
+    assert(ctx.phiMargin(1.0) > 0.65 && ctx.phiMargin(1.0) < 0.75,
+        `phi(1.0) should be ~0.7 (compressed), got ${ctx.phiMargin(1.0)}`);
+});
+
+test('phiMargin is monotonic and asymmetric', () => {
+    let last = -Infinity;
+    for (let m = 0; m <= 1; m += 0.05) {
+        const v = ctx.phiMargin(m);
+        assert(v >= last - 1e-9, `phi non-monotonic at m=${m}: ${v} < ${last}`);
+        last = v;
+    }
+    // Asymmetry: a 0.7-margin win is worth less than a 0.3-margin loss costs.
+    const winBonus  = ctx.phiMargin(0.7) - 0.5;
+    const lossPen   = 0.5 - ctx.phiMargin(0.3);
+    assert(winBonus < lossPen, `expected lossPen > winBonus, got win=${winBonus}, loss=${lossPen}`);
+});
+
+test('phiMargin rewards consistency over spike-and-fold teams', () => {
+    // Same linear average (0.55), but flat team should score higher under ϕ.
+    const flat  = (ctx.phiMargin(0.55) + ctx.phiMargin(0.55) + ctx.phiMargin(0.55)) / 3;
+    const spike = (ctx.phiMargin(0.85) + ctx.phiMargin(0.85) + ctx.phiMargin(-0.05 + 0.5)) / 3;
+    // (0.85, 0.85, 0.45) — same linear avg as (0.55, 0.55, 0.55) — wait, that's (0.85+0.85+0.45)/3 = 0.717
+    // Use proper equal-mean comparison: (0.7, 0.7, 0.3) vs (0.55, 0.55, 0.6) — both avg ~0.567
+    const a = (ctx.phiMargin(0.7) + ctx.phiMargin(0.7) + ctx.phiMargin(0.3)) / 3;
+    const b = (ctx.phiMargin(0.55) + ctx.phiMargin(0.55) + ctx.phiMargin(0.6)) / 3;
+    assert(b > a, `flat team should beat spike team under ϕ; flat=${b}, spike=${a}`);
+});
+
+test('getThreats returns matchups + counters from injected cache', () => {
+    vm.runInContext(`
+        threatListsCache['__test_t__'] = {
+            azumarill: {
+                matchups: [{opp:'medicham', rating:612}],
+                counters: [{opp:'galvantula', rating:412}],
+            },
+        };
+    `, ctx);
+    const t = ctx.getThreats('azumarill', '__test_t__');
+    assert(t !== null, 'expected non-null');
+    assert(t.matchups.length === 1 && t.matchups[0].opp === 'medicham', 'matchups mismatch');
+    assert(t.counters.length === 1 && t.counters[0].rating === 412, 'counters mismatch');
+});
+
+// ─── 10. scoreTeamFull integration ───────────────────────────────────────────
+console.log('\n[10] scoreTeamFull integration');
+
+const TEAM_FOR_SCORING = ['medicham', 'stunfisk_galarian', 'swampert']
+    .filter(id => vmGet(`!!POKEMON_STATS['${id}']`))
+    .map(id => ({
+        id, isShadow: false,
+        types: vmGet(`POKEMON_TYPES['${id}']`) || ['normal'],
+        moveTypes: vmGet(`POKEMON_TYPES['${id}']`) || ['normal'],
+    }));
+
+test('scoreTeamFull returns score 0–1000 and stats for a valid team', () => {
+    if (TEAM_FOR_SCORING.length < 3) {
+        console.log('    (skipped: required species missing from POKEMON_STATS)');
+        return;
+    }
+    const r = ctx.scoreTeamFull(TEAM_FOR_SCORING, TEST_CP_CAP, META_ENTRIES_SMALL, 5, null);
+    assert(r && typeof r.score === 'number', 'should return {score, stats}');
+    assert(r.score >= 0 && r.score <= 1000, `score out of range: ${r.score}`);
+    assert(r.stats && typeof r.stats.oppCount === 'number', 'stats missing');
+    assert(Array.isArray(r.stats.topKillers), 'topKillers should be an array');
+    // Each killer should be a structured object now (not a string)
+    for (const k of r.stats.topKillers) {
+        assert(typeof k === 'object' && 'id' in k,
+            `topKillers entries should be objects with id, got: ${JSON.stringify(k)}`);
+    }
+});
+
+test('scoreTeamFull with unknown leagueKey behaves like the no-leagueKey path', () => {
+    if (TEAM_FOR_SCORING.length < 3) return;
+    const a = ctx.scoreTeamFull(TEAM_FOR_SCORING, TEST_CP_CAP, META_ENTRIES_SMALL, 5, null);
+    const b = ctx.scoreTeamFull(TEAM_FOR_SCORING, TEST_CP_CAP, META_ENTRIES_SMALL, 5, null, '__nonexistent__');
+    // Without a populated threatListsCache for the key, getThreats returns null,
+    // so the amplifier stays at 1.0 — scores must match exactly.
+    assert(a.score === b.score, `expected identical scores, got ${a.score} vs ${b.score}`);
+});
+
+// ─── 11. Summary ─────────────────────────────────────────────────────────────
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`Results: ${passed} passed, ${failed} failed`);
 if (errors.length > 0) {

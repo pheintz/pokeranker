@@ -150,7 +150,17 @@ function rankingsToCsv({ overall, leads, switches, closers, attackers }) {
   const closerScore   = scoreById(closers);
   const attackerScore = scoreById(attackers);
 
-  const header = 'speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore';
+  // Pack PvPoke's per-Pokemon matchups/counters arrays into single CSV cells
+  // as semicolon-separated `opponentId:rating` pairs. PvPoke speciesIds never
+  // contain `:` or `;` so the encoding is unambiguous. We cap at the first 8
+  // entries — PvPoke usually publishes 5–10 and the long tail is low-signal.
+  const TOP_N = 8;
+  const packMatchupList = list => (list || []).slice(0, TOP_N)
+    .map(m => `${m.opponent || ''}:${Math.round(m.rating || 0)}`)
+    .filter(s => !s.startsWith(':'))
+    .join(';');
+
+  const header = 'speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore,topMatchups,topCounters';
   const rows = overall.map(e => {
     const moveset = e.moveset || [];
     const fast    = (moveset[0] || '').replace(/,/g, '');
@@ -171,6 +181,8 @@ function rankingsToCsv({ overall, leads, switches, closers, attackers }) {
       switchScore.get(id)   ?? '',
       closerScore.get(id)   ?? '',
       attackerScore.get(id) ?? '',
+      packMatchupList(e.matchups),
+      packMatchupList(e.counters),
     ].join(',');
   });
   return [header, ...rows].join('\n');
