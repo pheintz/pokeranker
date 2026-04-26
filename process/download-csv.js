@@ -79,6 +79,8 @@ fs.mkdirSync(csvOutputPath,  { recursive: true });
 
 // ─── HTTP helpers ─────────────────────────────────────────────────────────────
 
+const HTTP_TIMEOUT_MS = 15000;
+
 function httpGet(url, extraHeaders = {}) {
   return new Promise((resolve, reject) => {
     const headers = {
@@ -86,14 +88,22 @@ function httpGet(url, extraHeaders = {}) {
       'Accept':     'application/json',
       ...extraHeaders,
     };
-    https.get(url, { headers }, res => {
-      if (res.statusCode === 404) return resolve(null);   // missing file → skip
-      if (res.statusCode !== 200)
+    const req = https.get(url, { headers, timeout: HTTP_TIMEOUT_MS }, res => {
+      // Drain non-2xx responses so the socket can be reused/closed.
+      // Skipping this leaks sockets and eventually stalls the entire script
+      // when many 404s pile up against the keep-alive pool.
+      if (res.statusCode === 404) { res.resume(); return resolve(null); }
+      if (res.statusCode !== 200) {
+        res.resume();
         return reject(new Error(`HTTP ${res.statusCode} for ${url}`));
+      }
       let data = '';
       res.on('data', chunk => { data += chunk; });
       res.on('end',  () => resolve(data));
-    }).on('error', reject);
+    });
+    // node's `timeout` event fires but does NOT abort the request — we have to.
+    req.on('timeout', () => req.destroy(new Error(`timeout after ${HTTP_TIMEOUT_MS}ms for ${url}`)));
+    req.on('error', reject);
   });
 }
 
