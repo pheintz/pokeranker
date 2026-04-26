@@ -1,217 +1,217 @@
-speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore
-lapras,Lapras,97.6,104.6,114.5,179,2147,PSYWAVE,SPARKLING_ARIA,SKULL_BASH,100,95.9,97.3,89.8
-sealeo,Sealeo,96.7,108.9,112.8,168,2065,POWDER_SNOW,SURF,BODY_SLAM,96.2,98.1,94.3,97.9
-dusclops,Dusclops,95.3,102.4,197.6,108,2187,HEX,SHADOW_PUNCH,ICE_PUNCH,89.9,88.4,88.9,100
-turtonator,Turtonator,94.6,113.5,153.6,113,1971,INCINERATE,BRUTAL_SWING,DRAGON_CLAW,91,97.8,88.2,95.3
-feraligatr,Feraligatr,92.7,123.8,117.3,125,1818,SHADOW_CLAW,HYDRO_CANNON,CRUNCH,94,87.8,93.4,85.6
-crustle,Crustle,92.5,120.3,134.7,115,1864,FURY_CUTTER,ROCK_WRECKER,X_SCISSOR,94.9,96.6,100,53.7
-barbaracle,Barbaracle,91.5,120.9,133,115,1851,FURY_CUTTER,CROSS_CHOP,STONE_EDGE,89.9,65.1,93.4,92.4
-glalie,Glalie,91.3,115.2,120.7,140,1948,ROLLOUT,AVALANCHE,SHADOW_BALL,93.8,92.4,96.6,55.3
-gyarados,Gyarados,91.2,130.7,108.5,121,1717,DRAGON_BREATH,AQUA_TAIL,CRUNCH,95.7,86.7,84.9,68.6
-milotic,Milotic,90.9,113.1,133.8,131,1985,DRAGON_TAIL,AQUA_TAIL,WRAP,91.8,90.7,85.4,86.6
-dudunsparce,Dudunsparce,90.8,116.1,98.5,169,1935,ROLLOUT,BODY_SLAM,DRILL_RUN,90.5,89.5,83,77.5
-marowak_alolan,Marowak (Alolan),90.7,109.6,148.8,125,2041,HEX,FLAME_WHEEL,SHADOW_BALL,94.4,85.9,88.7,80.6
-claydol,Claydol,88.3,103.5,172.6,121,2164,MUD_SLAP,ROCK_TOMB,ICE_BEAM,86.7,75.3,85.7,71.8
-altaria,Altaria,88,103.4,151.9,138,2168,DRAGON_BREATH,SKY_ATTACK,FLAMETHROWER,85.7,65.4,79.5,81.4
-bronzong,Bronzong,87.6,110.8,152.2,120,2026,METAL_SOUND,PSYSHOCK,PAYBACK,86.8,76.3,84,79.8
-piloswine,Piloswine,87.4,121,99.4,154,1855,POWDER_SNOW,ICICLE_SPEAR,STONE_EDGE,87.1,74.3,90.6,60.8
-cetoddle,Cetoddle,87.3,112.6,79.8,213,1915,POWDER_SNOW,AVALANCHE,BODY_SLAM,90.7,78.8,84.5,81.4
-cofagrigus,Cofagrigus,87.1,111.7,165.3,109,2013,SHADOW_CLAW,SHADOW_BALL,DARK_PULSE,80.3,76.6,88.4,64.7
-goodra,Goodra,87.1,119.6,134.1,117,1878,DRAGON_BREATH,AQUA_TAIL,THUNDER_PUNCH,85.4,89.3,79.2,75.4
-fearow,Fearow,86.8,131.4,104.6,124,1706,PECK,DRILL_PECK,DRILL_RUN,89.9,93.9,82.7,50.3
-castform_snowy,Castform (Snowy),86.7,112.6,121.2,146,1994,POWDER_SNOW,WEATHER_BALL_ICE,BLIZZARD,82.1,82.7,83.7,70.7
-froslass,Froslass,86.7,122.5,114.8,130,1831,HEX,AVALANCHE,SHADOW_BALL,81.3,97.2,95.1,34.9
-rufflet,Rufflet,86.5,126.7,92.1,152,1775,PECK,ROCK_TOMB,FLY,81,80.4,81.4,59.2
-talonflame,Talonflame,86.4,121.4,112.6,135,1847,INCINERATE,FLY,BRAVE_BIRD,75,65.1,87.1,84
-skeledirge,Skeledirge,86.3,121.2,109.7,139,1849,HEX,TORCH_SONG,SHADOW_BALL,90.7,70.8,85.9,49.8
-grumpig,Grumpig,86.2,113.3,131.4,132,1967,PSYWAVE,DYNAMIC_PUNCH,SHADOW_BALL,86.8,79.6,84.4,46.9
-gholdengo,Gholdengo,86.1,134.6,107.8,114,1655,HEX,SHADOW_BALL,POWER_GEM,66.1,40.4,97.3,45.4
-dragonair,Dragonair,85.7,125.2,112.4,127,1788,DRAGON_BREATH,AQUA_TAIL,DRAGON_PULSE,83.9,89.8,76.2,56.1
-dodrio,Dodrio,85.5,143.7,98.4,110,1557,PECK,BRAVE_BIRD,DRILL_PECK,89.1,74.2,81.9,40.4
-drifblim,Drifblim,85.5,119.1,75.7,209,1887,HEX,ICY_WIND,SHADOW_BALL,90.7,85.6,84,51.4
-zoroark_hisuian,Zoroark (Hisuian),85.5,163.4,87.5,96,1374,SHADOW_CLAW,SHADOW_BALL,FOUL_PLAY,86,99,82.4,38.3
-vespiquen,Vespiquen,85.4,108.8,143.4,132,2062,FURY_CUTTER,X_SCISSOR,POWER_GEM,76.4,93.5,81.9,63.9
-druddigon,Druddigon,85.1,131.2,111.2,117,1709,DRAGON_TAIL,NIGHT_SLASH,ROCK_TOMB,77.4,70.8,78.3,55
-haunter,Haunter,85.1,161.1,85.5,101,1392,SHADOW_CLAW,SHADOW_PUNCH,ICE_PUNCH,96.7,95.2,78.8,28.1
-arctibax,Arctibax,85,122.8,98.5,151,1829,DRAGON_BREATH,AVALANCHE,DRAGON_CLAW,74.5,87.8,90.7,49.8
-dusknoir,Dusknoir,85,119.8,174.1,90,1878,HEX,DYNAMIC_PUNCH,SHADOW_PUNCH,87.6,81.6,78.3,55.8
-togekiss,Togekiss,84.9,124.2,125.8,115,1799,PECK,AURA_SPHERE,ANCIENT_POWER,86.3,77.7,81.5,71.2
-metang,Metang,84.6,108.9,145.8,129,2050,FURY_CUTTER,PSYSHOCK,GYRO_BALL,84.7,69.9,77.3,83.2
-cetitan,Cetitan,84.4,120.1,77,202,1871,POWDER_SNOW,AVALANCHE,BODY_SLAM,87,77.3,86.4,68.4
-emolga,Emolga,84.2,127.5,110.2,125,1758,THUNDER_SHOCK,ACROBATICS,DISCHARGE,88.9,86.5,78.5,56.1
-trumbeak,Trumbeak,84.2,134,93.2,134,1676,PECK,DRILL_PECK,ROCK_BLAST,85.8,80.8,80.5,49
-dragalge,Dragalge,84,117.8,143.1,113,1906,DRAGON_TAIL,AQUA_TAIL,OUTRAGE,78.9,67.9,79.3,66.3
-avalugg,Avalugg,83.6,111.7,141.3,127,2007,ICE_FANG,ICY_WIND,CRUNCH,81.8,63.5,78.2,76.7
-hypno,Hypno,83.4,103.4,142.9,147,2174,CONFUSION,THUNDER_PUNCH,SHADOW_BALL,79.5,85.6,85.4,62.1
-toucannon,Toucannon,83.2,137.2,96.7,123,1634,PECK,DRILL_PECK,ROCK_BLAST,86.7,79.1,79.3,44.3
-fletchinder,Fletchinder,83.1,123.3,102.6,143,1811,PECK,FLY,FLAME_CHARGE,70.9,68.3,81.9,67.8
-togetic,Togetic,82.5,110.1,150.2,123,2035,FAIRY_WIND,DAZZLING_GLEAM,ANCIENT_POWER,83.7,70.2,81.4,78
-frillish,Frillish,81.3,109.2,125.2,135,1846,HEX,NIGHT_SHADE,ICE_BEAM,84.6,79.6,72.8,48.3
-shelgon,Shelgon,81.3,123.2,119,123,1806,DRAGON_BREATH,DRAGON_PULSE,CRUNCH,76,77,80.4,46.7
-drampa,Drampa,81,136.8,104.2,115,1640,DRAGON_BREATH,SWIFT,OUTRAGE,79.4,69.1,64.3,46.4
-charizard,Charizard,80.8,132.7,108.8,117,1691,DRAGON_BREATH,BLAST_BURN,AIR_CUTTER,83.6,100,83,45.4
-gligar,Gligar,80.8,108.4,145.3,131,2065,FURY_CUTTER,NIGHT_SLASH,AERIAL_ACE,80,73.3,73.5,72
-slowking_galarian,Slowking (Galarian),80.8,117.3,117.9,138,1910,ACID,PSYSHOCK,SHADOW_BALL,80,83.9,77.8,50.6
-salamence,Salamence,80.6,143.4,93,117,1562,DRAGON_TAIL,FLY,BRUTAL_SWING,87,70.5,79.5,33.6
-raichu_alolan,Raichu (Alolan),80.3,135.4,109.9,111,1653,VOLT_SWITCH,WILD_CHARGE,PSYSHOCK,81.1,76.2,83,40.7
-kommo_o,Kommo-o,80.2,123.7,137.8,106,1808,DRAGON_TAIL,CLANGING_SCALES,UPPER_HAND,79.7,57.7,84.7,33.9
-mamoswine,Mamoswine,80.2,136.2,87.3,138,1642,POWDER_SNOW,ICICLE_SPEAR,STONE_EDGE,73.5,72,78.3,34.7
-armarouge,Armarouge,80.1,132.1,109.6,117,1695,INCINERATE,PSYSHOCK,FLAME_CHARGE,80,81,77.8,49.6
-hakamo_o,Hakamo-o,80.1,115.5,135.5,124,1942,DRAGON_TAIL,ROCK_TOMB,BRICK_BREAK,73.5,58.1,65.1,62.9
-girafarig,Girafarig,80,130.3,101.5,130,1721,CONFUSION,PSYCHIC_FANGS,TRAILBLAZE,81.5,67.7,63.9,64.4
-trevenant,Trevenant,79.9,127.8,104.6,131,1752,SHADOW_CLAW,FOUL_PLAY,SHADOW_BALL,76,86.5,77,44.6
-gourgeist_super,Gourgeist (Super),79.8,115,131.6,129,1954,INCINERATE,FOUL_PLAY,SHADOW_BALL,76.4,87.5,76.5,45.9
-drifloon,Drifloon,79.5,110.9,79.8,186,1647,HEX,ICY_WIND,SHADOW_BALL,82,58.9,72.8,43.6
-gourgeist_large,Gourgeist (Large),79.2,115.9,137.2,122,1940,INCINERATE,FOUL_PLAY,SHADOW_BALL,75.3,87.9,74.5,44.6
-gengar,Gengar,78.8,154.3,95.4,98,1444,SHADOW_CLAW,SHADOW_PUNCH,DARK_PULSE,90.7,60.4,65.6,27.4
-baxcalibur,Baxcalibur,78.7,135.6,95.7,127,1650,DRAGON_BREATH,AVALANCHE,DRAGON_CLAW,62.5,65.8,81.2,34.7
-corvisquire,Corvisquire,78.7,118.1,104.7,153,1893,PECK,SKY_ATTACK,PAYBACK,76,54.1,75.5,38.1
-cryogonal,Cryogonal,78.6,115.8,137.9,121,1935,ICE_SHARD,TRIPLE_AXEL,NIGHT_SLASH,78.1,66.8,72.5,57.7
-gourgeist_small,Gourgeist (Small),78.6,116.8,152.9,107,1913,INCINERATE,FOUL_PLAY,SHADOW_BALL,71.9,88.4,75.5,43
-golurk,Golurk,78.5,133.3,98.5,128,1681,MUD_SLAP,SHADOW_PUNCH,DYNAMIC_PUNCH,71.6,62.8,73.7,47.5
-gourgeist_average,Gourgeist (Average),78.5,115.9,145,115,1934,INCINERATE,FOUL_PLAY,SHADOW_BALL,72.1,88.2,73.8,44.9
-annihilape,Annihilape,78.4,123.3,105.2,140,1817,COUNTER,RAGE_FIST,ICE_PUNCH,73.7,72.8,67,69.7
-chatot,Chatot,77.8,139.6,78.4,147,1610,PECK,SKY_ATTACK,NIGHT_SHADE,71.3,65.8,75.2,30
-frigibax,Frigibax,77.4,125.2,84.8,149,1583,DRAGON_BREATH,AVALANCHE,DRAGON_CLAW,63.6,72.6,78.5,34.2
-dartrix,Dartrix,77.2,112.4,115.5,154,2001,PECK,BRAVE_BIRD,SEED_BOMB,76.8,82.2,72.3,49.3
-pelipper,Pelipper,76.9,123.2,128.7,115,1825,WING_ATTACK,WEATHER_BALL_WATER,HURRICANE,74.2,73.1,75.7,58.2
-skarmory,Skarmory,76.9,105.5,166.5,121,2127,STEEL_WING,BRAVE_BIRD,SKY_ATTACK,68.3,39.9,84.7,67.1
-gliscor,Gliscor,76.5,115.6,144.4,116,1939,FURY_CUTTER,AERIAL_ACE,NIGHT_SLASH,74.3,62.8,70.5,58.7
-jumpluff,Jumpluff,76.5,96.7,156.9,153,2323,FAIRY_WIND,ACROBATICS,AERIAL_ACE,73.2,70.3,73.5,70.4
-rapidash_galarian,Rapidash (Galarian),76.5,133.6,111.5,112,1670,FAIRY_WIND,BODY_SLAM,WILD_CHARGE,76.3,52.9,73.8,53.2
-abomasnow,Abomasnow,76.1,117.8,112,143,1888,POWDER_SNOW,ICY_WIND,ENERGY_BALL,71.7,46.6,72.5,55.3
-mismagius,Mismagius,75.7,131.6,123.6,104,1693,HEX,SHADOW_BALL,DARK_PULSE,53.3,32.4,90.6,24.8
-noctowl,Noctowl,75.1,105.3,120.1,168,2126,WING_ATTACK,SKY_ATTACK,NIGHT_SHADE,73.2,67.1,75.7,57.9
-typhlosion_hisuian,Typhlosion (Hisuian),75,139.6,106.8,108,1611,HEX,FIRE_PUNCH,WILD_CHARGE,75.6,68.8,75.7,27.6
-cloyster,Cloyster,74.9,119,169.7,93,1880,ICE_SHARD,ICY_WIND,LIQUIDATION,71.4,53.3,67.5,50.6
-medicham,Medicham,74.9,106.9,139.4,141,2103,PSYCHO_CUT,ICE_PUNCH,DYNAMIC_PUNCH,69.5,62.8,73.7,62.4
-mr_mime,Mr. Mime,74.9,131.5,144.2,90,1709,PSYWAVE,SHADOW_BALL,PSYCHIC,61.9,54.1,76.7,40.9
-starmie,Starmie,74.7,133.1,122,104,1690,PSYWAVE,SURF,POWER_GEM,66.4,53.5,68,34.4
-beartic,Beartic,74.1,135.4,94,130,1657,POWDER_SNOW,ICE_PUNCH,LIQUIDATION,74,72.5,75.2,34.9
-houndstone,Houndstone,73.9,120.3,130.3,119,1866,LICK,PSYCHIC_FANGS,SHADOW_BALL,71.4,69.5,70.3,54
-bruxish,Bruxish,73.8,136.4,102.5,117,1637,CONFUSION,CRUNCH,PSYCHIC_FANGS,74.2,52.1,60.9,44.1
-delphox,Delphox,73.7,132.6,115.6,110,1687,FIRE_SPIN,PSYSHOCK,BLAST_BURN,62.2,41.6,74,39.4
-mantyke,Mantyke,73.6,100.8,163,120,1973,BUBBLE,WATER_PULSE,AERIAL_ACE,72.4,47.5,71.8,54.8
-wyrdeer,Wyrdeer,73.3,126.6,95.5,146,1767,CONFUSION,STOMP,WILD_CHARGE,68.8,60.6,75,45.6
-fraxure,Fraxure,73.2,144.2,91.5,118,1558,DRAGON_TAIL,AQUA_TAIL,NIGHT_SLASH,80,68.9,63.6,32.8
-haxorus,Haxorus,73.1,151.4,95.1,103,1485,DRAGON_TAIL,SURF,NIGHT_SLASH,80.7,66.8,66.1,25
-ledian,Ledian,73.1,101.3,162.5,134,2208,BUG_BITE,DYNAMIC_PUNCH,AERIAL_ACE,65.6,37,71.3,73.3
-metagross,Metagross,73.1,132.7,122,104,1686,BULLET_PUNCH,METEOR_MASH,EARTHQUAKE,63.6,36.7,60.9,51.6
-slowbro,Slowbro,72.8,113.4,120.9,144,1975,CONFUSION,DRAIN_PUNCH,ICE_BEAM,76.8,57.5,68.1,57.1
-dragonite,Dragonite,72.6,135.8,107.3,113,1647,DRAGON_BREATH,THUNDER_PUNCH,SUPER_POWER,73.9,62.3,64.9,36.2
-mantine,Mantine,72.3,105.5,166.5,121,2127,BUBBLE,ICE_BEAM,BUBBLE_BEAM,83.4,61.2,73.3,56.6
-slowpoke,Slowpoke,72.1,104.1,94.9,186,1840,CONFUSION,PSYSHOCK,WATER_PULSE,73,66.3,66.3,43.8
-polteageist,Polteageist,71.8,142.8,115.6,95,1569,HEX,SHADOW_BALL,DARK_PULSE,43.9,31.4,86.7,20.8
-scyther,Scyther,71.7,134.8,109.4,113,1668,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR,75.2,59.2,65.4,47.7
-slowbro_galarian,Slowbro (Galarian),71.5,119.1,108.3,146,1885,CONFUSION,SURF,BRUTAL_SWING,71.1,72.5,62.8,48.3
-staravia,Staravia,71.4,131.9,91.5,135,1631,QUICK_ATTACK,BRAVE_BIRD,FLY,53.6,54.6,78.2,19.5
-xatu,Xatu,71.3,132.2,107.9,119,1698,PECK,PSYSHOCK,AERIAL_ACE,73.9,67.4,66.3,31
-golbat,Golbat,70.9,117.6,116.2,139,1901,WING_ATTACK,POISON_FANG,SHADOW_BALL,66.7,59.1,64.8,46.9
-smoochum,Smoochum,70.9,141.1,89,120,1509,POWDER_SNOW,PSYSHOCK,ICE_PUNCH,68.7,60.4,68.8,28.9
-pidgeot,Pidgeot,70.8,116.9,115.5,142,1918,GUST,AIR_CUTTER,BRAVE_BIRD,75,52.3,73.8,54.3
-dhelmise,Dhelmise,70.6,139.7,109.3,105,1605,SHADOW_CLAW,POWER_WHIP,WRAP,63.2,57.8,52.9,38.3
-flygon,Flygon,70.2,127.9,109.5,125,1752,DRAGON_TAIL,SAND_TOMB,STONE_EDGE,69,46.7,65.3,38.6
-golett,Golett,70.1,119.3,89.9,141,1513,MUD_SLAP,SHADOW_PUNCH,BRICK_BREAK,63.8,45.8,58.7,43.6
-ceruledge,Ceruledge,69.8,136.3,114,106,1648,INCINERATE,SHADOW_BALL,FLAME_CHARGE,62.5,45.3,57.4,43
-duraludon,Duraludon,69,137.7,112.2,105,1623,DRAGON_TAIL,DRAGON_CLAW,FLASH_CANNON,57.8,40.4,65.1,36
-farfetchd,Farfetch'd,68.9,116.8,109.2,131,1671,FURY_CUTTER,LEAF_BLADE,AERIAL_ACE,70.5,58.6,58.2,45.6
-ninjask,Ninjask,68.2,144.7,88.4,121,1549,FURY_CUTTER,AERIAL_ACE,SHADOW_BALL,46.8,34.7,60.3,28.7
-flapple,Flapple,67.8,138.1,100.1,117,1618,DRAGON_BREATH,FLY,SEED_BOMB,57.6,65.5,59.4,32.1
-darumaka_galarian,Darumaka (Galarian),67.6,131.9,82.3,157,1706,ICE_FANG,ICE_PUNCH,ICE_BEAM,64.1,40.5,57.9,50.1
-swoobat,Swoobat,67.5,126.6,101.6,138,1777,CONFUSION,FLY,PSYCHIC_FANGS,64.5,49.2,57.4,39.9
-tropius,Tropius,67.3,101.4,128,170,2208,AIR_SLASH,LEAF_BLADE,BRUTAL_SWING,60.1,39.9,60.6,57.4
-slowpoke_galarian,Slowpoke (Galarian),67.1,104.1,94.9,186,1840,CONFUSION,PSYSHOCK,SURF,65.4,56,61.1,41.5
-banette,Banette,67,145.2,92.2,115,1542,SHADOW_CLAW,SHADOW_BALL,DAZZLING_GLEAM,50.5,43.5,56.9,34.9
-misdreavus,Misdreavus,66.6,123,120.8,122,1814,PSYWAVE,DARK_PULSE,SHADOW_SNEAK,53.6,54.7,65.6,26.1
-espeon,Espeon,65.8,148,105.6,97,1517,CONFUSION,PSYCHIC_FANGS,SHADOW_BALL,62.5,54.9,52.4,26.1
-hattrem,Hattrem,65.8,122.7,115.7,128,1818,CONFUSION,PSYSHOCK,DAZZLING_GLEAM,57.5,43.6,67.1,33.9
-hydrapple,Hydrapple,65.5,122.2,110.7,136,1841,DRAGON_TAIL,OUTRAGE,SEED_BOMB,57.5,39.9,59.9,34.4
-drakloak,Drakloak,65.3,130.3,93.1,142,1724,DRAGON_TAIL,OUTRAGE,SHADOW_BALL,46.8,36.7,66.4,27.4
-palossand,Palossand,65.3,116.5,123,134,1922,MUD_SHOT,SHADOW_BALL,SCORCHING_SANDS,49.1,34.5,66.8,22.4
-frosmoth,Frosmoth,65.1,141.5,101,111,1587,POWDER_SNOW,ICY_WIND,BUG_BUZZ,57,31.7,61.8,32.8
-slowking,Slowking,65.1,113.4,120.9,144,1975,WATER_GUN,SURF,PSYCHIC,57,41.8,66.4,48.3
-dipplin,Dipplin,64.6,114.6,128.8,132,1950,DRAGON_TAIL,OUTRAGE,SEED_BOMB,58.3,46.9,58.6,34.2
-gallade,Gallade,64.6,136.5,115.6,104,1642,PSYCHO_CUT,CLOSE_COMBAT,LEAF_BLADE,62.5,40.7,63.1,29.5
-crobat,Crobat,64.4,121.2,118.1,129,1847,AIR_SLASH,POISON_FANG,SHADOW_BALL,54.2,36.5,56.4,33.4
-hawlucha,Hawlucha,64.3,127.4,107.6,128,1756,POISON_JAB,FLYING_PRESS,AERIAL_ACE,48.1,49.8,65.4,25.8
-chandelure,Chandelure,64.2,151.4,105.2,93,1482,INCINERATE,FLAME_CHARGE,SHADOW_BALL,57.2,38.2,46.5,42
-espurr,Espurr,64.1,113.4,108.3,145,1783,CONFUSION,PSYSHOCK,ENERGY_BALL,57.6,45.6,63.1,34.7
-dragapult,Dragapult,63.3,142.5,96.2,115,1578,DRAGON_TAIL,BREAKING_SWIPE,SHADOW_BALL,48.4,37.5,54.1,28.1
-darmanitan_galarian_standard,Darmanitan (Galarian),63.2,149.7,72,138,1490,ICE_FANG,AVALANCHE,ICE_PUNCH,64.1,36.8,51.5,48.5
-rotom,Rotom,63,132.4,120.4,106,1691,THUNDER_SHOCK,THUNDERBOLT,OMINOUS_WIND,58.3,52.7,58.4,30.5
-chimecho,Chimecho,62.4,119.5,120.8,130,1879,EXTRASENSORY,PSYSHOCK,SHADOW_BALL,48.7,33.3,67.3,24.5
-gardevoir,Gardevoir,62.4,136.5,115.6,104,1642,CHARM,TRIPLE_AXEL,SHADOW_BALL,63.3,38.1,51.5,58.2
-hatterene,Hatterene,62.4,142.1,115,96,1570,CHARM,PSYSHOCK,POWER_WHIP,62.3,39,53.4,50.9
-oricorio_pom_pom,Oricorio (Pom-Pom),62.3,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,59.6,48.7,56.2,31
-gothitelle,Gothitelle,62,115.3,140.9,119,1934,CONFUSION,ROCK_SLIDE,FUTURE_SIGHT,58.3,39.9,65.8,37
-swanna,Swanna,61.8,128.5,101,134,1742,AIR_SLASH,FLY,ICE_BEAM,52.6,33,67.5,35.7
-garchomp,Garchomp,60.7,132.4,101.4,126,1694,DRAGON_TAIL,SAND_TOMB,OUTRAGE,58.3,39.8,61.9,30.8
-vibrava,Vibrava,60.6,125.2,95.7,127,1523,DRAGON_BREATH,SAND_TOMB,BUG_BUZZ,61.2,48.9,45.5,42.8
-wobbuffet,Wobbuffet,60.2,63,101.6,333,2134,COUNTER,RETURN,MIRROR_COAT,57.5,34.5,60.4,53.5
-gothorita,Gothorita,60,112.2,132.7,134,1997,CONFUSION,FUTURE_SIGHT,PSYCHIC,51.3,34.5,66.6,37.3
-mr_mime_galarian,Mr. Mime (Galarian),59.3,130.4,127,104,1724,CONFUSION,ICE_PUNCH,PSYCHIC,51,41,61.9,29.5
-oricorio_baile,Oricorio (Baile),59.3,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,53.4,37.9,54.2,34.9
-jynx,Jynx,59.1,141.2,102.2,110,1588,CONFUSION,AVALANCHE,PSYSHOCK,48.6,33,61.6,24.5
-vanillish,Vanillish,59.1,123.6,120.5,122,1818,FROST_BREATH,ICY_WIND,SIGNAL_BEAM,57.8,40.5,49.5,49
-rotom_frost,Rotom (Frost),59,128.8,144.9,93,1737,THUNDER_SHOCK,THUNDERBOLT,BLIZZARD,40.6,25.7,57.7,24.2
-crabominable,Crabominable,58.7,136.8,88.5,135,1635,BUBBLE,ICE_PUNCH,BRICK_BREAK,45,33,52,27.9
-alakazam,Alakazam,58.5,155.8,101.4,91,1439,CONFUSION,FIRE_PUNCH,SHADOW_BALL,49.7,49.8,55.2,24.8
-exeggutor_alolan,Exeggutor (Alolan),58.5,134.4,94.8,131,1670,DRAGON_TAIL,SEED_BOMB,DRACO_METEOR,54.4,43,48.9,25.8
-sandygast,Sandygast,57.4,113.4,111.7,135,1712,MUD_SHOT,SHADOW_BALL,SCORCHING_SANDS,38.4,25.4,62.1,20.1
-meowstic_female,Meowstic (Female),57.3,117.1,123.9,132,1917,CONFUSION,SHADOW_BALL,PSYCHIC,48.1,32,65.9,36.2
-pidgeotto,Pidgeotto,57.3,110.9,100.8,147,1644,WING_ATTACK,AIR_CUTTER,RETURN,55.2,47,56.1,34.2
-drowzee,Drowzee,57,87.3,126.8,142,1575,CONFUSION,PSYSHOCK,RETURN,55.1,36.8,54.2,30.8
-braviary,Braviary,56.7,133.7,92.9,135,1678,AIR_SLASH,FLY,CLOSE_COMBAT,49.4,31,58.9,27.6
-staraptor,Staraptor,56.6,140.3,90.8,125,1594,GUST,FLY,CLOSE_COMBAT,55.2,40.5,52.4,42.5
-sliggoo,Sliggoo,56.2,114.1,133.8,128,1956,WATER_GUN,DRAGON_PULSE,WATER_PULSE,41.4,27.1,67.1,36.5
-appletun,Appletun,54.8,116.5,102.5,161,1924,BULLET_SEED,SEED_BOMB,OUTRAGE,49.5,23.9,49.2,19.3
-indeedee_male,Indeedee (Male),54.5,134.9,114.6,107,1656,EXTRASENSORY,SHADOW_BALL,PSYCHIC,39.5,22,64.1,28.7
-glaceon,Glaceon,54.4,135.7,122.3,99,1645,ICE_SHARD,AVALANCHE,WATER_PULSE,44.8,28,50.4,31.5
-oricorio_sensu,Oricorio (Sensu),54.2,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,41.4,33.6,49.5,27.1
-meowstic,Meowstic (Male),54,117.1,123.9,132,1917,CONFUSION,PSYCHIC,THUNDERBOLT,46.8,31.9,59.1,35.5
-sigilyph,Sigilyph,53.6,130,112.1,118,1721,AIR_SLASH,AIR_CUTTER,ANCIENT_POWER,40,32.2,49.7,24.2
-musharna,Musharna,52.9,113.1,108.8,161,1982,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM,43.2,33.1,51.2,20.6
-tranquill,Tranquill,52.9,123.9,102.2,143,1812,AIR_SLASH,AERIAL_ACE,SKY_ATTACK,46.8,29.4,52.5,32.8
-oricorio_pau,Oricorio (Pa'u),52.3,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,39.7,31.9,49.5,26.1
-yanmega,Yanmega,52.1,136.8,96,125,1643,BUG_BITE,AERIAL_ACE,ANCIENT_POWER,48.4,29.6,47.7,38.6
-mr_rime,Mr. Rime,51.9,127.4,114.4,120,1750,CONFUSION,ICY_WIND,PSYCHIC,51.7,37.1,38,33.1
-rotom_fan,Rotom (Fan),51.6,128.8,144.9,93,1737,AIR_SLASH,THUNDERBOLT,OMINOUS_WIND,46.5,32.4,48.2,30.2
-tatsugiri_curly,Tatsugiri (Curly),51.4,137.4,108.1,109,1619,WATER_GUN,SURF,OUTRAGE,46.1,30.5,44.2,37.5
-tatsugiri_droopy,Tatsugiri (Droopy),51.4,137.4,108.1,109,1619,WATER_GUN,SURF,OUTRAGE,46.1,30.5,44.2,37.5
-tatsugiri_stretchy,Tatsugiri (Stretchy),51.4,137.4,108.1,109,1619,WATER_GUN,SURF,OUTRAGE,46.1,30.5,44.2,37.5
-exeggutor,Exeggutor,51.2,136.1,92.5,131,1650,CONFUSION,SEED_BOMB,PSYCHIC,47,35.9,47.2,25
-masquerain,Masquerain,51.1,129.5,109.1,122,1725,AIR_SLASH,AIR_CUTTER,LUNGE,45.3,34.7,46.7,22.1
-swellow,Swellow,50.5,135.9,99.9,121,1645,WING_ATTACK,BRAVE_BIRD,SKY_ATTACK,38.8,26.5,48.4,23.7
-indeedee_female,Indeedee (Female),50.2,121.7,128.2,118,1842,EXTRASENSORY,PSYCHIC,ENERGY_BALL,43.5,24.2,54.6,28.4
-vanilluxe,Vanilluxe,50.1,131.5,117.3,110,1699,FROST_BREATH,AVALANCHE,FLASH_CANNON,50.7,28.2,38.1,42.8
-noivern,Noivern,49.3,125.4,113.5,126,1794,DRAGON_TAIL,HURRICANE,DRACO_METEOR,39.2,27,55.7,30
-beautifly,Beautifly,48.8,144.7,83.9,127,1543,INFESTATION,AIR_CUTTER,SILVER_WIND,44.5,34.8,46.2,17.2
-mothim,Mothim,48.8,140,82.9,138,1603,BUG_BITE,AERIAL_ACE,BUG_BUZZ,47.6,29.1,38.5,38.6
-ponyta_galarian,Ponyta (Galarian),48.8,133.5,108.2,116,1676,PSYCHO_CUT,SWIFT,PLAY_ROUGH,44,30.4,40.3,19.5
-lampent,Lampent,48.4,132.5,99,129,1692,EMBER,ENERGY_BALL,FLAME_BURST,36.7,22.6,45.5,19
-beheeyem,Beheeyem,48.3,134.4,105.7,117,1663,CONFUSION,ROCK_SLIDE,DARK_PULSE,44.4,34.5,41.7,31
-bergmite,Bergmite,47.8,110.9,113.4,135,1699,TACKLE,ICY_WIND,CRUNCH,34.5,22.6,52.9,22.4
-vivillon,Vivillon,47.5,131.7,86.3,149,1694,GUST,AERIAL_ACE,BUG_BUZZ,49.5,36.7,38.3,33.4
-yanma,Yanma,47.4,130.8,89.6,146,1713,WING_ATTACK,AERIAL_ACE,SILVER_WIND,38.4,28.2,39.3,18.7
-gabite,Gabite,47.2,128.7,102.4,132,1741,MUD_SHOT,DIG,FLAMETHROWER,32.7,20,51.9,19
-snover,Snover,46.2,109.2,100.8,142,1564,LEAFAGE,ICE_BEAM,ENERGY_BALL,30.6,17.1,54.4,20.1
-elgyem,Elgyem,44.9,133.6,95.4,132,1685,CONFUSION,DARK_PULSE,PSYCHIC,42.1,29.6,44.5,31.3
-exeggcute,Exeggcute,44.5,102.5,117.6,142,1713,CONFUSION,SEED_BOMB,ANCIENT_POWER,38.7,28.2,42.3,30.5
-braviary_hisuian,Braviary (Hisuian),43,128.5,89.6,151,1741,AIR_SLASH,BRAVE_BIRD,FLY,35.3,23.4,44.7,25.5
-kadabra,Kadabra,42.4,163.8,90.9,92,1370,CONFUSION,SHADOW_BALL,DAZZLING_GLEAM,46.3,31.3,27.6,25.3
-unfezant,Unfezant,41.5,138.5,95.5,122,1616,AIR_SLASH,SKY_ATTACK,HYPER_BEAM,40.8,28.8,35.1,26.6
-decidueye,Decidueye,41.4,127.8,115.2,119,1754,RAZOR_LEAF,FRENZY_PLANT,SPIRIT_SHACKLE,43.9,26,26.2,33.6
-rowlet,Rowlet,41,98.3,95.7,154,1450,LEAFAGE,SEED_BOMB,ENERGY_BALL,38,24.6,32.8,19.8
-munna,Munna,38.6,105.8,89.9,166,1580,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM,26.7,24,38.1,14
-axew,Axew,38.1,138.6,96,121,1612,SCRATCH,AQUA_TAIL,DRAGON_CLAW,39.8,25.3,22.7,29.2
-pumpkaboo_large,Pumpkaboo (Large),38,113.4,115.1,133,1737,RAZOR_LEAF,GRASS_KNOT,FOUL_PLAY,37.6,23.1,28.4,33.1
-pumpkaboo_super,Pumpkaboo (Super),37.9,111.7,113.4,141,1788,RAZOR_LEAF,GRASS_KNOT,FOUL_PLAY,36.3,22,29.8,34.9
-pumpkaboo_average,Pumpkaboo (Average),36.7,114.2,115.9,126,1670,RAZOR_LEAF,GRASS_KNOT,FOUL_PLAY,36.6,22.9,26.2,31
-pumpkaboo_small,Pumpkaboo (Small),36.4,115.1,116.8,119,1600,RAZOR_LEAF,GRASS_KNOT,FOUL_PLAY,36.7,22.9,25.2,30
-reuniclus,Reuniclus,35.6,126.9,94.9,147,1771,HIDDEN_POWER_FIGHTING,PSYSHOCK,SHADOW_BALL,22.8,14.6,39.1,17.7
-duosion,Duosion,34.4,149.2,81.9,123,1504,HIDDEN_POWER_PSYCHIC,PSYSHOCK,NIGHT_SHADE,31.4,24,24.7,17.7
-cursola,Cursola,33.5,145.6,111,95,1537,TACKLE,NIGHT_SHADE,POWER_GEM,28.6,19.2,32.4,19.3
-solosis,Solosis,33.3,152,81.8,118,1468,HIDDEN_POWER_PSYCHIC,PSYSHOCK,NIGHT_SHADE,31.1,23.4,23.1,17.4
-butterfree,Butterfree,33.1,126.6,112.5,124,1769,CONFUSION,BUG_BUZZ,SIGNAL_BEAM,32,24.3,28.9,21.1
-spoink,Spoink,25.2,117.6,115.1,141,1910,ZEN_HEADBUTT,SHADOW_BALL,RETURN,24.7,18.5,18.5,20.6
-unown,Unown,24.1,126.8,89,125,1413,HIDDEN_POWER_PSYCHIC,STRUGGLE,,26.4,20.2,11.7,17.2
+speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore,topMatchups,topCounters
+lapras,Lapras,97.6,104.6,114.5,179,2147,PSYWAVE,SPARKLING_ARIA,SKULL_BASH,100,95.9,97.3,89.8,bronzong:611;gyarados:600;dusknoir:589;glalie:572;turtonator:555,grumpig:303;metang:310;drampa:395;vespiquen:412;togekiss:482
+sealeo,Sealeo,96.7,108.9,112.8,168,2065,POWDER_SNOW,SURF,BODY_SLAM,96.2,98.1,94.3,97.9,charizard:809;dusclops:601;gyarados:580;froslass:547;glalie:535,metang:360;bronzong:366;dusknoir:444;turtonator:455;claydol:487
+dusclops,Dusclops,95.3,102.4,197.6,108,2187,HEX,SHADOW_PUNCH,ICE_PUNCH,89.9,88.4,88.9,100,metang:722;togekiss:685;claydol:587;dusknoir:578;bronzong:513,charizard:367;gyarados:380;turtonator:420;fearow:443;glalie:446
+turtonator,Turtonator,94.6,113.5,153.6,113,1971,INCINERATE,BRUTAL_SWING,DRAGON_CLAW,91,97.8,88.2,95.3,bronzong:907;dusknoir:615;dusclops:579;glalie:548;charizard:526,drampa:195;gyarados:231;fearow:278;claydol:342;togekiss:491
+feraligatr,Feraligatr,92.7,123.8,117.3,125,1818,SHADOW_CLAW,HYDRO_CANNON,CRUNCH,94,87.8,93.4,85.6,dusknoir:828;charizard:744;bronzong:668;glalie:540;turtonator:512,drampa:313;arctibax:367;fearow:383;gyarados:466;dusclops:467
+crustle,Crustle,92.5,120.3,134.7,115,1864,FURY_CUTTER,ROCK_WRECKER,X_SCISSOR,94.9,96.6,100,53.7,turtonator:617;dusknoir:613;fearow:521;glalie:517;gyarados:504,charizard:286;metang:344;bronzong:375;dusclops:393;arctibax:437
+barbaracle,Barbaracle,91.5,120.9,133,115,1851,FURY_CUTTER,CROSS_CHOP,STONE_EDGE,89.9,65.1,93.4,92.4,turtonator:756;glalie:708;charizard:647;froslass:634;gyarados:608,dusknoir:127;bronzong:350;fearow:350;dusclops:361;metang:403
+glalie,Glalie,91.3,115.2,120.7,140,1948,ROLLOUT,AVALANCHE,SHADOW_BALL,93.8,92.4,96.6,55.3,charizard:760;gyarados:603;fearow:567;dusclops:553;froslass:539,metang:96;claydol:326;bronzong:433;dusknoir:444;turtonator:451
+gyarados,Gyarados,91.2,130.7,108.5,121,1717,DRAGON_BREATH,AQUA_TAIL,CRUNCH,95.7,86.7,84.9,68.6,turtonator:768;charizard:760;dusknoir:623;dusclops:619;bronzong:590,togekiss:295;goodra:346;glalie:396;marowak_alolan:440;fearow:463
+milotic,Milotic,90.9,113.1,133.8,131,1985,DRAGON_TAIL,AQUA_TAIL,WRAP,91.8,90.7,85.4,86.6,charizard:709;turtonator:622;glalie:614;gyarados:603;fearow:541,dusknoir:361;metang:383;bronzong:395;dusclops:439;togekiss:473
+dudunsparce,Dudunsparce,90.8,116.1,98.5,169,1935,ROLLOUT,BODY_SLAM,DRILL_RUN,90.5,89.5,83,77.5,charizard:828;glalie:591;turtonator:517;dusclops:517;fearow:511,metang:465;drampa:465;bronzong:483;dusknoir:488;gyarados:491
+marowak_alolan,Marowak (Alolan),90.7,109.6,148.8,125,2041,HEX,FLAME_WHEEL,SHADOW_BALL,94.4,85.9,88.7,80.6,bronzong:752;charizard:612;dusclops:608;gyarados:560;dusknoir:548,drampa:291;fearow:354;turtonator:429;glalie:453;claydol:471
+claydol,Claydol,88.3,103.5,172.6,121,2164,MUD_SLAP,ROCK_TOMB,ICE_BEAM,86.7,75.3,85.7,71.8,glalie:673;turtonator:657;fearow:632;bronzong:566;charizard:528,gyarados:152;arctibax:301;dusknoir:338;froslass:350;dusclops:412
+altaria,Altaria,88,103.4,151.9,138,2168,DRAGON_BREATH,SKY_ATTACK,FLAMETHROWER,85.7,65.4,79.5,81.4,dusknoir:710;charizard:612;fearow:605;turtonator:579;gyarados:579,glalie:239;froslass:257;bronzong:425;dusclops:435;marowak_alolan:464
+bronzong,Bronzong,87.6,110.8,152.2,120,2026,METAL_SOUND,PSYSHOCK,PAYBACK,86.8,76.3,84,79.8,drampa:716;froslass:612;glalie:566;fearow:545;dusknoir:537,turtonator:92;marowak_alolan:248;charizard:384;gyarados:409;dusclops:486
+piloswine,Piloswine,87.4,121,99.4,154,1855,POWDER_SNOW,ICICLE_SPEAR,STONE_EDGE,87.1,74.3,90.6,60.8,charizard:792;glalie:574;turtonator:525;dusclops:509;gyarados:506,marowak_alolan:236;metang:244;bronzong:270;froslass:311;dusknoir:438
+cetoddle,Cetoddle,87.3,112.6,79.8,213,1915,POWDER_SNOW,AVALANCHE,BODY_SLAM,90.7,78.8,84.5,81.4,charizard:800;gyarados:643;fearow:598;dusclops:528;dusknoir:518,metang:275;bronzong:291;froslass:357;turtonator:429;glalie:432
+cofagrigus,Cofagrigus,87.1,111.7,165.3,109,2013,SHADOW_CLAW,SHADOW_BALL,DARK_PULSE,80.3,76.6,88.4,64.7,metang:683;bronzong:660;togekiss:637;dusclops:577;dusknoir:509,charizard:239;gyarados:272;fearow:350;turtonator:486;glalie:496
+goodra,Goodra,87.1,119.6,134.1,117,1878,DRAGON_BREATH,AQUA_TAIL,THUNDER_PUNCH,85.4,89.3,79.2,75.4,fearow:782;gyarados:653;claydol:653;charizard:538;marowak_alolan:529,glalie:357;bronzong:366;dusclops:375;dusknoir:444;turtonator:460
+fearow,Fearow,86.8,131.4,104.6,124,1706,PECK,DRILL_PECK,DRILL_RUN,89.9,93.9,82.7,50.3,charizard:741;turtonator:721;dusknoir:641;dusclops:556;gyarados:536,drampa:239;glalie:432;bronzong:454;metang:461;froslass:476
+castform_snowy,Castform (Snowy),86.7,112.6,121.2,146,1994,POWDER_SNOW,WEATHER_BALL_ICE,BLIZZARD,82.1,82.7,83.7,70.7,drampa:780;claydol:750;dusclops:589;fearow:585;togekiss:530,bronzong:270;turtonator:371;glalie:414;dusknoir:466;gyarados:495
+froslass,Froslass,86.7,122.5,114.8,130,1831,HEX,AVALANCHE,SHADOW_BALL,81.3,97.2,95.1,34.9,charizard:742;drampa:742;togekiss:626;dusclops:542;fearow:523,turtonator:159;gyarados:206;dusknoir:238;bronzong:387;glalie:460
+rufflet,Rufflet,86.5,126.7,92.1,152,1775,PECK,ROCK_TOMB,FLY,81,80.4,81.4,59.2,dusknoir:717;gyarados:578;dusclops:532;fearow:532;froslass:523,glalie:200;charizard:286;metang:310;bronzong:329;turtonator:446
+talonflame,Talonflame,86.4,121.4,112.6,135,1847,INCINERATE,FLY,BRAVE_BIRD,75,65.1,87.1,84,metang:711;bronzong:674;dusknoir:648;dusclops:555;froslass:555,gyarados:140;charizard:239;fearow:310;glalie:375;turtonator:473
+skeledirge,Skeledirge,86.3,121.2,109.7,139,1849,HEX,TORCH_SONG,SHADOW_BALL,90.7,70.8,85.9,49.8,glalie:794;bronzong:687;turtonator:564;dusclops:535;dusknoir:510,gyarados:177;arctibax:188;drampa:300;fearow:350;talonflame:370
+grumpig,Grumpig,86.2,113.3,131.4,132,1967,PSYWAVE,DYNAMIC_PUNCH,SHADOW_BALL,86.8,79.6,84.4,46.9,glalie:655;gyarados:651;dusclops:579;fearow:579;dusknoir:515,metang:286;bronzong:295;charizard:299;froslass:423;turtonator:482
+gholdengo,Gholdengo,86.1,134.6,107.8,114,1655,HEX,SHADOW_BALL,POWER_GEM,66.1,40.4,97.3,45.4,metang:736;bronzong:692;glalie:666;togekiss:618;arctibax:565,turtonator:159;dusclops:171;gyarados:206;charizard:213;dusknoir:238
+dragonair,Dragonair,85.7,125.2,112.4,127,1788,DRAGON_BREATH,AQUA_TAIL,DRAGON_PULSE,83.9,89.8,76.2,56.1,turtonator:692;claydol:677;dusknoir:582;charizard:547;arctibax:543,glalie:239;froslass:257;bronzong:354;gyarados:359;dusclops:472
+dodrio,Dodrio,85.5,143.7,98.4,110,1557,PECK,BRAVE_BIRD,DRILL_PECK,89.1,74.2,81.9,40.4,fearow:677;dusclops:590;turtonator:586;dusknoir:572;charizard:518,metang:263;gyarados:264;bronzong:266;drampa:278;glalie:450
+drifblim,Drifblim,85.5,119.1,75.7,209,1887,HEX,ICY_WIND,SHADOW_BALL,90.7,85.6,84,51.4,bronzong:693;dusclops:653;gyarados:650;dusknoir:574;charizard:504,glalie:153;froslass:273;fearow:415;drampa:421;turtonator:451
+zoroark_hisuian,Zoroark (Hisuian),85.5,163.4,87.5,96,1374,SHADOW_CLAW,SHADOW_BALL,FOUL_PLAY,86,99,82.4,38.3,dusknoir:812;froslass:812;metang:786;bronzong:734;dusclops:703,gyarados:301;charizard:311;fearow:395;turtonator:446;glalie:460
+vespiquen,Vespiquen,85.4,108.8,143.4,132,2062,FURY_CUTTER,X_SCISSOR,POWER_GEM,76.4,93.5,81.9,63.9,drampa:757;gyarados:670;metang:564;claydol:553;dusknoir:515,charizard:183;dusclops:305;glalie:392;bronzong:408;turtonator:495
+druddigon,Druddigon,85.1,131.2,111.2,117,1709,DRAGON_TAIL,NIGHT_SLASH,ROCK_TOMB,77.4,70.8,78.3,55,talonflame:807;turtonator:666;marowak_alolan:649;altaria:568;dusclops:517,fearow:258;bronzong:325;glalie:332;gyarados:392;charizard:405
+haunter,Haunter,85.1,161.1,85.5,101,1392,SHADOW_CLAW,SHADOW_PUNCH,ICE_PUNCH,96.7,95.2,78.8,28.1,bronzong:727;gyarados:727;dusclops:668;charizard:638;dusknoir:608,drampa:234;claydol:256;turtonator:451;goodra:457;glalie:460
+arctibax,Arctibax,85,122.8,98.5,151,1829,DRAGON_BREATH,AVALANCHE,DRAGON_CLAW,74.5,87.8,90.7,49.8,claydol:698;turtonator:619;vespiquen:582;froslass:519;goodra:516,bronzong:195;dusknoir:250;gyarados:264;glalie:410;dusclops:495
+dusknoir,Dusknoir,85,119.8,174.1,90,1878,HEX,DYNAMIC_PUNCH,SHADOW_PUNCH,87.6,81.6,78.3,55.8,froslass:761;drampa:750;claydol:661;metang:650;glalie:555,gyarados:376;turtonator:384;charizard:418;dusclops:421;bronzong:462
+togekiss,Togekiss,84.9,124.2,125.8,115,1799,PECK,AURA_SPHERE,ANCIENT_POWER,86.3,77.7,81.5,71.2,gyarados:704;drampa:704;fearow:526;turtonator:508;charizard:504,dusclops:314;bronzong:320;froslass:373;dusknoir:472;glalie:489
+metang,Metang,84.6,108.9,145.8,129,2050,FURY_CUTTER,PSYSHOCK,GYRO_BALL,84.7,69.9,77.3,83.2,glalie:903;drampa:833;froslass:635;fearow:538;bronzong:519,dusclops:277;turtonator:283;charizard:333;dusknoir:350;gyarados:462
+cetitan,Cetitan,84.4,120.1,77,202,1871,POWDER_SNOW,AVALANCHE,BODY_SLAM,87,77.3,86.4,68.4,dusknoir:841;fearow:819;charizard:789;drampa:762;gyarados:618,bronzong:300;turtonator:305;froslass:365;glalie:410;dusclops:467
+emolga,Emolga,84.2,127.5,110.2,125,1758,THUNDER_SHOCK,ACROBATICS,DISCHARGE,88.9,86.5,78.5,56.1,fearow:852;gyarados:768;charizard:768;dusknoir:640;bronzong:596,turtonator:212;glalie:310;froslass:342;marowak_alolan:432;dusclops:458
+trumbeak,Trumbeak,84.2,134,93.2,134,1676,PECK,DRILL_PECK,ROCK_BLAST,85.8,80.8,80.5,49,fearow:735;dusknoir:634;charizard:585;dusclops:555;gyarados:544,bronzong:283;metang:302;glalie:435;froslass:480;turtonator:482
+dragalge,Dragalge,84,117.8,143.1,113,1906,DRAGON_TAIL,AQUA_TAIL,OUTRAGE,78.9,67.9,79.3,66.3,turtonator:725;dusknoir:681;vespiquen:619;charizard:584;marowak_alolan:530,bronzong:237;gyarados:268;glalie:303;fearow:395;dusclops:453
+avalugg,Avalugg,83.6,111.7,141.3,127,2007,ICE_FANG,ICY_WIND,CRUNCH,81.8,63.5,78.2,76.7,dusclops:641;drampa:641;fearow:633;froslass:598;gyarados:507,bronzong:191;turtonator:292;charizard:333;dusknoir:394;glalie:400
+hypno,Hypno,83.4,103.4,142.9,147,2174,CONFUSION,THUNDER_PUNCH,SHADOW_BALL,79.5,85.6,85.4,62.1,charizard:826;togekiss:693;fearow:636;gyarados:605;glalie:561,bronzong:233;froslass:280;dusclops:296;dusknoir:405;turtonator:477
+toucannon,Toucannon,83.2,137.2,96.7,123,1634,PECK,DRILL_PECK,ROCK_BLAST,86.7,79.1,79.3,44.3,fearow:711;dusknoir:613;charizard:552;dusclops:528;gyarados:516,metang:282;bronzong:283;glalie:442;turtonator:486;froslass:488
+fletchinder,Fletchinder,83.1,123.3,102.6,143,1811,PECK,FLY,FLAME_CHARGE,70.9,68.3,81.9,67.8,talonflame:786;dusknoir:622;grumpig:601;fearow:520;froslass:506,glalie:214;gyarados:227;dusclops:388;bronzong:475;turtonator:495
+togetic,Togetic,82.5,110.1,150.2,123,2035,FAIRY_WIND,DAZZLING_GLEAM,ANCIENT_POWER,83.7,70.2,81.4,78,charizard:910;gyarados:743;marowak_alolan:601;turtonator:556;fearow:536,bronzong:262;glalie:314;dusclops:319;froslass:350;dusknoir:444
+frillish,Frillish,81.3,109.2,125.2,135,1846,HEX,NIGHT_SHADE,ICE_BEAM,84.6,79.6,72.8,48.3,bronzong:692;metang:618;froslass:603;dusknoir:551;fearow:540,gyarados:177;glalie:307;turtonator:353;dusclops:439;charizard:461
+shelgon,Shelgon,81.3,123.2,119,123,1806,DRAGON_BREATH,DRAGON_PULSE,CRUNCH,76,77,80.4,46.7,talonflame:792;turtonator:691;arctibax:621;dusknoir:585;goodra:528,glalie:239;gyarados:264;charizard:286;dusclops:476;bronzong:483
+drampa,Drampa,81,136.8,104.2,115,1640,DRAGON_BREATH,SWIFT,OUTRAGE,79.4,69.1,64.3,46.4,turtonator:804;fearow:760;marowak_alolan:708;dusclops:621;arctibax:582,glalie:239;dusknoir:250;bronzong:283;charizard:465;gyarados:479
+charizard,Charizard,80.8,132.7,108.8,117,1691,DRAGON_BREATH,BLAST_BURN,AIR_CUTTER,83.6,100,83,45.4,metang:666;dusclops:632;bronzong:615;dusknoir:581;drampa:534,glalie:239;gyarados:239;froslass:257;fearow:258;turtonator:473
+gligar,Gligar,80.8,108.4,145.3,131,2065,FURY_CUTTER,NIGHT_SLASH,AERIAL_ACE,80,73.3,73.5,72,drampa:744;metang:732;bronzong:675;dusknoir:549;fearow:538,turtonator:292;glalie:307;charizard:316;gyarados:363;dusclops:398
+slowking_galarian,Slowking (Galarian),80.8,117.3,117.9,138,1910,ACID,PSYSHOCK,SHADOW_BALL,80,83.9,77.8,50.6,togekiss:815;charizard:768;drampa:768;grumpig:655;goodra:601,gyarados:252;dusknoir:333;turtonator:438;glalie:446;bronzong:450
+salamence,Salamence,80.6,143.4,93,117,1562,DRAGON_TAIL,FLY,BRUTAL_SWING,87,70.5,79.5,33.6,turtonator:790;claydol:782;froslass:756;dusknoir:551;drampa:534,bronzong:354;dusclops:365;gyarados:450;charizard:465;glalie:496
+raichu_alolan,Raichu (Alolan),80.3,135.4,109.9,111,1653,VOLT_SWITCH,WILD_CHARGE,PSYSHOCK,81.1,76.2,83,40.7,gyarados:833;fearow:815;bronzong:689;froslass:680;charizard:603,dusclops:152;dusknoir:205;metang:294;turtonator:376;glalie:457
+kommo_o,Kommo-o,80.2,123.7,137.8,106,1808,DRAGON_TAIL,CLANGING_SCALES,UPPER_HAND,79.7,57.7,84.7,33.9,glalie:896;turtonator:825;dusknoir:650;dusclops:561;gyarados:523,bronzong:120;charizard:209;fearow:258;froslass:361;drampa:369
+mamoswine,Mamoswine,80.2,136.2,87.3,138,1642,POWDER_SNOW,ICICLE_SPEAR,STONE_EDGE,73.5,72,78.3,34.7,togekiss:742;fearow:706;claydol:692;arctibax:663;charizard:583,bronzong:129;gyarados:227;glalie:285;turtonator:464;dusknoir:466
+armarouge,Armarouge,80.1,132.1,109.6,117,1695,INCINERATE,PSYSHOCK,FLAME_CHARGE,80,81,77.8,49.6,glalie:756;fearow:739;bronzong:705;froslass:696;metang:645,gyarados:152;dusclops:157;dusknoir:205;turtonator:318;charizard:495
+hakamo_o,Hakamo-o,80.1,115.5,135.5,124,1942,DRAGON_TAIL,ROCK_TOMB,BRICK_BREAK,73.5,58.1,65.1,62.9,marowak_alolan:834;turtonator:774;glalie:524;dusclops:520;dusknoir:508,charizard:217;froslass:226;fearow:229;bronzong:270;gyarados:293
+girafarig,Girafarig,80,130.3,101.5,130,1721,CONFUSION,PSYCHIC_FANGS,TRAILBLAZE,81.5,67.7,63.9,64.4,charizard:753;dusknoir:596;dusclops:534;froslass:534;glalie:526,metang:201;bronzong:245;gyarados:347;fearow:358;turtonator:411
+trevenant,Trevenant,79.9,127.8,104.6,131,1752,SHADOW_CLAW,FOUL_PLAY,SHADOW_BALL,76,86.5,77,44.6,claydol:812;bronzong:805;metang:767;marowak_alolan:729;froslass:702,gyarados:252;dusknoir:305;glalie:342;turtonator:358;dusclops:439
+gourgeist_super,Gourgeist (Super),79.8,115,131.6,129,1954,INCINERATE,FOUL_PLAY,SHADOW_BALL,76.4,87.5,76.5,45.9,bronzong:631;metang:631;dusclops:589;gyarados:519;dusknoir:503,turtonator:216;fearow:245;froslass:326;charizard:350;glalie:435
+drifloon,Drifloon,79.5,110.9,79.8,186,1647,HEX,ICY_WIND,SHADOW_BALL,82,58.9,72.8,43.6,metang:739;bronzong:663;dusclops:629;dusknoir:543;gyarados:510,glalie:153;froslass:246;charizard:380;fearow:395;turtonator:398
+gourgeist_large,Gourgeist (Large),79.2,115.9,137.2,122,1940,INCINERATE,FOUL_PLAY,SHADOW_BALL,75.3,87.9,74.5,44.6,claydol:790;metang:618;bronzong:614;dusclops:573;gyarados:504,turtonator:216;fearow:245;dusknoir:255;charizard:350;glalie:435
+gengar,Gengar,78.8,154.3,95.4,98,1444,SHADOW_CLAW,SHADOW_PUNCH,DARK_PULSE,90.7,60.4,65.6,27.4,bronzong:765;gyarados:719;dusclops:688;dusknoir:658;turtonator:510,fearow:125;drampa:230;claydol:256;glalie:414;togekiss:495
+baxcalibur,Baxcalibur,78.7,135.6,95.7,127,1650,DRAGON_BREATH,AVALANCHE,DRAGON_CLAW,62.5,65.8,81.2,34.7,grumpig:724;talonflame:681;claydol:649;arctibax:543;turtonator:527,bronzong:179;glalie:239;gyarados:239;dusknoir:250;dusclops:490
+corvisquire,Corvisquire,78.7,118.1,104.7,153,1893,PECK,SKY_ATTACK,PAYBACK,76,54.1,75.5,38.1,dusknoir:650;dusclops:617;bronzong:594;gyarados:565;fearow:535,glalie:200;froslass:215;turtonator:234;charizard:286;drampa:317
+cryogonal,Cryogonal,78.6,115.8,137.9,121,1935,ICE_SHARD,TRIPLE_AXEL,NIGHT_SLASH,78.1,66.8,72.5,57.7,drampa:723;claydol:698;gyarados:603;fearow:570;dusclops:524,charizard:260;bronzong:304;glalie:307;turtonator:362;dusknoir:488
+gourgeist_small,Gourgeist (Small),78.6,116.8,152.9,107,1913,INCINERATE,FOUL_PLAY,SHADOW_BALL,71.9,88.4,75.5,43,claydol:808;bronzong:640;metang:588;dusclops:574;goodra:556,turtonator:221;dusknoir:255;gyarados:342;charizard:354;glalie:450
+golurk,Golurk,78.5,133.3,98.5,128,1681,MUD_SLAP,SHADOW_PUNCH,DYNAMIC_PUNCH,71.6,62.8,73.7,47.5,marowak_alolan:722;froslass:695;metang:593;bronzong:558;drampa:542,gyarados:128;dusclops:199;dusknoir:272;turtonator:407;glalie:450
+gourgeist_average,Gourgeist (Average),78.5,115.9,145,115,1934,INCINERATE,FOUL_PLAY,SHADOW_BALL,72.1,88.2,73.8,44.9,claydol:778;bronzong:656;metang:604;goodra:595;dusclops:556,turtonator:216;dusknoir:255;gyarados:342;charizard:350;glalie:435
+annihilape,Annihilape,78.4,123.3,105.2,140,1817,COUNTER,RAGE_FIST,ICE_PUNCH,73.7,72.8,67,69.7,drampa:739;turtonator:692;glalie:621;metang:585;gyarados:514,froslass:230;charizard:260;bronzong:270;dusclops:291;dusknoir:366
+chatot,Chatot,77.8,139.6,78.4,147,1610,PECK,SKY_ATTACK,NIGHT_SHADE,71.3,65.8,75.2,30,dusclops:625;marowak_alolan:615;turtonator:605;dusknoir:581;talonflame:571,glalie:239;fearow:286;gyarados:293;charizard:333;bronzong:433
+frigibax,Frigibax,77.4,125.2,84.8,149,1583,DRAGON_BREATH,AVALANCHE,DRAGON_CLAW,63.6,72.6,78.5,34.2,talonflame:687;claydol:634;altaria:593;turtonator:553;arctibax:533,bronzong:179;glalie:239;dusknoir:250;gyarados:264;dusclops:472
+dartrix,Dartrix,77.2,112.4,115.5,154,2001,PECK,BRAVE_BIRD,SEED_BOMB,76.8,82.2,72.3,49.3,dusknoir:694;gyarados:662;claydol:655;turtonator:555;marowak_alolan:532,fearow:245;bronzong:275;dusclops:314;charizard:316;glalie:325
+pelipper,Pelipper,76.9,123.2,128.7,115,1825,WING_ATTACK,WEATHER_BALL_WATER,HURRICANE,74.2,73.1,75.7,58.2,talonflame:821;charizard:721;jumpluff:591;claydol:573;turtonator:517,bronzong:287;dusclops:337;glalie:346;dusknoir:427;gyarados:454
+skarmory,Skarmory,76.9,105.5,166.5,121,2127,STEEL_WING,BRAVE_BIRD,SKY_ATTACK,68.3,39.9,84.7,67.1,togekiss:673;froslass:595;fearow:549;arctibax:549;vespiquen:528,turtonator:203;gyarados:318;dusknoir:405;bronzong:487;glalie:489
+gliscor,Gliscor,76.5,115.6,144.4,116,1939,FURY_CUTTER,AERIAL_ACE,NIGHT_SLASH,74.3,62.8,70.5,58.7,claydol:879;raichu_alolan:875;drampa:724;metang:693;bronzong:633,turtonator:225;glalie:314;dusknoir:350;gyarados:363;dusclops:416
+jumpluff,Jumpluff,76.5,96.7,156.9,153,2323,FAIRY_WIND,ACROBATICS,AERIAL_ACE,73.2,70.3,73.5,70.4,gyarados:676;goodra:598;claydol:594;vespiquen:591;drampa:516,glalie:246;dusclops:337;turtonator:380;bronzong:395;dusknoir:461
+rapidash_galarian,Rapidash (Galarian),76.5,133.6,111.5,112,1670,FAIRY_WIND,BODY_SLAM,WILD_CHARGE,76.3,52.9,73.8,53.2,charizard:915;fearow:754;togekiss:754;gyarados:691;drampa:580,bronzong:87;dusclops:175;dusknoir:216;glalie:317;turtonator:446
+abomasnow,Abomasnow,76.1,117.8,112,143,1888,POWDER_SNOW,ICY_WIND,ENERGY_BALL,71.7,46.6,72.5,55.3,claydol:821;gyarados:632;dusclops:622;froslass:580;dusknoir:555,turtonator:163;glalie:246;charizard:286;bronzong:287;fearow:366
+mismagius,Mismagius,75.7,131.6,123.6,104,1693,HEX,SHADOW_BALL,DARK_PULSE,53.3,32.4,90.6,24.8,claydol:687;talonflame:687;bronzong:548;grumpig:548;togekiss:538,turtonator:159;dusclops:171;gyarados:177;dusknoir:238;glalie:478
+noctowl,Noctowl,75.1,105.3,120.1,168,2126,WING_ATTACK,SKY_ATTACK,NIGHT_SHADE,73.2,67.1,75.7,57.9,dusknoir:732;vespiquen:589;marowak_alolan:580;froslass:565;dusclops:553,charizard:209;glalie:332;bronzong:366;turtonator:371;gyarados:421
+typhlosion_hisuian,Typhlosion (Hisuian),75,139.6,106.8,108,1611,HEX,FIRE_PUNCH,WILD_CHARGE,75.6,68.8,75.7,27.6,marowak_alolan:703;froslass:638;metang:638;bronzong:592;charizard:513,fearow:88;dusclops:199;gyarados:202;dusknoir:272;turtonator:345
+cloyster,Cloyster,74.9,119,169.7,93,1880,ICE_SHARD,ICY_WIND,LIQUIDATION,71.4,53.3,67.5,50.6,jumpluff:650;altaria:559;fearow:553;gyarados:548;goodra:510,bronzong:333;glalie:375;turtonator:433;dusclops:435;dusknoir:466
+medicham,Medicham,74.9,106.9,139.4,141,2103,PSYCHO_CUT,ICE_PUNCH,DYNAMIC_PUNCH,69.5,62.8,73.7,62.4,drampa:773;gyarados:638;glalie:606;togekiss:546;claydol:542,dusclops:236;bronzong:275;dusknoir:294;turtonator:353;charizard:371
+mr_mime,Mr. Mime,74.9,131.5,144.2,90,1709,PSYWAVE,SHADOW_BALL,PSYCHIC,61.9,54.1,76.7,40.9,goodra:672;gyarados:638;drampa:616;talonflame:605;arctibax:522,dusclops:180;dusknoir:216;glalie:271;turtonator:336;bronzong:487
+starmie,Starmie,74.7,133.1,122,104,1690,PSYWAVE,SURF,POWER_GEM,66.4,53.5,68,34.4,talonflame:802;glalie:600;marowak_alolan:552;turtonator:543;togekiss:538,dusclops:180;dusknoir:216;gyarados:264;charizard:299;bronzong:329
+beartic,Beartic,74.1,135.4,94,130,1657,POWDER_SNOW,ICE_PUNCH,LIQUIDATION,74,72.5,75.2,34.9,fearow:726;togekiss:726;claydol:615;charizard:573;goodra:573,bronzong:129;glalie:346;turtonator:411;dusclops:416;dusknoir:433
+houndstone,Houndstone,73.9,120.3,130.3,119,1866,LICK,PSYCHIC_FANGS,SHADOW_BALL,71.4,69.5,70.3,54,claydol:659;dusclops:600;togekiss:563;metang:558;goodra:516,turtonator:261;glalie:271;gyarados:314;dusknoir:327;bronzong:379
+bruxish,Bruxish,73.8,136.4,102.5,117,1637,CONFUSION,CRUNCH,PSYCHIC_FANGS,74.2,52.1,60.9,44.1,togekiss:739;fearow:696;gyarados:589;charizard:542;turtonator:534,dusclops:171;bronzong:175;dusknoir:227;froslass:292;glalie:432
+delphox,Delphox,73.7,132.6,115.6,110,1687,FIRE_SPIN,PSYSHOCK,BLAST_BURN,62.2,41.6,74,39.4,hypno:645;metang:600;kommo_o:572;glalie:540;raichu_alolan:518,dusclops:171;gyarados:177;dusknoir:238;turtonator:323;bronzong:483
+mantyke,Mantyke,73.6,100.8,163,120,1973,BUBBLE,WATER_PULSE,AERIAL_ACE,72.4,47.5,71.8,54.8,marowak_alolan:641;claydol:612;fearow:591;charizard:587;talonflame:512,gyarados:351;glalie:428;bronzong:429;turtonator:451;dusknoir:477
+wyrdeer,Wyrdeer,73.3,126.6,95.5,146,1767,CONFUSION,STOMP,WILD_CHARGE,68.8,60.6,75,45.6,marowak_alolan:626;goodra:565;dusclops:544;froslass:530;glalie:520,bronzong:150;gyarados:314;charizard:324;dusknoir:411;turtonator:455
+fraxure,Fraxure,73.2,144.2,91.5,118,1558,DRAGON_TAIL,AQUA_TAIL,NIGHT_SLASH,80,68.9,63.6,32.8,turtonator:720;charizard:614;drampa:538;claydol:529;arctibax:512,bronzong:337;glalie:350;dusclops:375;gyarados:433;dusknoir:450
+haxorus,Haxorus,73.1,151.4,95.1,103,1485,DRAGON_TAIL,SURF,NIGHT_SLASH,80.7,66.8,66.1,25,turtonator:762;froslass:762;marowak_alolan:757;arctibax:533;dusknoir:529,bronzong:345;dusclops:356;gyarados:442;glalie:450;charizard:457
+ledian,Ledian,73.1,101.3,162.5,134,2208,BUG_BITE,DYNAMIC_PUNCH,AERIAL_ACE,65.6,37,71.3,73.3,metang:746;bronzong:645;claydol:597;dusknoir:570;drampa:522,charizard:200;turtonator:234;glalie:239;gyarados:450;dusclops:472
+metagross,Metagross,73.1,132.7,122,104,1686,BULLET_PUNCH,METEOR_MASH,EARTHQUAKE,63.6,36.7,60.9,51.6,togekiss:850;arctibax:793;froslass:692;goodra:572;metang:504,turtonator:181;gyarados:210;bronzong:220;dusknoir:255;glalie:475
+slowbro,Slowbro,72.8,113.4,120.9,144,1975,CONFUSION,DRAIN_PUNCH,ICE_BEAM,76.8,57.5,68.1,57.1,togekiss:677;turtonator:673;charizard:579;fearow:579;gyarados:527,dusclops:263;bronzong:270;froslass:303;dusknoir:327;glalie:471
+dragonite,Dragonite,72.6,135.8,107.3,113,1647,DRAGON_BREATH,THUNDER_PUNCH,SUPER_POWER,73.9,62.3,64.9,36.2,turtonator:800;talonflame:783;glalie:747;fearow:730;arctibax:530,dusclops:180;charizard:247;gyarados:252;bronzong:387;dusknoir:488
+mantine,Mantine,72.3,105.5,166.5,121,2127,BUBBLE,ICE_BEAM,BUBBLE_BEAM,83.4,61.2,73.3,56.6,claydol:694;marowak_alolan:669;fearow:652;togekiss:640;charizard:628,glalie:303;gyarados:404;turtonator:429;bronzong:441;dusknoir:472
+slowpoke,Slowpoke,72.1,104.1,94.9,186,1840,CONFUSION,PSYSHOCK,WATER_PULSE,73,66.3,66.3,43.8,charizard:669;togekiss:637;fearow:586;gyarados:532;arctibax:510,bronzong:316;dusclops:333;dusknoir:455;glalie:471;turtonator:473
+polteageist,Polteageist,71.8,142.8,115.6,95,1569,HEX,SHADOW_BALL,DARK_PULSE,43.9,31.4,86.7,20.8,castform_snowy:705;talonflame:636;claydol:615;hypno:615;kommo_o:578,glalie:178;turtonator:190;gyarados:202;bronzong:266;dusknoir:272
+scyther,Scyther,71.7,134.8,109.4,113,1668,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR,75.2,59.2,65.4,47.7,claydol:889;bronzong:783;arctibax:716;dusknoir:575;drampa:517,dusclops:296;turtonator:309;charizard:333;gyarados:338;glalie:360
+slowbro_galarian,Slowbro (Galarian),71.5,119.1,108.3,146,1885,CONFUSION,SURF,BRUTAL_SWING,71.1,72.5,62.8,48.3,drampa:780;kommo_o:695;talonflame:688;togekiss:595;goodra:582,dusknoir:255;bronzong:291;gyarados:293;glalie:364;turtonator:438
+staravia,Staravia,71.4,131.9,91.5,135,1631,QUICK_ATTACK,BRAVE_BIRD,FLY,53.6,54.6,78.2,19.5,jumpluff:677;trevenant:655;dusknoir:622;talonflame:607;marowak_alolan:588,glalie:200;gyarados:252;bronzong:295;dusclops:337;turtonator:455
+xatu,Xatu,71.3,132.2,107.9,119,1698,PECK,PSYSHOCK,AERIAL_ACE,73.9,67.4,66.3,31,fearow:743;charizard:731;arctibax:705;gyarados:525;drampa:512,dusclops:171;dusknoir:205;bronzong:233;glalie:432;turtonator:433
+golbat,Golbat,70.9,117.6,116.2,139,1901,WING_ATTACK,POISON_FANG,SHADOW_BALL,66.7,59.1,64.8,46.9,dusknoir:661;dusclops:654;marowak_alolan:557;gyarados:539;togekiss:517,bronzong:166;froslass:180;charizard:260;glalie:296;turtonator:305
+smoochum,Smoochum,70.9,141.1,89,120,1509,POWDER_SNOW,PSYSHOCK,ICE_PUNCH,68.7,60.4,68.8,28.9,fearow:704;togekiss:704;claydol:675;arctibax:612;charizard:525,turtonator:203;dusknoir:205;bronzong:245;gyarados:293;glalie:375
+pidgeot,Pidgeot,70.8,116.9,115.5,142,1918,GUST,AIR_CUTTER,BRAVE_BIRD,75,52.3,73.8,54.3,marowak_alolan:669;gyarados:570;fearow:542;claydol:535;dusclops:531,glalie:235;charizard:303;turtonator:389;bronzong:408;dusknoir:488
+dhelmise,Dhelmise,70.6,139.7,109.3,105,1605,SHADOW_CLAW,POWER_WHIP,WRAP,63.2,57.8,52.9,38.3,claydol:766;hypno:652;grumpig:538;goodra:523;bronzong:519,turtonator:238;glalie:253;dusclops:254;gyarados:293;dusknoir:355
+flygon,Flygon,70.2,127.9,109.5,125,1752,DRAGON_TAIL,SAND_TOMB,STONE_EDGE,69,46.7,65.3,38.6,talonflame:820;turtonator:668;marowak_alolan:668;dusknoir:572;vespiquen:504,dusclops:143;gyarados:235;bronzong:262;charizard:290;glalie:310
+golett,Golett,70.1,119.3,89.9,141,1513,MUD_SLAP,SHADOW_PUNCH,BRICK_BREAK,63.8,45.8,58.7,43.6,raichu_alolan:872;marowak_alolan:723;grumpig:638;metang:609;bronzong:578,gyarados:128;dusknoir:238;glalie:275;turtonator:376;dusclops:393
+ceruledge,Ceruledge,69.8,136.3,114,106,1648,INCINERATE,SHADOW_BALL,FLAME_CHARGE,62.5,45.3,57.4,43,talonflame:735;metang:650;bronzong:584;kommo_o:580;glalie:518,dusclops:157;gyarados:165;dusknoir:222;charizard:226;turtonator:446
+duraludon,Duraludon,69,137.7,112.2,105,1623,DRAGON_TAIL,DRAGON_CLAW,FLASH_CANNON,57.8,40.4,65.1,36,dusclops:609;vespiquen:561;jumpluff:542;drampa:538;glalie:533,bronzong:154;dusknoir:238;gyarados:264;charizard:273;turtonator:393
+farfetchd,Farfetch'd,68.9,116.8,109.2,131,1671,FURY_CUTTER,LEAF_BLADE,AERIAL_ACE,70.5,58.6,58.2,45.6,claydol:858;kommo_o:782;drampa:755;raichu_alolan:660;dusknoir:645,turtonator:274;glalie:314;dusclops:393;gyarados:413;bronzong:429
+ninjask,Ninjask,68.2,144.7,88.4,121,1549,FURY_CUTTER,AERIAL_ACE,SHADOW_BALL,46.8,34.7,60.3,28.7,claydol:896;grumpig:710;hypno:623;arctibax:615;kommo_o:582,gyarados:169;turtonator:172;glalie:239;bronzong:291;dusknoir:477
+flapple,Flapple,67.8,138.1,100.1,117,1618,DRAGON_BREATH,FLY,SEED_BOMB,57.6,65.5,59.4,32.1,raichu_alolan:867;talonflame:589;altaria:585;arctibax:547;turtonator:512,dusclops:180;glalie:239;dusknoir:250;gyarados:252;bronzong:283
+darumaka_galarian,Darumaka (Galarian),67.6,131.9,82.3,157,1706,ICE_FANG,ICE_PUNCH,ICE_BEAM,64.1,40.5,57.9,50.1,drampa:780;fearow:767;togekiss:742;claydol:652;goodra:535,bronzong:170;glalie:217;turtonator:269;dusknoir:283;gyarados:367
+swoobat,Swoobat,67.5,126.6,101.6,138,1777,CONFUSION,FLY,PSYCHIC_FANGS,64.5,49.2,57.4,39.9,charizard:768;kommo_o:768;altaria:724;talonflame:652;turtonator:503,bronzong:175;dusclops:226;dusknoir:227;glalie:253;gyarados:330
+tropius,Tropius,67.3,101.4,128,170,2208,AIR_SLASH,LEAF_BLADE,BRUTAL_SWING,60.1,39.9,60.6,57.4,gyarados:688;trevenant:591;dusknoir:579;claydol:567;kommo_o:544,glalie:153;turtonator:181;charizard:213;bronzong:316;dusclops:328
+slowpoke_galarian,Slowpoke (Galarian),67.1,104.1,94.9,186,1840,CONFUSION,PSYSHOCK,SURF,65.4,56,61.1,41.5,gyarados:642;togekiss:637;fearow:586;emolga:537;altaria:526,bronzong:104;dusclops:333;glalie:450;turtonator:451;dusknoir:455
+banette,Banette,67,145.2,92.2,115,1542,SHADOW_CLAW,SHADOW_BALL,DAZZLING_GLEAM,50.5,43.5,56.9,34.9,xatu:691;smoochum:682;typhlosion_hisuian:630;gholdengo:600;claydol:565,turtonator:225;glalie:239;gyarados:264;bronzong:337;dusknoir:355
+misdreavus,Misdreavus,66.6,123,120.8,122,1814,PSYWAVE,DARK_PULSE,SHADOW_SNEAK,53.6,54.7,65.6,26.1,talonflame:668;metagross:622;farfetchd:610;togekiss:540;rapidash_galarian:504,glalie:182;dusknoir:216;gyarados:264;bronzong:429;turtonator:433
+espeon,Espeon,65.8,148,105.6,97,1517,CONFUSION,PSYCHIC_FANGS,SHADOW_BALL,62.5,54.9,52.4,26.1,kommo_o:716;fearow:685;togekiss:685;arctibax:670;talonflame:623,bronzong:200;dusknoir:250;glalie:289;gyarados:318;turtonator:473
+hattrem,Hattrem,65.8,122.7,115.7,128,1818,CONFUSION,PSYSHOCK,DAZZLING_GLEAM,57.5,43.6,67.1,33.9,talonflame:664;kommo_o:632;togekiss:574;goodra:570;piloswine:554,bronzong:104;dusknoir:205;glalie:282;gyarados:314;turtonator:464
+hydrapple,Hydrapple,65.5,122.2,110.7,136,1841,DRAGON_TAIL,OUTRAGE,SEED_BOMB,57.5,39.9,59.9,34.4,feraligatr:794;raichu_alolan:639;dusknoir:584;claydol:551;marowak_alolan:533,gyarados:235;dusclops:291;bronzong:354;glalie:360;turtonator:384
+drakloak,Drakloak,65.3,130.3,93.1,142,1724,DRAGON_TAIL,OUTRAGE,SHADOW_BALL,46.8,36.7,66.4,27.4,claydol:647;hypno:602;metang:580;vespiquen:577;raichu_alolan:503,bronzong:154;glalie:203;dusknoir:205;gyarados:264;turtonator:358
+palossand,Palossand,65.3,116.5,123,134,1922,MUD_SHOT,SHADOW_BALL,SCORCHING_SANDS,49.1,34.5,66.8,22.4,raichu_alolan:656;bronzong:630;metang:619;emolga:559;altaria:526,gyarados:86;dusknoir:205;turtonator:234;glalie:460;dusclops:467
+frosmoth,Frosmoth,65.1,141.5,101,111,1587,POWDER_SNOW,ICY_WIND,BUG_BUZZ,57,31.7,61.8,32.8,claydol:792;altaria:720;jumpluff:608;dusknoir:504;goodra:504,bronzong:129;turtonator:137;glalie:160;gyarados:322;dusclops:421
+slowking,Slowking,65.1,113.4,120.9,144,1975,WATER_GUN,SURF,PSYCHIC,57,41.8,66.4,48.3,claydol:684;togekiss:618;cetoddle:604;cetitan:600;charizard:579,gyarados:194;bronzong:229;glalie:303;dusknoir:316;turtonator:473
+dipplin,Dipplin,64.6,114.6,128.8,132,1950,DRAGON_TAIL,OUTRAGE,SEED_BOMB,58.3,46.9,58.6,34.2,raichu_alolan:662;dusknoir:606;marowak_alolan:553;goodra:537;drampa:503,glalie:178;gyarados:235;bronzong:345;turtonator:380;dusclops:444
+gallade,Gallade,64.6,136.5,115.6,104,1642,PSYCHO_CUT,CLOSE_COMBAT,LEAF_BLADE,62.5,40.7,63.1,29.5,glalie:908;kommo_o:764;arctibax:721;claydol:649;fearow:605,bronzong:45;dusclops:226;dusknoir:294;gyarados:355;turtonator:473
+crobat,Crobat,64.4,121.2,118.1,129,1847,AIR_SLASH,POISON_FANG,SHADOW_BALL,54.2,36.5,56.4,33.4,dusknoir:616;dusclops:608;vespiquen:577;metang:565;marowak_alolan:503,bronzong:145;glalie:210;turtonator:225;charizard:260;gyarados:334
+hawlucha,Hawlucha,64.3,127.4,107.6,128,1756,POISON_JAB,FLYING_PRESS,AERIAL_ACE,48.1,49.8,65.4,25.8,barbaracle:800;vespiquen:675;rufflet:574;kommo_o:558;gyarados:507,bronzong:87;glalie:200;dusclops:268;dusknoir:416;turtonator:477
+chandelure,Chandelure,64.2,151.4,105.2,93,1482,INCINERATE,FLAME_CHARGE,SHADOW_BALL,57.2,38.2,46.5,42,froslass:698;talonflame:672;altaria:591;metang:580;bronzong:521,turtonator:128;dusclops:171;gyarados:177;dusknoir:238;glalie:460
+espurr,Espurr,64.1,113.4,108.3,145,1783,CONFUSION,PSYSHOCK,ENERGY_BALL,57.6,45.6,63.1,34.7,togekiss:637;lapras:593;goodra:579;sealeo:568;fearow:537,bronzong:104;dusknoir:255;glalie:260;gyarados:293;turtonator:451
+dragapult,Dragapult,63.3,142.5,96.2,115,1578,DRAGON_TAIL,BREAKING_SWIPE,SHADOW_BALL,48.4,37.5,54.1,28.1,vespiquen:634;claydol:600;hypno:565;lapras:547;metang:513,bronzong:191;dusknoir:205;glalie:228;gyarados:252;turtonator:393
+darmanitan_galarian_standard,Darmanitan (Galarian),63.2,149.7,72,138,1490,ICE_FANG,AVALANCHE,ICE_PUNCH,64.1,36.8,51.5,48.5,drampa:742;fearow:735;goodra:735;togekiss:702;claydol:539,bronzong:170;glalie:200;turtonator:252;gyarados:338;dusknoir:372
+rotom,Rotom,63,132.4,120.4,106,1691,THUNDER_SHOCK,THUNDERBOLT,OMINOUS_WIND,58.3,52.7,58.4,30.5,talonflame:693;togekiss:688;charizard:580;emolga:570;vespiquen:533,dusknoir:155;turtonator:230;glalie:314;bronzong:358;gyarados:417
+chimecho,Chimecho,62.4,119.5,120.8,130,1879,EXTRASENSORY,PSYSHOCK,SHADOW_BALL,48.7,33.3,67.3,24.5,dragalge:673;togekiss:615;slowbro_galarian:592;druddigon:530;beartic:515,bronzong:79;gyarados:206;dusknoir:227;turtonator:371;glalie:400
+gardevoir,Gardevoir,62.4,136.5,115.6,104,1642,CHARM,TRIPLE_AXEL,SHADOW_BALL,63.3,38.1,51.5,58.2,arctibax:894;drampa:831;goodra:725;gyarados:634;altaria:620,bronzong:204;dusclops:263;glalie:303;dusknoir:316;turtonator:420
+hatterene,Hatterene,62.4,142.1,115,96,1570,CHARM,PSYSHOCK,POWER_WHIP,62.3,39,53.4,50.9,arctibax:890;altaria:864;drampa:848;goodra:703;gyarados:609,bronzong:179;dusclops:226;glalie:303;turtonator:314;dusknoir:355
+oricorio_pom_pom,Oricorio (Pom-Pom),62.3,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,59.6,48.7,56.2,31,jumpluff:656;talonflame:625;fearow:621;kommo_o:585;dusknoir:578,glalie:203;bronzong:279;gyarados:301;dusclops:324;turtonator:349
+gothitelle,Gothitelle,62,115.3,140.9,119,1934,CONFUSION,ROCK_SLIDE,FUTURE_SIGHT,58.3,39.9,65.8,37,goodra:617;togekiss:600;altaria:546;turtonator:508;fearow:508,bronzong:104;glalie:260;dusclops:263;dusknoir:305;gyarados:351
+swanna,Swanna,61.8,128.5,101,134,1742,AIR_SLASH,FLY,ICE_BEAM,52.6,33,67.5,35.7,dusknoir:570;frillish:570;feraligatr:537;turtonator:526;jumpluff:518,glalie:203;charizard:273;gyarados:301;bronzong:308;dusclops:425
+garchomp,Garchomp,60.7,132.4,101.4,126,1694,DRAGON_TAIL,SAND_TOMB,OUTRAGE,58.3,39.8,61.9,30.8,turtonator:658;claydol:638;raichu_alolan:626;kommo_o:607;arctibax:559,dusclops:148;gyarados:235;bronzong:266;glalie:314;dusknoir:394
+vibrava,Vibrava,60.6,125.2,95.7,127,1523,DRAGON_BREATH,SAND_TOMB,BUG_BUZZ,61.2,48.9,45.5,42.8,turtonator:807;claydol:649;raichu_alolan:610;kommo_o:582;arctibax:543,dusclops:236;gyarados:256;glalie:264;bronzong:329;dusknoir:427
+wobbuffet,Wobbuffet,60.2,63,101.6,333,2134,COUNTER,RETURN,MIRROR_COAT,57.5,34.5,60.4,53.5,fearow:585;arctibax:567;glalie:527;drampa:527;goodra:515,dusknoir:105;dusclops:175;bronzong:325;turtonator:358;gyarados:392
+gothorita,Gothorita,60,112.2,132.7,134,1997,CONFUSION,FUTURE_SIGHT,PSYCHIC,51.3,34.5,66.6,37.3,haunter:735;togetic:608;cryogonal:563;altaria:555;cetoddle:548,bronzong:104;dusknoir:305;turtonator:314;glalie:346;gyarados:380
+mr_mime_galarian,Mr. Mime (Galarian),59.3,130.4,127,104,1724,CONFUSION,ICE_PUNCH,PSYCHIC,51,41,61.9,29.5,altaria:754;jumpluff:716;sealeo:658;cetoddle:653;cetitan:644,dusknoir:227;bronzong:237;turtonator:247;glalie:303;gyarados:334
+oricorio_baile,Oricorio (Baile),59.3,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,53.4,37.9,54.2,34.9,talonflame:761;kommo_o:585;jumpluff:582;dusknoir:578;trevenant:531,glalie:203;gyarados:227;bronzong:279;dusclops:324;turtonator:420
+jynx,Jynx,59.1,141.2,102.2,110,1588,CONFUSION,AVALANCHE,PSYSHOCK,48.6,33,61.6,24.5,kommo_o:750;cetoddle:613;piloswine:609;cetitan:600;claydol:540,bronzong:108;turtonator:216;dusknoir:250;glalie:271;gyarados:285
+vanillish,Vanillish,59.1,123.6,120.5,122,1818,FROST_BREATH,ICY_WIND,SIGNAL_BEAM,57.8,40.5,49.5,49,altaria:725;trevenant:635;goodra:598;drampa:590;fearow:540,bronzong:166;turtonator:225;glalie:246;dusknoir:272;gyarados:409
+rotom_frost,Rotom (Frost),59,128.8,144.9,93,1737,THUNDER_SHOCK,THUNDERBOLT,BLIZZARD,40.6,25.7,57.7,24.2,sealeo:655;jumpluff:650;emolga:607;cetitan:607;gyarados:521,turtonator:92;glalie:175;dusknoir:188;dusclops:412;bronzong:416
+crabominable,Crabominable,58.7,136.8,88.5,135,1635,BUBBLE,ICE_PUNCH,BRICK_BREAK,45,33,52,27.9,cetoddle:648;cetitan:637;piloswine:618;claydol:588;trevenant:566,gyarados:169;dusknoir:200;bronzong:300;turtonator:314;glalie:489
+alakazam,Alakazam,58.5,155.8,101.4,91,1439,CONFUSION,FIRE_PUNCH,SHADOW_BALL,49.7,49.8,55.2,24.8,kommo_o:697;rufflet:598;abomasnow:598;avalugg:532;hypno:510,bronzong:108;dusknoir:272;turtonator:292;gyarados:301;glalie:307
+exeggutor_alolan,Exeggutor (Alolan),58.5,134.4,94.8,131,1670,DRAGON_TAIL,SEED_BOMB,DRACO_METEOR,54.4,43,48.9,25.8,claydol:755;feraligatr:645;hypno:610;lapras:583;raichu_alolan:561,bronzong:237;gyarados:264;glalie:375;turtonator:424;dusknoir:461
+sandygast,Sandygast,57.4,113.4,111.7,135,1712,MUD_SHOT,SHADOW_BALL,SCORCHING_SANDS,38.4,25.4,62.1,20.1,barbaracle:796;bronzong:614;raichu_alolan:614;metang:603;emolga:522,gyarados:78;dusclops:115;glalie:121;dusknoir:138;turtonator:234
+meowstic_female,Meowstic (Female),57.3,117.1,123.9,132,1917,CONFUSION,SHADOW_BALL,PSYCHIC,48.1,32,65.9,36.2,haunter:731;gengar:731;togetic:587;swoobat:541;altaria:537,bronzong:104;turtonator:269;glalie:282;gyarados:293;dusknoir:305
+pidgeotto,Pidgeotto,57.3,110.9,100.8,147,1644,WING_ATTACK,AIR_CUTTER,RETURN,55.2,47,56.1,34.2,kommo_o:782;trevenant:710;feraligatr:639;dusknoir:588;jumpluff:561,glalie:146;bronzong:187;turtonator:278;gyarados:384;dusclops:398
+drowzee,Drowzee,57,87.3,126.8,142,1575,CONFUSION,PSYSHOCK,RETURN,55.1,36.8,54.2,30.8,togekiss:595;toucannon:552;fearow:549;trumbeak:545;turtonator:503,bronzong:79;gyarados:231;dusclops:287;dusknoir:394;glalie:396
+braviary,Braviary,56.7,133.7,92.9,135,1678,AIR_SLASH,FLY,CLOSE_COMBAT,49.4,31,58.9,27.6,trevenant:644;marowak_alolan:622;dusknoir:614;skeledirge:603;feraligatr:518,bronzong:154;glalie:203;turtonator:252;gyarados:301;dusclops:435
+staraptor,Staraptor,56.6,140.3,90.8,125,1594,GUST,FLY,CLOSE_COMBAT,55.2,40.5,52.4,42.5,trevenant:888;kommo_o:756;marowak_alolan:560;skeledirge:536;drifblim:536,bronzong:204;turtonator:269;glalie:271;gyarados:355;dusknoir:433
+sliggoo,Sliggoo,56.2,114.1,133.8,128,1956,WATER_GUN,DRAGON_PULSE,WATER_PULSE,41.4,27.1,67.1,36.5,typhlosion_hisuian:687;armarouge:589;emolga:542;grumpig:535;marowak_alolan:531,glalie:182;gyarados:185;turtonator:234;bronzong:270;dusknoir:327
+appletun,Appletun,54.8,116.5,102.5,161,1924,BULLET_SEED,SEED_BOMB,OUTRAGE,49.5,23.9,49.2,19.3,raichu_alolan:677;turtonator:649;claydol:627;goodra:571;gyarados:515,charizard:55;glalie:253;bronzong:262;dusclops:365;dusknoir:477
+indeedee_male,Indeedee (Male),54.5,134.9,114.6,107,1656,EXTRASENSORY,SHADOW_BALL,PSYCHIC,39.5,22,64.1,28.7,dusclops:663;drifblim:588;marowak_alolan:546;dusknoir:537;hypno:528,bronzong:116;glalie:178;turtonator:190;gyarados:202;charizard:243
+glaceon,Glaceon,54.4,135.7,122.3,99,1645,ICE_SHARD,AVALANCHE,WATER_PULSE,44.8,28,50.4,31.5,salamence:813;dragonite:797;dartrix:742;dodrio:691;claydol:631,bronzong:120;glalie:146;turtonator:221;gyarados:227;dusknoir:238
+oricorio_sensu,Oricorio (Sensu),54.2,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,41.4,33.6,49.5,27.1,vespiquen:816;kommo_o:683;talonflame:625;dartrix:621;jumpluff:535,bronzong:154;turtonator:190;glalie:203;dusknoir:205;gyarados:264
+meowstic,Meowstic (Male),54,117.1,123.9,132,1917,CONFUSION,PSYCHIC,THUNDERBOLT,46.8,31.9,59.1,35.5,haunter:731;gengar:731;togetic:587;slowbro_galarian:575;swoobat:541,bronzong:104;turtonator:269;glalie:282;gyarados:293;dusknoir:305
+sigilyph,Sigilyph,53.6,130,112.1,118,1721,AIR_SLASH,AIR_CUTTER,ANCIENT_POWER,40,32.2,49.7,24.2,kommo_o:656;bruxish:656;dartrix:648;talonflame:635;abomasnow:588,turtonator:190;glalie:203;dusknoir:205;bronzong:216;gyarados:264
+musharna,Musharna,52.9,113.1,108.8,161,1982,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM,43.2,33.1,51.2,20.6,xatu:586;trumbeak:543;toucannon:540;cryogonal:531;fearow:512,bronzong:116;turtonator:278;gyarados:301;glalie:332;dusknoir:355
+tranquill,Tranquill,52.9,123.9,102.2,143,1812,AIR_SLASH,AERIAL_ACE,SKY_ATTACK,46.8,29.4,52.5,32.8,trevenant:664;dusknoir:650;skeledirge:643;feraligatr:625;jumpluff:541,bronzong:154;glalie:203;turtonator:216;gyarados:338;dusclops:430
+oricorio_pau,Oricorio (Pa'u),52.3,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,39.7,31.9,49.5,26.1,bruxish:652;kommo_o:648;talonflame:625;dartrix:621;jumpluff:535,bronzong:154;turtonator:190;glalie:203;dusknoir:205;gyarados:264
+yanmega,Yanmega,52.1,136.8,96,125,1643,BUG_BITE,AERIAL_ACE,ANCIENT_POWER,48.4,29.6,47.7,38.6,claydol:876;grumpig:744;girafarig:704;raichu_alolan:696;bruxish:688,turtonator:190;gyarados:276;bronzong:316;glalie:317;dusknoir:327
+mr_rime,Mr. Rime,51.9,127.4,114.4,120,1750,CONFUSION,ICY_WIND,PSYCHIC,51.7,37.1,38,33.1,cetitan:625;sealeo:620;jumpluff:612;goodra:579;kommo_o:566,bronzong:129;dusknoir:227;turtonator:247;glalie:303;gyarados:314
+rotom_fan,Rotom (Fan),51.6,128.8,144.9,93,1737,AIR_SLASH,THUNDERBOLT,OMINOUS_WIND,46.5,32.4,48.2,30.2,noctowl:618;scyther:580;dusknoir:559;farfetchd:559;jumpluff:510,glalie:203;turtonator:216;dusclops:236;gyarados:301;bronzong:337
+tatsugiri_curly,Tatsugiri (Curly),51.4,137.4,108.1,109,1619,WATER_GUN,SURF,OUTRAGE,46.1,30.5,44.2,37.5,talonflame:834;delphox:834;typhlosion_hisuian:738;fletchinder:692;claydol:582,gyarados:177;glalie:239;dusknoir:250;bronzong:341;turtonator:349
+tatsugiri_droopy,Tatsugiri (Droopy),51.4,137.4,108.1,109,1619,WATER_GUN,SURF,OUTRAGE,46.1,30.5,44.2,37.5,talonflame:834;delphox:834;typhlosion_hisuian:738;fletchinder:692;claydol:582,gyarados:177;glalie:239;dusknoir:250;bronzong:341;turtonator:349
+tatsugiri_stretchy,Tatsugiri (Stretchy),51.4,137.4,108.1,109,1619,WATER_GUN,SURF,OUTRAGE,46.1,30.5,44.2,37.5,talonflame:834;delphox:834;typhlosion_hisuian:738;fletchinder:692;claydol:582,gyarados:177;glalie:239;dusknoir:250;bronzong:341;turtonator:349
+exeggutor,Exeggutor,51.2,136.1,92.5,131,1650,CONFUSION,SEED_BOMB,PSYCHIC,47,35.9,47.2,25,lapras:618;raichu_alolan:614;dudunsparce:606;rapidash_galarian:587;kommo_o:553,dusknoir:227;bronzong:229;turtonator:269;glalie:271;gyarados:334
+masquerain,Masquerain,51.1,129.5,109.1,122,1725,AIR_SLASH,AIR_CUTTER,LUNGE,45.3,34.7,46.7,22.1,kommo_o:663;hakamo_o:663;scyther:639;dartrix:561;trevenant:520,turtonator:190;glalie:203;gyarados:264;bronzong:337;dusknoir:455
+swellow,Swellow,50.5,135.9,99.9,121,1645,WING_ATTACK,BRAVE_BIRD,SKY_ATTACK,38.8,26.5,48.4,23.7,trevenant:607;marowak_alolan:586;skeledirge:574;drifblim:561;dusknoir:504,bronzong:166;dusclops:199;glalie:200;gyarados:231;turtonator:234
+indeedee_female,Indeedee (Female),50.2,121.7,128.2,118,1842,EXTRASENSORY,PSYCHIC,ENERGY_BALL,43.5,24.2,54.6,28.4,haunter:699;frillish:656;dusknoir:593;skeledirge:580;froslass:538,bronzong:79;turtonator:203;gyarados:235;dusclops:416;glalie:489
+vanilluxe,Vanilluxe,50.1,131.5,117.3,110,1699,FROST_BREATH,AVALANCHE,FLASH_CANNON,50.7,28.2,38.1,42.8,drampa:750;altaria:709;jumpluff:668;emolga:600;trevenant:509,bronzong:129;glalie:175;turtonator:225;gyarados:293;dusknoir:311
+noivern,Noivern,49.3,125.4,113.5,126,1794,DRAGON_TAIL,HURRICANE,DRACO_METEOR,39.2,27,55.7,30,golurk:595;tropius:591;farfetchd:547;noctowl:539;claydol:503,bronzong:154;glalie:203;gyarados:252;dusknoir:338;turtonator:358
+beautifly,Beautifly,48.8,144.7,83.9,127,1543,INFESTATION,AIR_CUTTER,SILVER_WIND,44.5,34.8,46.2,17.2,bruxish:665;grumpig:649;baxcalibur:649;girafarig:602;smoochum:535,turtonator:84;bronzong:150;glalie:285;gyarados:297;dusknoir:305
+mothim,Mothim,48.8,140,82.9,138,1603,BUG_BITE,AERIAL_ACE,BUG_BUZZ,47.6,29.1,38.5,38.6,claydol:909;grumpig:692;girafarig:688;raichu_alolan:681;bruxish:673,turtonator:137;gyarados:239;bronzong:291;glalie:317;dusknoir:327
+ponyta_galarian,Ponyta (Galarian),48.8,133.5,108.2,116,1676,PSYCHO_CUT,SWIFT,PLAY_ROUGH,44,30.4,40.3,19.5,arctibax:698;shelgon:698;kommo_o:551;dragonair:530;goodra:521,dusknoir:105;bronzong:220;glalie:275;turtonator:278;gyarados:309
+lampent,Lampent,48.4,132.5,99,129,1692,EMBER,ENERGY_BALL,FLAME_BURST,36.7,22.6,45.5,19,metang:658;bronzong:616;cetoddle:616;cetitan:600;jumpluff:546,gyarados:115;turtonator:119;dusclops:129;dusknoir:155;glalie:260
+beheeyem,Beheeyem,48.3,134.4,105.7,117,1663,CONFUSION,ROCK_SLIDE,DARK_PULSE,44.4,34.5,41.7,31,gengar:666;haunter:636;avalugg:576;kommo_o:555;castform_snowy:504,bronzong:129;dusknoir:227;turtonator:247;glalie:303;gyarados:334
+bergmite,Bergmite,47.8,110.9,113.4,135,1699,TACKLE,ICY_WIND,CRUNCH,34.5,22.6,52.9,22.4,gligar:648;beartic:637;jumpluff:622;emolga:511;avalugg:503,bronzong:108;dusknoir:127;glalie:203;turtonator:225;gyarados:243
+vivillon,Vivillon,47.5,131.7,86.3,149,1694,GUST,AERIAL_ACE,BUG_BUZZ,49.5,36.7,38.3,33.4,scyther:815;trevenant:761;flapple:741;zoroark_hisuian:694;kommo_o:634,bronzong:179;turtonator:247;glalie:253;dusknoir:394;gyarados:462
+yanma,Yanma,47.4,130.8,89.6,146,1713,WING_ATTACK,AERIAL_ACE,SILVER_WIND,38.4,28.2,39.3,18.7,gallade:750;ledian:719;golurk:667;medicham:616;scyther:561,turtonator:181;glalie:200;gyarados:272;bronzong:337;dusknoir:422
+gabite,Gabite,47.2,128.7,102.4,132,1741,MUD_SHOT,DIG,FLAMETHROWER,32.7,20,51.9,19,raichu_alolan:628;typhlosion_hisuian:602;bronzong:541;slowking_galarian:530;delphox:515,gyarados:86;dusclops:129;glalie:160;turtonator:292;dusknoir:450
+snover,Snover,46.2,109.2,100.8,142,1564,LEAFAGE,ICE_BEAM,ENERGY_BALL,30.6,17.1,54.4,20.1,claydol:774;goodra:598;feraligatr:598;sealeo:584;raichu_alolan:524,turtonator:84;bronzong:166;dusknoir:188;glalie:200;gyarados:293
+elgyem,Elgyem,44.9,133.6,95.4,132,1685,CONFUSION,DARK_PULSE,PSYCHIC,42.1,29.6,44.5,31.3,haunter:651;gengar:651;dragalge:587;kommo_o:560;zoroark_hisuian:553,bronzong:129;dusknoir:227;turtonator:247;glalie:303;gyarados:334
+exeggcute,Exeggcute,44.5,102.5,117.6,142,1713,CONFUSION,SEED_BOMB,ANCIENT_POWER,38.7,28.2,42.3,30.5,dragonite:690;starmie:651;slowpoke:651;rotom:633;mantine:531,bronzong:183;glalie:200;turtonator:203;gyarados:252;dusknoir:272
+braviary_hisuian,Braviary (Hisuian),43,128.5,89.6,151,1741,AIR_SLASH,BRAVE_BIRD,FLY,35.3,23.4,44.7,25.5,jumpluff:678;girafarig:582;milotic:559;togetic:543;dudunsparce:513,bronzong:154;turtonator:190;glalie:203;dusknoir:238;gyarados:264
+kadabra,Kadabra,42.4,163.8,90.9,92,1370,CONFUSION,SHADOW_BALL,DAZZLING_GLEAM,46.3,31.3,27.6,25.3,golbat:733;hakamo_o:684;kommo_o:668;gengar:641;haunter:614,bronzong:129;dusknoir:272;glalie:307;turtonator:314;gyarados:318
+unfezant,Unfezant,41.5,138.5,95.5,122,1616,AIR_SLASH,SKY_ATTACK,HYPER_BEAM,40.8,28.8,35.1,26.6,trevenant:614;houndstone:573;marowak_alolan:565;drifloon:561;skeledirge:528,bronzong:137;turtonator:252;glalie:260;gyarados:264;dusknoir:372
+decidueye,Decidueye,41.4,127.8,115.2,119,1754,RAZOR_LEAF,FRENZY_PLANT,SPIRIT_SHACKLE,43.9,26,26.2,33.6,barbaracle:844;claydol:768;feraligatr:731;piloswine:659;raichu_alolan:533,turtonator:137;bronzong:220;glalie:317;dusknoir:333;gyarados:376
+rowlet,Rowlet,41,98.3,95.7,154,1450,LEAFAGE,SEED_BOMB,ENERGY_BALL,38,24.6,32.8,19.8,claydol:899;barbaracle:792;lapras:753;rapidash_galarian:655;gyarados:642,turtonator:92;bronzong:195;dusclops:259;glalie:271;dusknoir:377
+munna,Munna,38.6,105.8,89.9,166,1580,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM,26.7,24,38.1,14,pelipper:548;togetic:530;mantine:524;slowbro_galarian:503;slowbro:503,glalie:89;dusknoir:94;bronzong:116;turtonator:243;gyarados:264
+axew,Axew,38.1,138.6,96,121,1612,SCRATCH,AQUA_TAIL,DRAGON_CLAW,39.8,25.3,22.7,29.2,ninjask:615;rotom_frost:578;lampent:574;mantyke:561;alakazam:561,dusknoir:127;bronzong:212;glalie:246;gyarados:330;turtonator:349
+pumpkaboo_large,Pumpkaboo (Large),38,113.4,115.1,133,1737,RAZOR_LEAF,GRASS_KNOT,FOUL_PLAY,37.6,23.1,28.4,33.1,barbaracle:838;rapidash_galarian:650;lapras:650;claydol:593;raichu_alolan:548,turtonator:137;bronzong:220;glalie:253;dusknoir:277;gyarados:334
+pumpkaboo_super,Pumpkaboo (Super),37.9,111.7,113.4,141,1788,RAZOR_LEAF,GRASS_KNOT,FOUL_PLAY,36.3,22,29.8,34.9,barbaracle:847;rapidash_galarian:670;claydol:613;raichu_alolan:570;feraligatr:570,turtonator:92;bronzong:220;glalie:253;dusknoir:283;gyarados:334
+pumpkaboo_average,Pumpkaboo (Average),36.7,114.2,115.9,126,1670,RAZOR_LEAF,GRASS_KNOT,FOUL_PLAY,36.6,22.9,26.2,31,barbaracle:829;bruxish:757;rapidash_galarian:634;claydol:571;raichu_alolan:551,turtonator:137;bronzong:220;glalie:253;dusknoir:277;gyarados:334
+pumpkaboo_small,Pumpkaboo (Small),36.4,115.1,116.8,119,1600,RAZOR_LEAF,GRASS_KNOT,FOUL_PLAY,36.7,22.9,25.2,30,barbaracle:819;bruxish:743;feraligatr:701;claydol:546;raichu_alolan:525,turtonator:137;bronzong:220;glalie:253;dusknoir:277;gyarados:334
+reuniclus,Reuniclus,35.6,126.9,94.9,147,1771,HIDDEN_POWER_FIGHTING,PSYSHOCK,SHADOW_BALL,22.8,14.6,39.1,17.7,dudunsparce:595;vanillish:588;medicham:581;slowpoke_galarian:568;slowpoke:517,dusknoir:83;gyarados:148;turtonator:181;bronzong:191;glalie:289
+duosion,Duosion,34.4,149.2,81.9,123,1504,HIDDEN_POWER_PSYCHIC,PSYSHOCK,NIGHT_SHADE,31.4,24,24.7,17.7,crobat:621;meowstic_female:605;meowstic:605;tranquill:548;haunter:512,bronzong:116;turtonator:221;glalie:228;dusknoir:238;gyarados:252
+cursola,Cursola,33.5,145.6,111,95,1537,TACKLE,NIGHT_SHADE,POWER_GEM,28.6,19.2,32.4,19.3,wobbuffet:610;mothim:521;yanmega:521;slowking:521;gothorita:515,dusknoir:111;bronzong:179;turtonator:190;glalie:239;gyarados:239
+solosis,Solosis,33.3,152,81.8,118,1468,HIDDEN_POWER_PSYCHIC,PSYSHOCK,NIGHT_SHADE,31.1,23.4,23.1,17.4,hawlucha:622;crobat:605;meowstic_female:588;meowstic:588;tranquill:529,bronzong:104;turtonator:221;glalie:228;dusknoir:238;gyarados:252
+butterfree,Butterfree,33.1,126.6,112.5,124,1769,CONFUSION,BUG_BUZZ,SIGNAL_BEAM,32,24.3,28.9,21.1,haunter:798;gengar:741;golett:677;golurk:657;gallade:649,bronzong:104;glalie:200;turtonator:203;dusknoir:316;gyarados:326
+spoink,Spoink,25.2,117.6,115.1,141,1910,ZEN_HEADBUTT,SHADOW_BALL,RETURN,24.7,18.5,18.5,20.6,unown:695;crabominable:599,bronzong:79;gyarados:202;turtonator:203;glalie:228;dusknoir:250
+unown,Unown,24.1,126.8,89,125,1413,HIDDEN_POWER_PSYCHIC,STRUGGLE,,26.4,20.2,11.7,17.2,crabominable:772;crobat:612;haunter:548,bronzong:112;turtonator:185;glalie:228;dusknoir:233;gyarados:260

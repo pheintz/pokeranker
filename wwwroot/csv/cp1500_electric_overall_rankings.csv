@@ -1,69 +1,69 @@
-speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore
-galvantula,Galvantula,97.9,138.2,96.4,122,1627,FURY_CUTTER,LUNGE,CROSS_POISON,100,96.5,99.4,97.7
-galvantula_shadow,Galvantula (Shadow),95.1,138.2,96.4,122,1627,FURY_CUTTER,LUNGE,CROSS_POISON,97.4,100,96.7,75
-electrode_hisuian,Electrode (Hisuian),93,123.2,128.7,115,1825,THUNDER_SHOCK,ENERGY_BALL,SWIFT,87,77.2,89.7,100
-rotom,Rotom,91.5,132.4,120.4,106,1691,ASTONISH,THUNDERBOLT,OMINOUS_WIND,84.6,80.3,94.9,88.2
-toxtricity,Toxtricity,91,141.2,95.3,118,1590,ACID,WILD_CHARGE,POWER_UP_PUNCH,93.7,85.4,88.1,86.8
-bellibolt,Bellibolt,90.6,115,110.1,154,1953,SUCKER_PUNCH,ZAP_CANNON,PARABOLIC_CHARGE,81.2,71.5,92,87.6
-minun,Minun,88.3,116.3,127,130,1922,QUICK_ATTACK,SWIFT,GRASS_KNOT,77.2,87.2,91.8,86.2
-raikou,Raikou,88.2,131.9,110.6,116,1693,THUNDER_SHOCK,SHADOW_BALL,AURA_SPHERE,67.2,83.9,100,59.9
-thundurus_incarnate_shadow,Thundurus (Incarnate) (Shadow),88.2,148.1,95.5,107,1514,ASTONISH,CRUNCH,BRICK_BREAK,71.3,75,92.4,59.3
-pawmot,Pawmot,86.5,145,95.4,112,1552,LOW_KICK,BRICK_BREAK,CLOSE_COMBAT,72.4,78,95.6,67.7
-lanturn,Lanturn,86.2,104.8,105.5,194,2145,WATER_GUN,SURF,THUNDERBOLT,65.3,76.5,98.7,68.6
-plusle,Plusle,83.5,128.2,107.2,127,1746,QUICK_ATTACK,SWIFT,GRASS_KNOT,81.4,80.6,83.4,57.1
-rotom_mow,Rotom (Mow),81.3,128.8,144.9,93,1737,ASTONISH,OMINOUS_WIND,LEAF_STORM,71.7,63.6,85.2,78.4
-magnezone_shadow,Magnezone (Shadow),79.9,134.3,121.1,102,1661,VOLT_SWITCH,WILD_CHARGE,MIRROR_SHOT,66.1,70.6,78.9,76.1
-electrode,Electrode,79.2,122.8,126.3,118,1832,VOLT_SWITCH,HYPER_BEAM,FOUL_PLAY,60.8,76.9,90.8,50.1
-raikou_shadow,Raikou (Shadow),78.7,133.5,109.9,113,1659,THUNDER_SHOCK,SHADOW_BALL,AURA_SPHERE,75.1,87.2,85.7,26.6
-thundurus_incarnate,Thundurus (Incarnate),78.6,148.1,95.5,107,1514,ASTONISH,CRUNCH,BRICK_BREAK,67.8,71.4,82.5,55.1
-ampharos,Ampharos,78.5,126.8,107.9,129,1766,VOLT_SWITCH,BRUTAL_SWING,TRAILBLAZE,68.5,77.8,77.6,60.2
-pachirisu,Pachirisu,78.5,91.5,157.1,142,2044,VOLT_SWITCH,HYPER_FANG,THUNDER_PUNCH,65.2,69.7,79.6,80.9
-golem_alolan_shadow,Golem (Alolan) (Shadow),77.2,125.1,122.2,117,1791,ROLLOUT,STONE_EDGE,ROCK_BLAST,58,50.5,76,36.1
-ampharos_shadow,Ampharos (Shadow),77,126.8,107.9,129,1766,VOLT_SWITCH,BRUTAL_SWING,TRAILBLAZE,62.5,74.5,78.5,59.1
-electivire_shadow,Electivire (Shadow),77,143.3,100.8,108,1562,LOW_KICK,ICE_PUNCH,FLAMETHROWER,62.1,88.4,79.8,22.9
-golem_alolan,Golem (Alolan),76.7,125.1,122.2,117,1791,ROLLOUT,STONE_EDGE,ROCK_BLAST,60,49.6,78.9,56.5
-dedenne,Dedenne,76.6,124.3,109,133,1804,THUNDER_SHOCK,DISCHARGE,PLAY_ROUGH,72.2,61.8,84.6,35.5
-graveler_alolan_shadow,Graveler (Alolan) (Shadow),75.7,122.6,129.8,115,1831,ROCK_THROW,STONE_EDGE,ROCK_BLAST,68.4,63.9,64.3,80.9
-eelektross,Eelektross,75.6,133.8,99.7,126,1682,ACID,CRUNCH,LIQUIDATION,64.3,48.4,77.8,39.7
-emolga,Emolga,75.6,127.5,110.2,125,1758,QUICK_ATTACK,ACROBATICS,DISCHARGE,74.5,61.8,82.8,36.9
-graveler_alolan,Graveler (Alolan),75.5,121.4,130.9,116,1845,ROCK_THROW,STONE_EDGE,ROCK_BLAST,68.4,51.2,75.6,76.1
-eelektrik,Eelektrik,75.4,122.3,110,136,1831,ACID,DISCHARGE,CRUNCH,70.4,78,76,43.6
-rotom_heat,Rotom (Heat),74.9,128.8,144.9,93,1737,ASTONISH,OVERHEAT,THUNDERBOLT,56.2,52.6,81,61.6
-electivire,Electivire,74.8,143.3,100.8,108,1562,LOW_KICK,ICE_PUNCH,FLAMETHROWER,55.1,73.2,78.5,30.2
-magnezone,Magnezone,74.7,134.3,121.1,102,1661,VOLT_SWITCH,WILD_CHARGE,MIRROR_SHOT,77.2,66,77.8,64.9
-morpeko_full_belly,Morpeko (Hangry),74.5,140.4,96.2,118,1596,THUNDER_SHOCK,AURA_WHEEL_ELECTRIC,PSYCHIC_FANGS,61.4,47.5,80.5,55.7
-zapdos_shadow,Zapdos (Shadow),74.3,138.1,103.4,112,1601,THUNDER_SHOCK,DRILL_PECK,HEAT_WAVE,80.1,82.7,79.8,14
-togedemaru,Togedemaru,74.2,132.2,107.2,120,1702,THUNDER_SHOCK,FELL_STINGER,WILD_CHARGE,73.6,57.5,79.2,55.7
-luxray,Luxray,73.6,138,98.9,119,1626,HIDDEN_POWER_GROUND,WILD_CHARGE,PSYCHIC_FANGS,68.7,40.4,72.6,67.2
-luxray_shadow,Luxray (Shadow),73.1,138,98.9,119,1626,HIDDEN_POWER_GROUND,WILD_CHARGE,PSYCHIC_FANGS,71.4,51.5,58.5,66.9
-rotom_fan,Rotom (Fan),72.5,128.8,144.9,93,1737,ASTONISH,THUNDERBOLT,OMINOUS_WIND,64,60.7,77.1,54.6
-zapdos,Zapdos,72.5,135.6,104.6,115,1633,THUNDER_SHOCK,DRILL_PECK,HEAT_WAVE,72.8,70.6,73.5,26
-electabuzz,Electabuzz,70.9,130.8,113.2,115,1704,LOW_KICK,THUNDER_PUNCH,RETURN,50.4,62.7,84.1,29.1
-raichu_alolan,Raichu (Alolan),70.2,135.4,109.9,111,1653,VOLT_SWITCH,PSYSHOCK,TRAILBLAZE,57.4,43.7,75.3,48.7
-zebstrika,Zebstrika,70,137.7,95.4,124,1630,LOW_KICK,WILD_CHARGE,FLAME_CHARGE,50,30.8,64.3,40
-manectric,Manectric,68.8,142.4,91.3,121,1574,SNARL,PSYCHIC_FANGS,OVERHEAT,69.9,86.6,71.1,23.2
-electrode_shadow,Electrode (Shadow),68.7,122.8,126.3,118,1832,VOLT_SWITCH,HYPER_BEAM,FOUL_PLAY,53.9,42.4,81.9,35.2
-raichu,Raichu,67.5,133.5,110.6,114,1685,VOLT_SWITCH,BRICK_BREAK,TRAILBLAZE,60.6,52.4,63.2,58.2
-magneton_shadow,Magneton (Shadow),66.6,143.4,114.6,95,1563,THUNDER_SHOCK,DISCHARGE,MAGNET_BOMB,58,51.8,65.5,39.2
-magnemite_shadow,Magnemite (Shadow),65.9,147.8,113.6,90,1512,VOLT_SWITCH,MAGNET_BOMB,DISCHARGE,55.4,58.3,65,33.6
-magneton,Magneton,65.9,143.4,114.6,95,1563,VOLT_SWITCH,MAGNET_BOMB,DISCHARGE,59.9,55.6,65.9,52.6
-zebstrika_shadow,Zebstrika (Shadow),64.4,137.7,95.4,124,1630,LOW_KICK,WILD_CHARGE,FLAME_CHARGE,39.3,30.6,68.6,25.4
-geodude_alolan,Geodude (Alolan),64.3,123.5,123.5,113,1724,VOLT_SWITCH,ROCK_TOMB,ROCK_SLIDE,50,49.3,74.7,22.4
-magnemite,Magnemite,63.9,147.8,113.6,90,1512,VOLT_SWITCH,DISCHARGE,MAGNET_BOMB,61.2,52.9,63,47.8
-electabuzz_shadow,Electabuzz (Shadow),62.6,132.1,112.5,114,1696,LOW_KICK,THUNDER_PUNCH,THUNDERBOLT,44.8,61.2,68.6,29.1
-kilowattrel,Kilowattrel,62.2,143.2,92.5,118,1563,THUNDER_SHOCK,ACROBATICS,AERIAL_ACE,57.3,53.9,69.5,13.1
-elekid,Elekid,62.1,126,97.4,120,1474,LOW_KICK,THUNDER_PUNCH,BRICK_BREAK,56.7,45.4,57.1,56.3
-pawmo,Pawmo,61.9,136.1,81.5,142,1576,THUNDER_SHOCK,WILD_CHARGE,THUNDER_PUNCH,50.4,38.4,56.2,31.3
-rotom_frost,Rotom (Frost),60.7,128.8,144.9,93,1737,ASTONISH,THUNDERBOLT,BLIZZARD,53.3,51.1,60.3,55.4
-geodude_alolan_shadow,Geodude (Alolan) (Shadow),59.5,123.5,123.5,113,1724,VOLT_SWITCH,ROCK_TOMB,ROCK_SLIDE,39.6,37.7,73.1,20.7
-flaaffy,Flaaffy,56.5,121.5,100.4,151,1844,CHARGE_BEAM,DISCHARGE,TRAILBLAZE,48.6,39.2,45.5,58.5
-flaaffy_shadow,Flaaffy (Shadow),53.7,121.5,100.4,151,1844,CHARGE_BEAM,DISCHARGE,TRAILBLAZE,39.9,34.8,47.3,49.5
-oricorio_pom_pom,Oricorio (Pom-Pom),53.6,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,49.8,32.1,53.3,31
-jolteon,Jolteon,53.3,137.4,114.7,103,1624,THUNDER_SHOCK,DISCHARGE,LAST_RESORT,39.9,31.1,59.8,16.2
-regieleki,Regieleki,49.9,149.8,82.5,119,1472,VOLT_SWITCH,THUNDER_CAGE,HYPER_BEAM,41,32.9,51.1,19
-rotom_wash,Rotom (Wash),49,128.8,144.9,93,1737,ASTONISH,THUNDERBOLT,HYDRO_PUMP,48.7,38.9,40.7,40.8
-boltund,Boltund,48.6,136.9,95.3,126,1645,SPARK,CRUNCH,THUNDER,30.1,25.7,61.2,17.9
-manectric_shadow,Manectric (Shadow),47.2,142.4,91.3,121,1574,SNARL,WILD_CHARGE,OVERHEAT,14.4,14.8,75.4,14.5
-chinchou,Chinchou,47,101.6,94.1,164,1569,BUBBLE,WATER_PULSE,THUNDERBOLT,27.1,20.4,60.5,28.8
-luxio,Luxio,45.7,133.2,91,139,1687,SPARK,WILD_CHARGE,CRUNCH,33.8,22.5,53.1,17.6
-luxio_shadow,Luxio (Shadow),42.8,133.7,90.2,139,1677,SPARK,WILD_CHARGE,CRUNCH,22.8,16.2,53.5,16.5
+speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore,topMatchups,topCounters
+galvantula,Galvantula,97.9,138.2,96.4,122,1627,FURY_CUTTER,LUNGE,CROSS_POISON,100,96.5,99.4,97.7,electrode_hisuian:696;golem_alolan:651;pawmot:627;minun:602;bellibolt:598,magnezone:313;toxtricity:385;togedemaru:387;rotom:419;zapdos_shadow:482
+galvantula_shadow,Galvantula (Shadow),95.1,138.2,96.4,122,1627,FURY_CUTTER,LUNGE,CROSS_POISON,97.4,100,96.7,75,pawmot:799;electrode_hisuian:659;golem_alolan:594;minun:577;bellibolt:561,graveler_alolan:198;graveler_alolan_shadow:230;togedemaru:312;toxtricity:411;magnemite_shadow:466
+electrode_hisuian,Electrode (Hisuian),93,123.2,128.7,115,1825,THUNDER_SHOCK,ENERGY_BALL,SWIFT,87,77.2,89.7,100,golem_alolan:813;pawmot:760;minun:669;bellibolt:539;ampharos:530,galvantula:303;eelektross:313;toxtricity:317;rotom:466;plusle:488
+rotom,Rotom,91.5,132.4,120.4,106,1691,ASTONISH,THUNDERBOLT,OMINOUS_WIND,84.6,80.3,94.9,88.2,pawmot:768;minun:584;galvantula:580;lanturn:570;electrode_hisuian:533,ampharos:329;bellibolt:334;golem_alolan:380;toxtricity:389;eelektross:416
+toxtricity,Toxtricity,91,141.2,95.3,118,1590,ACID,WILD_CHARGE,POWER_UP_PUNCH,93.7,85.4,88.1,86.8,pawmot:809;lanturn:728;electrode_hisuian:682;minun:656;galvantula:614,luxray_shadow:231;togedemaru:266;magnezone:274;golem_alolan:346;bellibolt:363
+bellibolt,Bellibolt,90.6,115,110.1,154,1953,SUCKER_PUNCH,ZAP_CANNON,PARABOLIC_CHARGE,81.2,71.5,92,87.6,rotom:665;ampharos:655;toxtricity:636;lanturn:551;golem_alolan:548,pawmot:200;galvantula:401;electrode_hisuian:460;luxray_shadow:474;minun:488
+minun,Minun,88.3,116.3,127,130,1922,QUICK_ATTACK,SWIFT,GRASS_KNOT,77.2,87.2,91.8,86.2,luxray_shadow:634;ampharos:611;lanturn:538;golem_alolan:515;bellibolt:511,electrode_hisuian:330;toxtricity:343;pawmot:379;galvantula:397;rotom:415
+raikou,Raikou,88.2,131.9,110.6,116,1693,THUNDER_SHOCK,SHADOW_BALL,AURA_SPHERE,67.2,83.9,100,59.9,magnezone:840;golem_alolan:814;rotom:633;luxray_shadow:607;zapdos_shadow:547,bellibolt:279;galvantula:311;electrode_hisuian:343;minun:373;pawmot:446
+thundurus_incarnate_shadow,Thundurus (Incarnate) (Shadow),88.2,148.1,95.5,107,1514,ASTONISH,CRUNCH,BRICK_BREAK,71.3,75,92.4,59.3,luxray_shadow:724;eelektross:602;bellibolt:546;rotom:546;lanturn:528,minun:311;electrode_hisuian:378;galvantula:385;golem_alolan:401;pawmot:491
+pawmot,Pawmot,86.5,145,95.4,112,1552,LOW_KICK,BRICK_BREAK,CLOSE_COMBAT,72.4,78,95.6,67.7,golem_alolan:839;bellibolt:799;ampharos:754;minun:620;plusle:580,toxtricity:190;rotom:231;electrode_hisuian:239;galvantula:372;lanturn:420
+lanturn,Lanturn,86.2,104.8,105.5,194,2145,WATER_GUN,SURF,THUNDERBOLT,65.3,76.5,98.7,68.6,eelektross:654;golem_alolan:595;pawmot:579;plusle:548;zapdos_shadow:538,electrode_hisuian:265;ampharos:341;galvantula:360;bellibolt:448;minun:461
+plusle,Plusle,83.5,128.2,107.2,127,1746,QUICK_ATTACK,SWIFT,GRASS_KNOT,81.4,80.6,83.4,57.1,minun:622;golem_alolan:622;luxray_shadow:566;electrode_hisuian:511;ampharos:511,bellibolt:363;galvantula:405;pawmot:419;rotom:424;lanturn:451
+rotom_mow,Rotom (Mow),81.3,128.8,144.9,93,1737,ASTONISH,OMINOUS_WIND,LEAF_STORM,71.7,63.6,85.2,78.4,lanturn:672;ampharos:672;rotom:655;plusle:612;bellibolt:591,galvantula:274;golem_alolan:311;pawmot:334;minun:396;electrode_hisuian:447
+magnezone_shadow,Magnezone (Shadow),79.9,134.3,121.1,102,1661,VOLT_SWITCH,WILD_CHARGE,MIRROR_SHOT,66.1,70.6,78.9,76.1,ampharos:774;plusle:720;lanturn:686;minun:563;rotom:549,galvantula:250;pawmot:272;electrode_hisuian:378;bellibolt:392;golem_alolan:495
+electrode,Electrode,79.2,122.8,126.3,118,1832,VOLT_SWITCH,HYPER_BEAM,FOUL_PLAY,60.8,76.9,90.8,50.1,rotom:656;luxray_shadow:584;minun:576;lanturn:525;magnezone:504,galvantula:188;pawmot:205;electrode_hisuian:334;golem_alolan:337;bellibolt:431
+raikou_shadow,Raikou (Shadow),78.7,133.5,109.9,113,1659,THUNDER_SHOCK,SHADOW_BALL,AURA_SPHERE,75.1,87.2,85.7,26.6,golem_alolan:783;pawmot:703;lanturn:597;rotom:561;bellibolt:530,galvantula:151;electrode_hisuian:365;minun:373;toxtricity:389;ampharos:496
+thundurus_incarnate,Thundurus (Incarnate),78.6,148.1,95.5,107,1514,ASTONISH,CRUNCH,BRICK_BREAK,67.8,71.4,82.5,55.1,luxray:761;luxray_shadow:724;eelektross:658;rotom:570;minun:565,electrode_hisuian:317;golem_alolan:329;galvantula:372;pawmot:424;bellibolt:493
+ampharos,Ampharos,78.5,126.8,107.9,129,1766,VOLT_SWITCH,BRUTAL_SWING,TRAILBLAZE,68.5,77.8,77.6,60.2,rotom:670;lanturn:658;luxray_shadow:565;eelektross:542;magnezone:515,galvantula:340;bellibolt:344;golem_alolan:376;minun:388;electrode_hisuian:469
+pachirisu,Pachirisu,78.5,91.5,157.1,142,2044,VOLT_SWITCH,HYPER_FANG,THUNDER_PUNCH,65.2,69.7,79.6,80.9,zapdos_shadow:697;magnezone:658;togedemaru:588;raikou:566;lanturn:559,golem_alolan:303;electrode_hisuian:304;bellibolt:405;galvantula:409;minun:469
+golem_alolan_shadow,Golem (Alolan) (Shadow),77.2,125.1,122.2,117,1791,ROLLOUT,STONE_EDGE,ROCK_BLAST,58,50.5,76,36.1,eelektross:790;zapdos_shadow:692;morpeko_full_belly:688;bellibolt:611;magnezone:504,pawmot:191;electrode_hisuian:217;ampharos:220;minun:373;galvantula:405
+ampharos_shadow,Ampharos (Shadow),77,126.8,107.9,129,1766,VOLT_SWITCH,BRUTAL_SWING,TRAILBLAZE,62.5,74.5,78.5,59.1,golem_alolan:779;eelektross:763;lanturn:705;rotom:616;raikou:507,galvantula:241;pawmot:250;electrode_hisuian:321;minun:388;bellibolt:422
+electivire_shadow,Electivire (Shadow),77,143.3,100.8,108,1562,LOW_KICK,ICE_PUNCH,FLAMETHROWER,62.1,88.4,79.8,22.9,magnezone:740;golem_alolan:703;eelektross:671;electrode_hisuian:625;zapdos_shadow:513,galvantula:151;minun:215;pawmot:272;lanturn:389;bellibolt:477
+golem_alolan,Golem (Alolan),76.7,125.1,122.2,117,1791,ROLLOUT,STONE_EDGE,ROCK_BLAST,60,49.6,78.9,56.5,morpeko_full_belly:705;zapdos_shadow:688;toxtricity:653;ampharos:623;rotom:619,pawmot:160;electrode_hisuian:186;galvantula:348;bellibolt:451;minun:484
+dedenne,Dedenne,76.6,124.3,109,133,1804,THUNDER_SHOCK,DISCHARGE,PLAY_ROUGH,72.2,61.8,84.6,35.5,pawmot:684;rotom:635;galvantula:567;ampharos:530;luxray_shadow:522,golem_alolan:106;bellibolt:350;lanturn:371;minun:376;electrode_hisuian:421
+graveler_alolan_shadow,Graveler (Alolan) (Shadow),75.7,122.6,129.8,115,1831,ROCK_THROW,STONE_EDGE,ROCK_BLAST,68.4,63.9,64.3,80.9,zapdos_shadow:917;galvantula:800;galvantula_shadow:769;morpeko_full_belly:695;eelektrik:586,pawmot:316;minun:342;electrode_hisuian:352;bellibolt:396;golem_alolan:414
+eelektross,Eelektross,75.6,133.8,99.7,126,1682,ACID,CRUNCH,LIQUIDATION,64.3,48.4,77.8,39.7,electrode_hisuian:686;morpeko_full_belly:682;rotom:583;golem_alolan:579;raikou:523,galvantula:237;pawmot:272;lanturn:345;bellibolt:353;minun:457
+emolga,Emolga,75.6,127.5,110.2,125,1758,QUICK_ATTACK,ACROBATICS,DISCHARGE,74.5,61.8,82.8,36.9,luxray_shadow:796;pawmot:664;electrode_hisuian:660;galvantula:640;eelektross:532,golem_alolan:252;lanturn:291;bellibolt:347;minun:426;ampharos:468
+graveler_alolan,Graveler (Alolan),75.5,121.4,130.9,116,1845,ROCK_THROW,STONE_EDGE,ROCK_BLAST,68.4,51.2,75.6,76.1,zapdos_shadow:905;galvantula_shadow:801;galvantula:762;toxtricity:659;minun:504,pawmot:227;electrode_hisuian:265;lanturn:311;golem_alolan:333;bellibolt:448
+eelektrik,Eelektrik,75.4,122.3,110,136,1831,ACID,DISCHARGE,CRUNCH,70.4,78,76,43.6,rotom:687;zapdos_shadow:613;luxray_shadow:599;electrode_hisuian:573;eelektross:533,golem_alolan:260;bellibolt:370;galvantula:377;pawmot:383;minun:403
+rotom_heat,Rotom (Heat),74.9,128.8,144.9,93,1737,ASTONISH,OVERHEAT,THUNDERBOLT,56.2,52.6,81,61.6,raichu_alolan:801;rotom:655;manectric:645;raichu:569;zapdos_shadow:553,golem_alolan:273;bellibolt:308;minun:311;electrode_hisuian:352;galvantula:409
+electivire,Electivire,74.8,143.3,100.8,108,1562,LOW_KICK,ICE_PUNCH,FLAMETHROWER,55.1,73.2,78.5,30.2,golem_alolan:768;morpeko_full_belly:675;eelektross:662;zapdos_shadow:564;ampharos:504,galvantula:151;pawmot:227;minun:326;bellibolt:340;electrode_hisuian:482
+magnezone,Magnezone,74.7,134.3,121.1,102,1661,VOLT_SWITCH,WILD_CHARGE,MIRROR_SHOT,77.2,66,77.8,64.9,toxtricity:725;galvantula:686;golem_alolan:671;plusle:583;lanturn:568,pawmot:227;bellibolt:344;electrode_hisuian:434;minun:450;ampharos:484
+morpeko_full_belly,Morpeko (Hangry),74.5,140.4,96.2,118,1596,THUNDER_SHOCK,AURA_WHEEL_ELECTRIC,PSYCHIC_FANGS,61.4,47.5,80.5,55.7,zapdos_shadow:843;bellibolt:758;rotom:690;lanturn:639;luxray_shadow:563,electrode_hisuian:208;minun:265;galvantula:290;golem_alolan:294;pawmot:495
+zapdos_shadow,Zapdos (Shadow),74.3,138.1,103.4,112,1601,THUNDER_SHOCK,DRILL_PECK,HEAT_WAVE,80.1,82.7,79.8,14,pawmot:781;luxray_shadow:781;eelektross:620;electrode_hisuian:562;galvantula:517,golem_alolan:311;minun:400;ampharos:410;lanturn:461;bellibolt:467
+togedemaru,Togedemaru,74.2,132.2,107.2,120,1702,THUNDER_SHOCK,FELL_STINGER,WILD_CHARGE,73.6,57.5,79.2,55.7,minun:729;golem_alolan:725;lanturn:645;galvantula:612;ampharos:591,luxray_shadow:105;bellibolt:126;pawmot:196;rotom:240;electrode_hisuian:334
+luxray,Luxray,73.6,138,98.9,119,1626,HIDDEN_POWER_GROUND,WILD_CHARGE,PSYCHIC_FANGS,68.7,40.4,72.6,67.2,golem_alolan:789;lanturn:617;bellibolt:554;minun:504;rotom:504,electrode_hisuian:221;galvantula:233;plusle:374;ampharos:410;pawmot:441
+luxray_shadow,Luxray (Shadow),73.1,138,98.9,119,1626,HIDDEN_POWER_GROUND,WILD_CHARGE,PSYCHIC_FANGS,71.4,51.5,58.5,66.9,golem_alolan:768;toxtricity:768;pawmot:659;lanturn:642;bellibolt:525,electrode_hisuian:256;galvantula:282;minun:365;ampharos:434;rotom:471
+rotom_fan,Rotom (Fan),72.5,128.8,144.9,93,1737,ASTONISH,THUNDERBOLT,OMINOUS_WIND,64,60.7,77.1,54.6,rotom:655;luxray:618;plusle:612;galvantula:532;luxray_shadow:532,golem_alolan:273;electrode_hisuian:282;pawmot:348;minun:396;bellibolt:444
+zapdos,Zapdos,72.5,135.6,104.6,115,1633,THUNDER_SHOCK,DRILL_PECK,HEAT_WAVE,72.8,70.6,73.5,26,luxray_shadow:804;magnezone:669;galvantula:634;minun:578;plusle:560,bellibolt:275;golem_alolan:277;lanturn:409;electrode_hisuian:469;pawmot:486
+electabuzz,Electabuzz,70.9,130.8,113.2,115,1704,LOW_KICK,THUNDER_PUNCH,RETURN,50.4,62.7,84.1,29.1,togedemaru:760;ampharos:552;zapdos_shadow:552;magnezone:508;minun:504,galvantula:127;pawmot:227;electrode_hisuian:230;bellibolt:448;golem_alolan:448
+raichu_alolan,Raichu (Alolan),70.2,135.4,109.9,111,1653,VOLT_SWITCH,PSYSHOCK,TRAILBLAZE,57.4,43.7,75.3,48.7,eelektross:770;lanturn:657;pawmot:621;luxray_shadow:522;ampharos:518,galvantula:168;golem_alolan:217;bellibolt:347;electrode_hisuian:365;minun:388
+zebstrika,Zebstrika,70,137.7,95.4,124,1630,LOW_KICK,WILD_CHARGE,FLAME_CHARGE,50,30.8,64.3,40,eelektross:705;lanturn:669;ampharos:536;golem_alolan:528;magnezone:516,galvantula:139;pawmot:227;electrode_hisuian:234;minun:403;bellibolt:415
+manectric,Manectric,68.8,142.4,91.3,121,1574,SNARL,PSYCHIC_FANGS,OVERHEAT,69.9,86.6,71.1,23.2,ampharos:789;minun:599;rotom:590;plusle:578;bellibolt:561,electrode_hisuian:265;golem_alolan:277;galvantula:327;lanturn:371;pawmot:459
+electrode_shadow,Electrode (Shadow),68.7,122.8,126.3,118,1832,VOLT_SWITCH,HYPER_BEAM,FOUL_PLAY,53.9,42.4,81.9,35.2,raichu_alolan:788;togedemaru:779;rotom:639;luxray_shadow:516;raikou:508,minun:219;galvantula:229;electrode_hisuian:326;bellibolt:360;golem_alolan:414
+raichu,Raichu,67.5,133.5,110.6,114,1685,VOLT_SWITCH,BRICK_BREAK,TRAILBLAZE,60.6,52.4,63.2,58.2,togedemaru:780;lanturn:666;rotom:574;zapdos_shadow:539;luxray_shadow:508,electrode_hisuian:269;minun:334;galvantula:340;bellibolt:344;golem_alolan:482
+magneton_shadow,Magneton (Shadow),66.6,143.4,114.6,95,1563,THUNDER_SHOCK,DISCHARGE,MAGNET_BOMB,58,51.8,65.5,39.2,zapdos_shadow:805;eelektrik:663;plusle:615;galvantula_shadow:557;lanturn:521,bellibolt:262;electrode_hisuian:308;minun:346;galvantula:418;golem_alolan:487
+magnemite_shadow,Magnemite (Shadow),65.9,147.8,113.6,90,1512,VOLT_SWITCH,MAGNET_BOMB,DISCHARGE,55.4,58.3,65,33.6,eelektross:794;zapdos_shadow:794;plusle:533;galvantula_shadow:533;lanturn:527,electrode_hisuian:134;bellibolt:340;golem_alolan:384;minun:457;galvantula:475
+magneton,Magneton,65.9,143.4,114.6,95,1563,VOLT_SWITCH,MAGNET_BOMB,DISCHARGE,59.9,55.6,65.9,52.6,zapdos_shadow:689;dedenne:615;eelektrik:568;golem_alolan:542;eelektross:542,pawmot:250;bellibolt:311;electrode_hisuian:326;minun:369;galvantula:479
+zebstrika_shadow,Zebstrika (Shadow),64.4,137.7,95.4,124,1630,LOW_KICK,WILD_CHARGE,FLAME_CHARGE,39.3,30.6,68.6,25.4,geodude_alolan:729;eelektross:657;dedenne:649;lanturn:592;rotom_mow:524,galvantula:159;minun:230;electrode_hisuian:234;golem_alolan:380;bellibolt:470
+geodude_alolan,Geodude (Alolan),64.3,123.5,123.5,113,1724,VOLT_SWITCH,ROCK_TOMB,ROCK_SLIDE,50,49.3,74.7,22.4,morpeko_full_belly:716;zapdos_shadow:703;toxtricity:685;eelektross:553;bellibolt:508,electrode_hisuian:113;pawmot:205;galvantula:225;minun:384;golem_alolan:440
+magnemite,Magnemite,63.9,147.8,113.6,90,1512,VOLT_SWITCH,DISCHARGE,MAGNET_BOMB,61.2,52.9,63,47.8,zapdos_shadow:666;eelektrik:655;eelektross:550;electivire_shadow:550;golem_alolan:516,electrode_hisuian:308;bellibolt:324;minun:373;pawmot:437;galvantula:446
+electabuzz_shadow,Electabuzz (Shadow),62.6,132.1,112.5,114,1696,LOW_KICK,THUNDER_PUNCH,THUNDERBOLT,44.8,61.2,68.6,29.1,togedemaru:776;magnemite_shadow:767;geodude_alolan:758;golem_alolan_shadow:719;graveler_alolan_shadow:557,galvantula:151;minun:215;electrode_hisuian:321;bellibolt:373;golem_alolan:495
+kilowattrel,Kilowattrel,62.2,143.2,92.5,118,1563,THUNDER_SHOCK,ACROBATICS,AERIAL_ACE,57.3,53.9,69.5,13.1,luxray_shadow:741;rotom_mow:622;thundurus_incarnate_shadow:533;electrode_hisuian:512;galvantula_shadow:504,golem_alolan:226;bellibolt:321;minun:400;galvantula:426;pawmot:455
+elekid,Elekid,62.1,126,97.4,120,1474,LOW_KICK,THUNDER_PUNCH,BRICK_BREAK,56.7,45.4,57.1,56.3,togedemaru:866;golem_alolan:762;morpeko_full_belly:704;luxray_shadow:512;magnezone:504,galvantula:237;electrode_hisuian:317;minun:361;pawmot:437;bellibolt:448
+pawmo,Pawmo,61.9,136.1,81.5,142,1576,THUNDER_SHOCK,WILD_CHARGE,THUNDER_PUNCH,50.4,38.4,56.2,31.3,electrode_shadow:630;lanturn:573;eelektrik:556;galvantula_shadow:549;golem_alolan:542,electrode_hisuian:195;minun:265;pawmot:312;galvantula:348;bellibolt:360
+rotom_frost,Rotom (Frost),60.7,128.8,144.9,93,1737,ASTONISH,THUNDERBOLT,BLIZZARD,53.3,51.1,60.3,55.4,raichu_alolan:801;rotom:655;regieleki:526;jolteon:521;dedenne:505,galvantula:303;bellibolt:308;minun:311;golem_alolan:311;electrode_hisuian:352
+geodude_alolan_shadow,Geodude (Alolan) (Shadow),59.5,123.5,123.5,113,1724,VOLT_SWITCH,ROCK_TOMB,ROCK_SLIDE,39.6,37.7,73.1,20.7,morpeko_full_belly:672;zapdos_shadow:654;magnezone:641;rotom:575;ampharos:517,electrode_hisuian:113;minun:157;galvantula:229;golem_alolan:235;bellibolt:415
+flaaffy,Flaaffy,56.5,121.5,100.4,151,1844,CHARGE_BEAM,DISCHARGE,TRAILBLAZE,48.6,39.2,45.5,58.5,rotom_wash:668;zapdos_shadow:569;magnemite:536;graveler_alolan_shadow:533;geodude_alolan:519,galvantula:254;minun:276;electrode_hisuian:326;golem_alolan:405;bellibolt:444
+flaaffy_shadow,Flaaffy (Shadow),53.7,121.5,100.4,151,1844,CHARGE_BEAM,DISCHARGE,TRAILBLAZE,39.9,34.8,47.3,49.5,zapdos:572;pawmo:559;graveler_alolan:533;zapdos_shadow:516;regieleki:509,galvantula:118;golem_alolan:119;minun:307;bellibolt:318;electrode_hisuian:386
+oricorio_pom_pom,Oricorio (Pom-Pom),53.6,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,49.8,32.1,53.3,31,rotom_mow:644;galvantula:632;galvantula_shadow:507,golem_alolan:94;bellibolt:253;minun:296;pawmot:316;electrode_hisuian:439
+jolteon,Jolteon,53.3,137.4,114.7,103,1624,THUNDER_SHOCK,DISCHARGE,LAST_RESORT,39.9,31.1,59.8,16.2,zapdos_shadow:864;morpeko_full_belly:689;thundurus_incarnate_shadow:616;electabuzz_shadow:553;luxray_shadow:504,electrode_hisuian:91;minun:130;galvantula:286;bellibolt:308;golem_alolan:324
+regieleki,Regieleki,49.9,149.8,82.5,119,1472,VOLT_SWITCH,THUNDER_CAGE,HYPER_BEAM,41,32.9,51.1,19,magnezone_shadow:701;lanturn:680;magnemite_shadow:680;zapdos_shadow:554;pachirisu:516,electrode_hisuian:113;galvantula:184;golem_alolan:196;minun:346;bellibolt:353
+rotom_wash,Rotom (Wash),49,128.8,144.9,93,1737,ASTONISH,THUNDERBOLT,HYDRO_PUMP,48.7,38.9,40.7,40.8,raichu_alolan:688;rotom:655;manectric:645;chinchou:564;lanturn:505,minun:219;electrode_hisuian:247;galvantula:303;bellibolt:308;golem_alolan:311
+boltund,Boltund,48.6,136.9,95.3,126,1645,SPARK,CRUNCH,THUNDER,30.1,25.7,61.2,17.9,pawmo:662;magneton_shadow:559;rotom:531;magneton:527;magnemite:523,electrode_hisuian:117;galvantula:155;golem_alolan:158;bellibolt:311;minun:357
+manectric_shadow,Manectric (Shadow),47.2,142.4,91.3,121,1574,SNARL,WILD_CHARGE,OVERHEAT,14.4,14.8,75.4,14.5,oricorio_pom_pom:731;chinchou:719;rotom_wash:590;flaaffy_shadow:549;emolga:537,minun:130;galvantula:143;golem_alolan:145;electrode_hisuian:147;bellibolt:152
+chinchou,Chinchou,47,101.6,94.1,164,1569,BUBBLE,WATER_PULSE,THUNDERBOLT,27.1,20.4,60.5,28.8,electivire:597;electivire_shadow:585;graveler_alolan:585;eelektross:524;manectric:509,electrode_hisuian:126;minun:138;bellibolt:185;galvantula:229;golem_alolan:311
+luxio,Luxio,45.7,133.2,91,139,1687,SPARK,WILD_CHARGE,CRUNCH,33.8,22.5,53.1,17.6,magneton_shadow:640;magneton:604;elekid:586;rotom:543;zapdos_shadow:503,bellibolt:149;golem_alolan:158;galvantula:168;electrode_hisuian:334;minun:353
+luxio_shadow,Luxio (Shadow),42.8,133.7,90.2,139,1677,SPARK,WILD_CHARGE,CRUNCH,22.8,16.2,53.5,16.5,lanturn:607;rotom_heat:561;magneton_shadow:557;electabuzz:553;zapdos:507,electrode_hisuian:91;bellibolt:172;minun:173;galvantula:188;golem_alolan:209

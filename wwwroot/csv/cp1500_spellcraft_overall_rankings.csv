@@ -1,212 +1,212 @@
-speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore
-hypno,Hypno,98,103.4,142.9,147,2174,CONFUSION,SHADOW_BALL,PSYSHOCK,100,86.4,96.5,100
-emolga,Emolga,95.9,127.5,110.2,125,1758,THUNDER_SHOCK,ACROBATICS,DISCHARGE,100,89.6,95.4,95.1
-dartrix,Dartrix,95.4,112.4,115.5,154,2001,PECK,BRAVE_BIRD,SEED_BOMB,94.9,79.1,96.3,99.7
-trevenant,Trevenant,93.5,127.8,104.6,131,1752,SHADOW_CLAW,SHADOW_BALL,FOUL_PLAY,98.6,100,96.3,57.1
-gengar,Gengar,93.3,154.3,95.4,98,1444,SHADOW_CLAW,SHADOW_PUNCH,SHADOW_BALL,100,88.4,87.6,61.1
-haunter,Haunter,92.9,161.1,85.5,101,1392,SHADOW_CLAW,SHADOW_PUNCH,ICE_PUNCH,91,85.6,100,55.7
-grumpig,Grumpig,92.4,113.3,131.4,132,1967,PSYWAVE,SHADOW_BALL,DYNAMIC_PUNCH,92.3,72.2,92.8,85.4
-kricketune,Kricketune,91.9,127.7,89.5,153,1751,FURY_CUTTER,X_SCISSOR,AERIAL_ACE,93.4,61.5,91.1,85.1
-orbeetle,Orbeetle,91.8,107.9,168.6,114,2075,PSYCHO_CUT,PSYSHOCK,BUG_BUZZ,89.1,71,93,93.4
-eelektrik,Eelektrik,91.7,122.3,110,136,1831,ACID,CRUNCH,DISCHARGE,95.7,86.1,92.1,73.1
-girafarig,Girafarig,91.6,130.3,101.5,130,1721,CONFUSION,PSYCHIC_FANGS,TRAILBLAZE,98.1,81,73.7,83.4
-delphox,Delphox,91.5,132.6,115.6,110,1687,FIRE_SPIN,PSYSHOCK,BLAST_BURN,94.9,84.9,86.2,74.8
-scyther,Scyther,91.5,134.8,109.4,113,1668,FURY_CUTTER,X_SCISSOR,NIGHT_SLASH,94.9,83.6,89.9,74.8
-tropius,Tropius,90.9,101.4,128,170,2208,AIR_SLASH,BRUTAL_SWING,LEAF_BLADE,87.8,71.7,85.2,94.2
-electrode,Electrode,90.6,122.8,126.3,118,1832,VOLT_SWITCH,FOUL_PLAY,HYPER_BEAM,93,87,93,78
-ampharos,Ampharos,89.9,126.8,107.9,129,1766,VOLT_SWITCH,BRUTAL_SWING,POWER_GEM,93.9,88.1,86.4,74.8
-galvantula,Galvantula,89.8,138.2,96.4,122,1627,FURY_CUTTER,CROSS_POISON,LUNGE,96.4,83,84.5,65.1
-ludicolo,Ludicolo,89.6,116.4,123.6,134,1931,ASTONISH,WEATHER_BALL_WATER,ICE_BEAM,92.5,81.6,81.9,73.7
-decidueye,Decidueye,89.5,127.8,115.2,119,1754,ASTONISH,FRENZY_PLANT,SPIRIT_SHACKLE,96.1,76,82,71.1
-muk,Muk,89.5,115.8,111.7,148,1916,POISON_JAB,DARK_PULSE,THUNDER_PUNCH,83.2,58.1,89.9,82.8
-tentacruel,Tentacruel,89.3,108.9,143.5,131,2047,ACID,SCALD,PAYBACK,77.4,53.6,94.9,78.2
-weezing_galarian,Weezing (Galarian),89.2,117.6,139.5,116,1905,FAIRY_WIND,BRUTAL_SWING,SLUDGE,88.6,91.5,86.6,86.8
-xatu,Xatu,89.2,132.2,107.9,119,1698,PECK,PSYSHOCK,AERIAL_ACE,93.7,87.8,81.9,68
-weezing,Weezing,88.9,117.5,140.2,116,1913,ROLLOUT,SHADOW_BALL,SLUDGE_BOMB,78.8,63.5,96.1,60.2
-mew,Mew,88.1,120.4,119.3,129,1855,SHADOW_CLAW,DARK_PULSE,PSYSHOCK,92.5,90.8,81.7,62.2
-slowbro_galarian,Slowbro (Galarian),88.1,119.1,108.3,146,1885,CONFUSION,BRUTAL_SWING,SLUDGE_BOMB,92.3,81.2,82.4,74.5
-golisopod,Golisopod,88,124,134.6,108,1804,SHADOW_CLAW,X_SCISSOR,AQUA_JET,89.5,85.9,87.3,70.5
-grimer,Grimer,87.9,121,88.2,172,1836,POISON_JAB,SLUDGE,MUD_BOMB,82.4,73.1,89.3,75.1
-chimecho,Chimecho,87.8,119.5,120.8,130,1879,ASTONISH,PSYSHOCK,SHADOW_BALL,87.6,65.7,83.3,65.7
-uxie,Uxie,87.7,102.1,176,122,2194,CONFUSION,SWIFT,FUTURE_SIGHT,89.1,77.9,84.3,90.5
-venomoth,Venomoth,87.3,127,107.5,129,1763,PSYWAVE,POISON_FANG,SILVER_WIND,88.4,64.9,77.9,88.5
-dedenne,Dedenne,87.1,124.3,109,133,1804,THUNDER_SHOCK,PARABOLIC_CHARGE,PLAY_ROUGH,89.8,72.3,83.6,73.1
-houndstone,Houndstone,86.7,120.3,130.3,119,1866,LICK,SHADOW_BALL,PSYCHIC_FANGS,87.1,71.6,78.4,76.5
-beedrill,Beedrill,85.8,127.1,106.5,130,1760,POISON_STING,X_SCISSOR,DRILL_RUN,84.6,77.8,85,63.7
-frosmoth,Frosmoth,85.8,141.5,101,111,1587,POWDER_SNOW,ICY_WIND,BUG_BUZZ,82.2,71.3,88.1,56.2
-electivire,Electivire,85.7,143.3,100.8,108,1562,THUNDER_SHOCK,ICE_PUNCH,WILD_CHARGE,89.1,74.8,84,48.5
-misdreavus,Misdreavus,85.7,123,120.8,122,1814,ASTONISH,SHADOW_SNEAK,DARK_PULSE,84.2,64.4,83.4,77.4
-kilowattrel,Kilowattrel,85.6,143.2,92.5,118,1563,THUNDER_SHOCK,ACROBATICS,AERIAL_ACE,88.6,82.4,91.4,46.8
-grafaiai,Grafaiai,85.5,134.2,107.7,115,1664,POISON_JAB,POISON_FANG,SLUDGE_BOMB,84.9,76.9,73.7,80.8
-ariados,Ariados,85.4,124.2,103.8,140,1806,POISON_STING,SHADOW_SNEAK,LUNGE,88.4,82.4,84.8,70.2
-swoobat,Swoobat,85.4,126.6,101.6,138,1777,CONFUSION,FLY,PSYCHIC_FANGS,91.8,81.9,70.9,70.5
-mismagius,Mismagius,85.2,131.6,123.6,104,1693,HEX,SHADOW_BALL,DARK_PULSE,80,65.7,92.3,41.4
-sceptile,Sceptile,84.8,135.6,109.3,111,1646,FURY_CUTTER,LEAF_BLADE,AERIAL_ACE,86.2,75.3,78.2,57.7
-parasect,Parasect,84.7,124.1,118.2,123,1807,FURY_CUTTER,X_SCISSOR,CROSS_POISON,89.5,62.3,77,78.5
-pinsir,Pinsir,84.4,139.6,112.6,102,1604,FURY_CUTTER,X_SCISSOR,CLOSE_COMBAT,89.8,72.5,83.8,52.8
-polteageist,Polteageist,84.1,142.8,115.6,95,1569,HEX,SHADOW_BALL,DARK_PULSE,72.5,54.6,96.1,34.5
-ninjask,Ninjask,83.9,144.7,88.4,121,1549,FURY_CUTTER,SHADOW_BALL,AERIAL_ACE,77.3,48,82.4,50.5
-rapidash_galarian,Rapidash (Galarian),83.9,133.6,111.5,112,1670,PSYCHO_CUT,BODY_SLAM,MEGAHORN,91,78.5,74.9,52.8
-raichu_alolan,Raichu (Alolan),83.8,135.4,109.9,111,1653,THUNDER_SHOCK,WILD_CHARGE,PSYSHOCK,85.6,71.6,80,50.5
-qwilfish,Qwilfish,83.7,131.1,105.5,123,1703,POISON_STING,AQUA_TAIL,ICE_BEAM,83,75,78.4,54.8
-scolipede,Scolipede,83.5,131.7,120.3,107,1698,BUG_BITE,X_SCISSOR,AQUA_TAIL,80.7,60.8,75.4,76.5
-victreebel,Victreebel,83.4,135.1,93.5,131,1656,ACID,LEAF_BLADE,SLUDGE_BOMB,86.1,80.9,76.6,53.1
-mr_mime,Mr. Mime,82.8,131.5,144.2,90,1709,PSYWAVE,SHADOW_BALL,PSYCHIC,72.5,61.1,86.6,48.2
-oricorio_pom_pom,Oricorio (Pom-Pom),82.3,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,83.7,65.7,80.5,71.4
-raichu,Raichu,82.1,133.5,110.6,114,1685,VOLT_SWITCH,WILD_CHARGE,BRICK_BREAK,91,70.4,88.8,56.5
-lurantis,Lurantis,81.9,126.2,117.8,119,1770,FURY_CUTTER,LEAF_BLADE,X_SCISSOR,83.5,69.4,75.6,65.1
-leavanny,Leavanny,81.8,129.4,110.2,121,1727,SHADOW_CLAW,X_SCISSOR,LEAF_BLADE,84.4,66.4,75.8,58
-swadloon,Swadloon,81.6,106.7,146.2,135,2106,BUG_BITE,SILVER_WIND,BUG_BUZZ,75.9,39.2,77.7,86.8
-electrode_hisuian,Electrode (Hisuian),81.5,123.2,128.7,115,1825,THUNDER_SHOCK,WILD_CHARGE,SWIFT,87.6,82.7,79.4,60.5
-roserade,Roserade,81.3,141.9,114.3,97,1574,POISON_STING,WEATHER_BALL_FIRE,SLUDGE_BOMB,87.4,64.1,80,42.8
-karrablast,Karrablast,81,127.7,85.7,127,1390,FURY_CUTTER,X_SCISSOR,DRILL_RUN,81.2,70.9,78.6,42.2
-espeon,Espeon,80.8,148,105.6,97,1517,CONFUSION,SHADOW_BALL,PSYCHIC_FANGS,89,85.9,64.5,43.1
-banette,Banette,80.5,145.2,92.2,115,1542,SHADOW_CLAW,SHADOW_BALL,DAZZLING_GLEAM,71.7,64.4,76,49.4
-jolteon,Jolteon,80.5,137.4,114.7,103,1624,VOLT_SWITCH,DISCHARGE,LAST_RESORT,86.1,71,74.6,54
-alakazam,Alakazam,80.3,155.8,101.4,91,1439,PSYCHO_CUT,SHADOW_BALL,FIRE_PUNCH,84.2,68.2,84.6,22
-eelektross,Eelektross,80.3,133.8,99.7,126,1682,ACID,CRUNCH,THUNDERBOLT,79,49.4,89,39.1
-electabuzz,Electabuzz,79.9,130.8,113.2,115,1704,THUNDER_SHOCK,THUNDER_PUNCH,RETURN,76.6,61.5,79.4,48.8
-wyrdeer,Wyrdeer,79.7,126.6,95.5,146,1767,CONFUSION,WILD_CHARGE,MEGAHORN,77.4,49.7,78.7,80
-sinistcha,Sinistcha,79.6,132.1,118.3,108,1689,ASTONISH,SHADOW_BALL,ENERGY_BALL,78.5,55,77.2,68
-seviper,Seviper,78.9,137.5,90,131,1623,POISON_JAB,POISON_FANG,CRUNCH,75.2,52.7,71.8,61.1
-nidorino,Nidorino,78.5,123.3,104.3,141,1814,POISON_STING,SLUDGE_BOMB,ICE_BEAM,64.6,43.1,83.3,56.5
-masquerain,Masquerain,78.3,129.5,109.1,122,1725,INFESTATION,AIR_CUTTER,LUNGE,75.6,58,75.1,69.7
-bellossom,Bellossom,78.2,115,132.2,128,1948,ACID,LEAF_BLADE,DAZZLING_GLEAM,78,58.1,73.7,67.7
-flapple,Flapple,78.1,138.1,100.1,117,1618,DRAGON_BREATH,FLY,OUTRAGE,69.2,59.3,69,40
-medicham,Medicham,78,106.9,139.4,141,2103,PSYCHO_CUT,ICE_PUNCH,DYNAMIC_PUNCH,77.3,69.1,77.9,69.1
-mr_mime_galarian,Mr. Mime (Galarian),78,130.4,127,104,1724,CONFUSION,ICE_PUNCH,TRIPLE_AXEL,79,61.5,72.6,46.8
-slowpoke_galarian,Slowpoke (Galarian),77.8,104.1,94.9,186,1840,CONFUSION,PSYSHOCK,SURF,78.6,56.5,76.8,69.4
-starmie,Starmie,77.8,133.1,122,104,1690,PSYWAVE,POWER_GEM,SURF,73.9,60.5,66.7,42.8
-gogoat,Gogoat,77.6,119.7,94.9,165,1876,VINE_WHIP,LEAF_BLADE,ROCK_SLIDE,77.1,64.9,74.7,54
-shiinotic,Shiinotic,77.4,116.5,134.2,123,1925,ASTONISH,MOONBLAST,SLUDGE_BOMB,75.9,42.8,78.6,70.8
-pineco,Pineco,76.9,103.3,115.1,127,1511,BUG_BITE,ROCK_TOMB,SAND_TOMB,74.9,50.9,66.9,75.7
-arbok,Arbok,76.8,123.7,120.1,122,1814,ACID,DARK_PULSE,SLUDGE_WAVE,65.6,44.3,77.5,56.2
-jynx,Jynx,76.8,141.2,102.2,110,1588,CONFUSION,AVALANCHE,ICE_PUNCH,73.9,63.3,78.4,43.7
-wormadam_plant,Wormadam (Plant),76.8,110,144.8,128,2040,SUCKER_PUNCH,BUG_BUZZ,ENERGY_BALL,74.2,42.9,78.9,72.2
-luxray,Luxray,76.6,138,98.9,119,1626,SPARK,CRUNCH,PSYCHIC_FANGS,72.5,71.6,72.3,52.5
-hoopa,Hoopa,76.5,144.8,106.3,99,1524,ASTONISH,SHADOW_BALL,PSYCHIC,78,51.5,66.9,70
-yanma,Yanma,76.5,130.8,89.6,146,1713,WING_ATTACK,AERIAL_ACE,SILVER_WIND,77.3,44.9,77.5,49.7
-heracross,Heracross,76.4,134.6,108.4,114,1665,FURY_CUTTER,MEGAHORN,ROCK_TOMB,65.8,46.5,74.9,50.2
-yanmega,Yanmega,76.4,136.8,96,125,1643,WING_ATTACK,AERIAL_ACE,BUG_BUZZ,71.5,46.5,80,45.4
-crobat,Crobat,76.2,121.2,118.1,129,1847,AIR_SLASH,AIR_CUTTER,CROSS_POISON,73.7,42.6,72,71.7
-butterfree,Butterfree,76,126.6,112.5,124,1769,BUG_BITE,BUG_BUZZ,SIGNAL_BEAM,72.7,42.5,63.3,83.7
-dustox,Dustox,75.8,94.9,148.7,142,2005,CONFUSION,SLUDGE_BOMB,SILVER_WIND,71.4,28.3,77,75.7
-mr_rime,Mr. Rime,75.8,127.4,114.4,120,1750,CONFUSION,ICE_PUNCH,TRIPLE_AXEL,77.8,58.3,70.9,46.8
-manectric,Manectric,75.7,142.4,91.3,121,1574,SNARL,WILD_CHARGE,PSYCHIC_FANGS,89.1,55,76.6,38.8
-meowstic,Meowstic (Male),75.3,117.1,123.9,132,1917,SUCKER_PUNCH,PSYCHIC,THUNDERBOLT,68.6,45.4,78,70.2
-exeggutor_alolan,Exeggutor (Alolan),75.1,134.4,94.8,131,1670,DRAGON_TAIL,DRAGON_PULSE,SEED_BOMB,77.3,55.2,58.6,35.4
-mothim,Mothim,75,140,82.9,138,1603,BUG_BITE,AERIAL_ACE,BUG_BUZZ,75.1,43.8,62.2,75.7
-oricorio_pau,Oricorio (Pa'u),75,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,75.8,46.6,65,58.2
-gallade,Gallade,74.9,136.5,115.6,104,1642,CONFUSION,LEAF_BLADE,CLOSE_COMBAT,82.2,67.3,60.3,48.2
-snover,Snover,74.4,109.2,100.8,142,1564,POWDER_SNOW,ICE_BEAM,STOMP,73.9,58.9,69.2,50.5
-slowpoke,Slowpoke,74.3,104.1,94.9,186,1840,CONFUSION,PSYSHOCK,WATER_PULSE,74.2,53,74.2,68
-flaaffy,Flaaffy,74.2,121.5,100.4,151,1844,TACKLE,POWER_GEM,DISCHARGE,65.9,41.5,80.5,43.1
-heliolisk,Heliolisk,74.2,138.1,112.1,105,1626,VOLT_SWITCH,PARABOLIC_CHARGE,GRASS_KNOT,75.1,58.3,68.5,52.5
-toxicroak,Toxicroak,74.1,136.2,93.7,129,1648,POISON_STING,SHADOW_BALL,SLUDGE_BOMB,57.3,20.5,89,40.8
-sigilyph,Sigilyph,73.7,130,112.1,118,1721,AIR_SLASH,AIR_CUTTER,ANCIENT_POWER,74.7,46.3,63.6,59.4
-gothitelle,Gothitelle,73.6,115.3,140.9,119,1934,CONFUSION,ROCK_SLIDE,FUTURE_SIGHT,73.7,57.1,70.7,58.2
-dolliv,Dolliv,73.5,118.4,122.6,130,1890,TACKLE,TRAILBLAZE,SEED_BOMB,73.2,63.8,57.9,68.8
-espurr,Espurr,73.4,113.4,108.3,145,1783,CONFUSION,PSYSHOCK,ENERGY_BALL,75.2,55.9,69.2,52
-serperior,Serperior,73,110.2,142.2,130,2038,VINE_WHIP,FRENZY_PLANT,AERIAL_ACE,65.1,45.3,76.1,51.7
-sneasler,Sneasler,73,145.4,94.7,112,1543,SHADOW_CLAW,X_SCISSOR,CLOSE_COMBAT,74.9,33.5,76.1,47.4
-grotle,Grotle,72.9,117.8,114.8,141,1908,BITE,BODY_SLAM,ENERGY_BALL,71.9,48.4,59.1,76
-vivillon,Vivillon,72.9,131.7,86.3,149,1694,GUST,AERIAL_ACE,BUG_BUZZ,74.9,40.7,66,74
-venusaur,Venusaur,72.8,122.1,122.1,123,1836,VINE_WHIP,SLUDGE,FRENZY_PLANT,72.5,64.1,75.4,42.8
-bruxish,Bruxish,72.7,136.4,102.5,117,1637,CONFUSION,PSYSHOCK,PSYCHIC_FANGS,78.5,57.3,56.8,43.4
-beautifly,Beautifly,72.3,144.7,83.9,127,1543,INFESTATION,AIR_CUTTER,SILVER_WIND,74.4,46.3,72,39.4
-gardevoir,Gardevoir,72.3,136.5,115.6,104,1642,CONFUSION,SHADOW_BALL,TRIPLE_AXEL,76.9,60.2,57.2,49.4
-slowbro,Slowbro,72.1,113.4,120.9,144,1975,CONFUSION,SURF,ICE_BEAM,69.3,48.3,73.2,64
-appletun,Appletun,71.7,116.5,102.5,161,1924,ASTONISH,OUTRAGE,DRAGON_PULSE,72,41.6,69.7,65.4
-oddish,Oddish,71.5,122.6,106.7,120,1571,ACID,SLUDGE_BOMB,SEED_BOMB,68.8,58.1,65,40.8
-pawmo,Pawmo,71.5,136.1,81.5,142,1576,THUNDER_SHOCK,WILD_CHARGE,THUNDER_PUNCH,69.5,45.7,72.6,36
-gloom,Gloom,71.1,121.3,115.9,131,1844,ACID,SLUDGE_BOMB,MOONBLAST,59.5,42.2,70.7,46
-lilligant_hisuian,Lilligant (Hisuian),71.1,133.4,107.7,117,1683,LEAFAGE,LEAF_BLADE,ACROBATICS,65.6,36.6,70.6,30.5
-deoxys_defense,Deoxys (Defense),70.9,101,221.4,98,2193,COUNTER,PSYCHO_BOOST,ROCK_SLIDE,63.6,30.7,79.3,48.5
-gothorita,Gothorita,70.8,112.2,132.7,134,1997,CONFUSION,FUTURE_SIGHT,PSYCHIC,69,44.9,73.3,59.4
-azelf,Azelf,70.4,152.5,90.3,106,1461,CONFUSION,SWIFT,FUTURE_SIGHT,78,60.7,58.4,42.8
-meowstic_female,Meowstic (Female),70.3,117.1,123.9,132,1917,CONFUSION,SHADOW_BALL,PSYCHIC,64.1,40.3,76,55.4
-drowzee,Drowzee,70.1,87.3,126.8,142,1575,CONFUSION,PSYSHOCK,RETURN,68,45.6,72.1,57.7
-mesprit,Mesprit,70.1,123.5,128,114,1804,CONFUSION,SWIFT,FUTURE_SIGHT,75.2,54.2,58.6,54
-grovyle,Grovyle,69.5,136.3,103.2,117,1647,QUICK_ATTACK,LEAF_BLADE,AERIAL_ACE,69.8,64.1,60.5,30.2
-slowking,Slowking,69.2,113.4,120.9,144,1975,CONFUSION,SURF,BLIZZARD,68.5,48,66.9,65.1
-elekid,Elekid,69,126,97.4,120,1474,THUNDER_SHOCK,THUNDER_PUNCH,BRICK_BREAK,65.9,49.9,60.1,45.1
-minun,Minun,68.9,116.3,127,130,1922,QUICK_ATTACK,THUNDERBOLT,GRASS_KNOT,63.2,48.1,74.2,33.7
-meganium,Meganium,68.8,110.8,139,131,2018,VINE_WHIP,FRENZY_PLANT,RETURN,57.1,28.9,72.6,47.7
-pawmot,Pawmot,68.8,145,95.4,112,1552,THUNDER_SHOCK,WILD_CHARGE,CLOSE_COMBAT,60.9,24.6,78.7,24
-sneasel_hisuian,Sneasel (Hisuian),68.8,133.9,111.7,111,1662,POISON_JAB,X_SCISSOR,CLOSE_COMBAT,65.9,27.4,67.4,57.1
-wobbuffet,Wobbuffet,68.8,63,101.6,333,2134,CHARM,RETURN,MIRROR_COAT,65.1,40.1,70.6,65.1
-servine,Servine,68.6,105.8,140.3,142,2110,VINE_WHIP,WRAP,GRASS_KNOT,68.3,53,63.4,63.7
-decidueye_hisuian,Decidueye (Hisuian),68.2,124.2,111.7,130,1805,PSYCHO_CUT,NIGHT_SHADE,AURA_SPHERE,67.1,56.1,68.5,33.4
-skrelp,Skrelp,67.4,104.1,104.1,127,1379,ACID,AQUA_TAIL,TWISTER,66.8,51.8,58.9,47.1
-kadabra,Kadabra,67,163.8,90.9,92,1370,PSYCHO_CUT,SHADOW_BALL,DAZZLING_GLEAM,54.3,29.6,78.7,18.2
-beheeyem,Beheeyem,66.7,134.4,105.7,117,1663,CONFUSION,ROCK_SLIDE,DARK_PULSE,68.1,54.6,50.7,47.1
-arboliva,Arboliva,66.6,129.2,116.6,115,1734,TACKLE,TRAILBLAZE,SEED_BOMB,64.8,52.8,51.4,57.1
-whirlipede,Whirlipede,66.5,96.6,157.9,113,1725,POISON_STING,SLUDGE_BOMB,SIGNAL_BEAM,57,46.3,69.7,47.4
-celebi,Celebi,66.4,120.4,119.3,129,1855,CONFUSION,AURA_SPHERE,PSYCHIC,69.3,45.7,54.6,49.4
-tangrowth,Tangrowth,66.4,120.7,112.7,136,1852,VINE_WHIP,ROCK_SLIDE,SLUDGE_BOMB,52.4,38.8,67.8,38.5
-luxio,Luxio,66.3,133.2,91,139,1687,SPARK,WILD_CHARGE,CRUNCH,58.7,40.6,66.2,32.8
-ponyta_galarian,Ponyta (Galarian),66.3,133.5,108.2,116,1676,PSYCHO_CUT,SWIFT,PSYBEAM,67.6,51.4,50.6,32.2
-vileplume,Vileplume,66.3,128.8,112.7,120,1743,ACID,SLUDGE_BOMB,MOONBLAST,56.1,38.7,63.3,42.2
-weepinbell,Weepinbell,66.2,137.9,84.8,139,1627,ACID,SLUDGE_BOMB,POWER_WHIP,52.6,31.3,66,39.7
-cherrim_sunny,Cherrim (Sunshine),66.1,121.8,116.2,130,1843,BULLET_SEED,WEATHER_BALL_FIRE,DAZZLING_GLEAM,66.8,49.1,61.2,36.2
-braviary_hisuian,Braviary (Hisuian),66,128.5,89.6,151,1741,AIR_SLASH,BRAVE_BIRD,FLY,62.7,35.7,61.3,52.2
-exeggutor,Exeggutor,65.9,136.1,92.5,131,1650,CONFUSION,PSYCHIC,SEED_BOMB,68.3,48.7,54.4,45.1
-boltund,Boltund,65.6,136.9,95.3,126,1645,SPARK,CRUNCH,THUNDER,51.7,37.8,67.6,29.7
-zebstrika,Zebstrika,65.5,137.7,95.4,124,1630,SPARK,WILD_CHARGE,FLAME_CHARGE,50.9,40.1,63.6,32
-leafeon,Leafeon,65.3,128.1,133.9,102,1750,QUICK_ATTACK,LEAF_BLADE,LAST_RESORT,58.7,47.2,62.2,42.5
-bayleef,Bayleef,64.7,105.5,141.5,142,2122,MAGICAL_LEAF,ANCIENT_POWER,GRASS_KNOT,58,29.8,67.8,45.4
-quilladin,Quilladin,63.9,114.9,130.2,130,1947,VINE_WHIP,BODY_SLAM,GYRO_BALL,61.5,48,58.7,45.4
-ribombee,Ribombee,63.8,136.2,105.9,114,1645,FAIRY_WIND,BUG_BUZZ,DAZZLING_GLEAM,40.6,30.8,75.1,22.5
-garbodor,Garbodor,63.5,121,115.9,132,1853,INFESTATION,BODY_SLAM,GUNK_SHOT,55.6,33.9,59.3,45.7
-skorupi,Skorupi,63.5,90.7,139.4,113,1430,POISON_STING,CROSS_POISON,AQUA_TAIL,59.3,45,53.9,49.7
-hatterene,Hatterene,63.1,142.1,115,96,1570,PSYCHO_CUT,POWER_WHIP,DAZZLING_GLEAM,53.4,44.6,64,21.1
-illumise,Illumise,63.1,111.4,136.2,133,2019,STRUGGLE_BUG,SILVER_WIND,BUG_BUZZ,54.1,26.7,70.2,52.8
-whimsicott,Whimsicott,63.1,118.7,135,118,1892,FAIRY_WIND,MOONBLAST,HURRICANE,50.9,23,70.9,28.5
-dipplin,Dipplin,62.7,114.6,128.8,132,1950,DRAGON_TAIL,OUTRAGE,DRAGON_PULSE,54.9,30.1,65.2,39.4
-tentacool,Tentacool,62.6,94.1,137.8,113,1466,POISON_STING,WRAP,WATER_PULSE,58.3,50.3,54.9,56.5
-koffing,Koffing,62.5,112.6,131,113,1668,TACKLE,SLUDGE,DARK_PULSE,51,33,63.3,39.4
-indeedee_male,Indeedee (Male),62.3,134.9,114.6,107,1656,EXTRASENSORY,SHADOW_BALL,PSYCHIC,51.9,26.5,65.7,33.4
-ivysaur,Ivysaur,61.3,118.7,121,131,1883,VINE_WHIP,SLUDGE_BOMB,POWER_WHIP,48.9,35.3,65.2,31.7
-plusle,Plusle,61.1,128.2,107.2,127,1746,QUICK_ATTACK,THUNDERBOLT,GRASS_KNOT,48.3,35.7,70.2,23.1
-chesnaught,Chesnaught,61,119.3,126.9,124,1879,VINE_WHIP,FRENZY_PLANT,THUNDER_PUNCH,57.5,43.7,62.7,30.5
-hydrapple,Hydrapple,60.2,122.2,110.7,136,1841,DRAGON_TAIL,OUTRAGE,DRAGON_PULSE,49.2,31.4,60.3,36
-hattrem,Hattrem,59.7,122.7,115.7,128,1818,CONFUSION,DAZZLING_GLEAM,PSYCHIC,58.8,39.8,57,48.5
-elgyem,Elgyem,59.6,133.6,95.4,132,1685,CONFUSION,DARK_PULSE,PSYCHIC,61,40.7,51.4,46.8
-maractus,Maractus,58.8,135.5,95.2,128,1652,POISON_JAB,AERIAL_ACE,PETAL_BLIZZARD,48.2,31.7,56.8,35.4
-volbeat,Volbeat,58.5,111.4,136.2,133,2019,STRUGGLE_BUG,BUG_BUZZ,SIGNAL_BEAM,48.9,25.1,64,53.1
-musharna,Musharna,58.4,113.1,108.8,161,1982,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM,52.7,29.5,60.6,31.4
-exeggcute,Exeggcute,57.6,102.5,117.6,142,1713,CONFUSION,ANCIENT_POWER,SEED_BOMB,57.3,36.4,49.5,46.5
-roselia,Roselia,57.6,138.5,105.9,110,1615,POISON_JAB,SLUDGE_BOMB,DAZZLING_GLEAM,55.3,33.8,47.8,47.7
-dottler,Dottler,57.5,85.7,144.5,127,1573,CONFUSION,BUG_BUZZ,PSYCHIC,52.4,28.9,61.7,43.7
-reuniclus,Reuniclus,57.3,126.9,94.9,147,1771,CHARM,PSYSHOCK,SHADOW_BALL,52.1,35.3,48.3,36.8
-indeedee_female,Indeedee (Female),57,121.7,128.2,118,1842,EXTRASENSORY,PSYCHIC,ENERGY_BALL,48.2,28,59.6,47.1
-sawsbuck,Sawsbuck,56.8,129.4,101.8,131,1727,FEINT_ATTACK,WILD_CHARGE,MEGAHORN,49.4,28.8,58.9,47.4
-simisage,Simisage,56.5,135.9,95.8,126,1642,VINE_WHIP,CRUNCH,GRASS_KNOT,47,30.2,59.6,19.1
-carnivine,Carnivine,55.5,130.1,101.8,130,1724,VINE_WHIP,CRUNCH,POWER_WHIP,50.4,30.1,56.8,21.4
-deerling,Deerling,55.3,109.2,96.6,142,1499,TACKLE,WILD_CHARGE,TRAILBLAZE,52.1,40.6,48.5,46.2
-tsareena,Tsareena,55.2,130.4,120.6,109,1715,MAGICAL_LEAF,TRIPLE_AXEL,GRASS_KNOT,46.1,27.9,42.2,30
-accelgor,Accelgor,54.8,143.2,84.9,129,1569,ACID,BUG_BUZZ,SIGNAL_BEAM,39.5,26.8,58.4,28.2
-floragato,Floragato,54,124.4,110.5,131,1803,LEAFAGE,GRASS_KNOT,PLAY_ROUGH,45.3,28.9,47.4,28.2
-tangela,Tangela,53.6,125.5,122.8,116,1790,VINE_WHIP,SLUDGE_BOMB,GRASS_KNOT,45,25.5,51.3,22.5
-rillaboom,Rillaboom,52.5,132.4,99.3,129,1696,SCRATCH,DRUM_BEATING,FRENZY_PLANT,55.3,38.1,34.7,42
-chinchou,Chinchou,52.4,101.6,94.1,164,1569,BUBBLE,WATER_PULSE,THUNDERBOLT,38.2,25.8,60.6,25.1
-shaymin_sky,Shaymin (Sky),52.2,139.3,94.1,123,1614,HIDDEN_POWER_FLYING,GRASS_KNOT,ENERGY_BALL,54.4,29.6,32.8,49.1
-eldegoss,Eldegoss,51.9,108.4,160.4,119,2070,BULLET_SEED,GRASS_KNOT,ENERGY_BALL,43.9,27.1,53,36.5
-sunflora,Sunflora,50.1,128.7,102.1,132,1736,BULLET_SEED,SLUDGE_BOMB,LEAF_STORM,42.8,22.7,54.2,17.4
-thwackey,Thwackey,49.2,123.6,107.5,136,1809,SCRATCH,GRASS_KNOT,ENERGY_BALL,50.9,34.4,32.3,46.2
-duosion,Duosion,48.4,149.2,81.9,123,1504,HIDDEN_POWER_PSYCHIC,PSYSHOCK,NIGHT_SHADE,44.1,25.5,36.8,31.4
-deoxys_speed,Deoxys (Speed),48.1,140.7,131.5,86,1593,CHARGE_BEAM,PSYCHO_BOOST,SWIFT,44.6,34.7,42.9,15.7
-rowlet,Rowlet,47.6,98.3,95.7,154,1450,LEAFAGE,SEED_BOMB,ENERGY_BALL,46.1,30.8,40,28.5
-solosis,Solosis,47,152,81.8,118,1468,HIDDEN_POWER_PSYCHIC,PSYSHOCK,NIGHT_SHADE,42.9,25.2,35.1,31.4
-shaymin_land,Shaymin (Land),46.6,117.8,122.2,132,1902,MAGICAL_LEAF,GRASS_KNOT,ENERGY_BALL,37,19.6,48,29.4
-turtwig,Turtwig,46.6,112.6,105,135,1597,TACKLE,BODY_SLAM,SEED_BOMB,42.6,31.3,39.4,27.7
-lilligant,Lilligant,45.8,136.5,105.8,114,1649,CHARM,HYPER_BEAM,PETAL_BLIZZARD,50.9,32,25.2,37.7
-chespin,Chespin,44.7,105,101.6,136,1452,VINE_WHIP,BODY_SLAM,GYRO_BALL,41.4,31.9,37.2,25.1
-bulbasaur,Bulbasaur,44.1,111.7,105.8,120,1420,VINE_WHIP,SLUDGE_BOMB,POWER_WHIP,30.9,18.6,41.7,18.5
-lombre,Lombre,44,106.7,112.6,142,1706,BUBBLE,ICE_BEAM,SCALD,28,18.9,51.4,20.5
-munna,Munna,41.3,105.8,89.9,166,1580,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM,32.1,21.4,40.6,18
-cherrim_overcast,Cherrim (Overcast),39.9,121.8,116.2,130,1843,BULLET_SEED,DAZZLING_GLEAM,HYPER_BEAM,28,15,41.7,15.1
-breloom,Breloom,37.4,149.9,96.7,103,1494,FORCE_PALM,SLUDGE_BOMB,DYNAMIC_PUNCH,34.3,16.3,29.5,28
-spoink,Spoink,34.6,117.6,115.1,141,1910,ZEN_HEADBUTT,SHADOW_BALL,RETURN,34,19.9,26.4,31.7
-unown,Unown,34.5,126.8,89,125,1413,HIDDEN_POWER_ICE,STRUGGLE,,38.9,23.4,18.2,30.8
-skiddo,Skiddo,23,115.9,98.3,151,1722,ROCK_SMASH,ROCK_SLIDE,SEED_BOMB,16.2,10.3,25,15.1
+speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore,topMatchups,topCounters
+hypno,Hypno,98,103.4,142.9,147,2174,CONFUSION,SHADOW_BALL,PSYSHOCK,100,86.4,96.5,100,haunter:751;emolga:622;dartrix:561;grumpig:523;tropius:513,scyther:269;trevenant:301;delphox:336;gengar:454;orbeetle:482
+emolga,Emolga,95.9,127.5,110.2,125,1758,THUNDER_SHOCK,ACROBATICS,DISCHARGE,100,89.6,95.4,95.1,dartrix:764;trevenant:732;delphox:688;orbeetle:620;grumpig:568,haunter:227;gengar:234;girafarig:350;hypno:377;eelektrik:400
+dartrix,Dartrix,95.4,112.4,115.5,154,2001,PECK,BRAVE_BIRD,SEED_BOMB,94.9,79.1,96.3,99.7,orbeetle:720;scyther:639;tropius:636;girafarig:590;grumpig:548,emolga:236;haunter:351;hypno:438;gengar:474;trevenant:492
+trevenant,Trevenant,93.5,127.8,104.6,131,1752,SHADOW_CLAW,SHADOW_BALL,FOUL_PLAY,98.6,100,96.3,57.1,grumpig:755;hypno:698;gengar:629;orbeetle:610;dartrix:507,girafarig:157;golisopod:236;scyther:243;emolga:268;tropius:408
+gengar,Gengar,93.3,154.3,95.4,98,1444,SHADOW_CLAW,SHADOW_PUNCH,SHADOW_BALL,100,88.4,87.6,61.1,emolga:765;orbeetle:719;hypno:545;dartrix:525;grumpig:510,girafarig:138;decidueye:281;trevenant:370;tropius:473;golisopod:486
+haunter,Haunter,92.9,161.1,85.5,101,1392,SHADOW_CLAW,SHADOW_PUNCH,ICE_PUNCH,91,85.6,100,55.7,emolga:772;orbeetle:683;dartrix:648;delphox:579;grumpig:524,girafarig:157;hypno:248;decidueye:281;trevenant:370;golisopod:495
+grumpig,Grumpig,92.4,113.3,131.4,132,1967,PSYWAVE,SHADOW_BALL,DYNAMIC_PUNCH,92.3,72.2,92.8,85.4,weezing_galarian:662;muk:636;delphox:590;tropius:553;girafarig:553,trevenant:244;emolga:432;dartrix:451;hypno:476;gengar:489
+kricketune,Kricketune,91.9,127.7,89.5,153,1751,FURY_CUTTER,X_SCISSOR,AERIAL_ACE,93.4,61.5,91.1,85.1,grumpig:790;hypno:751;orbeetle:650;trevenant:545;delphox:516,scyther:181;haunter:193;gengar:198;emolga:328;dartrix:422
+orbeetle,Orbeetle,91.8,107.9,168.6,114,2075,PSYCHO_CUT,PSYSHOCK,BUG_BUZZ,89.1,71,93,93.4,girafarig:728;weezing_galarian:662;eelektrik:578;grumpig:565;hypno:517,dartrix:279;gengar:280;haunter:316;emolga:380;trevenant:389
+eelektrik,Eelektrik,91.7,122.3,110,136,1831,ACID,CRUNCH,DISCHARGE,95.7,86.1,92.1,73.1,trevenant:753;delphox:713;dartrix:669;emolga:599;haunter:507,gengar:387;weezing_galarian:392;hypno:394;orbeetle:421;grumpig:443
+girafarig,Girafarig,91.6,130.3,101.5,130,1721,CONFUSION,PSYCHIC_FANGS,TRAILBLAZE,98.1,81,73.7,83.4,gengar:861;trevenant:842;haunter:842;emolga:650;hypno:584,orbeetle:271;tropius:335;delphox:336;dartrix:409;grumpig:446
+delphox,Delphox,91.5,132.6,115.6,110,1687,FIRE_SPIN,PSYSHOCK,BLAST_BURN,94.9,84.9,86.2,74.8,orbeetle:750;tropius:740;hypno:663;girafarig:663;dartrix:622,emolga:312;gengar:372;grumpig:409;haunter:420;trevenant:484
+scyther,Scyther,91.5,134.8,109.4,113,1668,FURY_CUTTER,X_SCISSOR,NIGHT_SLASH,94.9,83.6,89.9,74.8,trevenant:756;hypno:730;grumpig:730;orbeetle:597;delphox:544,haunter:183;gengar:188;emolga:308;dartrix:360;tropius:373
+tropius,Tropius,90.9,101.4,128,170,2208,AIR_SLASH,BRUTAL_SWING,LEAF_BLADE,87.8,71.7,85.2,94.2,girafarig:664;scyther:626;trevenant:591;orbeetle:570;gengar:526,emolga:144;haunter:316;dartrix:363;grumpig:446;hypno:486
+electrode,Electrode,90.6,122.8,126.3,118,1832,VOLT_SWITCH,FOUL_PLAY,HYPER_BEAM,93,87,93,78,gengar:741;delphox:699;emolga:669;dartrix:639;haunter:533,hypno:442;scyther:446;grumpig:454;orbeetle:469;trevenant:480
+ampharos,Ampharos,89.9,126.8,107.9,129,1766,VOLT_SWITCH,BRUTAL_SWING,POWER_GEM,93.9,88.1,86.4,74.8,delphox:697;dartrix:651;emolga:620;orbeetle:612;gengar:511,girafarig:273;haunter:341;hypno:380;grumpig:424;trevenant:442
+galvantula,Galvantula,89.8,138.2,96.4,122,1627,FURY_CUTTER,CROSS_POISON,LUNGE,96.4,83,84.5,65.1,grumpig:737;hypno:709;trevenant:709;orbeetle:577;tropius:545,haunter:183;gengar:188;emolga:344;delphox:440;dartrix:441
+ludicolo,Ludicolo,89.6,116.4,123.6,134,1931,ASTONISH,WEATHER_BALL_WATER,ICE_BEAM,92.5,81.6,81.9,73.7,haunter:787;trevenant:645;gengar:593;hypno:578;grumpig:537,scyther:243;dartrix:308;girafarig:396;emolga:456;orbeetle:464
+decidueye,Decidueye,89.5,127.8,115.2,119,1754,ASTONISH,FRENZY_PLANT,SPIRIT_SHACKLE,96.1,76,82,71.1,gengar:718;hypno:693;orbeetle:626;trevenant:617;grumpig:596,girafarig:219;scyther:296;emolga:312;tropius:352;dartrix:431
+muk,Muk,89.5,115.8,111.7,148,1916,POISON_JAB,DARK_PULSE,THUNDER_PUNCH,83.2,58.1,89.9,82.8,scyther:699;tropius:648;golisopod:604;emolga:503;haunter:503,gengar:173;hypno:207;trevenant:324;dartrix:353;grumpig:363
+tentacruel,Tentacruel,89.3,108.9,143.5,131,2047,ACID,SCALD,PAYBACK,77.4,53.6,94.9,78.2,tropius:656;orbeetle:545;haunter:534;delphox:534;dartrix:507,hypno:166;gengar:173;grumpig:200;emolga:224;trevenant:232
+weezing_galarian,Weezing (Galarian),89.2,117.6,139.5,116,1905,FAIRY_WIND,BRUTAL_SWING,SLUDGE,88.6,91.5,86.6,86.8,scyther:801;haunter:788;tropius:655;golisopod:560;gengar:556,hypno:278;orbeetle:337;emolga:352;trevenant:419;dartrix:435
+xatu,Xatu,89.2,132.2,107.9,119,1698,PECK,PSYSHOCK,AERIAL_ACE,93.7,87.8,81.9,68,orbeetle:903;dartrix:785;tropius:760;delphox:672;trevenant:617,emolga:148;gengar:326;haunter:361;grumpig:363;hypno:374
+weezing,Weezing,88.9,117.5,140.2,116,1913,ROLLOUT,SHADOW_BALL,SLUDGE_BOMB,78.8,63.5,96.1,60.2,dartrix:711;scyther:650;tropius:599;golisopod:577;emolga:512,grumpig:155;trevenant:187;orbeetle:214;gengar:219;hypno:404
+mew,Mew,88.1,120.4,119.3,129,1855,SHADOW_CLAW,DARK_PULSE,PSYSHOCK,92.5,90.8,81.7,62.2,orbeetle:790;delphox:724;hypno:717;grumpig:674;tropius:550,trevenant:309;dartrix:366;gengar:372;haunter:405;emolga:444
+slowbro_galarian,Slowbro (Galarian),88.1,119.1,108.3,146,1885,CONFUSION,BRUTAL_SWING,SLUDGE_BOMB,92.3,81.2,82.4,74.5,gengar:732;haunter:708;tropius:595;decidueye:565;scyther:527,trevenant:290;hypno:309;orbeetle:368;dartrix:376;emolga:440
+golisopod,Golisopod,88,124,134.6,108,1804,SHADOW_CLAW,X_SCISSOR,AQUA_JET,89.5,85.9,87.3,70.5,trevenant:763;orbeetle:638;hypno:523;gengar:513;haunter:504,girafarig:119;emolga:184;scyther:225;tropius:291;dartrix:360
+grimer,Grimer,87.9,121,88.2,172,1836,POISON_JAB,SLUDGE,MUD_BOMB,82.4,73.1,89.3,75.1,tropius:787;dartrix:703;scyther:642;golisopod:581;decidueye:505,gengar:173;orbeetle:197;emolga:268;trevenant:324;hypno:367
+chimecho,Chimecho,87.8,119.5,120.8,130,1879,ASTONISH,PSYSHOCK,SHADOW_BALL,87.6,65.7,83.3,65.7,hypno:719;haunter:688;weezing_galarian:596;delphox:542;tropius:534,emolga:256;trevenant:404;dartrix:422;orbeetle:429;gengar:494
+uxie,Uxie,87.7,102.1,176,122,2194,CONFUSION,SWIFT,FUTURE_SIGHT,89.1,77.9,84.3,90.5,muk:782;dartrix:696;weezing_galarian:688;eelektrik:602;girafarig:598,trevenant:305;hypno:363;orbeetle:372;gengar:454;emolga:476
+venomoth,Venomoth,87.3,127,107.5,129,1763,PSYWAVE,POISON_FANG,SILVER_WIND,88.4,64.9,77.9,88.5,gengar:751;haunter:717;weezing_galarian:713;decidueye:670;scyther:658,orbeetle:87;hypno:394;emolga:424;dartrix:448;trevenant:454
+dedenne,Dedenne,87.1,124.3,109,133,1804,THUNDER_SHOCK,PARABOLIC_CHARGE,PLAY_ROUGH,89.8,72.3,83.6,73.1,emolga:691;grumpig:586;dartrix:548;haunter:537;hypno:530,trevenant:141;girafarig:188;delphox:222;gengar:285;orbeetle:407
+houndstone,Houndstone,86.7,120.3,130.3,119,1866,LICK,SHADOW_BALL,PSYCHIC_FANGS,87.1,71.6,78.4,76.5,haunter:659;orbeetle:626;weezing_galarian:626;scyther:567;tropius:504,dartrix:269;emolga:300;hypno:397;trevenant:416;gengar:469
+beedrill,Beedrill,85.8,127.1,106.5,130,1760,POISON_STING,X_SCISSOR,DRILL_RUN,84.6,77.8,85,63.7,eelektrik:880;ludicolo:788;girafarig:588;weezing_galarian:550;delphox:511,gengar:244;emolga:316;hypno:363;dartrix:399;trevenant:408
+frosmoth,Frosmoth,85.8,141.5,101,111,1587,POWDER_SNOW,ICY_WIND,BUG_BUZZ,82.2,71.3,88.1,56.2,tropius:590;decidueye:590;eelektrik:572;trevenant:527;dartrix:518,orbeetle:214;grumpig:276;gengar:326;hypno:367;emolga:444
+electivire,Electivire,85.7,143.3,100.8,108,1562,THUNDER_SHOCK,ICE_PUNCH,WILD_CHARGE,89.1,74.8,84,48.5,emolga:870;dartrix:828;scyther:662;delphox:606;tropius:532,orbeetle:162;gengar:234;hypno:289;trevenant:435;grumpig:496
+misdreavus,Misdreavus,85.7,123,120.8,122,1814,ASTONISH,SHADOW_SNEAK,DARK_PULSE,84.2,64.4,83.4,77.4,gengar:750;haunter:750;delphox:750;xatu:750;eelektrik:631,dartrix:262;emolga:312;hypno:445;trevenant:484;orbeetle:486
+kilowattrel,Kilowattrel,85.6,143.2,92.5,118,1563,THUNDER_SHOCK,ACROBATICS,AERIAL_ACE,88.6,82.4,91.4,46.8,tropius:826;trevenant:699;dartrix:669;delphox:555;orbeetle:538,grumpig:185;emolga:224;gengar:234;haunter:272;hypno:459
+grafaiai,Grafaiai,85.5,134.2,107.7,115,1664,POISON_JAB,POISON_FANG,SLUDGE_BOMB,84.9,76.9,73.7,80.8,tropius:752;dartrix:634;trevenant:630;delphox:613;scyther:608,orbeetle:214;hypno:241;grumpig:299;emolga:352;gengar:448
+ariados,Ariados,85.4,124.2,103.8,140,1806,POISON_STING,SHADOW_SNEAK,LUNGE,88.4,82.4,84.8,70.2,trevenant:782;scyther:682;delphox:567;haunter:553;tropius:535,emolga:180;gengar:229;hypno:340;dartrix:383;orbeetle:421
+swoobat,Swoobat,85.4,126.6,101.6,138,1777,CONFUSION,FLY,PSYCHIC_FANGS,91.8,81.9,70.9,70.5,orbeetle:742;gengar:692;dartrix:648;haunter:648;tropius:554,emolga:256;grumpig:257;trevenant:320;delphox:331;hypno:360
+mismagius,Mismagius,85.2,131.6,123.6,104,1693,HEX,SHADOW_BALL,DARK_PULSE,80,65.7,92.3,41.4,muk:764;hypno:677;orbeetle:591;weezing_galarian:557;grumpig:548,emolga:200;trevenant:297;gengar:403;haunter:420;dartrix:474
+sceptile,Sceptile,84.8,135.6,109.3,111,1646,FURY_CUTTER,LEAF_BLADE,AERIAL_ACE,86.2,75.3,78.2,57.7,trevenant:725;grumpig:725;girafarig:707;decidueye:648;orbeetle:572,haunter:183;gengar:188;emolga:348;hypno:425;dartrix:448
+parasect,Parasect,84.7,124.1,118.2,123,1807,FURY_CUTTER,X_SCISSOR,CROSS_POISON,89.5,62.3,77,78.5,hypno:772;grumpig:752;girafarig:752;orbeetle:682;trevenant:540,haunter:183;delphox:195;emolga:328;gengar:331;dartrix:379
+pinsir,Pinsir,84.4,139.6,112.6,102,1604,FURY_CUTTER,X_SCISSOR,CLOSE_COMBAT,89.8,72.5,83.8,52.8,hypno:700;trevenant:700;grumpig:686;orbeetle:588;girafarig:588,haunter:193;gengar:198;delphox:236;emolga:344;dartrix:405
+polteageist,Polteageist,84.1,142.8,115.6,95,1569,HEX,SHADOW_BALL,DARK_PULSE,72.5,54.6,96.1,34.5,muk:742;hypno:615;galvantula:610;delphox:573;orbeetle:536,dartrix:162;emolga:228;grumpig:306;trevenant:324;gengar:433
+ninjask,Ninjask,83.9,144.7,88.4,121,1549,FURY_CUTTER,SHADOW_BALL,AERIAL_ACE,77.3,48,82.4,50.5,grumpig:710;hypno:623;orbeetle:537;decidueye:533;scyther:504,emolga:156;haunter:193;gengar:198;dartrix:207;trevenant:324
+rapidash_galarian,Rapidash (Galarian),83.9,133.6,111.5,112,1670,PSYCHO_CUT,BODY_SLAM,MEGAHORN,91,78.5,74.9,52.8,grumpig:808;girafarig:763;orbeetle:745;delphox:651;trevenant:593,dartrix:282;emolga:340;gengar:392;haunter:430;hypno:455
+raichu_alolan,Raichu (Alolan),83.8,135.4,109.9,111,1653,THUNDER_SHOCK,WILD_CHARGE,PSYSHOCK,85.6,71.6,80,50.5,emolga:729;delphox:648;dartrix:608;scyther:590;tropius:554,orbeetle:162;gengar:234;hypno:248;trevenant:377;grumpig:492
+qwilfish,Qwilfish,83.7,131.1,105.5,123,1703,POISON_STING,AQUA_TAIL,ICE_BEAM,83,75,78.4,54.8,delphox:853;tropius:796;dartrix:792;trevenant:752;scyther:662,orbeetle:122;emolga:148;hypno:251;grumpig:333;gengar:387
+scolipede,Scolipede,83.5,131.7,120.3,107,1698,BUG_BITE,X_SCISSOR,AQUA_TAIL,80.7,60.8,75.4,76.5,decidueye:621;eelektrik:621;grumpig:602;scyther:598;girafarig:556,gengar:198;emolga:280;dartrix:327;trevenant:385;hypno:394
+victreebel,Victreebel,83.4,135.1,93.5,131,1656,ACID,LEAF_BLADE,SLUDGE_BOMB,86.1,80.9,76.6,53.1,emolga:740;tropius:648;decidueye:648;dartrix:534;trevenant:507,haunter:138;gengar:142;orbeetle:162;hypno:333;grumpig:458
+mr_mime,Mr. Mime,82.8,131.5,144.2,90,1709,PSYWAVE,SHADOW_BALL,PSYCHIC,72.5,61.1,86.6,48.2,hypno:655;gengar:594;haunter:594;tentacruel:561;orbeetle:533,grumpig:193;delphox:231;trevenant:244;dartrix:246;emolga:280
+oricorio_pom_pom,Oricorio (Pom-Pom),82.3,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,83.7,65.7,80.5,71.4,dartrix:707;tropius:699;scyther:648;orbeetle:582;trevenant:531,hypno:306;gengar:311;emolga:328;haunter:331;grumpig:348
+raichu,Raichu,82.1,133.5,110.6,114,1685,VOLT_SWITCH,WILD_CHARGE,BRICK_BREAK,91,70.4,88.8,56.5,emolga:714;hypno:679;dartrix:657;delphox:609;tropius:596,orbeetle:241;trevenant:263;grumpig:276;gengar:352;haunter:381
+lurantis,Lurantis,81.9,126.2,117.8,119,1770,FURY_CUTTER,LEAF_BLADE,X_SCISSOR,83.5,69.4,75.6,65.1,girafarig:743;grumpig:705;orbeetle:659;decidueye:626;delphox:525,gengar:188;emolga:340;dartrix:389;hypno:445;trevenant:473
+leavanny,Leavanny,81.8,129.4,110.2,121,1727,SHADOW_CLAW,X_SCISSOR,LEAF_BLADE,84.4,66.4,75.8,58,trevenant:747;grumpig:735;ludicolo:735;decidueye:677;orbeetle:623,dartrix:331;emolga:368;gengar:418;haunter:450;hypno:479
+swadloon,Swadloon,81.6,106.7,146.2,135,2106,BUG_BITE,SILVER_WIND,BUG_BUZZ,75.9,39.2,77.7,86.8,grumpig:811;girafarig:659;hypno:618;decidueye:533;orbeetle:507,emolga:188;haunter:232;gengar:239;dartrix:246;trevenant:416
+electrode_hisuian,Electrode (Hisuian),81.5,123.2,128.7,115,1825,THUNDER_SHOCK,WILD_CHARGE,SWIFT,87.6,82.7,79.4,60.5,emolga:847;gengar:760;haunter:760;tropius:608;delphox:604,trevenant:118;grumpig:257;orbeetle:267;dartrix:272;hypno:472
+roserade,Roserade,81.3,141.9,114.3,97,1574,POISON_STING,WEATHER_BALL_FIRE,SLUDGE_BOMB,87.4,64.1,80,42.8,scyther:731;emolga:701;trevenant:685;tropius:634;dartrix:582,grumpig:333;orbeetle:342;hypno:350;gengar:382;haunter:445
+karrablast,Karrablast,81,127.7,85.7,127,1390,FURY_CUTTER,X_SCISSOR,DRILL_RUN,81.2,70.9,78.6,42.2,golisopod:759;hypno:681;grumpig:665;decidueye:610;orbeetle:566,haunter:193;gengar:198;trevenant:232;emolga:328;dartrix:383
+espeon,Espeon,80.8,148,105.6,97,1517,CONFUSION,SHADOW_BALL,PSYCHIC_FANGS,89,85.9,64.5,43.1,haunter:685;golisopod:582;hypno:572;emolga:541;gengar:541,trevenant:278;orbeetle:302;grumpig:329;delphox:377;dartrix:451
+banette,Banette,80.5,145.2,92.2,115,1542,SHADOW_CLAW,SHADOW_BALL,DAZZLING_GLEAM,71.7,64.4,76,49.4,tentacruel:769;delphox:600;haunter:569;muk:521;orbeetle:508,dartrix:237;emolga:312;hypno:329;grumpig:412;trevenant:465
+jolteon,Jolteon,80.5,137.4,114.7,103,1624,VOLT_SWITCH,DISCHARGE,LAST_RESORT,86.1,71,74.6,54,golisopod:752;emolga:718;delphox:655;girafarig:601;tropius:543,trevenant:312;gengar:331;hypno:333;orbeetle:451;dartrix:483
+alakazam,Alakazam,80.3,155.8,101.4,91,1439,PSYCHO_CUT,SHADOW_BALL,FIRE_PUNCH,84.2,68.2,84.6,22,hypno:774;grumpig:763;orbeetle:642;golisopod:554;delphox:532,trevenant:175;emolga:184;gengar:326;haunter:351;dartrix:438
+eelektross,Eelektross,80.3,133.8,99.7,126,1682,ACID,CRUNCH,THUNDERBOLT,79,49.4,89,39.1,delphox:615;tropius:595;emolga:579;dartrix:519;trevenant:515,haunter:138;gengar:142;grumpig:185;hypno:401;orbeetle:469
+electabuzz,Electabuzz,79.9,130.8,113.2,115,1704,THUNDER_SHOCK,THUNDER_PUNCH,RETURN,76.6,61.5,79.4,48.8,golisopod:800;scyther:747;dartrix:626;tropius:591;emolga:573,gengar:234;trevenant:270;hypno:272;orbeetle:337;grumpig:348
+wyrdeer,Wyrdeer,79.7,126.6,95.5,146,1767,CONFUSION,WILD_CHARGE,MEGAHORN,77.4,49.7,78.7,80,gengar:876;haunter:722;hypno:654;grumpig:537;tropius:513,orbeetle:162;delphox:250;dartrix:275;emolga:304;trevenant:431
+sinistcha,Sinistcha,79.6,132.1,118.3,108,1689,ASTONISH,SHADOW_BALL,ENERGY_BALL,78.5,55,77.2,68,swoobat:736;gengar:717;haunter:689;trevenant:578;xatu:578,dartrix:253;emolga:340;hypno:384;orbeetle:425;grumpig:488
+seviper,Seviper,78.9,137.5,90,131,1623,POISON_JAB,POISON_FANG,CRUNCH,75.2,52.7,71.8,61.1,tropius:751;dartrix:614;delphox:599;decidueye:568;scyther:534,gengar:188;orbeetle:201;hypno:227;trevenant:320;emolga:352
+nidorino,Nidorino,78.5,123.3,104.3,141,1814,POISON_STING,SLUDGE_BOMB,ICE_BEAM,64.6,43.1,83.3,56.5,tropius:797;scyther:673;dartrix:659;muk:585;weezing_galarian:535,gengar:117;orbeetle:122;emolga:180;trevenant:187;hypno:309
+masquerain,Masquerain,78.3,129.5,109.1,122,1725,INFESTATION,AIR_CUTTER,LUNGE,75.6,58,75.1,69.7,grumpig:745;ludicolo:737;galvantula:602;girafarig:545;orbeetle:540,gengar:96;emolga:204;dartrix:363;trevenant:454;hypno:496
+bellossom,Bellossom,78.2,115,132.2,128,1948,ACID,LEAF_BLADE,DAZZLING_GLEAM,78,58.1,73.7,67.7,rapidash_galarian:855;ludicolo:675;electrode:648;ampharos:625;mew:582,gengar:321;dartrix:347;emolga:348;trevenant:358;hypno:493
+flapple,Flapple,78.1,138.1,100.1,117,1618,DRAGON_BREATH,FLY,OUTRAGE,69.2,59.3,69,40,ampharos:645;ludicolo:602;delphox:585;decidueye:585;orbeetle:555,dartrix:227;hypno:258;emolga:280;trevenant:354;gengar:392
+medicham,Medicham,78,106.9,139.4,141,2103,PSYCHO_CUT,ICE_PUNCH,DYNAMIC_PUNCH,77.3,69.1,77.9,69.1,eelektrik:641;muk:631;scyther:606;tentacruel:570;tropius:567,hypno:193;gengar:280;emolga:408;dartrix:412;trevenant:416
+mr_mime_galarian,Mr. Mime (Galarian),78,130.4,127,104,1724,CONFUSION,ICE_PUNCH,TRIPLE_AXEL,79,61.5,72.6,46.8,gengar:658;haunter:658;weezing_galarian:581;dartrix:548;tropius:543,emolga:304;trevenant:309;hypno:340;orbeetle:355;grumpig:375
+slowpoke_galarian,Slowpoke (Galarian),77.8,104.1,94.9,186,1840,CONFUSION,PSYSHOCK,SURF,78.6,56.5,76.8,69.4,haunter:717;weezing_galarian:688;eelektrik:620;emolga:537;girafarig:518,hypno:251;trevenant:251;orbeetle:293;dartrix:396;gengar:454
+starmie,Starmie,77.8,133.1,122,104,1690,PSYWAVE,POWER_GEM,SURF,73.9,60.5,66.7,42.8,delphox:764;orbeetle:730;muk:649;gengar:610;haunter:610,dartrix:207;emolga:232;trevenant:244;hypno:380;grumpig:412
+gogoat,Gogoat,77.6,119.7,94.9,165,1876,VINE_WHIP,LEAF_BLADE,ROCK_SLIDE,77.1,64.9,74.7,54,kilowattrel:906;gengar:754;ampharos:639;electrode:639;delphox:572,hypno:336;trevenant:343;dartrix:344;orbeetle:355;emolga:464
+shiinotic,Shiinotic,77.4,116.5,134.2,123,1925,ASTONISH,MOONBLAST,SLUDGE_BOMB,75.9,42.8,78.6,70.8,haunter:800;gengar:573;golisopod:560;hypno:536;grumpig:528,dartrix:211;emolga:256;orbeetle:399;trevenant:431;delphox:477
+pineco,Pineco,76.9,103.3,115.1,127,1511,BUG_BITE,ROCK_TOMB,SAND_TOMB,74.9,50.9,66.9,75.7,girafarig:677;orbeetle:637;eelektrik:559;ludicolo:555;electrode:531,emolga:208;gengar:219;dartrix:269;trevenant:385;hypno:496
+arbok,Arbok,76.8,123.7,120.1,122,1814,ACID,DARK_PULSE,SLUDGE_WAVE,65.6,44.3,77.5,56.2,eelektrik:668;scyther:631;tropius:622;weezing_galarian:594;golisopod:516,gengar:173;hypno:207;emolga:268;trevenant:278;dartrix:353
+jynx,Jynx,76.8,141.2,102.2,110,1588,CONFUSION,AVALANCHE,ICE_PUNCH,73.9,63.3,78.4,43.7,tentacruel:722;muk:645;gengar:613;haunter:613;girafarig:609,grumpig:208;dartrix:262;emolga:324;trevenant:328;hypno:431
+wormadam_plant,Wormadam (Plant),76.8,110,144.8,128,2040,SUCKER_PUNCH,BUG_BUZZ,ENERGY_BALL,74.2,42.9,78.9,72.2,gengar:820;haunter:785;grumpig:632;girafarig:625;hypno:566,dartrix:198;emolga:268;orbeetle:320;delphox:331;trevenant:416
+luxray,Luxray,76.6,138,98.9,119,1626,SPARK,CRUNCH,PSYCHIC_FANGS,72.5,71.6,72.3,52.5,golisopod:785;delphox:592;emolga:563;decidueye:558;tropius:529,trevenant:167;hypno:221;orbeetle:276;dartrix:308;gengar:321
+hoopa,Hoopa,76.5,144.8,106.3,99,1524,ASTONISH,SHADOW_BALL,PSYCHIC,78,51.5,66.9,70,grumpig:762;xatu:752;delphox:717;hypno:580;haunter:515,dartrix:275;trevenant:320;emolga:368;orbeetle:460;gengar:469
+yanma,Yanma,76.5,130.8,89.6,146,1713,WING_ATTACK,AERIAL_ACE,SILVER_WIND,77.3,44.9,77.5,49.7,orbeetle:619;decidueye:613;scyther:582;dartrix:544;trevenant:523,emolga:112;haunter:272;gengar:280;hypno:401;grumpig:469
+heracross,Heracross,76.4,134.6,108.4,114,1665,FURY_CUTTER,MEGAHORN,ROCK_TOMB,65.8,46.5,74.9,50.2,scyther:635;eelektrik:583;electrode:574;golisopod:535;ludicolo:526,dartrix:188;emolga:188;gengar:219;hypno:343;trevenant:385
+yanmega,Yanmega,76.4,136.8,96,125,1643,WING_ATTACK,AERIAL_ACE,BUG_BUZZ,71.5,46.5,80,45.4,beedrill:608;decidueye:580;orbeetle:572;scyther:524;dartrix:520,emolga:148;gengar:280;hypno:319;trevenant:347;grumpig:416
+crobat,Crobat,76.2,121.2,118.1,129,1847,AIR_SLASH,AIR_CUTTER,CROSS_POISON,73.7,42.6,72,71.7,dartrix:720;scyther:662;tropius:604;ludicolo:596;golisopod:538,emolga:124;orbeetle:280;hypno:282;gengar:326;trevenant:431
+butterfree,Butterfree,76,126.6,112.5,124,1769,BUG_BITE,BUG_BUZZ,SIGNAL_BEAM,72.7,42.5,63.3,83.7,ludicolo:741;girafarig:737;parasect:697;galvantula:649;orbeetle:625,gengar:209;emolga:228;dartrix:327;trevenant:385;hypno:442
+dustox,Dustox,75.8,94.9,148.7,142,2005,CONFUSION,SLUDGE_BOMB,SILVER_WIND,71.4,28.3,77,75.7,weezing_galarian:707;gengar:661;haunter:640;scyther:595;decidueye:528,hypno:105;dartrix:178;emolga:184;orbeetle:315;trevenant:488
+mr_rime,Mr. Rime,75.8,127.4,114.4,120,1750,CONFUSION,ICE_PUNCH,TRIPLE_AXEL,77.8,58.3,70.9,46.8,gengar:675;haunter:675;dartrix:587;weezing_galarian:566;tropius:550,emolga:304;trevenant:309;hypno:312;orbeetle:320;grumpig:371
+manectric,Manectric,75.7,142.4,91.3,121,1574,SNARL,WILD_CHARGE,PSYCHIC_FANGS,89.1,55,76.6,38.8,grumpig:723;emolga:714;hypno:623;dartrix:611;orbeetle:561,golisopod:134;scyther:137;gengar:280;haunter:301;trevenant:335
+meowstic,Meowstic (Male),75.3,117.1,123.9,132,1917,SUCKER_PUNCH,PSYCHIC,THUNDERBOLT,68.6,45.4,78,70.2,girafarig:776;gengar:693;haunter:693;delphox:693;xatu:666,dartrix:237;emolga:268;orbeetle:320;hypno:336;trevenant:385
+exeggutor_alolan,Exeggutor (Alolan),75.1,134.4,94.8,131,1670,DRAGON_TAIL,DRAGON_PULSE,SEED_BOMB,77.3,55.2,58.6,35.4,ampharos:698;ludicolo:641;delphox:599;decidueye:599;dartrix:541,gengar:311;grumpig:382;emolga:388;trevenant:404;hypno:421
+mothim,Mothim,75,140,82.9,138,1603,BUG_BITE,AERIAL_ACE,BUG_BUZZ,75.1,43.8,62.2,75.7,sceptile:887;ludicolo:717;grumpig:692;girafarig:688;orbeetle:554,gengar:198;emolga:240;dartrix:301;trevenant:419;hypno:442
+oricorio_pau,Oricorio (Pa'u),75,130.8,102,128,1710,AIR_SLASH,AIR_CUTTER,AERIAL_ACE,75.8,46.6,65,58.2,orbeetle:722;dartrix:621;venomoth:621;girafarig:582;tropius:554,emolga:148;gengar:311;hypno:329;grumpig:348;trevenant:404
+gallade,Gallade,74.9,136.5,115.6,104,1642,CONFUSION,LEAF_BLADE,CLOSE_COMBAT,82.2,67.3,60.3,48.2,eelektrik:754;muk:706;gengar:658;golisopod:658;haunter:625,orbeetle:263;hypno:289;dartrix:318;emolga:468;trevenant:473
+snover,Snover,74.4,109.2,100.8,142,1564,POWDER_SNOW,ICE_BEAM,STOMP,73.9,58.9,69.2,50.5,kilowattrel:890;dartrix:679;tropius:658;electrode:623;swoobat:528,grumpig:284;hypno:363;gengar:392;trevenant:396;emolga:468
+slowpoke,Slowpoke,74.3,104.1,94.9,186,1840,CONFUSION,PSYSHOCK,WATER_PULSE,74.2,53,74.2,68,tentacruel:803;muk:771;haunter:717;weezing_galarian:688;delphox:674,emolga:244;trevenant:251;hypno:323;dartrix:396;gengar:454
+flaaffy,Flaaffy,74.2,121.5,100.4,151,1844,TACKLE,POWER_GEM,DISCHARGE,65.9,41.5,80.5,43.1,emolga:639;dartrix:635;xatu:586;eelektrik:562;golisopod:556,trevenant:99;gengar:122;grumpig:208;orbeetle:267;hypno:319
+heliolisk,Heliolisk,74.2,138.1,112.1,105,1626,VOLT_SWITCH,PARABOLIC_CHARGE,GRASS_KNOT,75.1,58.3,68.5,52.5,gengar:647;dartrix:642;haunter:638;emolga:604;scyther:585,hypno:227;orbeetle:241;grumpig:276;delphox:386;trevenant:446
+toxicroak,Toxicroak,74.1,136.2,93.7,129,1648,POISON_STING,SHADOW_BALL,SLUDGE_BOMB,57.3,20.5,89,40.8,scyther:693;delphox:593;tropius:593;decidueye:593;trevenant:558,hypno:64;gengar:96;orbeetle:122;emolga:180;dartrix:237
+sigilyph,Sigilyph,73.7,130,112.1,118,1721,AIR_SLASH,AIR_CUTTER,ANCIENT_POWER,74.7,46.3,63.6,59.4,orbeetle:894;dartrix:648;venomoth:605;girafarig:567;tropius:538,emolga:148;gengar:311;hypno:326;grumpig:348;trevenant:377
+gothitelle,Gothitelle,73.6,115.3,140.9,119,1934,CONFUSION,ROCK_SLIDE,FUTURE_SIGHT,73.7,57.1,70.7,58.2,gengar:731;haunter:731;tropius:542;eelektrik:508;emolga:504,orbeetle:162;grumpig:162;dartrix:256;trevenant:270;hypno:306
+dolliv,Dolliv,73.5,118.4,122.6,130,1890,TACKLE,TRAILBLAZE,SEED_BOMB,73.2,63.8,57.9,68.8,ludicolo:773;gengar:673;electrode:642;golisopod:561;haunter:507,emolga:308;dartrix:311;orbeetle:359;hypno:401;trevenant:454
+espurr,Espurr,73.4,113.4,108.3,145,1783,CONFUSION,PSYSHOCK,ENERGY_BALL,75.2,55.9,69.2,52,tentacruel:789;haunter:706;weezing_galarian:627;muk:603;girafarig:513,emolga:264;trevenant:270;hypno:329;dartrix:431;gengar:494
+serperior,Serperior,73,110.2,142.2,130,2038,VINE_WHIP,FRENZY_PLANT,AERIAL_ACE,65.1,45.3,76.1,51.7,ampharos:642;girafarig:630;grumpig:553;golisopod:553;hypno:534,emolga:136;trevenant:141;gengar:173;dartrix:272;orbeetle:289
+sneasler,Sneasler,73,145.4,94.7,112,1543,SHADOW_CLAW,X_SCISSOR,CLOSE_COMBAT,74.9,33.5,76.1,47.4,trevenant:683;scyther:651;delphox:589;decidueye:589;emolga:513,grumpig:162;hypno:170;orbeetle:241;dartrix:337;gengar:464
+grotle,Grotle,72.9,117.8,114.8,141,1908,BITE,BODY_SLAM,ENERGY_BALL,71.9,48.4,59.1,76,gengar:797;haunter:797;decidueye:723;slowbro_galarian:673;delphox:599,dartrix:246;emolga:280;orbeetle:333;hypno:397;trevenant:480
+vivillon,Vivillon,72.9,131.7,86.3,149,1694,GUST,AERIAL_ACE,BUG_BUZZ,74.9,40.7,66,74,scyther:815;trevenant:761;decidueye:667;orbeetle:577;golisopod:530,emolga:204;hypno:248;grumpig:299;gengar:372;dartrix:451
+venusaur,Venusaur,72.8,122.1,122.1,123,1836,VINE_WHIP,SLUDGE,FRENZY_PLANT,72.5,64.1,75.4,42.8,eelektrik:817;ludicolo:735;ampharos:678;electrode:678;golisopod:621,hypno:312;gengar:352;emolga:368;trevenant:374;dartrix:376
+bruxish,Bruxish,72.7,136.4,102.5,117,1637,CONFUSION,PSYSHOCK,PSYCHIC_FANGS,78.5,57.3,56.8,43.4,gengar:636;girafarig:636;haunter:585;trevenant:568;delphox:564,dartrix:246;hypno:251;orbeetle:271;emolga:276;grumpig:318
+beautifly,Beautifly,72.3,144.7,83.9,127,1543,INFESTATION,AIR_CUTTER,SILVER_WIND,74.4,46.3,72,39.4,parasect:783;ludicolo:692;grumpig:649;girafarig:602;orbeetle:539,gengar:96;emolga:216;dartrix:350;trevenant:461;hypno:479
+gardevoir,Gardevoir,72.3,136.5,115.6,104,1642,CONFUSION,SHADOW_BALL,TRIPLE_AXEL,76.9,60.2,57.2,49.4,venomoth:802;gengar:658;hypno:644;haunter:625;orbeetle:519,grumpig:223;delphox:286;dartrix:321;emolga:340;trevenant:343
+slowbro,Slowbro,72.1,113.4,120.9,144,1975,CONFUSION,SURF,ICE_BEAM,69.3,48.3,73.2,64,haunter:753;delphox:677;tentacruel:638;eelektrik:572;tropius:510,dartrix:256;emolga:264;trevenant:270;hypno:353;gengar:494
+appletun,Appletun,71.7,116.5,102.5,161,1924,ASTONISH,OUTRAGE,DRAGON_PULSE,72,41.6,69.7,65.4,haunter:798;ampharos:652;gengar:571;decidueye:546;hypno:540,dartrix:211;emolga:256;orbeetle:320;trevenant:431;grumpig:458
+oddish,Oddish,71.5,122.6,106.7,120,1571,ACID,SLUDGE_BOMB,SEED_BOMB,68.8,58.1,65,40.8,tropius:629;weezing_galarian:604;dartrix:554;eelektrik:545;golisopod:520,gengar:142;orbeetle:162;hypno:299;emolga:364;trevenant:377
+pawmo,Pawmo,71.5,136.1,81.5,142,1576,THUNDER_SHOCK,WILD_CHARGE,THUNDER_PUNCH,69.5,45.7,72.6,36,golisopod:806;emolga:721;scyther:690;delphox:651;eelektrik:556,gengar:234;hypno:248;trevenant:278;orbeetle:289;dartrix:327
+gloom,Gloom,71.1,121.3,115.9,131,1844,ACID,SLUDGE_BOMB,MOONBLAST,59.5,42.2,70.7,46,weezing_galarian:690;eelektrik:656;ludicolo:637;tropius:568;golisopod:557,hypno:166;gengar:173;emolga:268;trevenant:278;dartrix:314
+lilligant_hisuian,Lilligant (Hisuian),71.1,133.4,107.7,117,1683,LEAFAGE,LEAF_BLADE,ACROBATICS,65.6,36.6,70.6,30.5,ampharos:688;decidueye:585;trevenant:576;girafarig:542;golisopod:508,dartrix:81;orbeetle:122;gengar:234;hypno:329;emolga:332
+deoxys_defense,Deoxys (Defense),70.9,101,221.4,98,2193,COUNTER,PSYCHO_BOOST,ROCK_SLIDE,63.6,30.7,79.3,48.5,electrode_hisuian:750;girafarig:729;victreebel:622;swoobat:556;electrode:551,trevenant:95;gengar:96;hypno:326;dartrix:392;emolga:472
+gothorita,Gothorita,70.8,112.2,132.7,134,1997,CONFUSION,FUTURE_SIGHT,PSYCHIC,69,44.9,73.3,59.4,haunter:735;eelektrik:623;slowbro_galarian:619;tropius:563;girafarig:563,dartrix:256;trevenant:270;hypno:292;emolga:420;gengar:494
+azelf,Azelf,70.4,152.5,90.3,106,1461,CONFUSION,SWIFT,FUTURE_SIGHT,78,60.7,58.4,42.8,tentacruel:712;haunter:665;muk:617;ampharos:617;gengar:566,dartrix:279;hypno:319;orbeetle:359;trevenant:362;emolga:364
+meowstic_female,Meowstic (Female),70.3,117.1,123.9,132,1917,CONFUSION,SHADOW_BALL,PSYCHIC,64.1,40.3,76,55.4,gengar:731;haunter:731;slowbro_galarian:575;victreebel:564;swoobat:541,orbeetle:162;hypno:170;dartrix:256;trevenant:270;emolga:284
+drowzee,Drowzee,70.1,87.3,126.8,142,1575,CONFUSION,PSYSHOCK,RETURN,68,45.6,72.1,57.7,tentacruel:785;weezing_galarian:690;muk:658;eelektrik:637;girafarig:598,hypno:210;trevenant:213;dartrix:331;gengar:392;emolga:460
+mesprit,Mesprit,70.1,123.5,128,114,1804,CONFUSION,SWIFT,FUTURE_SIGHT,75.2,54.2,58.6,54,muk:776;gengar:688;haunter:688;weezing_galarian:644;tropius:504,hypno:251;orbeetle:280;emolga:284;trevenant:290;dartrix:402
+grovyle,Grovyle,69.5,136.3,103.2,117,1647,QUICK_ATTACK,LEAF_BLADE,AERIAL_ACE,69.8,64.1,60.5,30.2,raichu_alolan:880;venomoth:739;espeon:666;leavanny:619;electrode:508,gengar:96;hypno:333;dartrix:370;emolga:376;trevenant:400
+slowking,Slowking,69.2,113.4,120.9,144,1975,CONFUSION,SURF,BLIZZARD,68.5,48,66.9,65.1,haunter:753;delphox:677;tentacruel:638;xatu:593;eelektrik:572,dartrix:256;emolga:264;trevenant:270;hypno:353;gengar:494
+elekid,Elekid,69,126,97.4,120,1474,THUNDER_SHOCK,THUNDER_PUNCH,BRICK_BREAK,65.9,49.9,60.1,45.1,xatu:845;golisopod:808;swoobat:695;scyther:679;emolga:525,gengar:234;trevenant:244;hypno:258;orbeetle:302;dartrix:314
+minun,Minun,68.9,116.3,127,130,1922,QUICK_ATTACK,THUNDERBOLT,GRASS_KNOT,63.2,48.1,74.2,33.7,emolga:688;golisopod:588;xatu:576;ampharos:565;tentacruel:526,trevenant:95;gengar:117;grumpig:140;hypno:299;dartrix:454
+meganium,Meganium,68.8,110.8,139,131,2018,VINE_WHIP,FRENZY_PLANT,RETURN,57.1,28.9,72.6,47.7,ampharos:641;girafarig:629;grumpig:583;golisopod:549;hypno:534,dartrix:81;orbeetle:109;emolga:136;trevenant:141;gengar:173
+pawmot,Pawmot,68.8,145,95.4,112,1552,THUNDER_SHOCK,WILD_CHARGE,CLOSE_COMBAT,60.9,24.6,78.7,24,golisopod:718;muk:669;emolga:633;eelektrik:602;delphox:540,trevenant:118;dartrix:133;orbeetle:135;hypno:139;gengar:234
+sneasel_hisuian,Sneasel (Hisuian),68.8,133.9,111.7,111,1662,POISON_JAB,X_SCISSOR,CLOSE_COMBAT,65.9,27.4,67.4,57.1,scyther:666;eelektrik:635;delphox:599;decidueye:599;trevenant:558,hypno:125;gengar:142;orbeetle:201;emolga:312;dartrix:431
+wobbuffet,Wobbuffet,68.8,63,101.6,333,2134,CHARM,RETURN,MIRROR_COAT,65.1,40.1,70.6,65.1,medicham:705;girafarig:605;swoobat:599;uxie:575;raichu_alolan:543,gengar:168;trevenant:278;dartrix:331;hypno:391;emolga:432
+servine,Servine,68.6,105.8,140.3,142,2110,VINE_WHIP,WRAP,GRASS_KNOT,68.3,53,63.4,63.7,electrode:827;girafarig:661;ampharos:647;golisopod:588;haunter:510,gengar:173;dartrix:194;emolga:284;trevenant:335;hypno:363
+decidueye_hisuian,Decidueye (Hisuian),68.2,124.2,111.7,130,1805,PSYCHO_CUT,NIGHT_SHADE,AURA_SPHERE,67.1,56.1,68.5,33.4,electrode:665;ampharos:626;scolipede:626;trevenant:623;golisopod:507,orbeetle:83;dartrix:246;hypno:295;emolga:332;gengar:413
+skrelp,Skrelp,67.4,104.1,104.1,127,1379,ACID,AQUA_TAIL,TWISTER,66.8,51.8,58.9,47.1,delphox:803;scyther:614;golisopod:559;weezing_galarian:519;tropius:507,gengar:96;emolga:184;hypno:261;dartrix:334;trevenant:389
+kadabra,Kadabra,67,163.8,90.9,92,1370,PSYCHO_CUT,SHADOW_BALL,DAZZLING_GLEAM,54.3,29.6,78.7,18.2,weezing:733;hypno:701;tentacruel:603;orbeetle:592;muk:538,grumpig:140;trevenant:156;dartrix:165;emolga:184;gengar:326
+beheeyem,Beheeyem,66.7,134.4,105.7,117,1663,CONFUSION,ROCK_SLIDE,DARK_PULSE,68.1,54.6,50.7,47.1,tentacruel:717;muk:713;gengar:666;haunter:636;weezing_galarian:551,orbeetle:188;dartrix:295;emolga:324;trevenant:328;hypno:462
+arboliva,Arboliva,66.6,129.2,116.6,115,1734,TACKLE,TRAILBLAZE,SEED_BOMB,64.8,52.8,51.4,57.1,gengar:621;mew:617;mismagius:608;chimecho:578;electrode:556,emolga:308;dartrix:321;orbeetle:368;trevenant:393;hypno:411
+whirlipede,Whirlipede,66.5,96.6,157.9,113,1725,POISON_STING,SLUDGE_BOMB,SIGNAL_BEAM,57,46.3,69.7,47.4,parasect:672;rapidash_galarian:615;ludicolo:601;eelektrik:553;tropius:504,gengar:117;hypno:125;emolga:136;trevenant:141;dartrix:467
+celebi,Celebi,66.4,120.4,119.3,129,1855,CONFUSION,AURA_SPHERE,PSYCHIC,69.3,45.7,54.6,49.4,gengar:724;haunter:697;tentacruel:670;girafarig:620;muk:577,orbeetle:228;hypno:241;emolga:284;trevenant:290;dartrix:386
+tangrowth,Tangrowth,66.4,120.7,112.7,136,1852,VINE_WHIP,ROCK_SLIDE,SLUDGE_BOMB,52.4,38.8,67.8,38.5,electrode_hisuian:727;ampharos:639;raichu_alolan:632;ludicolo:617;electivire:580,emolga:136;trevenant:141;gengar:229;hypno:323;dartrix:347
+luxio,Luxio,66.3,133.2,91,139,1687,SPARK,WILD_CHARGE,CRUNCH,58.7,40.6,66.2,32.8,emolga:730;dartrix:633;weezing_galarian:611;muk:579;tropius:561,hypno:166;grumpig:185;trevenant:187;orbeetle:214;gengar:280
+ponyta_galarian,Ponyta (Galarian),66.3,133.5,108.2,116,1676,PSYCHO_CUT,SWIFT,PSYBEAM,67.6,51.4,50.6,32.2,tentacruel:758;muk:711;grimer:663;venomoth:577;weezing_galarian:551,trevenant:156;dartrix:282;hypno:316;emolga:340;gengar:392
+vileplume,Vileplume,66.3,128.8,112.7,120,1743,ACID,SLUDGE_BOMB,MOONBLAST,56.1,38.7,63.3,42.2,weezing_galarian:604;ludicolo:566;eelektrik:537;ampharos:533;golisopod:512,gengar:142;hypno:207;emolga:268;trevenant:278;dartrix:353
+weepinbell,Weepinbell,66.2,137.9,84.8,139,1627,ACID,SLUDGE_BOMB,POWER_WHIP,52.6,31.3,66,39.7,electrode_hisuian:690;bellossom:633;weezing_galarian:593;electrode:557;ludicolo:532,gengar:142;hypno:190;emolga:268;trevenant:270;dartrix:353
+cherrim_sunny,Cherrim (Sunshine),66.1,121.8,116.2,130,1843,BULLET_SEED,WEATHER_BALL_FIRE,DAZZLING_GLEAM,66.8,49.1,61.2,36.2,leavanny:676;electrode:607;raichu_alolan:600;ampharos:576;girafarig:503,dartrix:269;emolga:348;hypno:357;trevenant:374;gengar:403
+braviary_hisuian,Braviary (Hisuian),66,128.5,89.6,151,1741,AIR_SLASH,BRAVE_BIRD,FLY,62.7,35.7,61.3,52.2,leavanny:731;parasect:605;girafarig:582;orbeetle:579;tropius:543,emolga:148;hypno:241;gengar:311;dartrix:340;trevenant:377
+exeggutor,Exeggutor,65.9,136.1,92.5,131,1650,CONFUSION,PSYCHIC,SEED_BOMB,68.3,48.7,54.4,45.1,gengar:648;haunter:622;tentacruel:583;muk:534;ampharos:503,dartrix:246;orbeetle:285;hypno:306;emolga:324;trevenant:328
+boltund,Boltund,65.6,136.9,95.3,126,1645,SPARK,CRUNCH,THUNDER,51.7,37.8,67.6,29.7,electivire:619;emolga:543;tropius:543;kilowattrel:519;dartrix:507,trevenant:156;hypno:166;orbeetle:214;grumpig:231;gengar:280
+zebstrika,Zebstrika,65.5,137.7,95.4,124,1630,SPARK,WILD_CHARGE,FLAME_CHARGE,50.9,40.1,63.6,32,emolga:693;kilowattrel:661;tropius:576;electrode:520;muk:508,trevenant:164;hypno:166;dartrix:214;orbeetle:232;gengar:280
+leafeon,Leafeon,65.3,128.1,133.9,102,1750,QUICK_ATTACK,LEAF_BLADE,LAST_RESORT,58.7,47.2,62.2,42.5,jolteon:759;espeon:700;raichu_alolan:612;gallade:612;electrode:563,gengar:96;emolga:180;trevenant:248;hypno:306;dartrix:366
+bayleef,Bayleef,64.7,105.5,141.5,142,2122,MAGICAL_LEAF,ANCIENT_POWER,GRASS_KNOT,58,29.8,67.8,45.4,ampharos:647;grumpig:598;golisopod:559;girafarig:542;eelektrik:538,dartrix:81;emolga:144;gengar:219;trevenant:328;hypno:445
+quilladin,Quilladin,63.9,114.9,130.2,130,1947,VINE_WHIP,BODY_SLAM,GYRO_BALL,61.5,48,58.7,45.4,electrode:653;raichu:646;ampharos:600;electivire:569;eelektrik:507,trevenant:190;dartrix:191;gengar:244;emolga:276;hypno:391
+ribombee,Ribombee,63.8,136.2,105.9,114,1645,FAIRY_WIND,BUG_BUZZ,DAZZLING_GLEAM,40.6,30.8,75.1,22.5,scyther:587;lurantis:587;rapidash_galarian:583;orbeetle:539;electrode:517,hypno:125;gengar:142;dartrix:159;emolga:180;trevenant:232
+garbodor,Garbodor,63.5,121,115.9,132,1853,INFESTATION,BODY_SLAM,GUNK_SHOT,55.6,33.9,59.3,45.7,parasect:655;galvantula:651;kricketune:651;tropius:636;electrode:507,gengar:76;emolga:88;dartrix:133;trevenant:202;hypno:272
+skorupi,Skorupi,63.5,90.7,139.4,113,1430,POISON_STING,CROSS_POISON,AQUA_TAIL,59.3,45,53.9,49.7,lurantis:668;parasect:646;victreebel:628;rapidash_galarian:575;ludicolo:570,hypno:163;emolga:256;trevenant:259;gengar:280;dartrix:308
+hatterene,Hatterene,63.1,142.1,115,96,1570,PSYCHO_CUT,POWER_WHIP,DAZZLING_GLEAM,53.4,44.6,64,21.1,weezing:786;medicham:687;oricorio_pom_pom:661;frosmoth:619;girafarig:598,trevenant:194;emolga:224;hypno:292;gengar:331;dartrix:438
+illumise,Illumise,63.1,111.4,136.2,133,2019,STRUGGLE_BUG,SILVER_WIND,BUG_BUZZ,54.1,26.7,70.2,52.8,leavanny:601;espeon:560;girafarig:548;sceptile:548;hypno:537,emolga:144;gengar:147;dartrix:185;trevenant:248;orbeetle:355
+whimsicott,Whimsicott,63.1,118.7,135,118,1892,FAIRY_WIND,MOONBLAST,HURRICANE,50.9,23,70.9,28.5,electrode:682;orbeetle:644;golisopod:576;ampharos:567;mew:567,dartrix:159;gengar:173;emolga:180;trevenant:187;hypno:391
+dipplin,Dipplin,62.7,114.6,128.8,132,1950,DRAGON_TAIL,OUTRAGE,DRAGON_PULSE,54.9,30.1,65.2,39.4,electrode:708;ampharos:655;electrode_hisuian:625;mew:571;decidueye:507,dartrix:185;emolga:228;trevenant:248;gengar:326;hypno:462
+tentacool,Tentacool,62.6,94.1,137.8,113,1466,POISON_STING,WRAP,WATER_PULSE,58.3,50.3,54.9,56.5,delphox:809;rapidash_galarian:619;weezing_galarian:597;ludicolo:575;galvantula:504,gengar:117;trevenant:183;hypno:204;emolga:280;dartrix:308
+koffing,Koffing,62.5,112.6,131,113,1668,TACKLE,SLUDGE,DARK_PULSE,51,33,63.3,39.4,ariados:654;galvantula:619;parasect:619;kricketune:610;scyther:606,trevenant:99;gengar:122;dartrix:165;hypno:173;emolga:188
+indeedee_male,Indeedee (Male),62.3,134.9,114.6,107,1656,EXTRASENSORY,SHADOW_BALL,PSYCHIC,51.9,26.5,65.7,33.4,gengar:654;haunter:607;chimecho:542;hypno:523;ludicolo:504,orbeetle:144;grumpig:155;dartrix:211;emolga:228;trevenant:244
+ivysaur,Ivysaur,61.3,118.7,121,131,1883,VINE_WHIP,SLUDGE_BOMB,POWER_WHIP,48.9,35.3,65.2,31.7,electrode:671;ampharos:667;ludicolo:641;eelektrik:637;golisopod:614,emolga:136;trevenant:141;hypno:166;gengar:229;dartrix:412
+plusle,Plusle,61.1,128.2,107.2,127,1746,QUICK_ATTACK,THUNDERBOLT,GRASS_KNOT,48.3,35.7,70.2,23.1,kilowattrel:685;emolga:590;electrode:582;xatu:523;golisopod:507,trevenant:95;gengar:117;hypno:125;orbeetle:162;dartrix:451
+chesnaught,Chesnaught,61,119.3,126.9,124,1879,VINE_WHIP,FRENZY_PLANT,THUNDER_PUNCH,57.5,43.7,62.7,30.5,ampharos:762;electrode:750;houndstone:705;golisopod:633;eelektrik:608,dartrix:201;trevenant:236;emolga:296;hypno:391;gengar:459
+hydrapple,Hydrapple,60.2,122.2,110.7,136,1841,DRAGON_TAIL,OUTRAGE,DRAGON_PULSE,49.2,31.4,60.3,36,raichu:698;electrode:694;ampharos:632;electrode_hisuian:599;jolteon:573,dartrix:211;emolga:228;hypno:241;trevenant:278;gengar:326
+hattrem,Hattrem,59.7,122.7,115.7,128,1818,CONFUSION,DAZZLING_GLEAM,PSYCHIC,58.8,39.8,57,48.5,victreebel:785;gengar:722;haunter:695;weezing_galarian:578;muk:558,orbeetle:162;hypno:170;dartrix:275;emolga:284;trevenant:290
+elgyem,Elgyem,59.6,133.6,95.4,132,1685,CONFUSION,DARK_PULSE,PSYCHIC,61,40.7,51.4,46.8,beedrill:825;tentacruel:700;gengar:651;haunter:651;weezing_galarian:575,orbeetle:188;hypno:193;dartrix:295;trevenant:309;emolga:388
+maractus,Maractus,58.8,135.5,95.2,128,1652,POISON_JAB,AERIAL_ACE,PETAL_BLIZZARD,48.2,31.7,56.8,35.4,dedenne:679;electrode_hisuian:671;ludicolo:542;electrode:535;raichu_alolan:527,gengar:142;hypno:207;trevenant:232;emolga:268;dartrix:353
+volbeat,Volbeat,58.5,111.4,136.2,133,2019,STRUGGLE_BUG,BUG_BUZZ,SIGNAL_BEAM,48.9,25.1,64,53.1,leavanny:601;alakazam:590;espeon:560;girafarig:548;sceptile:548,emolga:144;gengar:147;dartrix:185;trevenant:248;hypno:370
+musharna,Musharna,58.4,113.1,108.8,161,1982,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM,52.7,29.5,60.6,31.4,xatu:586;slowbro_galarian:577;venomoth:555;beedrill:540;swoobat:521,trevenant:83;gengar:127;hypno:265;dartrix:282;emolga:376
+exeggcute,Exeggcute,57.6,102.5,117.6,142,1713,CONFUSION,ANCIENT_POWER,SEED_BOMB,57.3,36.4,49.5,46.5,raichu:753;jolteon:714;gallade:700;electivire:609;electrode:521,hypno:231;emolga:244;trevenant:251;dartrix:282;gengar:454
+roselia,Roselia,57.6,138.5,105.9,110,1615,POISON_JAB,SLUDGE_BOMB,DAZZLING_GLEAM,55.3,33.8,47.8,47.7,sceptile:750;leavanny:668;electrode_hisuian:668;ludicolo:518;electrode:513,gengar:188;hypno:227;trevenant:309;emolga:312;dartrix:464
+dottler,Dottler,57.5,85.7,144.5,127,1573,CONFUSION,BUG_BUZZ,PSYCHIC,52.4,28.9,61.7,43.7,gallade:669;slowpoke_galarian:665;dustox:661;girafarig:531;grimer:519,dartrix:198;emolga:204;trevenant:213;gengar:372;hypno:411
+reuniclus,Reuniclus,57.3,126.9,94.9,147,1771,CHARM,PSYSHOCK,SHADOW_BALL,52.1,35.3,48.3,36.8,gallade:833;exeggutor_alolan:792;espeon:710;slowpoke_galarian:568;medicham:534,gengar:250;dartrix:262;hypno:275;emolga:284;trevenant:297
+indeedee_female,Indeedee (Female),57,121.7,128.2,118,1842,EXTRASENSORY,PSYCHIC,ENERGY_BALL,48.2,28,59.6,47.1,haunter:699;gengar:686;houndstone:648;ludicolo:601;slowbro_galarian:529,orbeetle:109;dartrix:185;emolga:200;trevenant:309;hypno:336
+sawsbuck,Sawsbuck,56.8,129.4,101.8,131,1727,FEINT_ATTACK,WILD_CHARGE,MEGAHORN,49.4,28.8,58.9,47.4,haunter:790;gengar:698;houndstone:645;decidueye:587;golisopod:507,dartrix:198;emolga:240;hypno:248;orbeetle:267;trevenant:492
+simisage,Simisage,56.5,135.9,95.8,126,1642,VINE_WHIP,CRUNCH,GRASS_KNOT,47,30.2,59.6,19.1,houndstone:686;ampharos:607;electrode:599;decidueye:583;ludicolo:535,trevenant:156;emolga:180;gengar:188;dartrix:253;hypno:404
+carnivine,Carnivine,55.5,130.1,101.8,130,1724,VINE_WHIP,CRUNCH,POWER_WHIP,50.4,30.1,56.8,21.4,ampharos:650;decidueye:626;electrode:626;ludicolo:588;trevenant:534,emolga:136;grumpig:185;gengar:188;dartrix:246;hypno:394
+deerling,Deerling,55.3,109.2,96.6,142,1499,TACKLE,WILD_CHARGE,TRAILBLAZE,52.1,40.6,48.5,46.2,gengar:647;mismagius:640;chimecho:616;electrode:584;dedenne:517,dartrix:246;emolga:280;trevenant:309;orbeetle:311;hypno:333
+tsareena,Tsareena,55.2,130.4,120.6,109,1715,MAGICAL_LEAF,TRIPLE_AXEL,GRASS_KNOT,46.1,27.9,42.2,30,electrode:600;ludicolo:568;electrode_hisuian:545;ampharos:504;mew:504,dartrix:113;emolga:180;trevenant:225;gengar:229;hypno:231
+accelgor,Accelgor,54.8,143.2,84.9,129,1569,ACID,BUG_BUZZ,SIGNAL_BEAM,39.5,26.8,58.4,28.2,shiinotic:697;wormadam_plant:616;servine:600;medicham:562;swadloon:546,gengar:142;hypno:166;trevenant:232;dartrix:262;emolga:268
+floragato,Floragato,54,124.4,110.5,131,1803,LEAFAGE,GRASS_KNOT,PLAY_ROUGH,45.3,28.9,47.4,28.2,ampharos:652;electrode:633;ludicolo:603;raichu_alolan:603;mew:538,dartrix:81;emolga:180;trevenant:187;gengar:229;hypno:435
+tangela,Tangela,53.6,125.5,122.8,116,1790,VINE_WHIP,SLUDGE_BOMB,GRASS_KNOT,45,25.5,51.3,22.5,electrode_hisuian:737;ampharos:629;electrode:629;ludicolo:599;mew:556,emolga:136;trevenant:141;gengar:229;dartrix:373;hypno:391
+rillaboom,Rillaboom,52.5,132.4,99.3,129,1696,SCRATCH,DRUM_BEATING,FRENZY_PLANT,55.3,38.1,34.7,42,raichu_alolan:612;luxray:604;electivire:562;dedenne:554;jolteon:519,trevenant:194;gengar:219;dartrix:246;hypno:299;emolga:372
+chinchou,Chinchou,52.4,101.6,94.1,164,1569,BUBBLE,WATER_PULSE,THUNDERBOLT,38.2,25.8,60.6,25.1,kilowattrel:631;masquerain:606;delphox:542;xatu:533;golisopod:518,trevenant:125;hypno:173;emolga:244;gengar:255;dartrix:334
+shaymin_sky,Shaymin (Sky),52.2,139.3,94.1,123,1614,HIDDEN_POWER_FLYING,GRASS_KNOT,ENERGY_BALL,54.4,29.6,32.8,49.1,leavanny:800;beautifly:800;parasect:719;karrablast:670;decidueye:573,emolga:172;hypno:193;gengar:336;dartrix:366;trevenant:404
+eldegoss,Eldegoss,51.9,108.4,160.4,119,2070,BULLET_SEED,GRASS_KNOT,ENERGY_BALL,43.9,27.1,53,36.5,raichu:697;electivire:659;dedenne:613;espeon:592;girafarig:521,emolga:88;gengar:112;dartrix:136;trevenant:282;hypno:309
+sunflora,Sunflora,50.1,128.7,102.1,132,1736,BULLET_SEED,SLUDGE_BOMB,LEAF_STORM,42.8,22.7,54.2,17.4,electrode:598;ludicolo:594;raichu_alolan:571;ampharos:530;mew:503,emolga:88;gengar:127;hypno:272;trevenant:339;dartrix:357
+thwackey,Thwackey,49.2,123.6,107.5,136,1809,SCRATCH,GRASS_KNOT,ENERGY_BALL,50.9,34.4,32.3,46.2,kadabra:794;luxray:650;beheeyem:584;electivire:555;elekid:540,trevenant:190;gengar:244;dartrix:246;emolga:288;hypno:306
+duosion,Duosion,48.4,149.2,81.9,123,1504,HIDDEN_POWER_PSYCHIC,PSYSHOCK,NIGHT_SHADE,44.1,25.5,36.8,31.4,sneasel_hisuian:776;sneasler:752;crobat:638;grafaiai:544;haunter:512,hypno:173;dartrix:230;emolga:284;trevenant:297;gengar:464
+deoxys_speed,Deoxys (Speed),48.1,140.7,131.5,86,1593,CHARGE_BEAM,PSYCHO_BOOST,SWIFT,44.6,34.7,42.9,15.7,tentacruel:715;muk:645;grimer:610;grafaiai:587;weezing_galarian:534,trevenant:83;gengar:158;hypno:248;dartrix:308;emolga:332
+rowlet,Rowlet,47.6,98.3,95.7,154,1450,LEAFAGE,SEED_BOMB,ENERGY_BALL,46.1,30.8,40,28.5,electabuzz:801;starmie:724;raichu:685;azelf:672;golisopod:509,dartrix:155;emolga:220;trevenant:229;hypno:346;gengar:352
+solosis,Solosis,47,152,81.8,118,1468,HIDDEN_POWER_PSYCHIC,PSYSHOCK,NIGHT_SHADE,42.9,25.2,35.1,31.4,sneasel_hisuian:766;weezing:758;sneasler:741;oddish:656;crobat:622,hypno:173;dartrix:230;trevenant:255;emolga:284;gengar:459
+shaymin_land,Shaymin (Land),46.6,117.8,122.2,132,1902,MAGICAL_LEAF,GRASS_KNOT,ENERGY_BALL,37,19.6,48,29.4,bruxish:731;electrode:647;ampharos:640;dedenne:617;mew:564,dartrix:107;emolga:172;trevenant:187;hypno:241;gengar:255
+turtwig,Turtwig,46.6,112.6,105,135,1597,TACKLE,BODY_SLAM,SEED_BOMB,42.6,31.3,39.4,27.7,manectric:688;luxray:662;ampharos:600;electivire:544;dedenne:529,trevenant:99;gengar:112;emolga:188;dartrix:272;hypno:309
+lilligant,Lilligant,45.8,136.5,105.8,114,1649,CHARM,HYPER_BEAM,PETAL_BLIZZARD,50.9,32,25.2,37.7,exeggutor_alolan:758;gallade:697;manectric:671;flapple:644;raichu_alolan:504,gengar:244;dartrix:259;hypno:275;emolga:352;trevenant:366
+chespin,Chespin,44.7,105,101.6,136,1452,VINE_WHIP,BODY_SLAM,GYRO_BALL,41.4,31.9,37.2,25.1,mr_rime:702;mr_mime_galarian:683;jynx:665;electivire:518;dedenne:514,gengar:142;dartrix:181;trevenant:187;hypno:227;emolga:264
+bulbasaur,Bulbasaur,44.1,111.7,105.8,120,1420,VINE_WHIP,SLUDGE_BOMB,POWER_WHIP,30.9,18.6,41.7,18.5,dedenne:612;bellossom:604;misdreavus:583;ludicolo:558;electrode:554,dartrix:81;emolga:136;trevenant:141;gengar:142;hypno:153
+lombre,Lombre,44,106.7,112.6,142,1706,BUBBLE,ICE_BEAM,SCALD,28,18.9,51.4,20.5,appletun:679;wyrdeer:626;luxray:556;electrode:535;mesprit:510,dartrix:107;trevenant:125;hypno:173;emolga:200;gengar:255
+munna,Munna,41.3,105.8,89.9,166,1580,CHARGE_BEAM,PSYSHOCK,DAZZLING_GLEAM,32.1,21.4,40.6,18,bruxish:644;roserade:629;qwilfish:626;dustox:587;gallade:554,trevenant:83;emolga:116;gengar:127;hypno:183;dartrix:243
+cherrim_overcast,Cherrim (Overcast),39.9,121.8,116.2,130,1843,BULLET_SEED,DAZZLING_GLEAM,HYPER_BEAM,28,15,41.7,15.1,manectric:723;raichu:626;raichu_alolan:588;electivire:538;jolteon:519,dartrix:55;emolga:88;trevenant:95;gengar:147;hypno:295
+breloom,Breloom,37.4,149.9,96.7,103,1494,FORCE_PALM,SLUDGE_BOMB,DYNAMIC_PUNCH,34.3,16.3,29.5,28,ampharos:733;exeggutor_alolan:655;snover:645;electrode:567;gogoat:533,gengar:127;hypno:146;dartrix:146;trevenant:164;emolga:256
+spoink,Spoink,34.6,117.6,115.1,141,1910,ZEN_HEADBUTT,SHADOW_BALL,RETURN,34,19.9,26.4,31.7,toxicroak:854;sneasler:769;sneasel_hisuian:748;roserade:652;nidorino:517,hypno:125;dartrix:181;trevenant:213;emolga:224;gengar:397
+unown,Unown,34.5,126.8,89,125,1413,HIDDEN_POWER_ICE,STRUGGLE,,38.9,23.4,18.2,30.8,exeggutor_alolan:732;hydrapple:716;flapple:675;dipplin:675;braviary_hisuian:556,hypno:204;gengar:244;trevenant:320;emolga:352;dartrix:441
+skiddo,Skiddo,23,115.9,98.3,151,1722,ROCK_SMASH,ROCK_SLIDE,SEED_BOMB,16.2,10.3,25,15.1,heliolisk:559;boltund:546;luxio:536;plusle:506;elekid:503,gengar:76;trevenant:95;hypno:105;dartrix:107;emolga:116

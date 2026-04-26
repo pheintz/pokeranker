@@ -1,603 +1,603 @@
-speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore
-azumarill,Azumarill,97.2,,,,,BUBBLE,ICE_BEAM,HYDRO_PUMP,,,,
-stunfisk_galarian,Stunfisk (Galarian),96.5,,,,,MUD_SHOT,ROCK_SLIDE,EARTHQUAKE,,,,
-machamp_shadow,Machamp (Shadow),93.7,,,,,COUNTER,CROSS_CHOP,ROCK_SLIDE,,,,
-abomasnow_shadow,Abomasnow (Shadow),92.9,,,,,POWDER_SNOW,WEATHER_BALL_ICE,ENERGY_BALL,,,,
-deoxys_defense,Deoxys (Defense),92.5,,,,,COUNTER,ROCK_SLIDE,THUNDERBOLT,,,,
-sirfetchd,Sirfetchd,92.1,,,,,COUNTER,LEAF_BLADE,CLOSE_COMBAT,,,,
-scrafty,Scrafty,92,,,,,COUNTER,FOUL_PLAY,POWER_UP_PUNCH,,,,
-swampert,Swampert,92,,,,,MUD_SHOT,HYDRO_CANNON,SLUDGE_WAVE,,,,
-swampert_shadow,Swampert (Shadow),91.8,,,,,MUD_SHOT,HYDRO_CANNON,SLUDGE_WAVE,,,,
-registeel,Registeel,91.6,,,,,LOCK_ON,FLASH_CANNON,FOCUS_BLAST,,,,
-mantine,Mantine,91.4,,,,,BUBBLE,BUBBLE_BEAM,ICE_BEAM,,,,
-abomasnow,Abomasnow,91.3,,,,,POWDER_SNOW,WEATHER_BALL_ICE,ENERGY_BALL,,,,
-dewgong,Dewgong,91.3,,,,,ICE_SHARD,ICY_WIND,WATER_PULSE,,,,
-bastiodon,Bastiodon,91.2,,,,,SMACK_DOWN,STONE_EDGE,FLAMETHROWER,,,,
-machamp,Machamp,91.2,,,,,COUNTER,CROSS_CHOP,ROCK_SLIDE,,,,
-altaria,Altaria,91.1,,,,,DRAGON_BREATH,SKY_ATTACK,DRAGON_PULSE,,,,
-cresselia,Cresselia,90.8,,,,,PSYCHO_CUT,GRASS_KNOT,MOONBLAST,,,,
-meganium,Meganium,90.7,,,,,VINE_WHIP,FRENZY_PLANT,EARTHQUAKE,,,,
-umbreon,Umbreon,90.7,,,,,SNARL,FOUL_PLAY,LAST_RESORT,,,,
-venusaur,Venusaur,90.4,,,,,VINE_WHIP,FRENZY_PLANT,SLUDGE_BOMB,,,,
-tropius,Tropius,90.3,,,,,RAZOR_LEAF,LEAF_BLADE,AERIAL_ACE,,,,
-primeape,Primeape,90.2,,,,,COUNTER,NIGHT_SLASH,CLOSE_COMBAT,,,,
-hitmontop,Hitmontop,89.9,,,,,COUNTER,CLOSE_COMBAT,STONE_EDGE,,,,
-medicham,Medicham,89.6,,,,,COUNTER,ICE_PUNCH,PSYCHIC,,,,
-castform_snowy,Castform (Snowy),89.2,,,,,POWDER_SNOW,WEATHER_BALL_ICE,BLIZZARD,,,,
-vigoroth,Vigoroth,89.2,,,,,COUNTER,BODY_SLAM,BULLDOZE,,,,
-castform_rainy,Castform (Rainy),89.1,,,,,WATER_GUN,WEATHER_BALL_WATER,THUNDER,,,,
-whiscash,Whiscash,89.1,,,,,MUD_SHOT,MUD_BOMB,BLIZZARD,,,,
-regirock,Regirock,89,,,,,LOCK_ON,STONE_EDGE,FOCUS_BLAST,,,,
-raikou_shadow,Raikou (Shadow),88.9,,,,,THUNDER_SHOCK,WILD_CHARGE,SHADOW_BALL,,,,
-galvantula,Galvantula,88.6,,,,,VOLT_SWITCH,DISCHARGE,LUNGE,,,,
-ferrothorn,Ferrothorn,88.5,,,,,BULLET_SEED,POWER_WHIP,THUNDER,,,,
-lanturn,Lanturn,88.3,,,,,SPARK,THUNDERBOLT,HYDRO_PUMP,,,,
-skarmory,Skarmory,88.3,,,,,AIR_SLASH,BRAVE_BIRD,SKY_ATTACK,,,,
-zweilous,Zweilous,88.3,,,,,DRAGON_BREATH,BODY_SLAM,DARK_PULSE,,,,
-shiftry_shadow,Shiftry (Shadow),88.1,,,,,SNARL,LEAF_BLADE,FOUL_PLAY,,,,
-wigglytuff,Wigglytuff,88.1,,,,,CHARM,ICE_BEAM,PLAY_ROUGH,,,,
-grotle_shadow,Grotle (Shadow),88,,,,,RAZOR_LEAF,BODY_SLAM,ENERGY_BALL,,,,
-venusaur_shadow,Venusaur (Shadow),88,,,,,VINE_WHIP,FRENZY_PLANT,SLUDGE_BOMB,,,,
-skarmory_shadow,Skarmory (Shadow),87.9,,,,,AIR_SLASH,BRAVE_BIRD,SKY_ATTACK,,,,
-mandibuzz,Mandibuzz,87.8,,,,,SNARL,FOUL_PLAY,SHADOW_BALL,,,,
-obstagoon,Obstagoon,87.6,,,,,COUNTER,NIGHT_SLASH,GUNK_SHOT,,,,
-whimsicott,Whimsicott,87.6,,,,,CHARM,GRASS_KNOT,MOONBLAST,,,,
-grotle,Grotle,87.5,,,,,RAZOR_LEAF,BODY_SLAM,ENERGY_BALL,,,,
-hariyama,Hariyama,87.5,,,,,COUNTER,CLOSE_COMBAT,HEAVY_SLAM,,,,
-politoed_shadow,Politoed (Shadow),87.4,,,,,MUD_SHOT,SURF,EARTHQUAKE,,,,
-shiftry,Shiftry,87.4,,,,,SNARL,LEAF_BLADE,FOUL_PLAY,,,,
-gardevoir_shadow,Gardevoir (Shadow),87.3,,,,,CHARM,SYNCHRONOISE,SHADOW_BALL,,,,
-flygon_shadow,Flygon (Shadow),87.2,,,,,MUD_SHOT,DRAGON_CLAW,EARTH_POWER,,,,
-bellossom,Bellossom,86.7,,,,,BULLET_SEED,LEAF_BLADE,RETURN,,,,
-lapras,Lapras,86.7,,,,,ICE_SHARD,SURF,SKULL_BASH,,,,
-perrserker,Perrserker,86.7,,,,,SHADOW_CLAW,CLOSE_COMBAT,FOUL_PLAY,,,,
-gloom_shadow,Gloom (Shadow),86.6,,,,,RAZOR_LEAF,SLUDGE_BOMB,MOONBLAST,,,,
-zapdos,Zapdos,86.6,,,,,THUNDER_SHOCK,DRILL_PECK,THUNDER,,,,
-zapdos_shadow,Zapdos (Shadow),86.5,,,,,THUNDER_SHOCK,DRILL_PECK,THUNDERBOLT,,,,
-bellossom_shadow,Bellossom (Shadow),86.4,,,,,BULLET_SEED,LEAF_BLADE,DAZZLING_GLEAM,,,,
-lapras_shadow,Lapras (Shadow),86.3,,,,,ICE_SHARD,SURF,SKULL_BASH,,,,
-alomomola,Alomomola,86.2,,,,,WATERFALL,PSYCHIC,HYDRO_PUMP,,,,
-empoleon,Empoleon,86.2,,,,,WATERFALL,HYDRO_CANNON,DRILL_PECK,,,,
-ludicolo,Ludicolo,86,,,,,BUBBLE,ENERGY_BALL,ICE_BEAM,,,,
-toxicroak,Toxicroak,86,,,,,COUNTER,MUD_BOMB,SLUDGE_BOMB,,,,
-hitmonchan_shadow,Hitmonchan (Shadow),85.9,,,,,COUNTER,ICE_PUNCH,THUNDER_PUNCH,,,,
-tangrowth,Tangrowth,85.9,,,,,VINE_WHIP,ROCK_SLIDE,POWER_WHIP,,,,
-clefable,Clefable,85.8,,,,,CHARM,METEOR_MASH,MOONBLAST,,,,
-snorlax,Snorlax,85.8,,,,,LICK,BODY_SLAM,SUPER_POWER,,,,
-victreebel_shadow,Victreebel (Shadow),85.8,,,,,RAZOR_LEAF,LEAF_BLADE,ACID_SPRAY,,,,
-froslass,Froslass,85.7,,,,,POWDER_SNOW,AVALANCHE,SHADOW_BALL,,,,
-cradily,Cradily,85.6,,,,,BULLET_SEED,STONE_EDGE,GRASS_KNOT,,,,
-melmetal,Melmetal,85.6,,,,,THUNDER_SHOCK,SUPER_POWER,ROCK_SLIDE,,,,
-mew,Mew,85.6,,,,,SHADOW_CLAW,WILD_CHARGE,SURF,,,,
-raikou,Raikou,85.6,,,,,THUNDER_SHOCK,WILD_CHARGE,SHADOW_BALL,,,,
-lickitung,Lickitung,85.4,,,,,LICK,BODY_SLAM,POWER_WHIP,,,,
-pelipper,Pelipper,85.4,,,,,WING_ATTACK,WEATHER_BALL_WATER,HURRICANE,,,,
-quagsire,Quagsire,85.4,,,,,MUD_SHOT,EARTHQUAKE,STONE_EDGE,,,,
-drifblim,Drifblim,85.3,,,,,HEX,ICY_WIND,SHADOW_BALL,,,,
-escavalier,Escavalier,85.3,,,,,COUNTER,DRILL_RUN,MEGAHORN,,,,
-politoed,Politoed,85.3,,,,,MUD_SHOT,SURF,EARTHQUAKE,,,,
-lucario,Lucario,85.2,,,,,COUNTER,POWER_UP_PUNCH,SHADOW_BALL,,,,
-munchlax,Munchlax,85.2,,,,,LICK,BODY_SLAM,BULLDOZE,,,,
-magnezone,Magnezone,85.1,,,,,SPARK,WILD_CHARGE,MIRROR_SHOT,,,,
-marowak_alolan,Marowak (Alolan),85.1,,,,,FIRE_SPIN,SHADOW_BONE,BONE_CLUB,,,,
-ivysaur,Ivysaur,84.9,,,,,VINE_WHIP,POWER_WHIP,SLUDGE_BOMB,,,,
-sealeo,Sealeo,84.9,,,,,POWDER_SNOW,BODY_SLAM,AURORA_BEAM,,,,
-stunfisk,Stunfisk,84.9,,,,,THUNDER_SHOCK,MUD_BOMB,DISCHARGE,,,,
-bayleef,Bayleef,84.8,,,,,RAZOR_LEAF,GRASS_KNOT,ANCIENT_POWER,,,,
-blaziken,Blaziken,84.8,,,,,COUNTER,BLAZE_KICK,STONE_EDGE,,,,
-leavanny,Leavanny,84.8,,,,,RAZOR_LEAF,LEAF_BLADE,X_SCISSOR,,,,
-snorlax_shadow,Snorlax (Shadow),84.8,,,,,LICK,BODY_SLAM,SUPER_POWER,,,,
-vileplume_shadow,Vileplume (Shadow),84.8,,,,,RAZOR_LEAF,SLUDGE_BOMB,MOONBLAST,,,,
-blastoise,Blastoise,84.7,,,,,WATER_GUN,HYDRO_CANNON,ICE_BEAM,,,,
-magnezone_shadow,Magnezone (Shadow),84.7,,,,,SPARK,WILD_CHARGE,MIRROR_SHOT,,,,
-flygon,Flygon,84.6,,,,,MUD_SHOT,DRAGON_CLAW,EARTH_POWER,,,,
-gliscor,Gliscor,84.6,,,,,FURY_CUTTER,EARTHQUAKE,NIGHT_SLASH,,,,
-heracross,Heracross,84.5,,,,,COUNTER,CLOSE_COMBAT,MEGAHORN,,,,
-zebstrika,Zebstrika,84.5,,,,,SPARK,WILD_CHARGE,FLAME_CHARGE,,,,
-sableye,Sableye,84.2,,,,,SHADOW_CLAW,FOUL_PLAY,RETURN,,,,
-gloom,Gloom,84.1,,,,,RAZOR_LEAF,SLUDGE_BOMB,PETAL_BLIZZARD,,,,
-ninetales_alolan,Ninetales (Alolan),84.1,,,,,CHARM,ICE_BEAM,PSYSHOCK,,,,
-sceptile,Sceptile,84.1,,,,,BULLET_SEED,LEAF_BLADE,EARTHQUAKE,,,,
-gliscor_shadow,Gliscor (Shadow),83.9,,,,,FURY_CUTTER,EARTHQUAKE,NIGHT_SLASH,,,,
-hitmonchan,Hitmonchan,83.9,,,,,COUNTER,ICE_PUNCH,THUNDER_PUNCH,,,,
-torterra_shadow,Torterra (Shadow),83.9,,,,,RAZOR_LEAF,FRENZY_PLANT,STONE_EDGE,,,,
-beedrill_shadow,Beedrill (Shadow),83.8,,,,,POISON_JAB,X_SCISSOR,DRILL_RUN,,,,
-regice,Regice,83.8,,,,,LOCK_ON,BLIZZARD,EARTHQUAKE,,,,
-granbull,Granbull,83.7,,,,,CHARM,CLOSE_COMBAT,CRUNCH,,,,
-noctowl,Noctowl,83.7,,,,,WING_ATTACK,SKY_ATTACK,PSYCHIC,,,,
-sandslash_alolan,Sandslash (Alolan),83.7,,,,,POWDER_SNOW,ICE_PUNCH,BULLDOZE,,,,
-ivysaur_shadow,Ivysaur (Shadow),83.6,,,,,VINE_WHIP,POWER_WHIP,SLUDGE_BOMB,,,,
-jumpluff,Jumpluff,83.5,,,,,BULLET_SEED,AERIAL_ACE,ENERGY_BALL,,,,
-togekiss,Togekiss,83.5,,,,,CHARM,ANCIENT_POWER,FLAMETHROWER,,,,
-zangoose,Zangoose,83.4,,,,,SHADOW_CLAW,CLOSE_COMBAT,NIGHT_SLASH,,,,
-forretress,Forretress,83.3,,,,,BUG_BITE,EARTHQUAKE,MIRROR_SHOT,,,,
-victreebel,Victreebel,83.3,,,,,RAZOR_LEAF,LEAF_BLADE,ACID_SPRAY,,,,
-jumpluff_shadow,Jumpluff (Shadow),83.2,,,,,BULLET_SEED,AERIAL_ACE,ENERGY_BALL,,,,
-beedrill,Beedrill,83,,,,,POISON_JAB,X_SCISSOR,DRILL_RUN,,,,
-marshtomp_shadow,Marshtomp (Shadow),83,,,,,MUD_SHOT,SURF,MUD_BOMB,,,,
-poliwrath,Poliwrath,83,,,,,MUD_SHOT,DYNAMIC_PUNCH,ICE_PUNCH,,,,
-suicune,Suicune,83,,,,,SNARL,BUBBLE_BEAM,HYDRO_PUMP,,,,
-poliwrath_shadow,Poliwrath (Shadow),82.9,,,,,BUBBLE,DYNAMIC_PUNCH,ICE_PUNCH,,,,
-steelix,Steelix,82.8,,,,,DRAGON_TAIL,EARTHQUAKE,CRUNCH,,,,
-electivire_shadow,Electivire (Shadow),82.7,,,,,THUNDER_SHOCK,ICE_PUNCH,WILD_CHARGE,,,,
-hypno,Hypno,82.7,,,,,CONFUSION,SHADOW_BALL,THUNDER_PUNCH,,,,
-gengar,Gengar,82.6,,,,,SHADOW_CLAW,SHADOW_BALL,SHADOW_PUNCH,,,,
-haunter,Haunter,82.6,,,,,SHADOW_CLAW,SHADOW_PUNCH,SHADOW_BALL,,,,
-dragonair_shadow,Dragonair (Shadow),82.5,,,,,DRAGON_BREATH,AQUA_TAIL,DRAGON_PULSE,,,,
-linoone,Linoone,82.5,,,,,SHADOW_CLAW,GRASS_KNOT,THUNDER,,,,
-cherrim_sunny,Cherrim (Sunny),82.4,,,,,BULLET_SEED,WEATHER_BALL_FIRE,SOLAR_BEAM,,,,
-lickilicky,Lickilicky,82.4,,,,,LICK,BODY_SLAM,SHADOW_BALL,,,,
-vileplume,Vileplume,82.4,,,,,RAZOR_LEAF,SLUDGE_BOMB,PETAL_BLIZZARD,,,,
-marshtomp,Marshtomp,82.3,,,,,MUD_SHOT,SURF,MUD_BOMB,,,,
-sableye_shadow,Sableye (Shadow),82.3,,,,,SHADOW_CLAW,FOUL_PLAY,SHADOW_SNEAK,,,,
-typhlosion,Typhlosion,82.3,,,,,SHADOW_CLAW,BLAST_BURN,SOLAR_BEAM,,,,
-probopass,Probopass,82.2,,,,,SPARK,ROCK_SLIDE,THUNDERBOLT,,,,
-serperior,Serperior,82.2,,,,,VINE_WHIP,GRASS_KNOT,AERIAL_ACE,,,,
-dragonite_shadow,Dragonite (Shadow),82.1,,,,,DRAGON_BREATH,DRAGON_CLAW,HURRICANE,,,,
-lugia,Lugia,82,,,,,EXTRASENSORY,SKY_ATTACK,HYDRO_PUMP,,,,
-castform,Castform,81.9,,,,,HEX,WEATHER_BALL_ROCK,ENERGY_BALL,,,,
-dragonair,Dragonair,81.8,,,,,DRAGON_BREATH,AQUA_TAIL,WRAP,,,,
-torterra,Torterra,81.8,,,,,RAZOR_LEAF,FRENZY_PLANT,STONE_EDGE,,,,
-articuno,Articuno,81.7,,,,,ICE_SHARD,ICY_WIND,HURRICANE,,,,
-electivire,Electivire,81.7,,,,,THUNDER_SHOCK,ICE_PUNCH,WILD_CHARGE,,,,
-raichu,Raichu,81.5,,,,,VOLT_SWITCH,WILD_CHARGE,THUNDER_PUNCH,,,,
-raichu_alolan,Raichu (Alolan),81.5,,,,,VOLT_SWITCH,WILD_CHARGE,GRASS_KNOT,,,,
-prinplup,Prinplup,81.3,,,,,BUBBLE,ICY_WIND,HYDRO_PUMP,,,,
-gardevoir,Gardevoir,81.2,,,,,CHARM,SYNCHRONOISE,SHADOW_BALL,,,,
-gastrodon_east_sea,Gastrodon (East),81.2,,,,,MUD_SLAP,BODY_SLAM,EARTH_POWER,,,,
-gastrodon_west_sea,Gastrodon (West),81.2,,,,,MUD_SLAP,BODY_SLAM,EARTH_POWER,,,,
-jirachi,Jirachi,81.2,,,,,CONFUSION,DOOM_DESIRE,PSYCHIC,,,,
-milotic,Milotic,81.2,,,,,WATERFALL,SURF,BLIZZARD,,,,
-muk_alolan,Muk (Alolan),81.2,,,,,SNARL,DARK_PULSE,SLUDGE_WAVE,,,,
-vaporeon,Vaporeon,81.2,,,,,WATER_GUN,AQUA_TAIL,LAST_RESORT,,,,
-blastoise_shadow,Blastoise (Shadow),81.1,,,,,WATER_GUN,HYDRO_CANNON,ICE_BEAM,,,,
-farfetchd_galarian,Farfetchd (Galarian),81.1,,,,,FURY_CUTTER,LEAF_BLADE,BRAVE_BIRD,,,,
-suicune_shadow,Suicune (Shadow),81.1,,,,,SNARL,BUBBLE_BEAM,HYDRO_PUMP,,,,
-skuntank,Skuntank,81,,,,,POISON_JAB,CRUNCH,SLUDGE_BOMB,,,,
-grovyle,Grovyle,80.9,,,,,BULLET_SEED,LEAF_BLADE,AERIAL_ACE,,,,
-sudowoodo,Sudowoodo,80.9,,,,,COUNTER,ROCK_SLIDE,EARTHQUAKE,,,,
-charizard_shadow,Charizard (Shadow),80.8,,,,,FIRE_SPIN,BLAST_BURN,DRAGON_CLAW,,,,
-mawile_shadow,Mawile (Shadow),80.6,,,,,FIRE_FANG,POWER_UP_PUNCH,PLAY_ROUGH,,,,
-skuntank_shadow,Skuntank (Shadow),80.6,,,,,POISON_JAB,CRUNCH,SLUDGE_BOMB,,,,
-castform_sunny,Castform (Sunny),80.4,,,,,EMBER,WEATHER_BALL_FIRE,SOLAR_BEAM,,,,
-charizard,Charizard,80.4,,,,,FIRE_SPIN,BLAST_BURN,DRAGON_CLAW,,,,
-gallade_shadow,Gallade (Shadow),80.4,,,,,CONFUSION,CLOSE_COMBAT,LEAF_BLADE,,,,
-golbat_shadow,Golbat (Shadow),80.2,,,,,WING_ATTACK,POISON_FANG,SHADOW_BALL,,,,
-relicanth,Relicanth,80.1,,,,,WATER_GUN,AQUA_TAIL,ANCIENT_POWER,,,,
-seaking,Seaking,80,,,,,WATERFALL,DRILL_RUN,ICY_WIND,,,,
-servine,Servine,80,,,,,VINE_WHIP,GRASS_KNOT,LEAF_TORNADO,,,,
-gligar_shadow,Gligar (Shadow),79.7,,,,,WING_ATTACK,NIGHT_SLASH,DIG,,,,
-mawile,Mawile,79.7,,,,,FIRE_FANG,POWER_UP_PUNCH,PLAY_ROUGH,,,,
-magneton_shadow,Magneton (Shadow),79.6,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE,,,,
-swalot,Swalot,79.6,,,,,INFESTATION,SLUDGE_BOMB,ICE_BEAM,,,,
-golbat,Golbat,79.5,,,,,WING_ATTACK,POISON_FANG,SHADOW_BALL,,,,
-piloswine,Piloswine,79.4,,,,,POWDER_SNOW,AVALANCHE,BULLDOZE,,,,
-forretress_shadow,Forretress (Shadow),79.3,,,,,BUG_BITE,EARTHQUAKE,MIRROR_SHOT,,,,
-pinsir_shadow,Pinsir (Shadow),79.3,,,,,FURY_CUTTER,CLOSE_COMBAT,X_SCISSOR,,,,
-electrode,Electrode,79.2,,,,,VOLT_SWITCH,FOUL_PLAY,THUNDERBOLT,,,,
-dragonite,Dragonite,79.1,,,,,DRAGON_BREATH,DRAGON_CLAW,DRACO_METEOR,,,,
-gyarados_shadow,Gyarados (Shadow),79,,,,,DRAGON_BREATH,AQUA_TAIL,CRUNCH,,,,
-gallade,Gallade,78.9,,,,,CONFUSION,CLOSE_COMBAT,LEAF_BLADE,,,,
-gyarados,Gyarados,78.9,,,,,DRAGON_BREATH,AQUA_TAIL,CRUNCH,,,,
-minun,Minun,78.9,,,,,SPARK,THUNDERBOLT,GRASS_KNOT,,,,
-gligar,Gligar,78.8,,,,,WING_ATTACK,NIGHT_SLASH,DIG,,,,
-haxorus,Haxorus,78.8,,,,,COUNTER,DRAGON_CLAW,NIGHT_SLASH,,,,
-articuno_shadow,Articuno (Shadow),78.7,,,,,ICE_SHARD,ICY_WIND,HURRICANE,,,,
-golem_alolan,Golem (Alolan),78.7,,,,,VOLT_SWITCH,WILD_CHARGE,ROCK_BLAST,,,,
-ampharos,Ampharos,78.6,,,,,VOLT_SWITCH,THUNDER_PUNCH,FOCUS_BLAST,,,,
-ninetales,Ninetales,78.6,,,,,FIRE_SPIN,OVERHEAT,PSYSHOCK,,,,
-electabuzz_shadow,Electabuzz (Shadow),78.5,,,,,THUNDER_SHOCK,THUNDER_PUNCH,THUNDERBOLT,,,,
-dusclops_shadow,Dusclops (Shadow),78.4,,,,,HEX,SHADOW_PUNCH,ICE_PUNCH,,,,
-glalie,Glalie,78.4,,,,,ICE_SHARD,AVALANCHE,SHADOW_BALL,,,,
-linoone_galarian,Linoone (Galarian),78.3,,,,,SNARL,BODY_SLAM,GUNK_SHOT,,,,
-muk_shadow,Muk (Shadow),78.2,,,,,POISON_JAB,THUNDER_PUNCH,DARK_PULSE,,,,
-infernape,Infernape,78.1,,,,,FIRE_SPIN,CLOSE_COMBAT,BLAST_BURN,,,,
-pachirisu,Pachirisu,78.1,,,,,VOLT_SWITCH,THUNDER_PUNCH,THUNDERBOLT,,,,
-wormadam_trash,Wormadam (Trash),78.1,,,,,CONFUSION,IRON_HEAD,BUG_BUZZ,,,,
-carnivine,Carnivine,78,,,,,VINE_WHIP,POWER_WHIP,CRUNCH,,,,
-graveler_alolan,Graveler (Alolan),78,,,,,VOLT_SWITCH,STONE_EDGE,ROCK_BLAST,,,,
-honchkrow,Honchkrow,78,,,,,SNARL,BRAVE_BIRD,SKY_ATTACK,,,,
-hypno_shadow,Hypno (Shadow),78,,,,,CONFUSION,THUNDER_PUNCH,FIRE_PUNCH,,,,
-bronzong,Bronzong,77.8,,,,,CONFUSION,PSYSHOCK,BULLDOZE,,,,
-tangela,Tangela,77.8,,,,,VINE_WHIP,GRASS_KNOT,SLUDGE_BOMB,,,,
-bibarel,Bibarel,77.7,,,,,WATER_GUN,SURF,HYPER_FANG,,,,
-feraligatr,Feraligatr,77.7,,,,,WATER_GUN,HYDRO_CANNON,CRUNCH,,,,
-luxio,Luxio,77.7,,,,,SPARK,WILD_CHARGE,CRUNCH,,,,
-dusclops,Dusclops,77.6,,,,,HEX,SHADOW_PUNCH,ICE_PUNCH,,,,
-victini,Victini,77.6,,,,,CONFUSION,V_CREATE,PSYCHIC,,,,
-conkeldurr,Conkeldurr,77.5,,,,,COUNTER,DYNAMIC_PUNCH,STONE_EDGE,,,,
-crustle,Crustle,77.5,,,,,FURY_CUTTER,ROCK_SLIDE,X_SCISSOR,,,,
-machoke_shadow,Machoke (Shadow),77.4,,,,,KARATE_CHOP,CROSS_CHOP,DYNAMIC_PUNCH,,,,
-magneton,Magneton,77.4,,,,,THUNDER_SHOCK,DISCHARGE,MAGNET_BOMB,,,,
-scizor_shadow,Scizor (Shadow),77.4,,,,,BULLET_PUNCH,NIGHT_SLASH,IRON_HEAD,,,,
-latios,Latios,77.3,,,,,DRAGON_BREATH,DRAGON_CLAW,PSYCHIC,,,,
-luxray,Luxray,77.3,,,,,SPARK,WILD_CHARGE,CRUNCH,,,,
-shelgon,Shelgon,77.3,,,,,DRAGON_BREATH,FLAMETHROWER,TWISTER,,,,
-ampharos_shadow,Ampharos (Shadow),77.2,,,,,VOLT_SWITCH,THUNDER_PUNCH,FOCUS_BLAST,,,,
-charmeleon_shadow,Charmeleon (Shadow),77.2,,,,,FIRE_FANG,FIRE_PUNCH,FLAMETHROWER,,,,
-emolga,Emolga,77.2,,,,,THUNDER_SHOCK,DISCHARGE,AERIAL_ACE,,,,
-wobbuffet,Wobbuffet,77.1,,,,,COUNTER,RETURN,MIRROR_COAT,,,,
-vespiquen,Vespiquen,77,,,,,FURY_CUTTER,X_SCISSOR,POWER_GEM,,,,
-wailord,Wailord,76.7,,,,,WATER_GUN,SURF,BLIZZARD,,,,
-dugtrio,Dugtrio,76.6,,,,,MUD_SHOT,MUD_BOMB,STONE_EDGE,,,,
-omastar_shadow,Omastar (Shadow),76.6,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST,,,,
-muk,Muk,76.3,,,,,POISON_JAB,THUNDER_PUNCH,DARK_PULSE,,,,
-electabuzz,Electabuzz,76.2,,,,,THUNDER_SHOCK,THUNDER_PUNCH,RETURN,,,,
-genesect,Genesect,76.2,,,,,FURY_CUTTER,X_SCISSOR,MAGNET_BOMB,,,,
-rapidash_galarian,Rapidash (Galarian),76.2,,,,,PSYCHO_CUT,BODY_SLAM,PLAY_ROUGH,,,,
-machoke,Machoke,76.1,,,,,KARATE_CHOP,CROSS_CHOP,DYNAMIC_PUNCH,,,,
-scolipede,Scolipede,76.1,,,,,POISON_JAB,X_SCISSOR,MEGAHORN,,,,
-cloyster,Cloyster,76,,,,,ICE_SHARD,ICY_WIND,HYDRO_PUMP,,,,
-raticate_alolan,Raticate (Alolan),76,,,,,QUICK_ATTACK,CRUNCH,HYPER_FANG,,,,
-seismitoad,Seismitoad,76,,,,,MUD_SHOT,EARTH_POWER,SLUDGE_BOMB,,,,
-leafeon,Leafeon,75.9,,,,,QUICK_ATTACK,LEAF_BLADE,LAST_RESORT,,,,
-tirtouga,Tirtouga,75.9,,,,,WATER_GUN,SURF,BODY_SLAM,,,,
-wailmer,Wailmer,75.9,,,,,WATER_GUN,BODY_SLAM,HEAVY_SLAM,,,,
-marowak,Marowak,75.7,,,,,MUD_SLAP,BONE_CLUB,EARTHQUAKE,,,,
-scizor,Scizor,75.7,,,,,BULLET_PUNCH,X_SCISSOR,IRON_HEAD,,,,
-uxie,Uxie,75.7,,,,,CONFUSION,FUTURE_SIGHT,THUNDER,,,,
-ninetales_shadow,Ninetales (Shadow),75.4,,,,,FIRE_SPIN,FLAMETHROWER,PSYSHOCK,,,,
-simisage,Simisage,75.4,,,,,VINE_WHIP,GRASS_KNOT,CRUNCH,,,,
-weepinbell_shadow,Weepinbell (Shadow),75.4,,,,,BULLET_SEED,POWER_WHIP,SLUDGE_BOMB,,,,
-hippowdon,Hippowdon,75.3,,,,,ICE_FANG,BODY_SLAM,EARTH_POWER,,,,
-mewtwo_shadow,Mewtwo (Shadow),75.3,,,,,PSYCHO_CUT,PSYSTRIKE,THUNDERBOLT,,,,
-banette,Banette,75.1,,,,,SHADOW_CLAW,SHADOW_BALL,THUNDER,,,,
-moltres,Moltres,75.1,,,,,FIRE_SPIN,SKY_ATTACK,OVERHEAT,,,,
-alakazam,Alakazam,75,,,,,COUNTER,FIRE_PUNCH,SHADOW_BALL,,,,
-ariados,Ariados,75,,,,,INFESTATION,MEGAHORN,CROSS_POISON,,,,
-bisharp,Bisharp,74.9,,,,,SNARL,DARK_PULSE,X_SCISSOR,,,,
-breloom,Breloom,74.9,,,,,COUNTER,DYNAMIC_PUNCH,GRASS_KNOT,,,,
-dewott,Dewott,74.8,,,,,FURY_CUTTER,AQUA_TAIL,X_SCISSOR,,,,
-houndoom_shadow,Houndoom (Shadow),74.8,,,,,SNARL,CRUNCH,FLAMETHROWER,,,,
-moltres_shadow,Moltres (Shadow),74.8,,,,,FIRE_SPIN,SKY_ATTACK,OVERHEAT,,,,
-klang,Klang,74.7,,,,,THUNDER_SHOCK,THUNDERBOLT,VICE_GRIP,,,,
-marowak_shadow,Marowak (Shadow),74.7,,,,,MUD_SLAP,BONE_CLUB,EARTHQUAKE,,,,
-oddish_shadow,Oddish (Shadow),74.7,,,,,RAZOR_LEAF,SEED_BOMB,SLUDGE_BOMB,,,,
-magmortar_shadow,Magmortar (Shadow),74.6,,,,,FIRE_SPIN,FIRE_PUNCH,BRICK_BREAK,,,,
-grimer_alolan,Grimer (Alolan),74.5,,,,,POISON_JAB,CRUNCH,SLUDGE_BOMB,,,,
-pinsir,Pinsir,74.5,,,,,FURY_CUTTER,CLOSE_COMBAT,X_SCISSOR,,,,
-aggron,Aggron,74.4,,,,,SMACK_DOWN,STONE_EDGE,HEAVY_SLAM,,,,
-golduck_shadow,Golduck (Shadow),74.4,,,,,WATER_GUN,CROSS_CHOP,ICE_BEAM,,,,
-mamoswine,Mamoswine,74.4,,,,,POWDER_SNOW,AVALANCHE,BULLDOZE,,,,
-carracosta,Carracosta,74.3,,,,,WATER_GUN,SURF,BODY_SLAM,,,,
-charmeleon,Charmeleon,74.3,,,,,FIRE_FANG,FIRE_PUNCH,RETURN,,,,
-croconaw,Croconaw,74.3,,,,,WATER_GUN,ICE_PUNCH,CRUNCH,,,,
-arcanine_shadow,Arcanine (Shadow),74.2,,,,,SNARL,WILD_CHARGE,FLAMETHROWER,,,,
-kingdra,Kingdra,74.1,,,,,DRAGON_BREATH,OUTRAGE,OCTAZOOKA,,,,
-manectric,Manectric,74.1,,,,,SNARL,WILD_CHARGE,FLAME_BURST,,,,
-qwilfish,Qwilfish,74.1,,,,,WATER_GUN,AQUA_TAIL,ICE_BEAM,,,,
-torkoal,Torkoal,74.1,,,,,FIRE_SPIN,OVERHEAT,EARTHQUAKE,,,,
-golurk,Golurk,74,,,,,MUD_SLAP,SHADOW_PUNCH,DYNAMIC_PUNCH,,,,
-krookodile,Krookodile,74,,,,,SNARL,CRUNCH,EARTHQUAKE,,,,
-turtwig_shadow,Turtwig (Shadow),73.9,,,,,RAZOR_LEAF,BODY_SLAM,SEED_BOMB,,,,
-alakazam_shadow,Alakazam (Shadow),73.8,,,,,COUNTER,FIRE_PUNCH,SHADOW_BALL,,,,
-seviper,Seviper,73.8,,,,,POISON_JAB,CRUNCH,POISON_FANG,,,,
-pidgeot,Pidgeot,73.7,,,,,WING_ATTACK,AERIAL_ACE,BRAVE_BIRD,,,,
-beartic,Beartic,73.6,,,,,POWDER_SNOW,ICE_PUNCH,SURF,,,,
-cloyster_shadow,Cloyster (Shadow),73.6,,,,,ICE_SHARD,ICY_WIND,HYDRO_PUMP,,,,
-bouffalant,Bouffalant,73.5,,,,,MUD_SHOT,STOMP,MEGAHORN,,,,
-graveler,Graveler,73.5,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST,,,,
-venomoth_shadow,Venomoth (Shadow),73.5,,,,,INFESTATION,POISON_FANG,BUG_BUZZ,,,,
-golduck,Golduck,73.4,,,,,WATER_GUN,CROSS_CHOP,ICE_BEAM,,,,
-nidoqueen,Nidoqueen,73.4,,,,,POISON_JAB,EARTH_POWER,STONE_EDGE,,,,
-houndoom,Houndoom,73.3,,,,,SNARL,CRUNCH,FLAMETHROWER,,,,
-drapion,Drapion,73.2,,,,,INFESTATION,AQUA_TAIL,CRUNCH,,,,
-rotom_wash,Rotom (Wash),73.2,,,,,THUNDER_SHOCK,THUNDERBOLT,HYDRO_PUMP,,,,
-amoonguss,Amoonguss,73.1,,,,,FEINT_ATTACK,GRASS_KNOT,SLUDGE_BOMB,,,,
-durant,Durant,73.1,,,,,BUG_BITE,X_SCISSOR,STONE_EDGE,,,,
-gurdurr,Gurdurr,73.1,,,,,POISON_JAB,BRICK_BREAK,STONE_EDGE,,,,
-venomoth,Venomoth,73.1,,,,,INFESTATION,POISON_FANG,BUG_BUZZ,,,,
-grimer_shadow,Grimer (Shadow),73,,,,,POISON_JAB,MUD_BOMB,SLUDGE_BOMB,,,,
-plusle,Plusle,72.9,,,,,SPARK,THUNDERBOLT,GRASS_KNOT,,,,
-ursaring,Ursaring,72.9,,,,,COUNTER,CLOSE_COMBAT,HYPER_BEAM,,,,
-banette_shadow,Banette (Shadow),72.7,,,,,SHADOW_CLAW,SHADOW_BALL,THUNDER,,,,
-jolteon,Jolteon,72.7,,,,,VOLT_SWITCH,DISCHARGE,LAST_RESORT,,,,
-huntail,Huntail,72.5,,,,,WATER_GUN,AQUA_TAIL,CRUNCH,,,,
-klinklang,Klinklang,72.5,,,,,THUNDER_SHOCK,MIRROR_SHOT,FLASH_CANNON,,,,
-sandshrew_alolan,Sandshrew (Alolan),72.5,,,,,POWDER_SNOW,NIGHT_SLASH,BLIZZARD,,,,
-spiritomb,Spiritomb,72.5,,,,,SUCKER_PUNCH,SHADOW_BALL,OMINOUS_WIND,,,,
-magmortar,Magmortar,72.4,,,,,FIRE_SPIN,FIRE_PUNCH,BRICK_BREAK,,,,
-oddish,Oddish,72.4,,,,,RAZOR_LEAF,SEED_BOMB,SLUDGE_BOMB,,,,
-swellow,Swellow,72.4,,,,,WING_ATTACK,BRAVE_BIRD,SKY_ATTACK,,,,
-corsola,Corsola,72.3,,,,,BUBBLE,ROCK_BLAST,BUBBLE_BEAM,,,,
-gothitelle,Gothitelle,72.3,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC,,,,
-heatmor,Heatmor,72.3,,,,,FIRE_SPIN,FLAMETHROWER,THUNDER_PUNCH,,,,
-darumaka,Darumaka,72.2,,,,,FIRE_FANG,FIRE_PUNCH,FLAME_CHARGE,,,,
-celebi,Celebi,72.1,,,,,CONFUSION,SEED_BOMB,PSYCHIC,,,,
-dunsparce,Dunsparce,72.1,,,,,BITE,ROCK_SLIDE,DRILL_RUN,,,,
-shelgon_shadow,Shelgon (Shadow),72.1,,,,,DRAGON_BREATH,FLAMETHROWER,DRAGON_PULSE,,,,
-ursaring_shadow,Ursaring (Shadow),72.1,,,,,COUNTER,CLOSE_COMBAT,HYPER_BEAM,,,,
-cryogonal,Cryogonal,72,,,,,ICE_SHARD,NIGHT_SLASH,AURORA_BEAM,,,,
-magnemite_shadow,Magnemite (Shadow),72,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE,,,,
-arcanine,Arcanine,71.9,,,,,SNARL,WILD_CHARGE,FLAMETHROWER,,,,
-glaceon,Glaceon,71.9,,,,,ICE_SHARD,AVALANCHE,ICY_WIND,,,,
-scyther_shadow,Scyther (Shadow),71.9,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR,,,,
-lairon,Lairon,71.7,,,,,METAL_CLAW,ROCK_SLIDE,BODY_SLAM,,,,
-slowking,Slowking,71.7,,,,,CONFUSION,PSYCHIC,BLIZZARD,,,,
-slowbro,Slowbro,71.5,,,,,CONFUSION,PSYCHIC,ICE_BEAM,,,,
-grimer,Grimer,71.4,,,,,POISON_JAB,MUD_BOMB,SLUDGE_BOMB,,,,
-hydreigon,Hydreigon,71.3,,,,,DRAGON_BREATH,DARK_PULSE,DRAGON_PULSE,,,,
-sunflora,Sunflora,71.3,,,,,BULLET_SEED,SLUDGE_BOMB,PETAL_BLIZZARD,,,,
-bonsly,Bonsly,71.2,,,,,COUNTER,ROCK_SLIDE,EARTHQUAKE,,,,
-claydol,Claydol,71.2,,,,,CONFUSION,EARTH_POWER,PSYCHIC,,,,
-exeggutor_alolan,Exeggutor (Alolan),71.1,,,,,BULLET_SEED,SEED_BOMB,DRAGON_PULSE,,,,
-purugly,Purugly,71.1,,,,,SHADOW_CLAW,AERIAL_ACE,THUNDER,,,,
-weepinbell,Weepinbell,71,,,,,BULLET_SEED,POWER_WHIP,SEED_BOMB,,,,
-gigalith,Gigalith,70.9,,,,,SMACK_DOWN,ROCK_SLIDE,SUPER_POWER,,,,
-weavile_shadow,Weavile (Shadow),70.9,,,,,SNARL,AVALANCHE,FOUL_PLAY,,,,
-kingler,Kingler,70.8,,,,,BUBBLE,CRABHAMMER,X_SCISSOR,,,,
-latias,Latias,70.8,,,,,DRAGON_BREATH,OUTRAGE,PSYCHIC,,,,
-omastar,Omastar,70.8,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST,,,,
-pawniard,Pawniard,70.8,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR,,,,
-lumineon,Lumineon,70.6,,,,,WATER_GUN,BLIZZARD,SILVER_WIND,,,,
-palpitoad,Palpitoad,70.6,,,,,MUD_SHOT,EARTH_POWER,SLUDGE_WAVE,,,,
-poliwhirl,Poliwhirl,70.6,,,,,BUBBLE,MUD_BOMB,SCALD,,,,
-crawdaunt,Crawdaunt,70.5,,,,,SNARL,NIGHT_SLASH,CRABHAMMER,,,,
-tentacruel,Tentacruel,70.5,,,,,POISON_JAB,ACID_SPRAY,HYDRO_PUMP,,,,
-kangaskhan,Kangaskhan,70.4,,,,,MUD_SLAP,STOMP,CRUNCH,,,,
-turtwig,Turtwig,70.4,,,,,RAZOR_LEAF,BODY_SLAM,SEED_BOMB,,,,
-nidoqueen_shadow,Nidoqueen (Shadow),70.3,,,,,POISON_JAB,EARTH_POWER,STONE_EDGE,,,,
-simipour,Simipour,70.3,,,,,WATER_GUN,SURF,CRUNCH,,,,
-wartortle,Wartortle,70.3,,,,,WATER_GUN,ICE_BEAM,HYDRO_PUMP,,,,
-kricketune,Kricketune,70.2,,,,,FURY_CUTTER,X_SCISSOR,AERIAL_ACE,,,,
-nidorino_shadow,Nidorino (Shadow),70.2,,,,,POISON_JAB,SLUDGE_BOMB,HORN_ATTACK,,,,
-rapidash,Rapidash,70.2,,,,,FIRE_SPIN,DRILL_RUN,FIRE_BLAST,,,,
-rufflet,Rufflet,70.1,,,,,WING_ATTACK,BRAVE_BIRD,AERIAL_ACE,,,,
-weavile,Weavile,70.1,,,,,SNARL,AVALANCHE,FOUL_PLAY,,,,
-basculin,Basculin,70,,,,,WATER_GUN,AQUA_TAIL,MUDDY_WATER,,,,
-sharpedo_shadow,Sharpedo (Shadow),70,,,,,WATERFALL,CRUNCH,POISON_FANG,,,,
-vullaby,Vullaby,70,,,,,FEINT_ATTACK,BRAVE_BIRD,FOUL_PLAY,,,,
-lilligant,Lilligant,69.9,,,,,CHARM,PETAL_BLIZZARD,HYPER_BEAM,,,,
-ninjask,Ninjask,69.9,,,,,FURY_CUTTER,AERIAL_ACE,SHADOW_BALL,,,,
-poliwhirl_shadow,Poliwhirl (Shadow),69.9,,,,,BUBBLE,MUD_BOMB,SCALD,,,,
-tyranitar_shadow,Tyranitar (Shadow),69.8,,,,,SMACK_DOWN,STONE_EDGE,CRUNCH,,,,
-magnemite,Magnemite,69.7,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE,,,,
-mightyena,Mightyena,69.7,,,,,ICE_FANG,CRUNCH,POISON_FANG,,,,
-sneasel,Sneasel,69.7,,,,,ICE_SHARD,AVALANCHE,FOUL_PLAY,,,,
-staraptor,Staraptor,69.7,,,,,WING_ATTACK,BRAVE_BIRD,CLOSE_COMBAT,,,,
-aerodactyl_shadow,Aerodactyl (Shadow),69.6,,,,,ROCK_THROW,ROCK_SLIDE,EARTH_POWER,,,,
-golem,Golem,69.5,,,,,MUD_SHOT,STONE_EDGE,EARTHQUAKE,,,,
-darmanitan_standard,Darmanitan (Standard),69.4,,,,,FIRE_FANG,ROCK_SLIDE,OVERHEAT,,,,
-magmar_shadow,Magmar (Shadow),69.4,,,,,EMBER,FIRE_PUNCH,FLAMETHROWER,,,,
-simisear,Simisear,69.4,,,,,FIRE_SPIN,CRUNCH,FLAMETHROWER,,,,
-slowbro_shadow,Slowbro (Shadow),69.4,,,,,CONFUSION,PSYCHIC,ICE_BEAM,,,,
-gabite,Gabite,69.3,,,,,MUD_SHOT,FLAMETHROWER,TWISTER,,,,
-garchomp,Garchomp,69.3,,,,,MUD_SHOT,OUTRAGE,EARTHQUAKE,,,,
-rhyperior,Rhyperior,69.2,,,,,MUD_SLAP,ROCK_WRECKER,SURF,,,,
-wormadam_plant,Wormadam (Plant),69.2,,,,,BUG_BITE,ENERGY_BALL,BUG_BUZZ,,,,
-omanyte_shadow,Omanyte (Shadow),69.1,,,,,MUD_SHOT,ROCK_BLAST,BRINE,,,,
-rhyhorn,Rhyhorn,69,,,,,MUD_SLAP,STOMP,HORN_ATTACK,,,,
-chansey,Chansey,68.8,,,,,ZEN_HEADBUTT,PSYCHIC,HYPER_BEAM,,,,
-exeggutor_shadow,Exeggutor (Shadow),68.8,,,,,BULLET_SEED,SEED_BOMB,PSYCHIC,,,,
-sneasel_shadow,Sneasel (Shadow),68.8,,,,,ICE_SHARD,AVALANCHE,FOUL_PLAY,,,,
-braviary,Braviary,68.7,,,,,AIR_SLASH,BRAVE_BIRD,CLOSE_COMBAT,,,,
-slowking_shadow,Slowking (Shadow),68.7,,,,,CONFUSION,PSYCHIC,BLIZZARD,,,,
-combusken,Combusken,68.6,,,,,EMBER,ROCK_SLIDE,FLAME_CHARGE,,,,
-cinccino,Cinccino,68.5,,,,,CHARM,AQUA_TAIL,THUNDERBOLT,,,,
-metang,Metang,68.5,,,,,METAL_CLAW,PSYSHOCK,GYRO_BALL,,,,
-parasect,Parasect,68.5,,,,,FURY_CUTTER,X_SCISSOR,CROSS_POISON,,,,
-tyranitar,Tyranitar,68.5,,,,,SMACK_DOWN,CRUNCH,STONE_EDGE,,,,
-weezing,Weezing,68.5,,,,,INFESTATION,SLUDGE_BOMB,SHADOW_BALL,,,,
-boldore,Boldore,68.4,,,,,SMACK_DOWN,ROCK_SLIDE,BULLDOZE,,,,
-dugtrio_alolan,Dugtrio (Alolan),68.4,,,,,MUD_SLAP,MUD_BOMB,IRON_HEAD,,,,
-garbodor,Garbodor,68.4,,,,,INFESTATION,BODY_SLAM,SEED_BOMB,,,,
-furret,Furret,68.3,,,,,QUICK_ATTACK,BRICK_BREAK,HYPER_BEAM,,,,
-geodude_alolan,Geodude (Alolan),68.3,,,,,VOLT_SWITCH,ROCK_SLIDE,THUNDERBOLT,,,,
-fraxure,Fraxure,68.2,,,,,DRAGON_TAIL,DRAGON_CLAW,NIGHT_SLASH,,,,
-ledian,Ledian,68.1,,,,,BUG_BITE,AERIAL_ACE,BUG_BUZZ,,,,
-metagross,Metagross,68.1,,,,,BULLET_PUNCH,METEOR_MASH,PSYCHIC,,,,
-sandslash,Sandslash,68.1,,,,,MUD_SHOT,EARTHQUAKE,BULLDOZE,,,,
-scyther,Scyther,68.1,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR,,,,
-exeggutor,Exeggutor,68,,,,,BULLET_SEED,SEED_BOMB,PSYCHIC,,,,
-kabutops,Kabutops,68,,,,,MUD_SHOT,STONE_EDGE,ANCIENT_POWER,,,,
-murkrow,Murkrow,68,,,,,FEINT_ATTACK,DRILL_PECK,FOUL_PLAY,,,,
-maractus,Maractus,67.9,,,,,BULLET_SEED,AERIAL_ACE,PETAL_BLIZZARD,,,,
-monferno,Monferno,67.9,,,,,EMBER,FLAMETHROWER,LOW_SWEEP,,,,
-nidorino,Nidorino,67.9,,,,,POISON_JAB,SLUDGE_BOMB,HORN_ATTACK,,,,
-nidoking,Nidoking,67.8,,,,,FURY_CUTTER,EARTH_POWER,MEGAHORN,,,,
-wormadam_sandy,Wormadam (Sandy),67.8,,,,,BUG_BITE,BUG_BUZZ,BULLDOZE,,,,
-ponyta,Ponyta,67.7,,,,,EMBER,FLAME_CHARGE,STOMP,,,,
-quilava,Quilava,67.7,,,,,EMBER,FLAME_CHARGE,FLAMETHROWER,,,,
-gothorita,Gothorita,67.6,,,,,CONFUSION,PSYCHIC,FUTURE_SIGHT,,,,
-tranquill,Tranquill,67.6,,,,,AIR_SLASH,SKY_ATTACK,AERIAL_ACE,,,,
-nidoking_shadow,Nidoking (Shadow),67.5,,,,,FURY_CUTTER,EARTH_POWER,MEGAHORN,,,,
-donphan,Donphan,67.4,,,,,COUNTER,EARTHQUAKE,HEAVY_SLAM,,,,
-weezing_shadow,Weezing (Shadow),67.4,,,,,INFESTATION,SLUDGE_BOMB,SHADOW_BALL,,,,
-pignite,Pignite,67.3,,,,,EMBER,FLAME_CHARGE,FLAMETHROWER,,,,
-wobbuffet_shadow,Wobbuffet (Shadow),67.3,,,,,COUNTER,MIRROR_COAT,FRUSTRATION,,,,
-farfetchd,Farfetch'd,67.2,,,,,FURY_CUTTER,LEAF_BLADE,AERIAL_ACE,,,,
-masquerain,Masquerain,67.2,,,,,AIR_SLASH,BUBBLE_BEAM,LUNGE,,,,
-excadrill,Excadrill,67.1,,,,,MUD_SLAP,DRILL_RUN,ROCK_SLIDE,,,,
-metang_shadow,Metang (Shadow),67.1,,,,,METAL_CLAW,PSYSHOCK,GYRO_BALL,,,,
-chimecho,Chimecho,67,,,,,EXTRASENSORY,PSYSHOCK,SHADOW_BALL,,,,
-metagross_shadow,Metagross (Shadow),67,,,,,BULLET_PUNCH,METEOR_MASH,PSYCHIC,,,,
-crobat,Crobat,66.9,,,,,AIR_SLASH,SLUDGE_BOMB,SHADOW_BALL,,,,
-drifloon,Drifloon,66.9,,,,,HEX,ICY_WIND,SHADOW_BALL,,,,
-walrein,Walrein,66.9,,,,,WATERFALL,BLIZZARD,EARTHQUAKE,,,,
-sharpedo,Sharpedo,66.8,,,,,WATERFALL,CRUNCH,POISON_FANG,,,,
-aerodactyl,Aerodactyl,66.7,,,,,ROCK_THROW,ROCK_SLIDE,EARTH_POWER,,,,
-delcatty,Delcatty,66.7,,,,,FEINT_ATTACK,WILD_CHARGE,DISARMING_VOICE,,,,
-magcargo,Magcargo,66.7,,,,,EMBER,STONE_EDGE,OVERHEAT,,,,
-magmar,Magmar,66.7,,,,,EMBER,FIRE_PUNCH,RETURN,,,,
-togetic,Togetic,66.7,,,,,HIDDEN_POWER_FLYING,AERIAL_ACE,ANCIENT_POWER,,,,
-chinchou,Chinchou,66.6,,,,,BUBBLE,THUNDERBOLT,BUBBLE_BEAM,,,,
-misdreavus_shadow,Misdreavus (Shadow),66.4,,,,,HEX,DARK_PULSE,OMINOUS_WIND,,,,
-lileep,Lileep,66.3,,,,,BULLET_SEED,GRASS_KNOT,ANCIENT_POWER,,,,
-unfezant,Unfezant,66.3,,,,,AIR_SLASH,SKY_ATTACK,HYPER_BEAM,,,,
-dusknoir,Dusknoir,66.2,,,,,HEX,DARK_PULSE,PSYCHIC,,,,
-mismagius,Mismagius,66.2,,,,,HEX,SHADOW_BALL,DARK_PULSE,,,,
-persian_alolan,Persian (Alolan),66.2,,,,,FEINT_ATTACK,FOUL_PLAY,DARK_PULSE,,,,
-scraggy,Scraggy,66.1,,,,,FEINT_ATTACK,FOUL_PLAY,BRICK_BREAK,,,,
-crobat_shadow,Crobat (Shadow),65.9,,,,,AIR_SLASH,SLUDGE_BOMB,SHADOW_BALL,,,,
-nuzleaf_shadow,Nuzleaf (Shadow),65.9,,,,,FEINT_ATTACK,LEAF_BLADE,FOUL_PLAY,,,,
-mantyke,Mantyke,65.8,,,,,BUBBLE,AERIAL_ACE,ICE_BEAM,,,,
-yanmega,Yanmega,65.6,,,,,WING_ATTACK,AERIAL_ACE,BUG_BUZZ,,,,
-emboar,Emboar,65.5,,,,,EMBER,ROCK_SLIDE,FOCUS_BLAST,,,,
-omanyte,Omanyte,65.5,,,,,MUD_SHOT,ROCK_BLAST,BRINE,,,,
-mismagius_shadow,Mismagius (Shadow),65.4,,,,,HEX,SHADOW_BALL,DARK_PULSE,,,,
-nuzleaf,Nuzleaf,65.4,,,,,FEINT_ATTACK,LEAF_BLADE,FOUL_PLAY,,,,
-archen,Archen,65.3,,,,,WING_ATTACK,DRAGON_CLAW,CRUNCH,,,,
-armaldo,Armaldo,65.2,,,,,FURY_CUTTER,ROCK_BLAST,CROSS_POISON,,,,
-snover,Snover,65.2,,,,,POWDER_SNOW,ICE_BEAM,ENERGY_BALL,,,,
-stoutland,Stoutland,65.1,,,,,LICK,WILD_CHARGE,CRUNCH,,,,
-lombre,Lombre,65,,,,,BUBBLE,GRASS_KNOT,ICE_BEAM,,,,
-darumaka_galarian,Darumaka (Galarian),64.9,,,,,ICE_FANG,ICE_PUNCH,ICE_BEAM,,,,
-sawk,Sawk,64.8,,,,,POISON_JAB,BODY_SLAM,LOW_SWEEP,,,,
-archeops,Archeops,64.7,,,,,WING_ATTACK,DRAGON_CLAW,CRUNCH,,,,
-dusknoir_shadow,Dusknoir (Shadow),64.6,,,,,HEX,DARK_PULSE,PSYCHIC,,,,
-swoobat,Swoobat,64.6,,,,,CONFUSION,AERIAL_ACE,PSYCHIC,,,,
-samurott,Samurott,64.4,,,,,FURY_CUTTER,MEGAHORN,HYDRO_PUMP,,,,
-wartortle_shadow,Wartortle (Shadow),64.3,,,,,WATER_GUN,ICE_BEAM,HYDRO_PUMP,,,,
-arbok,Arbok,64.2,,,,,DRAGON_TAIL,DARK_PULSE,SLUDGE_WAVE,,,,
-lunatone,Lunatone,64.1,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC,,,,
-miltank,Miltank,64.1,,,,,TACKLE,BODY_SLAM,ICE_BEAM,,,,
-persian_shadow,Persian (Shadow),64.1,,,,,FEINT_ATTACK,NIGHT_SLASH,PLAY_ROUGH,,,,
-solrock,Solrock,64.1,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC,,,,
-misdreavus,Misdreavus,64,,,,,HEX,DARK_PULSE,OMINOUS_WIND,,,,
-machop_shadow,Machop (Shadow),63.9,,,,,KARATE_CHOP,CROSS_CHOP,BRICK_BREAK,,,,
-roserade,Roserade,63.9,,,,,POISON_JAB,GRASS_KNOT,SLUDGE_BOMB,,,,
-slowpoke,Slowpoke,63.9,,,,,CONFUSION,PSYSHOCK,WATER_PULSE,,,,
-entei,Entei,63.6,,,,,FIRE_SPIN,FLAMETHROWER,OVERHEAT,,,,
-sandslash_shadow,Sandslash (Shadow),63.6,,,,,MUD_SHOT,EARTHQUAKE,BULLDOZE,,,,
-smoochum,Smoochum,63.6,,,,,POWDER_SNOW,ICE_PUNCH,PSYSHOCK,,,,
-dugtrio_shadow,Dugtrio (Shadow),63.5,,,,,SUCKER_PUNCH,MUD_BOMB,STONE_EDGE,,,,
-liepard,Liepard,63.5,,,,,SNARL,DARK_PULSE,PLAY_ROUGH,,,,
-mr_mime,Mr. Mime,63.5,,,,,CONFUSION,PSYCHIC,SHADOW_BALL,,,,
-entei_shadow,Entei (Shadow),63.4,,,,,FIRE_SPIN,FLAMETHROWER,OVERHEAT,,,,
-arbok_shadow,Arbok (Shadow),63.3,,,,,DRAGON_TAIL,DARK_PULSE,SLUDGE_WAVE,,,,
-roselia,Roselia,63.1,,,,,POISON_JAB,SLUDGE_BOMB,PETAL_BLIZZARD,,,,
-yanma,Yanma,63.1,,,,,WING_ATTACK,AERIAL_ACE,SILVER_WIND,,,,
-dodrio,Dodrio,63,,,,,FEINT_ATTACK,BRAVE_BIRD,DRILL_PECK,,,,
-growlithe_shadow,Growlithe (Shadow),62.9,,,,,EMBER,BODY_SLAM,FLAMETHROWER,,,,
-machop,Machop,62.9,,,,,KARATE_CHOP,CROSS_CHOP,RETURN,,,,
-floatzel,Floatzel,62.8,,,,,WATERFALL,HYDRO_PUMP,AQUA_JET,,,,
-grumpig,Grumpig,62.8,,,,,EXTRASENSORY,PSYCHIC,SHADOW_BALL,,,,
-porygon_z,Porygon-Z,62.8,,,,,LOCK_ON,TRI_ATTACK,ZAP_CANNON,,,,
-rampardos,Rampardos,62.7,,,,,SMACK_DOWN,ROCK_SLIDE,FLAMETHROWER,,,,
-swanna,Swanna,62.7,,,,,AIR_SLASH,HURRICANE,ICE_BEAM,,,,
-magby,Magby,62.5,,,,,EMBER,FIRE_PUNCH,BRICK_BREAK,,,,
-porygon,Porygon,62.5,,,,,QUICK_ATTACK,DISCHARGE,HYPER_BEAM,,,,
-golett,Golett,62.3,,,,,MUD_SLAP,SHADOW_PUNCH,BRICK_BREAK,,,,
-growlithe,Growlithe,62.2,,,,,EMBER,BODY_SLAM,FLAMETHROWER,,,,
-mothim,Mothim,62.2,,,,,BUG_BITE,AERIAL_ACE,BUG_BUZZ,,,,
-slowpoke_shadow,Slowpoke (Shadow),62.2,,,,,CONFUSION,PSYSHOCK,WATER_PULSE,,,,
-exploud,Exploud,62.1,,,,,BITE,CRUNCH,DISARMING_VOICE,,,,
-snover_shadow,Snover (Shadow),62.1,,,,,POWDER_SNOW,ICE_BEAM,ENERGY_BALL,,,,
-persian,Persian,62,,,,,FEINT_ATTACK,NIGHT_SLASH,RETURN,,,,
-xatu,Xatu,62,,,,,AIR_SLASH,AERIAL_ACE,FUTURE_SIGHT,,,,
-dwebble,Dwebble,61.8,,,,,SMACK_DOWN,X_SCISSOR,ROCK_BLAST,,,,
-beheeyem,Beheeyem,61.5,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC,,,,
-lampent,Lampent,61.5,,,,,EMBER,ENERGY_BALL,FLAME_BURST,,,,
-jynx,Jynx,61.4,,,,,CONFUSION,AVALANCHE,ICE_PUNCH,,,,
-porygon_z_shadow,Porygon-Z (Shadow),61.4,,,,,LOCK_ON,TRI_ATTACK,ZAP_CANNON,,,,
-dustox,Dustox,61.2,,,,,CONFUSION,SLUDGE_BOMB,BUG_BUZZ,,,,
-girafarig,Girafarig,61.2,,,,,CONFUSION,PSYCHIC,THUNDERBOLT,,,,
-ambipom,Ambipom,61.1,,,,,SCRATCH,AERIAL_ACE,LOW_SWEEP,,,,
-sawsbuck,Sawsbuck,60.9,,,,,FEINT_ATTACK,WILD_CHARGE,MEGAHORN,,,,
-absol,Absol,60.8,,,,,SNARL,DARK_PULSE,MEGAHORN,,,,
-blissey,Blissey,60.7,,,,,ZEN_HEADBUTT,PSYCHIC,HYPER_BEAM,,,,
-pupitar_shadow,Pupitar (Shadow),60.7,,,,,BITE,CRUNCH,ANCIENT_POWER,,,,
-spinda,Spinda,60.7,,,,,PSYCHO_CUT,ICY_WIND,ROCK_TOMB,,,,
-sandshrew_shadow,Sandshrew (Shadow),60.6,,,,,MUD_SHOT,ROCK_SLIDE,SAND_TOMB,,,,
-clamperl,Clamperl,60.5,,,,,WATER_GUN,BODY_SLAM,ICE_BEAM,,,,
-pupitar,Pupitar,60.5,,,,,BITE,CRUNCH,ANCIENT_POWER,,,,
-onix,Onix,60.4,,,,,ROCK_THROW,ROCK_SLIDE,STONE_EDGE,,,,
-krokorok,Krokorok,60.1,,,,,MUD_SLAP,CRUNCH,EARTHQUAKE,,,,
-flaaffy,Flaaffy,60,,,,,CHARGE_BEAM,DISCHARGE,RETURN,,,,
-roggenrola,Roggenrola,60,,,,,SMACK_DOWN,STONE_EDGE,ROCK_BLAST,,,,
-sigilyph,Sigilyph,60,,,,,AIR_SLASH,SIGNAL_BEAM,ANCIENT_POWER,,,,
-throh,Throh,59.8,,,,,LOW_KICK,BODY_SLAM,LOW_SWEEP,,,,
-absol_shadow,Absol (Shadow),59.6,,,,,SNARL,DARK_PULSE,MEGAHORN,,,,
-staravia,Staravia,59.6,,,,,WING_ATTACK,BRAVE_BIRD,AERIAL_ACE,,,,
-exeggcute,Exeggcute,59.4,,,,,CONFUSION,SEED_BOMB,PSYCHIC,,,,
-exeggcute_shadow,Exeggcute (Shadow),59.3,,,,,CONFUSION,SEED_BOMB,PSYCHIC,,,,
-flaaffy_shadow,Flaaffy (Shadow),59.3,,,,,CHARGE_BEAM,DISCHARGE,POWER_GEM,,,,
-raticate,Raticate,59.2,,,,,QUICK_ATTACK,HYPER_FANG,RETURN,,,,
-teddiursa_shadow,Teddiursa (Shadow),59,,,,,LICK,CROSS_CHOP,CRUNCH,,,,
-camerupt,Camerupt,58.9,,,,,EMBER,OVERHEAT,EARTH_POWER,,,,
-mesprit,Mesprit,58.9,,,,,CONFUSION,FUTURE_SIGHT,BLIZZARD,,,,
-porygon2,Porygon2,58.9,,,,,LOCK_ON,HYPER_BEAM,ZAP_CANNON,,,,
-cacturne,Cacturne,58.8,,,,,SUCKER_PUNCH,DARK_PULSE,GRASS_KNOT,,,,
-octillery,Octillery,58.8,,,,,WATER_GUN,OCTAZOOKA,AURORA_BEAM,,,,
-vibrava_shadow,Vibrava (Shadow),58.8,,,,,DRAGON_BREATH,BUG_BUZZ,BULLDOZE,,,,
-volbeat,Volbeat,58.7,,,,,STRUGGLE_BUG,SIGNAL_BEAM,THUNDERBOLT,,,,
-illumise,Illumise,58.6,,,,,STRUGGLE_BUG,BUG_BUZZ,SILVER_WIND,,,,
-starmie,Starmie,58.6,,,,,WATER_GUN,PSYCHIC,ICE_BEAM,,,,
-watchog,Watchog,58.6,,,,,BITE,HYPER_FANG,CRUNCH,,,,
-drilbur,Drilbur,58.5,,,,,MUD_SLAP,DRILL_RUN,ROCK_TOMB,,,,
-krabby,Krabby,58.5,,,,,BUBBLE,VICE_GRIP,BUBBLE_BEAM,,,,
-nidorina_shadow,Nidorina (Shadow),58.5,,,,,BITE,POISON_FANG,SLUDGE_BOMB,,,,
-geodude,Geodude,58.4,,,,,ROCK_THROW,ROCK_SLIDE,DIG,,,,
-cacturne_shadow,Cacturne (Shadow),58.3,,,,,SUCKER_PUNCH,DARK_PULSE,GRASS_KNOT,,,,
-hippopotas,Hippopotas,58.3,,,,,BITE,BODY_SLAM,DIG,,,,
-nidorina,Nidorina,58.1,,,,,BITE,POISON_FANG,SLUDGE_BOMB,,,,
-teddiursa,Teddiursa,57.9,,,,,LICK,CROSS_CHOP,CRUNCH,,,,
-beautifly,Beautifly,57.7,,,,,INFESTATION,BUG_BUZZ,SILVER_WIND,,,,
-flareon,Flareon,57.3,,,,,FIRE_SPIN,FLAMETHROWER,OVERHEAT,,,,
-shellos_west_sea,Shellos (West),57.3,,,,,MUD_SLAP,BODY_SLAM,MUD_BOMB,,,,
-shellos_east_sea,Shellos (East),57.2,,,,,MUD_SLAP,BODY_SLAM,MUD_BOMB,,,,
-sandshrew,Sandshrew,57.1,,,,,MUD_SHOT,ROCK_SLIDE,SAND_TOMB,,,,
-whirlipede,Whirlipede,57.1,,,,,BUG_BITE,SLUDGE_BOMB,SIGNAL_BEAM,,,,
-chatot,Chatot,57,,,,,PECK,SKY_ATTACK,NIGHT_SHADE,,,,
-aron,Aron,56.7,,,,,METAL_CLAW,BODY_SLAM,IRON_HEAD,,,,
-chandelure,Chandelure,56.7,,,,,HEX,SHADOW_BALL,OVERHEAT,,,,
-herdier,Herdier,56.6,,,,,LICK,THUNDERBOLT,PLAY_ROUGH,,,,
-cofagrigus,Cofagrigus,56.5,,,,,ASTONISH,SHADOW_BALL,DARK_PULSE,,,,
-runerigus,Runerigus,56.3,,,,,ASTONISH,SHADOW_BALL,SAND_TOMB,,,,
-espeon,Espeon,56.2,,,,,CONFUSION,PSYCHIC,LAST_RESORT,,,,
-gorebyss,Gorebyss,55.9,,,,,WATER_GUN,PSYCHIC,WATER_PULSE,,,,
-aipom,Aipom,55.8,,,,,SCRATCH,AERIAL_ACE,LOW_SWEEP,,,,
-azelf,Azelf,55.8,,,,,CONFUSION,FUTURE_SIGHT,FIRE_BLAST,,,,
-cherrim_overcast,Cherrim (Overcast),55.6,,,,,BULLET_SEED,SOLAR_BEAM,DAZZLING_GLEAM,,,,
-seadra,Seadra,55.6,,,,,DRAGON_BREATH,HYDRO_PUMP,BLIZZARD,,,,
-vibrava,Vibrava,55.5,,,,,DRAGON_BREATH,BULLDOZE,BUG_BUZZ,,,,
-hitmonlee_shadow,Hitmonlee (Shadow),54.9,,,,,ROCK_SMASH,CLOSE_COMBAT,STONE_EDGE,,,,
-fearow,Fearow,54.8,,,,,STEEL_WING,SKY_ATTACK,DRILL_RUN,,,,
-cubone_shadow,Cubone (Shadow),54.6,,,,,MUD_SLAP,BONE_CLUB,BULLDOZE,,,,
-deoxys_speed,Deoxys (Speed),54.4,,,,,CHARGE_BEAM,PSYCHO_BOOST,THUNDERBOLT,,,,
-pidgeotto,Pidgeotto,54.2,,,,,WING_ATTACK,AERIAL_ACE,TWISTER,,,,
-butterfree,Butterfree,54.1,,,,,CONFUSION,PSYCHIC,SIGNAL_BEAM,,,,
-raticate_shadow,Raticate (Shadow),54.1,,,,,QUICK_ATTACK,HYPER_FANG,DIG,,,,
-audino,Audino,53.9,,,,,ZEN_HEADBUTT,DISARMING_VOICE,HYPER_BEAM,,,,
-loudred,Loudred,53.9,,,,,BITE,STOMP,CRUNCH,,,,
-elgyem,Elgyem,53.8,,,,,CONFUSION,PSYCHIC,DARK_PULSE,,,,
-cubone,Cubone,53.6,,,,,MUD_SLAP,BONE_CLUB,RETURN,,,,
-weezing_galarian,Weezing (Galarian),53.6,,,,,TACKLE,SLUDGE,OVERHEAT,,,,
-salamence_shadow,Salamence (Shadow),53,,,,,DRAGON_TAIL,OUTRAGE,HYDRO_PUMP,,,,
-salamence,Salamence,52.5,,,,,DRAGON_TAIL,OUTRAGE,HYDRO_PUMP,,,,
-hitmonlee,Hitmonlee,52,,,,,ROCK_SMASH,CLOSE_COMBAT,STONE_EDGE,,,,
-ho_oh,Ho-Oh,51.8,,,,,EXTRASENSORY,BRAVE_BIRD,EARTHQUAKE,,,,
-snubbull,Snubbull,51.7,,,,,BITE,CRUNCH,BRICK_BREAK,,,,
-drowzee_shadow,Drowzee (Shadow),51.5,,,,,CONFUSION,PSYSHOCK,PSYCHIC,,,,
-kadabra,Kadabra,51.5,,,,,PSYCHO_CUT,SHADOW_BALL,RETURN,,,,
-pineco_shadow,Pineco (Shadow),51.5,,,,,BUG_BITE,SAND_TOMB,ROCK_TOMB,,,,
-drowzee,Drowzee,51.3,,,,,CONFUSION,PSYSHOCK,RETURN,,,,
-porygon2_shadow,Porygon2 (Shadow),51.1,,,,,LOCK_ON,HYPER_BEAM,ZAP_CANNON,,,,
-axew,Axew,51,,,,,SCRATCH,DRAGON_CLAW,AQUA_TAIL,,,,
-kabuto,Kabuto,50.9,,,,,MUD_SHOT,ANCIENT_POWER,AQUA_JET,,,,
-nosepass,Nosepass,50.7,,,,,SPARK,ROCK_SLIDE,ROCK_BLAST,,,,
-porygon_shadow,Porygon (Shadow),50.7,,,,,CHARGE_BEAM,DISCHARGE,SIGNAL_BEAM,,,,
-anorith,Anorith,50.5,,,,,STRUGGLE_BUG,ANCIENT_POWER,CROSS_POISON,,,,
-ponyta_galarian,Ponyta (Galarian),50.3,,,,,PSYCHO_CUT,PLAY_ROUGH,PSYBEAM,,,,
-koffing,Koffing,50.2,,,,,INFESTATION,DARK_PULSE,SLUDGE_BOMB,,,,
-rhydon,Rhydon,50.2,,,,,ROCK_SMASH,STONE_EDGE,SURF,,,,
-buneary,Buneary,49.8,,,,,QUICK_ATTACK,FIRE_PUNCH,SWIFT,,,,
-accelgor,Accelgor,49,,,,,INFESTATION,BUG_BUZZ,ACID_SPRAY,,,,
-kadabra_shadow,Kadabra (Shadow),49,,,,,PSYCHO_CUT,SHADOW_BALL,PSYBEAM,,,,
-koffing_shadow,Koffing (Shadow),48.8,,,,,INFESTATION,DARK_PULSE,SLUDGE_BOMB,,,,
-reuniclus,Reuniclus,47.9,,,,,HIDDEN_POWER_FIGHTING,FUTURE_SIGHT,SHADOW_BALL,,,,
-duosion,Duosion,47.8,,,,,HIDDEN_POWER_PSYCHIC,PSYSHOCK,THUNDER,,,,
-pineco,Pineco,47.5,,,,,BUG_BITE,RETURN,SAND_TOMB,,,,
-lopunny,Lopunny,45.5,,,,,POUND,FIRE_PUNCH,HYPER_BEAM,,,,
-timburr,Timburr,44.4,,,,,LOW_KICK,BRICK_BREAK,ROCK_TOMB,,,,
-phanpy,Phanpy,43.7,,,,,TACKLE,BODY_SLAM,ROCK_SLIDE,,,,
-solosis,Solosis,43.3,,,,,HIDDEN_POWER_PSYCHIC,PSYSHOCK,THUNDER,,,,
-darmanitan_galarian_standard,Darmanitan (Galarian),40.6,,,,,TACKLE,AVALANCHE,SUPER_POWER,,,,
-tauros,Tauros,39.5,,,,,ZEN_HEADBUTT,HORN_ATTACK,EARTHQUAKE,,,,
-spoink,Spoink,39.3,,,,,ZEN_HEADBUTT,SHADOW_BALL,MIRROR_COAT,,,,
-stantler_shadow,Stantler (Shadow),38.1,,,,,ZEN_HEADBUTT,WILD_CHARGE,STOMP,,,,
-clefairy,Clefairy,36.8,,,,,ZEN_HEADBUTT,BODY_SLAM,DISARMING_VOICE,,,,
-stantler,Stantler,36.7,,,,,ZEN_HEADBUTT,WILD_CHARGE,STOMP,,,,
-deerling,Deerling,36,,,,,TAKE_DOWN,WILD_CHARGE,SEED_BOMB,,,,
-cranidos,Cranidos,33.2,,,,,ZEN_HEADBUTT,ANCIENT_POWER,BULLDOZE,,,,
-slaking,Slaking,29.5,,,,,YAWN,BODY_SLAM,EARTHQUAKE,,,,
+speciesId,speciesName,score,attack,defense,hp,statProduct,fastMove,chargedMove1,chargedMove2,leadScore,switchScore,closerScore,attackerScore,topMatchups,topCounters
+azumarill,Azumarill,97.2,,,,,BUBBLE,ICE_BEAM,HYDRO_PUMP,,,,,stunfisk_galarian:706;skarmory:611;altaria:752;bastiodon:730;marowak_alolan:728,abomasnow:343;hypno:475;galvantula:217;tropius:476;cresselia:409
+stunfisk_galarian,Stunfisk (Galarian),96.5,,,,,MUD_SHOT,ROCK_SLIDE,EARTHQUAKE,,,,,skarmory:658;altaria:652;bastiodon:916;galvantula:805;marowak_alolan:616,azumarill:293;swampert:492;whiscash:380;toxicroak:379;obstagoon:394
+machamp_shadow,Machamp (Shadow),93.7,,,,,COUNTER,CROSS_CHOP,ROCK_SLIDE,,,,,stunfisk_galarian:836;skarmory:516;altaria:516;bastiodon:800;umbreon:911,azumarill:388;galvantula:487;toxicroak:472;abomasnow:482;deoxys_defense:407
+abomasnow_shadow,Abomasnow (Shadow),92.9,,,,,POWDER_SNOW,WEATHER_BALL_ICE,ENERGY_BALL,,,,,azumarill:581;stunfisk_galarian:567;altaria:741;whiscash:797;swampert:723,skarmory:408;galvantula:491;umbreon:442;bastiodon:265;deoxys_defense:350
+deoxys_defense,Deoxys (Defense),92.5,,,,,COUNTER,ROCK_SLIDE,THUNDERBOLT,,,,,skarmory:613;bastiodon:726;toxicroak:628;abomasnow:675;obstagoon:706,azumarill:491;stunfisk_galarian:431;altaria:397;galvantula:495;marowak_alolan:379
+sirfetchd,Sirfetchd,92.1,,,,,COUNTER,LEAF_BLADE,CLOSE_COMBAT,,,,,stunfisk_galarian:838;skarmory:536;bastiodon:812;umbreon:869;whiscash:838,azumarill:404;altaria:397;toxicroak:480;abomasnow:450;marowak_alolan:266
+scrafty,Scrafty,92,,,,,COUNTER,FOUL_PLAY,POWER_UP_PUNCH,,,,,stunfisk_galarian:600;bastiodon:855;umbreon:798;marowak_alolan:583;swampert:679,azumarill:320;skarmory:379;altaria:273;galvantula:364;toxicroak:298
+swampert,Swampert,92,,,,,MUD_SHOT,HYDRO_CANNON,SLUDGE_WAVE,,,,,skarmory:738;stunfisk_galarian:507;marowak_alolan:867;bastiodon:812;galvantula:533,azumarill:442;altaria:277;umbreon:391;whiscash:328;meganium:496
+swampert_shadow,Swampert (Shadow),91.8,,,,,MUD_SHOT,HYDRO_CANNON,SLUDGE_WAVE,,,,,stunfisk_galarian:875;skarmory:665;marowak_alolan:863;bastiodon:775;toxicroak:665,azumarill:478;altaria:321;galvantula:475;whiscash:388;obstagoon:405
+registeel,Registeel,91.6,,,,,LOCK_ON,FLASH_CANNON,FOCUS_BLAST,,,,,skarmory:679;altaria:574;bastiodon:843;abomasnow:812;umbreon:570,azumarill:483;stunfisk_galarian:422;galvantula:319;deoxys_defense:391;marowak_alolan:278
+mantine,Mantine,91.4,,,,,BUBBLE,BUBBLE_BEAM,ICE_BEAM,,,,,stunfisk_galarian:579;skarmory:604;altaria:737;marowak_alolan:725;toxicroak:770,azumarill:472;bastiodon:371;deoxys_defense:422;galvantula:266;abomasnow:375
+abomasnow,Abomasnow,91.3,,,,,POWDER_SNOW,WEATHER_BALL_ICE,ENERGY_BALL,,,,,azumarill:656;altaria:804;whiscash:815;stunfisk:812;shiftry:741,stunfisk_galarian:446;skarmory:320;galvantula:405;toxicroak:472;swampert:419
+dewgong,Dewgong,91.3,,,,,ICE_SHARD,ICY_WIND,WATER_PULSE,,,,,azumarill:636;skarmory:597;altaria:766;umbreon:613;whiscash:626,stunfisk_galarian:467;marowak_alolan:463;abomasnow:457;galvantula:278;deoxys_defense:365
+bastiodon,Bastiodon,91.2,,,,,SMACK_DOWN,STONE_EDGE,FLAMETHROWER,,,,,skarmory:856;altaria:772;galvantula:746;marowak_alolan:571;abomasnow:738,azumarill:269;shiftry:486;stunfisk_galarian:83;deoxys_defense:273;obstagoon:282
+machamp,Machamp,91.2,,,,,COUNTER,CROSS_CHOP,ROCK_SLIDE,,,,,stunfisk_galarian:876;skarmory:580;altaria:516;bastiodon:828;umbreon:652,azumarill:358;marowak_alolan:463;galvantula:409;whiscash:420;toxicroak:422
+altaria,Altaria,91.1,,,,,DRAGON_BREATH,SKY_ATTACK,DRAGON_PULSE,,,,,marowak_alolan:678;galvantula:594;swampert:722;toxicroak:569;deoxys_defense:602,skarmory:429;stunfisk_galarian:347;azumarill:247;umbreon:404;whiscash:311
+cresselia,Cresselia,90.8,,,,,PSYCHO_CUT,GRASS_KNOT,MOONBLAST,,,,,azumarill:590;whiscash:708;swampert:773;toxicroak:664;deoxys_defense:571,stunfisk_galarian:380;skarmory:312;altaria:459;umbreon:471;marowak_alolan:379
+meganium,Meganium,90.7,,,,,VINE_WHIP,FRENZY_PLANT,EARTHQUAKE,,,,,azumarill:893;stunfisk_galarian:744;bastiodon:698;whiscash:820;umbreon:576,skarmory:258;galvantula:348;altaria:197;toxicroak:387;obstagoon:478
+umbreon,Umbreon,90.7,,,,,SNARL,FOUL_PLAY,LAST_RESORT,,,,,skarmory:509;altaria:595;marowak_alolan:738;whiscash:592;swampert:608,azumarill:317;stunfisk_galarian:377;bastiodon:481;galvantula:483;toxicroak:333
+venusaur,Venusaur,90.4,,,,,VINE_WHIP,FRENZY_PLANT,SLUDGE_BOMB,,,,,azumarill:844;bastiodon:642;umbreon:672;whiscash:684;swampert:689,stunfisk_galarian:410;skarmory:216;galvantula:475;altaria:302;toxicroak:461
+tropius,Tropius,90.3,,,,,RAZOR_LEAF,LEAF_BLADE,AERIAL_ACE,,,,,azumarill:523;stunfisk_galarian:547;whiscash:973;swampert:979;umbreon:636,skarmory:179;bastiodon:397;galvantula:397;marowak_alolan:310;obstagoon:467
+primeape,Primeape,90.2,,,,,COUNTER,NIGHT_SLASH,CLOSE_COMBAT,,,,,stunfisk_galarian:700;skarmory:543;bastiodon:786;galvantula:630;umbreon:752,azumarill:353;altaria:379;marowak_alolan:354;deoxys_defense:396;hypno:327
+hitmontop,Hitmontop,89.9,,,,,COUNTER,CLOSE_COMBAT,STONE_EDGE,,,,,stunfisk_galarian:705;skarmory:615;bastiodon:804;umbreon:720;whiscash:635,azumarill:282;altaria:372;deoxys_defense:427;galvantula:315;toxicroak:306
+medicham,Medicham,89.6,,,,,COUNTER,ICE_PUNCH,PSYCHIC,,,,,stunfisk_galarian:611;bastiodon:847;galvantula:570;whiscash:611;umbreon:578,azumarill:347;skarmory:416;altaria:408;toxicroak:437;deoxys_defense:396
+castform_snowy,Castform (Snowy),89.2,,,,,POWDER_SNOW,WEATHER_BALL_ICE,BLIZZARD,,,,,skarmory:755;altaria:810;whiscash:724;galvantula:565;umbreon:572,stunfisk_galarian:476;azumarill:307;toxicroak:441;bastiodon:318;marowak_alolan:193
+vigoroth,Vigoroth,89.2,,,,,COUNTER,BODY_SLAM,BULLDOZE,,,,,stunfisk_galarian:694;bastiodon:718;umbreon:666;swampert:621;whiscash:534,azumarill:375;skarmory:383;altaria:437;marowak_alolan:427;galvantula:389
+castform_rainy,Castform (Rainy),89.1,,,,,WATER_GUN,WEATHER_BALL_WATER,THUNDER,,,,,azumarill:610;stunfisk_galarian:706;skarmory:562;bastiodon:682;marowak_alolan:655,altaria:306;umbreon:414;deoxys_defense:427;galvantula:299;obstagoon:496
+whiscash,Whiscash,89.1,,,,,MUD_SHOT,MUD_BOMB,BLIZZARD,,,,,stunfisk_galarian:620;altaria:688;bastiodon:854;marowak_alolan:668;toxicroak:745,azumarill:413;skarmory:320;galvantula:475;umbreon:407;obstagoon:452
+regirock,Regirock,89,,,,,LOCK_ON,STONE_EDGE,FOCUS_BLAST,,,,,skarmory:745;altaria:589;galvantula:816;bastiodon:794;marowak_alolan:674,azumarill:442;stunfisk_galarian:446;swampert:437;whiscash:342;deoxys_defense:360
+raikou_shadow,Raikou (Shadow),88.9,,,,,THUNDER_SHOCK,WILD_CHARGE,SHADOW_BALL,,,,,azumarill:784;skarmory:814;bastiodon:543;deoxys_defense:646;toxicroak:547,altaria:448;stunfisk_galarian:185;marowak_alolan:483;galvantula:405;umbreon:337
+galvantula,Galvantula,88.6,,,,,VOLT_SWITCH,DISCHARGE,LUNGE,,,,,azumarill:782;skarmory:750;toxicroak:725;umbreon:516;whiscash:524,altaria:405;stunfisk_galarian:194;swampert:466;bastiodon:253;stunfisk:395
+ferrothorn,Ferrothorn,88.5,,,,,BULLET_SEED,POWER_WHIP,THUNDER,,,,,azumarill:699;stunfisk_galarian:593;whiscash:764;swampert:776;stunfisk:699,skarmory:383;altaria:273;umbreon:423;bastiodon:352;abomasnow:436
+lanturn,Lanturn,88.3,,,,,SPARK,THUNDERBOLT,HYDRO_PUMP,,,,,azumarill:718;skarmory:880;marowak_alolan:679;galvantula:552;swampert:567,altaria:372;bastiodon:462;deoxys_defense:386;umbreon:328;stunfisk:464
+skarmory,Skarmory,88.3,,,,,AIR_SLASH,BRAVE_BIRD,SKY_ATTACK,,,,,altaria:570;whiscash:679;abomasnow:679;toxicroak:591;victreebel_shadow:795,azumarill:388;stunfisk_galarian:341;marowak_alolan:431;umbreon:490;deoxys_defense:386
+zweilous,Zweilous,88.3,,,,,DRAGON_BREATH,BODY_SLAM,DARK_PULSE,,,,,altaria:540;marowak_alolan:667;swampert:700;umbreon:507;shiftry:755,azumarill:404;skarmory:475;stunfisk_galarian:365;bastiodon:469;galvantula:418
+shiftry_shadow,Shiftry (Shadow),88.1,,,,,SNARL,LEAF_BLADE,FOUL_PLAY,,,,,azumarill:789;stunfisk_galarian:610;galvantula:789;whiscash:903;marowak_alolan:562,skarmory:362;altaria:383;bastiodon:405;abomasnow:308;obstagoon:362
+wigglytuff,Wigglytuff,88.1,,,,,CHARM,ICE_BEAM,PLAY_ROUGH,,,,,altaria:886;galvantula:746;umbreon:762;whiscash:525;toxicroak:662,azumarill:426;stunfisk_galarian:314;skarmory:304;marowak_alolan:427;swampert:463
+grotle_shadow,Grotle (Shadow),88,,,,,RAZOR_LEAF,BODY_SLAM,ENERGY_BALL,,,,,azumarill:854;whiscash:953;swampert:964;stunfisk:819;obstagoon:503,stunfisk_galarian:482;bastiodon:481;skarmory:191;umbreon:436;galvantula:368
+venusaur_shadow,Venusaur (Shadow),88,,,,,VINE_WHIP,FRENZY_PLANT,SLUDGE_BOMB,,,,,azumarill:844;whiscash:844;bastiodon:592;swampert:680;deoxys_defense:525,stunfisk_galarian:473;skarmory:229;altaria:339;galvantula:491;umbreon:436
+skarmory_shadow,Skarmory (Shadow),87.9,,,,,AIR_SLASH,BRAVE_BIRD,SKY_ATTACK,,,,,azumarill:570;altaria:587;toxicroak:675;whiscash:562;abomasnow:591,stunfisk_galarian:374;umbreon:471;deoxys_defense:448;galvantula:331;swampert:334
+mandibuzz,Mandibuzz,87.8,,,,,SNARL,FOUL_PLAY,SHADOW_BALL,,,,,skarmory:603;marowak_alolan:721;whiscash:591;swampert:646;deoxys_defense:626,azumarill:334;stunfisk_galarian:395;altaria:405;umbreon:372;galvantula:311
+obstagoon,Obstagoon,87.6,,,,,COUNTER,NIGHT_SLASH,GUNK_SHOT,,,,,stunfisk_galarian:605;skarmory:713;bastiodon:717;marowak_alolan:655;umbreon:760,azumarill:475;altaria:386;swampert:466;galvantula:340;stunfisk:497
+whimsicott,Whimsicott,87.6,,,,,CHARM,GRASS_KNOT,MOONBLAST,,,,,azumarill:508;altaria:893;galvantula:816;umbreon:726;toxicroak:760,stunfisk_galarian:314;skarmory:279;swampert:496;whiscash:402;marowak_alolan:258
+grotle,Grotle,87.5,,,,,RAZOR_LEAF,BODY_SLAM,ENERGY_BALL,,,,,azumarill:854;stunfisk_galarian:705;whiscash:953;swampert:960;stunfisk:822,skarmory:191;bastiodon:412;umbreon:471;galvantula:299;toxicroak:356
+hariyama,Hariyama,87.5,,,,,COUNTER,CLOSE_COMBAT,HEAVY_SLAM,,,,,stunfisk_galarian:684;skarmory:584;bastiodon:817;galvantula:682;umbreon:725,azumarill:288;altaria:375;deoxys_defense:365;toxicroak:306;machamp_shadow:444
+politoed_shadow,Politoed (Shadow),87.4,,,,,MUD_SHOT,SURF,EARTHQUAKE,,,,,azumarill:583;stunfisk_galarian:670;bastiodon:764;marowak_alolan:601;whiscash:673,skarmory:479;altaria:277;umbreon:366;deoxys_defense:314;abomasnow:223
+shiftry,Shiftry,87.4,,,,,SNARL,LEAF_BLADE,FOUL_PLAY,,,,,azumarill:824;stunfisk_galarian:689;whiscash:934;marowak_alolan:634;bastiodon:513,skarmory:416;altaria:386;galvantula:438;umbreon:484;deoxys_defense:443
+gardevoir_shadow,Gardevoir (Shadow),87.3,,,,,CHARM,SYNCHRONOISE,SHADOW_BALL,,,,,altaria:818;galvantula:789;umbreon:857;whiscash:818;toxicroak:838,azumarill:437;skarmory:370;stunfisk_galarian:299;marowak_alolan:330;abomasnow:471
+flygon_shadow,Flygon (Shadow),87.2,,,,,MUD_SHOT,DRAGON_CLAW,EARTH_POWER,,,,,stunfisk_galarian:873;bastiodon:829;galvantula:914;marowak_alolan:849;toxicroak:589,azumarill:399;skarmory:387;altaria:277;umbreon:468;whiscash:428
+bellossom,Bellossom,86.7,,,,,BULLET_SEED,LEAF_BLADE,RETURN,,,,,azumarill:878;stunfisk_galarian:527;whiscash:925;swampert:777;umbreon:535,skarmory:241;altaria:313;bastiodon:401;galvantula:397;toxicroak:310
+lapras,Lapras,86.7,,,,,ICE_SHARD,SURF,SKULL_BASH,,,,,azumarill:631;altaria:779;whiscash:628;swampert:631;abomasnow:513,stunfisk_galarian:407;skarmory:370;marowak_alolan:439;bastiodon:382;umbreon:445
+perrserker,Perrserker,86.7,,,,,SHADOW_CLAW,CLOSE_COMBAT,FOUL_PLAY,,,,,stunfisk_galarian:663;skarmory:584;altaria:554;bastiodon:806;abomasnow:710,azumarill:266;deoxys_defense:494;umbreon:363;whiscash:348;galvantula:274
+gloom_shadow,Gloom (Shadow),86.6,,,,,RAZOR_LEAF,SLUDGE_BOMB,MOONBLAST,,,,,azumarill:886;whiscash:937;swampert:921;bastiodon:503;deoxys_defense:546,stunfisk_galarian:422;galvantula:475;skarmory:187;umbreon:461;toxicroak:492
+zapdos,Zapdos,86.6,,,,,THUNDER_SHOCK,DRILL_PECK,THUNDER,,,,,azumarill:785;skarmory:820;toxicroak:758;obstagoon:561;machamp_shadow:719,stunfisk_galarian:254;altaria:328;galvantula:364;marowak_alolan:346;umbreon:366
+zapdos_shadow,Zapdos (Shadow),86.5,,,,,THUNDER_SHOCK,DRILL_PECK,THUNDERBOLT,,,,,azumarill:750;skarmory:785;toxicroak:719;abomasnow:640;obstagoon:732,altaria:361;stunfisk_galarian:188;galvantula:430;marowak_alolan:383;swampert:397
+bellossom_shadow,Bellossom (Shadow),86.4,,,,,BULLET_SEED,LEAF_BLADE,DAZZLING_GLEAM,,,,,azumarill:839;stunfisk_galarian:683;whiscash:925;bastiodon:589;swampert:750,altaria:463;skarmory:229;galvantula:459;marowak_alolan:221;victreebel_shadow:422
+lapras_shadow,Lapras (Shadow),86.3,,,,,ICE_SHARD,SURF,SKULL_BASH,,,,,azumarill:634;stunfisk_galarian:611;altaria:740;whiscash:578;umbreon:539,skarmory:445;marowak_alolan:487;bastiodon:310;galvantula:299;abomasnow:386
+alomomola,Alomomola,86.2,,,,,WATERFALL,PSYCHIC,HYDRO_PUMP,,,,,azumarill:557;stunfisk_galarian:660;marowak_alolan:728;bastiodon:544;whiscash:574,skarmory:495;altaria:350;deoxys_defense:453;galvantula:331;swampert:433
+empoleon,Empoleon,86.2,,,,,WATERFALL,HYDRO_CANNON,DRILL_PECK,,,,,skarmory:790;bastiodon:790;swampert:532;abomasnow:573;hypno:766,azumarill:491;stunfisk_galarian:407;altaria:390;galvantula:422;umbreon:394
+ludicolo,Ludicolo,86,,,,,BUBBLE,ENERGY_BALL,ICE_BEAM,,,,,azumarill:704;stunfisk_galarian:715;altaria:655;marowak_alolan:541;whiscash:575,skarmory:387;bastiodon:386;deoxys_defense:407;abomasnow:400;obstagoon:481
+toxicroak,Toxicroak,86,,,,,COUNTER,MUD_BOMB,SLUDGE_BOMB,,,,,stunfisk_galarian:620;bastiodon:810;umbreon:666;obstagoon:887;shiftry:903,azumarill:497;skarmory:408;altaria:430;deoxys_defense:371;galvantula:274
+hitmonchan_shadow,Hitmonchan (Shadow),85.9,,,,,COUNTER,ICE_PUNCH,THUNDER_PUNCH,,,,,stunfisk_galarian:809;altaria:623;bastiodon:814;umbreon:659;whiscash:577,azumarill:383;skarmory:304;galvantula:323;toxicroak:329;deoxys_defense:340
+tangrowth,Tangrowth,85.9,,,,,VINE_WHIP,ROCK_SLIDE,POWER_WHIP,,,,,azumarill:875;whiscash:808;bastiodon:605;swampert:748;stunfisk:800,stunfisk_galarian:482;skarmory:283;altaria:364;deoxys_defense:417;toxicroak:375
+clefable,Clefable,85.8,,,,,CHARM,METEOR_MASH,MOONBLAST,,,,,altaria:828;galvantula:744;umbreon:751;toxicroak:786;deoxys_defense:622,azumarill:394;stunfisk_galarian:266;skarmory:304;whiscash:482;marowak_alolan:370
+snorlax,Snorlax,85.8,,,,,LICK,BODY_SLAM,SUPER_POWER,,,,,bastiodon:697;marowak_alolan:613;galvantula:539;abomasnow:607;shiftry:676,azumarill:415;stunfisk_galarian:443;skarmory:454;altaria:354;umbreon:414
+victreebel_shadow,Victreebel (Shadow),85.8,,,,,RAZOR_LEAF,LEAF_BLADE,ACID_SPRAY,,,,,azumarill:860;swampert:937;whiscash:918;stunfisk:926;obstagoon:558,stunfisk_galarian:470;skarmory:204;bastiodon:454;umbreon:490;galvantula:413
+froslass,Froslass,85.7,,,,,POWDER_SNOW,AVALANCHE,SHADOW_BALL,,,,,altaria:721;deoxys_defense:797;abomasnow:736;toxicroak:595;swampert:599,azumarill:358;stunfisk_galarian:368;skarmory:404;whiscash:491;marowak_alolan:302
+cradily,Cradily,85.6,,,,,BULLET_SEED,STONE_EDGE,GRASS_KNOT,,,,,azumarill:510;stunfisk_galarian:621;whiscash:792;galvantula:582;swampert:682,skarmory:258;altaria:401;marowak_alolan:467;umbreon:429;bastiodon:359
+melmetal,Melmetal,85.6,,,,,THUNDER_SHOCK,SUPER_POWER,ROCK_SLIDE,,,,,skarmory:665;altaria:785;bastiodon:820;abomasnow:728;obstagoon:679,azumarill:404;stunfisk_galarian:299;galvantula:463;marowak_alolan:383;swampert:341
+mew,Mew,85.6,,,,,SHADOW_CLAW,WILD_CHARGE,SURF,,,,,azumarill:547;stunfisk_galarian:562;skarmory:503;marowak_alolan:677;toxicroak:779,altaria:416;bastiodon:473;galvantula:405;swampert:441;whiscash:354
+raikou,Raikou,85.6,,,,,THUNDER_SHOCK,WILD_CHARGE,SHADOW_BALL,,,,,azumarill:737;skarmory:844;umbreon:586;toxicroak:633;machamp_shadow:547,stunfisk_galarian:245;altaria:419;marowak_alolan:423;galvantula:360;deoxys_defense:458
+lickitung,Lickitung,85.4,,,,,LICK,BODY_SLAM,POWER_WHIP,,,,,azumarill:637;skarmory:502;marowak_alolan:705;galvantula:545;whiscash:640,stunfisk_galarian:353;bastiodon:367;deoxys_defense:458;umbreon:321;abomasnow:382
+pelipper,Pelipper,85.4,,,,,WING_ATTACK,WEATHER_BALL_WATER,HURRICANE,,,,,azumarill:610;stunfisk_galarian:628;marowak_alolan:575;toxicroak:774;whiscash:588,skarmory:262;altaria:313;umbreon:372;abomasnow:418;deoxys_defense:360
+quagsire,Quagsire,85.4,,,,,MUD_SHOT,EARTHQUAKE,STONE_EDGE,,,,,stunfisk_galarian:591;bastiodon:839;marowak_alolan:657;galvantula:663;swampert:654,azumarill:364;skarmory:262;altaria:350;whiscash:437;toxicroak:468
+drifblim,Drifblim,85.3,,,,,HEX,ICY_WIND,SHADOW_BALL,,,,,toxicroak:903;swampert:737;deoxys_defense:704;hypno:752;obstagoon:562,azumarill:380;stunfisk_galarian:392;skarmory:425;altaria:459;whiscash:442
+escavalier,Escavalier,85.3,,,,,COUNTER,DRILL_RUN,MEGAHORN,,,,,stunfisk_galarian:586;bastiodon:725;umbreon:663;whiscash:600;abomasnow:677,azumarill:347;skarmory:429;altaria:237;deoxys_defense:304;galvantula:225
+politoed,Politoed,85.3,,,,,MUD_SHOT,SURF,EARTHQUAKE,,,,,azumarill:594;stunfisk_galarian:605;bastiodon:793;marowak_alolan:641;whiscash:528,skarmory:375;umbreon:458;altaria:240;toxicroak:437;galvantula:327
+lucario,Lucario,85.2,,,,,COUNTER,POWER_UP_PUNCH,SHADOW_BALL,,,,,stunfisk_galarian:640;skarmory:668;bastiodon:868;umbreon:722;abomasnow:659,azumarill:263;altaria:291;galvantula:397;swampert:308;whiscash:240
+munchlax,Munchlax,85.2,,,,,LICK,BODY_SLAM,BULLDOZE,,,,,skarmory:516;altaria:506;marowak_alolan:699;galvantula:568;hypno:614,azumarill:442;stunfisk_galarian:443;bastiodon:424;deoxys_defense:443;swampert:389
+magnezone,Magnezone,85.1,,,,,SPARK,WILD_CHARGE,MIRROR_SHOT,,,,,azumarill:752;skarmory:873;altaria:575;galvantula:525;umbreon:611,bastiodon:496;marowak_alolan:423;stunfisk_galarian:131;deoxys_defense:391;obstagoon:460
+marowak_alolan,Marowak (Alolan),85.1,,,,,FIRE_SPIN,SHADOW_BONE,BONE_CLUB,,,,,skarmory:568;galvantula:814;toxicroak:862;abomasnow:818;deoxys_defense:620,stunfisk_galarian:383;azumarill:271;altaria:321;bastiodon:428;whiscash:331
+ivysaur,Ivysaur,84.9,,,,,VINE_WHIP,POWER_WHIP,SLUDGE_BOMB,,,,,azumarill:872;whiscash:693;swampert:709;deoxys_defense:600;stunfisk:759,stunfisk_galarian:383;skarmory:212;altaria:299;galvantula:467;bastiodon:435
+sealeo,Sealeo,84.9,,,,,POWDER_SNOW,BODY_SLAM,AURORA_BEAM,,,,,azumarill:648;altaria:773;whiscash:580;swampert:630;stunfisk:604,stunfisk_galarian:347;skarmory:391;galvantula:397;umbreon:423;abomasnow:492
+stunfisk,Stunfisk,84.9,,,,,THUNDER_SHOCK,MUD_BOMB,DISCHARGE,,,,,skarmory:766;bastiodon:853;marowak_alolan:622;galvantula:604;deoxys_defense:616,azumarill:494;altaria:383;stunfisk_galarian:206;umbreon:439;machamp_shadow:476
+bayleef,Bayleef,84.8,,,,,RAZOR_LEAF,GRASS_KNOT,ANCIENT_POWER,,,,,azumarill:873;stunfisk_galarian:563;whiscash:944;swampert:958;deoxys_defense:563,skarmory:191;galvantula:401;umbreon:442;bastiodon:321;toxicroak:383
+blaziken,Blaziken,84.8,,,,,COUNTER,BLAZE_KICK,STONE_EDGE,,,,,stunfisk_galarian:508;altaria:504;bastiodon:690;galvantula:614;umbreon:627,azumarill:394;skarmory:304;deoxys_defense:355;toxicroak:329;stunfisk:464
+leavanny,Leavanny,84.8,,,,,RAZOR_LEAF,LEAF_BLADE,X_SCISSOR,,,,,azumarill:858;whiscash:970;swampert:957;stunfisk:773;obstagoon:598,stunfisk_galarian:434;umbreon:382;skarmory:129;galvantula:323;toxicroak:406
+snorlax_shadow,Snorlax (Shadow),84.8,,,,,LICK,BODY_SLAM,SUPER_POWER,,,,,bastiodon:760;marowak_alolan:523;galvantula:523;swampert:626;abomasnow:631,stunfisk_galarian:488;azumarill:315;skarmory:483;altaria:372;whiscash:465
+vileplume_shadow,Vileplume (Shadow),84.8,,,,,RAZOR_LEAF,SLUDGE_BOMB,MOONBLAST,,,,,azumarill:847;whiscash:932;swampert:915;deoxys_defense:775;toxicroak:690,stunfisk_galarian:464;skarmory:233;bastiodon:454;galvantula:450;umbreon:461
+blastoise,Blastoise,84.7,,,,,WATER_GUN,HYDRO_CANNON,ICE_BEAM,,,,,stunfisk_galarian:610;marowak_alolan:653;whiscash:586;umbreon:547;swampert:574,azumarill:480;skarmory:466;altaria:332;bastiodon:492;deoxys_defense:479
+magnezone_shadow,Magnezone (Shadow),84.7,,,,,SPARK,WILD_CHARGE,MIRROR_SHOT,,,,,azumarill:712;skarmory:873;altaria:585;bastiodon:676;marowak_alolan:535,galvantula:467;stunfisk_galarian:131;deoxys_defense:458;shiftry:465;swampert:235
+flygon,Flygon,84.6,,,,,MUD_SHOT,DRAGON_CLAW,EARTH_POWER,,,,,bastiodon:857;marowak_alolan:873;galvantula:678;toxicroak:670;swampert:532,azumarill:353;stunfisk_galarian:491;skarmory:345;altaria:244;umbreon:449
+gliscor,Gliscor,84.6,,,,,FURY_CUTTER,EARTHQUAKE,NIGHT_SLASH,,,,,stunfisk_galarian:771;bastiodon:788;galvantula:681;deoxys_defense:827;marowak_alolan:577,azumarill:312;skarmory:325;altaria:299;umbreon:487;whiscash:442
+heracross,Heracross,84.5,,,,,COUNTER,CLOSE_COMBAT,MEGAHORN,,,,,stunfisk_galarian:660;bastiodon:674;whiscash:705;umbreon:651;toxicroak:598,azumarill:334;skarmory:275;altaria:386;galvantula:315;deoxys_defense:376
+zebstrika,Zebstrika,84.5,,,,,SPARK,WILD_CHARGE,FLAME_CHARGE,,,,,azumarill:768;skarmory:833;bastiodon:520;toxicroak:508;hypno:654,stunfisk_galarian:302;altaria:284;galvantula:446;umbreon:356;deoxys_defense:309
+sableye,Sableye,84.2,,,,,SHADOW_CLAW,FOUL_PLAY,RETURN,,,,,deoxys_defense:845;toxicroak:575;swampert:587;hypno:870;medicham:795,azumarill:456;stunfisk_galarian:359;skarmory:408;altaria:478;bastiodon:439
+gloom,Gloom,84.1,,,,,RAZOR_LEAF,SLUDGE_BOMB,PETAL_BLIZZARD,,,,,azumarill:855;whiscash:925;swampert:937;deoxys_defense:593;obstagoon:609,stunfisk_galarian:434;skarmory:191;galvantula:471;bastiodon:382;umbreon:404
+ninetales_alolan,Ninetales (Alolan),84.1,,,,,CHARM,ICE_BEAM,PSYSHOCK,,,,,altaria:898;galvantula:752;umbreon:752;toxicroak:682;whiscash:565,azumarill:394;stunfisk_galarian:266;skarmory:304;swampert:466;deoxys_defense:396
+sceptile,Sceptile,84.1,,,,,BULLET_SEED,LEAF_BLADE,EARTHQUAKE,,,,,azumarill:810;stunfisk_galarian:652;galvantula:773;whiscash:912;bastiodon:699,skarmory:250;umbreon:410;deoxys_defense:324;marowak_alolan:233;altaria:135
+gliscor_shadow,Gliscor (Shadow),83.9,,,,,FURY_CUTTER,EARTHQUAKE,NIGHT_SLASH,,,,,stunfisk_galarian:741;bastiodon:754;whiscash:870;galvantula:625;deoxys_defense:827,azumarill:358;skarmory:350;altaria:335;umbreon:449;marowak_alolan:298
+hitmonchan,Hitmonchan,83.9,,,,,COUNTER,ICE_PUNCH,THUNDER_PUNCH,,,,,stunfisk_galarian:742;altaria:561;bastiodon:809;umbreon:675;shiftry:902,azumarill:323;skarmory:483;whiscash:425;galvantula:274;deoxys_defense:335
+torterra_shadow,Torterra (Shadow),83.9,,,,,RAZOR_LEAF,FRENZY_PLANT,STONE_EDGE,,,,,azumarill:809;stunfisk_galarian:633;whiscash:958;swampert:961;deoxys_defense:519,bastiodon:458;galvantula:454;skarmory:179;umbreon:436;toxicroak:457
+beedrill_shadow,Beedrill (Shadow),83.8,,,,,POISON_JAB,X_SCISSOR,DRILL_RUN,,,,,azumarill:719;galvantula:707;umbreon:580;toxicroak:592;obstagoon:669,altaria:445;skarmory:241;stunfisk_galarian:143;bastiodon:386;deoxys_defense:458
+regice,Regice,83.8,,,,,LOCK_ON,BLIZZARD,EARTHQUAKE,,,,,altaria:736;galvantula:571;umbreon:620;abomasnow:535;stunfisk:758,stunfisk_galarian:401;azumarill:282;skarmory:429;bastiodon:488;swampert:393
+granbull,Granbull,83.7,,,,,CHARM,CLOSE_COMBAT,CRUNCH,,,,,altaria:843;galvantula:722;swampert:835;toxicroak:766;umbreon:686,azumarill:421;skarmory:295;stunfisk_galarian:245;whiscash:460;marowak_alolan:294
+noctowl,Noctowl,83.7,,,,,WING_ATTACK,SKY_ATTACK,PSYCHIC,,,,,azumarill:506;marowak_alolan:557;swampert:548;abomasnow:512;shiftry:685,stunfisk_galarian:281;skarmory:262;altaria:364;umbreon:461;whiscash:385
+sandslash_alolan,Sandslash (Alolan),83.7,,,,,POWDER_SNOW,ICE_PUNCH,BULLDOZE,,,,,skarmory:651;altaria:831;abomasnow:709;victreebel_shadow:709;shiftry:651,stunfisk_galarian:392;azumarill:263;bastiodon:454;umbreon:480;galvantula:405
+ivysaur_shadow,Ivysaur (Shadow),83.6,,,,,VINE_WHIP,POWER_WHIP,SLUDGE_BOMB,,,,,azumarill:872;swampert:879;bastiodon:542;whiscash:674;deoxys_defense:523,stunfisk_galarian:437;skarmory:229;altaria:335;galvantula:463;umbreon:420
+jumpluff,Jumpluff,83.5,,,,,BULLET_SEED,AERIAL_ACE,ENERGY_BALL,,,,,azumarill:565;stunfisk_galarian:565;whiscash:931;swampert:856;umbreon:509,galvantula:446;bastiodon:329;marowak_alolan:326;toxicroak:403;deoxys_defense:396
+togekiss,Togekiss,83.5,,,,,CHARM,ANCIENT_POWER,FLAMETHROWER,,,,,altaria:797;swampert:936;umbreon:711;toxicroak:846;galvantula:612,azumarill:391;stunfisk_galarian:266;skarmory:279;whiscash:431;marowak_alolan:258
+zangoose,Zangoose,83.4,,,,,SHADOW_CLAW,CLOSE_COMBAT,NIGHT_SLASH,,,,,stunfisk_galarian:869;marowak_alolan:731;bastiodon:659;galvantula:617;umbreon:516,azumarill:320;skarmory:479;altaria:222;deoxys_defense:469;whiscash:337
+forretress,Forretress,83.3,,,,,BUG_BITE,EARTHQUAKE,MIRROR_SHOT,,,,,stunfisk_galarian:597;bastiodon:691;abomasnow:757;umbreon:593;whiscash:605,azumarill:372;skarmory:283;altaria:386;galvantula:385;swampert:378
+victreebel,Victreebel,83.3,,,,,RAZOR_LEAF,LEAF_BLADE,ACID_SPRAY,,,,,azumarill:841;whiscash:926;swampert:922;bastiodon:542;deoxys_defense:538,stunfisk_galarian:392;skarmory:191;galvantula:418;altaria:222;umbreon:382
+jumpluff_shadow,Jumpluff (Shadow),83.2,,,,,BULLET_SEED,AERIAL_ACE,ENERGY_BALL,,,,,azumarill:503;whiscash:928;swampert:833;galvantula:526;deoxys_defense:601,stunfisk_galarian:341;skarmory:158;umbreon:442;bastiodon:367;toxicroak:468
+beedrill,Beedrill,83,,,,,POISON_JAB,X_SCISSOR,DRILL_RUN,,,,,azumarill:742;galvantula:646;toxicroak:626;deoxys_defense:565;abomasnow:596,stunfisk_galarian:335;altaria:416;skarmory:229;marowak_alolan:447;umbreon:487
+marshtomp_shadow,Marshtomp (Shadow),83,,,,,MUD_SHOT,SURF,MUD_BOMB,,,,,marowak_alolan:823;bastiodon:780;galvantula:510;toxicroak:672;deoxys_defense:539,azumarill:399;stunfisk_galarian:464;skarmory:495;altaria:291;swampert:455
+poliwrath,Poliwrath,83,,,,,MUD_SHOT,DYNAMIC_PUNCH,ICE_PUNCH,,,,,stunfisk_galarian:585;altaria:671;bastiodon:809;umbreon:750;whiscash:626,azumarill:467;skarmory:266;marowak_alolan:379;toxicroak:352;galvantula:270
+suicune,Suicune,83,,,,,SNARL,BUBBLE_BEAM,HYDRO_PUMP,,,,,azumarill:510;stunfisk_galarian:693;skarmory:514;marowak_alolan:729;bastiodon:562,altaria:346;obstagoon:467;abomasnow:375;galvantula:204;shiftry:382
+poliwrath_shadow,Poliwrath (Shadow),82.9,,,,,BUBBLE,DYNAMIC_PUNCH,ICE_PUNCH,,,,,stunfisk_galarian:735;skarmory:503;bastiodon:828;marowak_alolan:567;umbreon:675,azumarill:486;altaria:467;galvantula:299;deoxys_defense:355;toxicroak:313
+steelix,Steelix,82.8,,,,,DRAGON_TAIL,EARTHQUAKE,CRUNCH,,,,,skarmory:674;altaria:552;galvantula:817;bastiodon:703;marowak_alolan:605,azumarill:266;swampert:382;deoxys_defense:376;obstagoon:478;abomasnow:382
+electivire_shadow,Electivire (Shadow),82.7,,,,,THUNDER_SHOCK,ICE_PUNCH,WILD_CHARGE,,,,,azumarill:738;skarmory:802;altaria:628;marowak_alolan:674;obstagoon:628,stunfisk_galarian:209;galvantula:446;toxicroak:441;bastiodon:337;deoxys_defense:453
+hypno,Hypno,82.7,,,,,CONFUSION,SHADOW_BALL,THUNDER_PUNCH,,,,,azumarill:524;toxicroak:887;whiscash:626;abomasnow:595;machamp_shadow:838,stunfisk_galarian:374;skarmory:325;altaria:361;galvantula:405;deoxys_defense:469
+gengar,Gengar,82.6,,,,,SHADOW_CLAW,SHADOW_BALL,SHADOW_PUNCH,,,,,azumarill:626;skarmory:657;marowak_alolan:710;deoxys_defense:878;toxicroak:821,stunfisk_galarian:299;bastiodon:446;altaria:222;swampert:408;abomasnow:382
+haunter,Haunter,82.6,,,,,SHADOW_CLAW,SHADOW_PUNCH,SHADOW_BALL,,,,,azumarill:666;skarmory:619;marowak_alolan:713;toxicroak:854;deoxys_defense:880,stunfisk_galarian:335;bastiodon:439;altaria:266;swampert:448;whiscash:345
+dragonair_shadow,Dragonair (Shadow),82.5,,,,,DRAGON_BREATH,AQUA_TAIL,DRAGON_PULSE,,,,,bastiodon:528;whiscash:640;marowak_alolan:504;umbreon:604;deoxys_defense:683,stunfisk_galarian:416;skarmory:362;azumarill:220;altaria:463;galvantula:418
+linoone,Linoone,82.5,,,,,SHADOW_CLAW,GRASS_KNOT,THUNDER,,,,,skarmory:746;marowak_alolan:681;whiscash:730;swampert:649;stunfisk:555,azumarill:426;stunfisk_galarian:380;altaria:350;galvantula:413;bastiodon:382
+cherrim_sunny,Cherrim (Sunny),82.4,,,,,BULLET_SEED,WEATHER_BALL_FIRE,SOLAR_BEAM,,,,,azumarill:854;toxicroak:511;stunfisk:787;obstagoon:535;hypno:535,stunfisk_galarian:488;skarmory:470;bastiodon:465;whiscash:471;galvantula:372
+lickilicky,Lickilicky,82.4,,,,,LICK,BODY_SLAM,SHADOW_BALL,,,,,marowak_alolan:703;galvantula:575;deoxys_defense:531;hypno:659;victreebel_shadow:509,azumarill:489;skarmory:462;stunfisk_galarian:377;altaria:383;swampert:393
+vileplume,Vileplume,82.4,,,,,RAZOR_LEAF,SLUDGE_BOMB,PETAL_BLIZZARD,,,,,azumarill:843;swampert:936;whiscash:919;deoxys_defense:601;obstagoon:572,stunfisk_galarian:380;skarmory:200;galvantula:454;bastiodon:382;umbreon:404
+marshtomp,Marshtomp,82.3,,,,,MUD_SHOT,SURF,MUD_BOMB,,,,,stunfisk_galarian:521;bastiodon:816;marowak_alolan:582;galvantula:579;toxicroak:737,azumarill:364;skarmory:454;altaria:248;whiscash:462;umbreon:334
+sableye_shadow,Sableye (Shadow),82.3,,,,,SHADOW_CLAW,FOUL_PLAY,SHADOW_SNEAK,,,,,skarmory:662;deoxys_defense:795;swampert:533;hypno:845;abomasnow:512,azumarill:353;stunfisk_galarian:428;altaria:474;bastiodon:473;whiscash:480
+typhlosion,Typhlosion,82.3,,,,,SHADOW_CLAW,BLAST_BURN,SOLAR_BEAM,,,,,skarmory:752;marowak_alolan:534;deoxys_defense:713;abomasnow:613;hypno:656,azumarill:361;altaria:386;stunfisk_galarian:152;bastiodon:352;umbreon:334
+probopass,Probopass,82.2,,,,,SPARK,ROCK_SLIDE,THUNDERBOLT,,,,,skarmory:842;altaria:587;bastiodon:622;galvantula:596;umbreon:526,azumarill:394;marowak_alolan:415;stunfisk_galarian:98;hypno:454;deoxys_defense:283
+serperior,Serperior,82.2,,,,,VINE_WHIP,GRASS_KNOT,AERIAL_ACE,,,,,azumarill:878;stunfisk_galarian:558;whiscash:820;deoxys_defense:550;stunfisk:832,skarmory:200;umbreon:490;bastiodon:397;galvantula:340;altaria:211
+dragonite_shadow,Dragonite (Shadow),82.1,,,,,DRAGON_BREATH,DRAGON_CLAW,HURRICANE,,,,,galvantula:660;whiscash:794;deoxys_defense:781;toxicroak:651;swampert:638,skarmory:341;azumarill:209;altaria:419;stunfisk_galarian:191;marowak_alolan:391
+lugia,Lugia,82,,,,,EXTRASENSORY,SKY_ATTACK,HYDRO_PUMP,,,,,stunfisk_galarian:515;skarmory:507;toxicroak:868;marowak_alolan:515;swampert:565,azumarill:478;altaria:416;bastiodon:329;whiscash:380;deoxys_defense:345
+castform,Castform,81.9,,,,,HEX,WEATHER_BALL_ROCK,ENERGY_BALL,,,,,whiscash:724;marowak_alolan:534;galvantula:527;swampert:655;stunfisk:568,azumarill:461;stunfisk_galarian:386;skarmory:304;altaria:364;abomasnow:485
+dragonair,Dragonair,81.8,,,,,DRAGON_BREATH,AQUA_TAIL,WRAP,,,,,marowak_alolan:564;galvantula:572;bastiodon:548;swampert:675;stunfisk:724,azumarill:277;stunfisk_galarian:308;skarmory:341;altaria:441;toxicroak:468
+torterra,Torterra,81.8,,,,,RAZOR_LEAF,FRENZY_PLANT,STONE_EDGE,,,,,azumarill:767;stunfisk_galarian:660;whiscash:950;swampert:958;deoxys_defense:522,skarmory:204;galvantula:475;bastiodon:401;umbreon:382;toxicroak:406
+articuno,Articuno,81.7,,,,,ICE_SHARD,ICY_WIND,HURRICANE,,,,,skarmory:504;altaria:704;whiscash:704;umbreon:610;swampert:524,azumarill:372;stunfisk_galarian:359;abomasnow:457;galvantula:266;marowak_alolan:258
+electivire,Electivire,81.7,,,,,THUNDER_SHOCK,ICE_PUNCH,WILD_CHARGE,,,,,azumarill:770;skarmory:834;umbreon:577;toxicroak:582;drifblim:802,altaria:467;stunfisk_galarian:197;marowak_alolan:451;galvantula:377;bastiodon:306
+raichu,Raichu,81.5,,,,,VOLT_SWITCH,WILD_CHARGE,THUNDER_PUNCH,,,,,azumarill:781;skarmory:816;bastiodon:517;umbreon:611;toxicroak:638,altaria:492;galvantula:418;marowak_alolan:387;stunfisk_galarian:128;deoxys_defense:438
+raichu_alolan,Raichu (Alolan),81.5,,,,,VOLT_SWITCH,WILD_CHARGE,GRASS_KNOT,,,,,azumarill:728;skarmory:775;altaria:528;toxicroak:724;scrafty:682,stunfisk_galarian:263;galvantula:434;bastiodon:314;umbreon:353;abomasnow:386
+prinplup,Prinplup,81.3,,,,,BUBBLE,ICY_WIND,HYDRO_PUMP,,,,,azumarill:511;stunfisk_galarian:597;skarmory:552;bastiodon:721;marowak_alolan:642,altaria:456;deoxys_defense:365;galvantula:250;toxicroak:317;abomasnow:329
+gardevoir,Gardevoir,81.2,,,,,CHARM,SYNCHRONOISE,SHADOW_BALL,,,,,altaria:789;galvantula:700;toxicroak:862;swampert:833;obstagoon:901,azumarill:383;skarmory:325;stunfisk_galarian:245;whiscash:460;marowak_alolan:294
+gastrodon_east_sea,Gastrodon (East),81.2,,,,,MUD_SLAP,BODY_SLAM,EARTH_POWER,,,,,stunfisk_galarian:566;bastiodon:831;marowak_alolan:653;galvantula:635;toxicroak:698,azumarill:434;skarmory:333;umbreon:439;altaria:222;obstagoon:452
+gastrodon_west_sea,Gastrodon (West),81.2,,,,,MUD_SLAP,BODY_SLAM,EARTH_POWER,,,,,stunfisk_galarian:566;bastiodon:831;marowak_alolan:653;galvantula:635;toxicroak:698,azumarill:434;skarmory:333;umbreon:439;altaria:222;obstagoon:452
+jirachi,Jirachi,81.2,,,,,CONFUSION,DOOM_DESIRE,PSYCHIC,,,,,skarmory:637;altaria:610;toxicroak:807;abomasnow:728;swampert:535,azumarill:475;galvantula:450;bastiodon:428;stunfisk_galarian:146;whiscash:400
+milotic,Milotic,81.2,,,,,WATERFALL,SURF,BLIZZARD,,,,,stunfisk_galarian:600;marowak_alolan:653;bastiodon:646;whiscash:603;umbreon:553,azumarill:464;skarmory:470;galvantula:385;toxicroak:422;altaria:204
+muk_alolan,Muk (Alolan),81.2,,,,,SNARL,DARK_PULSE,SLUDGE_WAVE,,,,,marowak_alolan:625;galvantula:524;abomasnow:611;deoxys_defense:527;shiftry:769,azumarill:437;skarmory:329;stunfisk_galarian:275;altaria:332;umbreon:480
+vaporeon,Vaporeon,81.2,,,,,WATER_GUN,AQUA_TAIL,LAST_RESORT,,,,,azumarill:589;stunfisk_galarian:697;marowak_alolan:651;bastiodon:635;whiscash:543,skarmory:404;altaria:295;toxicroak:488;deoxys_defense:412;galvantula:299
+blastoise_shadow,Blastoise (Shadow),81.1,,,,,WATER_GUN,HYDRO_CANNON,ICE_BEAM,,,,,bastiodon:748;marowak_alolan:578;swampert:661;deoxys_defense:515;obstagoon:511,azumarill:470;skarmory:475;stunfisk_galarian:326;altaria:354;whiscash:485
+farfetchd_galarian,Farfetchd (Galarian),81.1,,,,,FURY_CUTTER,LEAF_BLADE,BRAVE_BIRD,,,,,azumarill:696;whiscash:880;swampert:880;deoxys_defense:688;toxicroak:534,skarmory:295;stunfisk_galarian:227;altaria:386;bastiodon:446;marowak_alolan:427
+suicune_shadow,Suicune (Shadow),81.1,,,,,SNARL,BUBBLE_BEAM,HYDRO_PUMP,,,,,azumarill:620;stunfisk_galarian:722;bastiodon:689;marowak_alolan:667;deoxys_defense:740,skarmory:470;altaria:324;whiscash:485;abomasnow:418;obstagoon:492
+skuntank,Skuntank,81,,,,,POISON_JAB,CRUNCH,SLUDGE_BOMB,,,,,azumarill:772;marowak_alolan:548;abomasnow:612;hypno:794;obstagoon:564,skarmory:308;stunfisk_galarian:242;altaria:412;umbreon:414;swampert:444
+grovyle,Grovyle,80.9,,,,,BULLET_SEED,LEAF_BLADE,AERIAL_ACE,,,,,azumarill:824;stunfisk_galarian:636;whiscash:918;bastiodon:551;swampert:709,skarmory:154;umbreon:410;toxicroak:445;altaria:193;galvantula:270
+sudowoodo,Sudowoodo,80.9,,,,,COUNTER,ROCK_SLIDE,EARTHQUAKE,,,,,skarmory:674;bastiodon:718;marowak_alolan:619;umbreon:710;galvantula:515,azumarill:279;stunfisk_galarian:383;altaria:452;whiscash:348;abomasnow:386
+charizard_shadow,Charizard (Shadow),80.8,,,,,FIRE_SPIN,BLAST_BURN,DRAGON_CLAW,,,,,skarmory:643;toxicroak:734;umbreon:560;abomasnow:786;shiftry:695,azumarill:350;stunfisk_galarian:395;altaria:375;galvantula:413;marowak_alolan:314
+mawile_shadow,Mawile (Shadow),80.6,,,,,FIRE_FANG,POWER_UP_PUNCH,PLAY_ROUGH,,,,,skarmory:800;altaria:656;galvantula:769;abomasnow:904;umbreon:569,stunfisk_galarian:401;azumarill:241;bastiodon:462;toxicroak:465;deoxys_defense:329
+skuntank_shadow,Skuntank (Shadow),80.6,,,,,POISON_JAB,CRUNCH,SLUDGE_BOMB,,,,,azumarill:740;marowak_alolan:548;deoxys_defense:705;abomasnow:538;hypno:785,skarmory:333;stunfisk_galarian:272;umbreon:445;bastiodon:344;galvantula:348
+castform_sunny,Castform (Sunny),80.4,,,,,EMBER,WEATHER_BALL_FIRE,SOLAR_BEAM,,,,,skarmory:803;galvantula:565;abomasnow:789;meganium:872;shiftry:644,stunfisk_galarian:479;azumarill:211;umbreon:490;altaria:251;bastiodon:382
+charizard,Charizard,80.4,,,,,FIRE_SPIN,BLAST_BURN,DRAGON_CLAW,,,,,skarmory:721;galvantula:565;toxicroak:756;shiftry:843;abomasnow:573,azumarill:293;stunfisk_galarian:320;altaria:306;marowak_alolan:407;umbreon:429
+gallade_shadow,Gallade (Shadow),80.4,,,,,CONFUSION,CLOSE_COMBAT,LEAF_BLADE,,,,,azumarill:686;bastiodon:700;toxicroak:823;whiscash:578;umbreon:544,stunfisk_galarian:380;altaria:383;galvantula:495;skarmory:170;marowak_alolan:306
+golbat_shadow,Golbat (Shadow),80.2,,,,,WING_ATTACK,POISON_FANG,SHADOW_BALL,,,,,toxicroak:849;deoxys_defense:852;swampert:610;obstagoon:661;scrafty:797,azumarill:331;skarmory:429;stunfisk_galarian:359;altaria:452;whiscash:474
+relicanth,Relicanth,80.1,,,,,WATER_GUN,AQUA_TAIL,ANCIENT_POWER,,,,,skarmory:667;marowak_alolan:738;bastiodon:734;stunfisk:644;registeel:647,stunfisk_galarian:461;azumarill:309;altaria:405;umbreon:423;swampert:466
+seaking,Seaking,80,,,,,WATERFALL,DRILL_RUN,ICY_WIND,,,,,azumarill:618;stunfisk_galarian:514;skarmory:510;bastiodon:672;marowak_alolan:647,umbreon:458;galvantula:381;swampert:488;altaria:204;toxicroak:406
+servine,Servine,80,,,,,VINE_WHIP,GRASS_KNOT,LEAF_TORNADO,,,,,azumarill:884;stunfisk_galarian:563;whiscash:839;swampert:783;stunfisk:820,umbreon:490;bastiodon:405;skarmory:137;galvantula:323;altaria:186
+gligar_shadow,Gligar (Shadow),79.7,,,,,WING_ATTACK,NIGHT_SLASH,DIG,,,,,stunfisk_galarian:583;bastiodon:662;galvantula:630;toxicroak:777;deoxys_defense:642,azumarill:263;altaria:434;skarmory:237;marowak_alolan:439;umbreon:375
+mawile,Mawile,79.7,,,,,FIRE_FANG,POWER_UP_PUNCH,PLAY_ROUGH,,,,,skarmory:821;altaria:686;galvantula:756;umbreon:647;abomasnow:891,stunfisk_galarian:359;azumarill:220;bastiodon:371;toxicroak:406;obstagoon:496
+magneton_shadow,Magneton (Shadow),79.6,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE,,,,,azumarill:618;skarmory:844;altaria:510;abomasnow:580;hypno:521,stunfisk_galarian:203;bastiodon:450;galvantula:356;umbreon:312;shiftry:489
+swalot,Swalot,79.6,,,,,INFESTATION,SLUDGE_BOMB,ICE_BEAM,,,,,azumarill:659;abomasnow:713;deoxys_defense:659;shiftry:695;obstagoon:569,altaria:467;stunfisk_galarian:230;skarmory:208;galvantula:446;umbreon:423
+golbat,Golbat,79.5,,,,,WING_ATTACK,POISON_FANG,SHADOW_BALL,,,,,deoxys_defense:900;toxicroak:764;marowak_alolan:540;swampert:658;scrafty:797,azumarill:271;stunfisk_galarian:323;skarmory:333;altaria:412;galvantula:372
+piloswine,Piloswine,79.4,,,,,POWDER_SNOW,AVALANCHE,BULLDOZE,,,,,altaria:683;galvantula:660;bastiodon:614;umbreon:647;stunfisk:810,azumarill:279;stunfisk_galarian:386;skarmory:408;whiscash:474;abomasnow:492
+forretress_shadow,Forretress (Shadow),79.3,,,,,BUG_BITE,EARTHQUAKE,MIRROR_SHOT,,,,,bastiodon:667;umbreon:703;deoxys_defense:722;abomasnow:738;shiftry:898,azumarill:407;altaria:350;stunfisk_galarian:188;galvantula:446;skarmory:137
+pinsir_shadow,Pinsir (Shadow),79.3,,,,,FURY_CUTTER,CLOSE_COMBAT,X_SCISSOR,,,,,stunfisk_galarian:892;umbreon:852;whiscash:714;galvantula:566;abomasnow:765,azumarill:301;toxicroak:476;deoxys_defense:489;swampert:411;altaria:178
+electrode,Electrode,79.2,,,,,VOLT_SWITCH,FOUL_PLAY,THUNDERBOLT,,,,,azumarill:776;skarmory:820;obstagoon:557;registeel:635;drifblim:631,stunfisk_galarian:209;altaria:346;bastiodon:481;galvantula:426;toxicroak:457
+dragonite,Dragonite,79.1,,,,,DRAGON_BREATH,DRAGON_CLAW,DRACO_METEOR,,,,,umbreon:589;swampert:683;toxicroak:589;obstagoon:781;meganium:888,stunfisk_galarian:353;azumarill:201;skarmory:325;altaria:423;marowak_alolan:455
+gyarados_shadow,Gyarados (Shadow),79,,,,,DRAGON_BREATH,AQUA_TAIL,CRUNCH,,,,,altaria:586;swampert:668;toxicroak:561;obstagoon:540;hypno:565,azumarill:271;skarmory:395;stunfisk_galarian:218;whiscash:454;umbreon:442
+gallade,Gallade,78.9,,,,,CONFUSION,CLOSE_COMBAT,LEAF_BLADE,,,,,bastiodon:750;toxicroak:852;whiscash:617;obstagoon:568;machamp_shadow:789,azumarill:480;stunfisk_galarian:314;altaria:474;skarmory:208;galvantula:422
+gyarados,Gyarados,78.9,,,,,DRAGON_BREATH,AQUA_TAIL,CRUNCH,,,,,altaria:536;marowak_alolan:557;swampert:709;toxicroak:622;whiscash:549,azumarill:388;stunfisk_galarian:386;skarmory:370;deoxys_defense:396;obstagoon:471
+minun,Minun,78.9,,,,,SPARK,THUNDERBOLT,GRASS_KNOT,,,,,azumarill:777;skarmory:853;whiscash:555;umbreon:543;swampert:511,stunfisk_galarian:245;altaria:372;bastiodon:428;marowak_alolan:415;galvantula:327
+gligar,Gligar,78.8,,,,,WING_ATTACK,NIGHT_SLASH,DIG,,,,,stunfisk_galarian:630;galvantula:686;marowak_alolan:567;toxicroak:738;stunfisk:670,azumarill:214;skarmory:329;altaria:343;bastiodon:435;deoxys_defense:469
+haxorus,Haxorus,78.8,,,,,COUNTER,DRAGON_CLAW,NIGHT_SLASH,,,,,bastiodon:545;swampert:540;shiftry:815;obstagoon:679;ferrothorn:890,stunfisk_galarian:479;skarmory:400;azumarill:211;galvantula:483;umbreon:496
+articuno_shadow,Articuno (Shadow),78.7,,,,,ICE_SHARD,ICY_WIND,HURRICANE,,,,,altaria:700;whiscash:659;umbreon:598;swampert:672;abomasnow:565,azumarill:413;stunfisk_galarian:440;skarmory:487;galvantula:331;toxicroak:387
+golem_alolan,Golem (Alolan),78.7,,,,,VOLT_SWITCH,WILD_CHARGE,ROCK_BLAST,,,,,azumarill:685;skarmory:892;bastiodon:590;marowak_alolan:556;galvantula:521,altaria:448;stunfisk_galarian:122;umbreon:388;deoxys_defense:422;abomasnow:404
+ampharos,Ampharos,78.6,,,,,VOLT_SWITCH,THUNDER_PUNCH,FOCUS_BLAST,,,,,azumarill:740;skarmory:841;bastiodon:686;umbreon:658;deoxys_defense:511,altaria:343;galvantula:471;stunfisk_galarian:137;marowak_alolan:375;toxicroak:484
+ninetales,Ninetales,78.6,,,,,FIRE_SPIN,OVERHEAT,PSYSHOCK,,,,,skarmory:757;galvantula:543;abomasnow:769;umbreon:527;obstagoon:583,stunfisk_galarian:380;azumarill:236;altaria:281;bastiodon:371;marowak_alolan:346
+electabuzz_shadow,Electabuzz (Shadow),78.5,,,,,THUNDER_SHOCK,THUNDER_PUNCH,THUNDERBOLT,,,,,azumarill:743;skarmory:837;bastiodon:509;umbreon:558;machamp_shadow:549,altaria:430;toxicroak:488;galvantula:377;marowak_alolan:330;deoxys_defense:391
+dusclops_shadow,Dusclops (Shadow),78.4,,,,,HEX,SHADOW_PUNCH,ICE_PUNCH,,,,,deoxys_defense:703;toxicroak:640;medicham:747;stunfisk:563;machamp_shadow:529,azumarill:307;stunfisk_galarian:389;skarmory:379;altaria:434;marowak_alolan:379
+glalie,Glalie,78.4,,,,,ICE_SHARD,AVALANCHE,SHADOW_BALL,,,,,altaria:692;galvantula:543;umbreon:550;swampert:630;abomasnow:590,stunfisk_galarian:428;azumarill:282;skarmory:441;whiscash:494;bastiodon:265
+linoone_galarian,Linoone (Galarian),78.3,,,,,SNARL,BODY_SLAM,GUNK_SHOT,,,,,swampert:639;umbreon:532;whiscash:535;abomasnow:620;shiftry:701,azumarill:421;stunfisk_galarian:389;skarmory:304;altaria:375;marowak_alolan:495
+muk_shadow,Muk (Shadow),78.2,,,,,POISON_JAB,THUNDER_PUNCH,DARK_PULSE,,,,,azumarill:751;deoxys_defense:601;abomasnow:594;meganium:860;shiftry:573,skarmory:325;stunfisk_galarian:257;altaria:459;galvantula:348;whiscash:348
+infernape,Infernape,78.1,,,,,FIRE_SPIN,CLOSE_COMBAT,BLAST_BURN,,,,,stunfisk_galarian:533;skarmory:512;bastiodon:635;galvantula:699;abomasnow:881,azumarill:296;toxicroak:387;altaria:186;medicham:462;marowak_alolan:185
+pachirisu,Pachirisu,78.1,,,,,VOLT_SWITCH,THUNDER_PUNCH,THUNDERBOLT,,,,,azumarill:503;skarmory:832;lapras:772;registeel:615;drifblim:623,altaria:328;marowak_alolan:366;toxicroak:468;bastiodon:352;umbreon:407
+wormadam_trash,Wormadam (Trash),78.1,,,,,CONFUSION,IRON_HEAD,BUG_BUZZ,,,,,toxicroak:811;galvantula:530;whiscash:611;abomasnow:688;deoxys_defense:561,azumarill:375;stunfisk_galarian:296;skarmory:308;altaria:441;umbreon:343
+carnivine,Carnivine,78,,,,,VINE_WHIP,POWER_WHIP,CRUNCH,,,,,azumarill:869;whiscash:785;bastiodon:583;swampert:726;stunfisk:797,stunfisk_galarian:371;skarmory:275;altaria:262;deoxys_defense:432;umbreon:347
+graveler_alolan,Graveler (Alolan),78,,,,,VOLT_SWITCH,STONE_EDGE,ROCK_BLAST,,,,,skarmory:891;altaria:669;marowak_alolan:621;galvantula:591;abomasnow:578,azumarill:489;stunfisk_galarian:164;bastiodon:340;umbreon:382;deoxys_defense:412
+honchkrow,Honchkrow,78,,,,,SNARL,BRAVE_BIRD,SKY_ATTACK,,,,,marowak_alolan:660;whiscash:811;deoxys_defense:632;swampert:527;hypno:856,azumarill:396;skarmory:395;altaria:492;stunfisk_galarian:245;umbreon:359
+hypno_shadow,Hypno (Shadow),78,,,,,CONFUSION,THUNDER_PUNCH,FIRE_PUNCH,,,,,toxicroak:894;abomasnow:647;machamp_shadow:848;victreebel_shadow:661;stunfisk:507,azumarill:437;stunfisk_galarian:413;skarmory:387;altaria:397;whiscash:465
+bronzong,Bronzong,77.8,,,,,CONFUSION,PSYSHOCK,BULLDOZE,,,,,altaria:533;toxicroak:843;galvantula:529;abomasnow:665;victreebel_shadow:766,azumarill:402;skarmory:404;stunfisk_galarian:149;bastiodon:428;deoxys_defense:371
+tangela,Tangela,77.8,,,,,VINE_WHIP,GRASS_KNOT,SLUDGE_BOMB,,,,,azumarill:857;whiscash:775;bastiodon:603;swampert:724;stunfisk:771,stunfisk_galarian:392;skarmory:216;altaria:273;deoxys_defense:448;umbreon:340
+bibarel,Bibarel,77.7,,,,,WATER_GUN,SURF,HYPER_FANG,,,,,azumarill:563;stunfisk_galarian:667;marowak_alolan:711;bastiodon:694;drifblim:620,skarmory:425;altaria:321;galvantula:340;umbreon:318;toxicroak:313
+feraligatr,Feraligatr,77.7,,,,,WATER_GUN,HYDRO_CANNON,CRUNCH,,,,,bastiodon:587;marowak_alolan:562;swampert:650;deoxys_defense:516;obstagoon:550,azumarill:448;skarmory:458;stunfisk_galarian:314;altaria:343;whiscash:468
+luxio,Luxio,77.7,,,,,SPARK,WILD_CHARGE,CRUNCH,,,,,azumarill:787;skarmory:817;toxicroak:548;cresselia:567;lapras:727,stunfisk_galarian:230;altaria:321;bastiodon:314;umbreon:366;deoxys_defense:376
+dusclops,Dusclops,77.6,,,,,HEX,SHADOW_PUNCH,ICE_PUNCH,,,,,altaria:529;toxicroak:733;deoxys_defense:665;medicham:766;victreebel_shadow:567,stunfisk_galarian:389;azumarill:274;skarmory:370;galvantula:495;marowak_alolan:370
+victini,Victini,77.6,,,,,CONFUSION,V_CREATE,PSYCHIC,,,,,skarmory:732;toxicroak:877;galvantula:503;abomasnow:732;whiscash:507,azumarill:263;stunfisk_galarian:170;altaria:284;marowak_alolan:270;umbreon:283
+conkeldurr,Conkeldurr,77.5,,,,,COUNTER,DYNAMIC_PUNCH,STONE_EDGE,,,,,altaria:534;bastiodon:788;umbreon:661;shiftry:903;abomasnow:573,stunfisk_galarian:431;skarmory:354;azumarill:206;deoxys_defense:443;galvantula:274
+crustle,Crustle,77.5,,,,,FURY_CUTTER,ROCK_SLIDE,X_SCISSOR,,,,,galvantula:776;abomasnow:635;umbreon:504;obstagoon:561;shiftry:644,azumarill:236;skarmory:320;altaria:470;stunfisk_galarian:218;marowak_alolan:451
+machoke_shadow,Machoke (Shadow),77.4,,,,,KARATE_CHOP,CROSS_CHOP,DYNAMIC_PUNCH,,,,,stunfisk_galarian:715;bastiodon:817;umbreon:660;whiscash:598;obstagoon:678,skarmory:495;azumarill:269;altaria:335;swampert:455;galvantula:331
+magneton,Magneton,77.4,,,,,THUNDER_SHOCK,DISCHARGE,MAGNET_BOMB,,,,,skarmory:849;altaria:537;abomasnow:618;hypno:580;victreebel_shadow:564,azumarill:426;stunfisk_galarian:185;bastiodon:397;umbreon:398;marowak_alolan:330
+scizor_shadow,Scizor (Shadow),77.4,,,,,BULLET_PUNCH,NIGHT_SLASH,IRON_HEAD,,,,,altaria:609;abomasnow:623;hypno:738;victreebel_shadow:709;shiftry:642,azumarill:480;stunfisk_galarian:293;skarmory:337;galvantula:467;bastiodon:393
+latios,Latios,77.3,,,,,DRAGON_BREATH,DRAGON_CLAW,PSYCHIC,,,,,galvantula:757;whiscash:594;swampert:599;hypno:613;victreebel_shadow:559,stunfisk_galarian:311;azumarill:201;skarmory:325;altaria:368;bastiodon:378
+luxray,Luxray,77.3,,,,,SPARK,WILD_CHARGE,CRUNCH,,,,,azumarill:760;skarmory:827;toxicroak:542;lapras:726;sableye:693,stunfisk_galarian:230;altaria:310;bastiodon:314;umbreon:366;deoxys_defense:376
+shelgon,Shelgon,77.3,,,,,DRAGON_BREATH,FLAMETHROWER,TWISTER,,,,,galvantula:562;marowak_alolan:541;obstagoon:525;victreebel_shadow:629;stunfisk:545,azumarill:187;altaria:441;skarmory:254;stunfisk_galarian:158;bastiodon:435
+ampharos_shadow,Ampharos (Shadow),77.2,,,,,VOLT_SWITCH,THUNDER_PUNCH,FOCUS_BLAST,,,,,azumarill:779;skarmory:810;bastiodon:647;umbreon:624;toxicroak:608,altaria:419;stunfisk_galarian:167;marowak_alolan:427;deoxys_defense:376;obstagoon:452
+charmeleon_shadow,Charmeleon (Shadow),77.2,,,,,FIRE_FANG,FIRE_PUNCH,FLAMETHROWER,,,,,skarmory:712;galvantula:818;abomasnow:901;toxicroak:523;shiftry:901,stunfisk_galarian:392;azumarill:192;altaria:277;umbreon:471;marowak_alolan:266
+emolga,Emolga,77.2,,,,,THUNDER_SHOCK,DISCHARGE,AERIAL_ACE,,,,,skarmory:617;toxicroak:792;obstagoon:585;scrafty:666;victreebel_shadow:670,azumarill:364;stunfisk_galarian:215;altaria:328;marowak_alolan:330;umbreon:353
+wobbuffet,Wobbuffet,77.1,,,,,COUNTER,RETURN,MIRROR_COAT,,,,,bastiodon:599;toxicroak:691;abomasnow:669;obstagoon:659;scrafty:766,azumarill:320;stunfisk_galarian:389;skarmory:395;altaria:295;whiscash:442
+vespiquen,Vespiquen,77,,,,,FURY_CUTTER,X_SCISSOR,POWER_GEM,,,,,swampert:687;umbreon:582;obstagoon:765;scrafty:777;shiftry:824,azumarill:266;skarmory:266;stunfisk_galarian:212;altaria:339;marowak_alolan:370
+wailord,Wailord,76.7,,,,,WATER_GUN,SURF,BLIZZARD,,,,,stunfisk_galarian:570;marowak_alolan:621;swampert:565;obstagoon:568;stunfisk:565,azumarill:432;skarmory:458;altaria:317;bastiodon:462;whiscash:480
+dugtrio,Dugtrio,76.6,,,,,MUD_SHOT,MUD_BOMB,STONE_EDGE,,,,,galvantula:865;marowak_alolan:742;bastiodon:737;toxicroak:623;stunfisk:726,azumarill:309;stunfisk_galarian:410;skarmory:350;altaria:474;umbreon:391
+omastar_shadow,Omastar (Shadow),76.6,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST,,,,,azumarill:532;skarmory:555;marowak_alolan:898;galvantula:532;abomasnow:703,stunfisk_galarian:236;altaria:427;bastiodon:473;umbreon:468;deoxys_defense:345
+muk,Muk,76.3,,,,,POISON_JAB,THUNDER_PUNCH,DARK_PULSE,,,,,galvantula:524;deoxys_defense:650;abomasnow:611;shiftry:625;victreebel_shadow:660,azumarill:470;skarmory:316;stunfisk_galarian:227;altaria:375;marowak_alolan:447
+electabuzz,Electabuzz,76.2,,,,,THUNDER_SHOCK,THUNDER_PUNCH,RETURN,,,,,azumarill:725;skarmory:770;mew:522;mawile_shadow:576;mantine:806,altaria:441;stunfisk_galarian:209;galvantula:467;bastiodon:431;umbreon:429
+genesect,Genesect,76.2,,,,,FURY_CUTTER,X_SCISSOR,MAGNET_BOMB,,,,,abomasnow:857;umbreon:566;whiscash:571;shiftry:709;victreebel_shadow:714,azumarill:328;stunfisk_galarian:266;skarmory:237;altaria:375;galvantula:422
+rapidash_galarian,Rapidash (Galarian),76.2,,,,,PSYCHO_CUT,BODY_SLAM,PLAY_ROUGH,,,,,altaria:795;galvantula:668;toxicroak:831;deoxys_defense:609;swampert:522,azumarill:442;skarmory:295;stunfisk_galarian:236;umbreon:439;marowak_alolan:330
+machoke,Machoke,76.1,,,,,KARATE_CHOP,CROSS_CHOP,DYNAMIC_PUNCH,,,,,stunfisk_galarian:726;bastiodon:799;umbreon:686;swampert:576;abomasnow:605,azumarill:247;skarmory:350;altaria:306;galvantula:299;whiscash:308
+scolipede,Scolipede,76.1,,,,,POISON_JAB,X_SCISSOR,MEGAHORN,,,,,deoxys_defense:875;galvantula:606;umbreon:629;toxicroak:560;abomasnow:587,azumarill:467;altaria:437;skarmory:216;whiscash:428;stunfisk:419
+cloyster,Cloyster,76,,,,,ICE_SHARD,ICY_WIND,HYDRO_PUMP,,,,,skarmory:516;altaria:690;marowak_alolan:532;galvantula:532;swampert:690,azumarill:486;stunfisk_galarian:368;umbreon:471;abomasnow:496;toxicroak:275
+raticate_alolan,Raticate (Alolan),76,,,,,QUICK_ATTACK,CRUNCH,HYPER_FANG,,,,,marowak_alolan:556;umbreon:596;swampert:660;hypno:730;stunfisk:590,azumarill:375;stunfisk_galarian:305;skarmory:304;altaria:346;whiscash:391
+seismitoad,Seismitoad,76,,,,,MUD_SHOT,EARTH_POWER,SLUDGE_BOMB,,,,,stunfisk_galarian:529;bastiodon:838;marowak_alolan:766;deoxys_defense:516;stunfisk:608,azumarill:355;skarmory:266;galvantula:446;umbreon:436;swampert:455
+leafeon,Leafeon,75.9,,,,,QUICK_ATTACK,LEAF_BLADE,LAST_RESORT,,,,,whiscash:896;swampert:712;stunfisk:618;shiftry:559;hypno:559,azumarill:404;stunfisk_galarian:473;skarmory:250;altaria:354;galvantula:397
+tirtouga,Tirtouga,75.9,,,,,WATER_GUN,SURF,BODY_SLAM,,,,,stunfisk_galarian:616;skarmory:656;marowak_alolan:752;bastiodon:604;umbreon:504,azumarill:285;altaria:343;whiscash:374;deoxys_defense:402;galvantula:286
+wailmer,Wailmer,75.9,,,,,WATER_GUN,BODY_SLAM,HEAVY_SLAM,,,,,azumarill:569;marowak_alolan:593;whiscash:541;swampert:528;mawile_shadow:663,stunfisk_galarian:491;skarmory:341;altaria:339;bastiodon:435;umbreon:410
+marowak,Marowak,75.7,,,,,MUD_SLAP,BONE_CLUB,EARTHQUAKE,,,,,stunfisk_galarian:612;bastiodon:850;galvantula:701;marowak_alolan:584;toxicroak:729,azumarill:296;skarmory:262;umbreon:484;swampert:492;obstagoon:423
+scizor,Scizor,75.7,,,,,BULLET_PUNCH,X_SCISSOR,IRON_HEAD,,,,,abomasnow:700;umbreon:552;shiftry:704;victreebel_shadow:733;hypno:566,azumarill:423;stunfisk_galarian:272;skarmory:312;altaria:463;galvantula:397
+uxie,Uxie,75.7,,,,,CONFUSION,FUTURE_SIGHT,THUNDER,,,,,azumarill:672;toxicroak:865;machamp_shadow:844;stunfisk:584;victreebel_shadow:693,stunfisk_galarian:275;skarmory:212;altaria:299;galvantula:438;marowak_alolan:330
+ninetales_shadow,Ninetales (Shadow),75.4,,,,,FIRE_SPIN,FLAMETHROWER,PSYSHOCK,,,,,skarmory:718;galvantula:757;abomasnow:761;shiftry:710;victreebel_shadow:638,azumarill:274;stunfisk_galarian:353;altaria:343;marowak_alolan:403;bastiodon:352
+simisage,Simisage,75.4,,,,,VINE_WHIP,GRASS_KNOT,CRUNCH,,,,,azumarill:837;whiscash:773;bastiodon:531;swampert:714;stunfisk:765,stunfisk_galarian:377;skarmory:275;altaria:270;galvantula:397;umbreon:414
+weepinbell_shadow,Weepinbell (Shadow),75.4,,,,,BULLET_SEED,POWER_WHIP,SLUDGE_BOMB,,,,,azumarill:818;galvantula:729;swampert:774;whiscash:548;stunfisk:633,stunfisk_galarian:431;altaria:324;deoxys_defense:453;bastiodon:325;umbreon:353
+hippowdon,Hippowdon,75.3,,,,,ICE_FANG,BODY_SLAM,EARTH_POWER,,,,,stunfisk_galarian:510;altaria:715;bastiodon:744;galvantula:669;deoxys_defense:532,azumarill:214;skarmory:345;umbreon:414;toxicroak:329;obstagoon:427
+mewtwo_shadow,Mewtwo (Shadow),75.3,,,,,PSYCHO_CUT,PSYSTRIKE,THUNDERBOLT,,,,,azumarill:662;skarmory:625;galvantula:601;toxicroak:671;medicham:717,stunfisk_galarian:278;altaria:427;marowak_alolan:471;whiscash:471;bastiodon:227
+banette,Banette,75.1,,,,,SHADOW_CLAW,SHADOW_BALL,THUNDER,,,,,skarmory:597;deoxys_defense:553;medicham:809;stunfisk:570;hypno:530,azumarill:472;stunfisk_galarian:236;marowak_alolan:423;altaria:259;bastiodon:393
+moltres,Moltres,75.1,,,,,FIRE_SPIN,SKY_ATTACK,OVERHEAT,,,,,skarmory:676;toxicroak:544;abomasnow:557;victreebel_shadow:730;obstagoon:575,azumarill:323;stunfisk_galarian:275;galvantula:491;umbreon:468;altaria:167
+alakazam,Alakazam,75,,,,,COUNTER,FIRE_PUNCH,SHADOW_BALL,,,,,stunfisk_galarian:510;skarmory:598;bastiodon:598;galvantula:532;toxicroak:598,azumarill:372;whiscash:394;abomasnow:386;altaria:164;deoxys_defense:340
+ariados,Ariados,75,,,,,INFESTATION,MEGAHORN,CROSS_POISON,,,,,galvantula:762;deoxys_defense:856;umbreon:661;swampert:600;abomasnow:600,azumarill:355;stunfisk_galarian:230;altaria:299;skarmory:179;whiscash:420
+bisharp,Bisharp,74.9,,,,,SNARL,DARK_PULSE,X_SCISSOR,,,,,skarmory:523;marowak_alolan:595;abomasnow:652;shiftry:880;hypno:909,azumarill:326;stunfisk_galarian:329;altaria:430;galvantula:487;bastiodon:428
+breloom,Breloom,74.9,,,,,COUNTER,DYNAMIC_PUNCH,GRASS_KNOT,,,,,stunfisk_galarian:693;bastiodon:757;umbreon:569;shiftry:896;obstagoon:787,azumarill:192;skarmory:204;abomasnow:450;swampert:400;galvantula:299
+dewott,Dewott,74.8,,,,,FURY_CUTTER,AQUA_TAIL,X_SCISSOR,,,,,marowak_alolan:579;bastiodon:562;swampert:679;deoxys_defense:520;obstagoon:551,azumarill:383;stunfisk_galarian:458;skarmory:366;altaria:262;whiscash:448
+houndoom_shadow,Houndoom (Shadow),74.8,,,,,SNARL,CRUNCH,FLAMETHROWER,,,,,skarmory:659;marowak_alolan:789;galvantula:638;umbreon:558;abomasnow:621,stunfisk_galarian:350;azumarill:225;altaria:357;deoxys_defense:185;swampert:158
+moltres_shadow,Moltres (Shadow),74.8,,,,,FIRE_SPIN,SKY_ATTACK,OVERHEAT,,,,,skarmory:637;abomasnow:783;umbreon:522;shiftry:809;victreebel_shadow:721,azumarill:369;stunfisk_galarian:317;galvantula:495;toxicroak:457;altaria:167
+klang,Klang,74.7,,,,,THUNDER_SHOCK,THUNDERBOLT,VICE_GRIP,,,,,azumarill:658;skarmory:829;tropius:504;cresselia:691;lapras:666,umbreon:385;toxicroak:418;bastiodon:306;marowak_alolan:298;stunfisk_galarian:83
+marowak_shadow,Marowak (Shadow),74.7,,,,,MUD_SLAP,BONE_CLUB,EARTHQUAKE,,,,,stunfisk_galarian:568;galvantula:854;bastiodon:814;umbreon:673;marowak_alolan:508,azumarill:336;skarmory:279;deoxys_defense:407;obstagoon:489;whiscash:317
+oddish_shadow,Oddish (Shadow),74.7,,,,,RAZOR_LEAF,SEED_BOMB,SLUDGE_BOMB,,,,,azumarill:796;swampert:911;whiscash:889;stunfisk:681;machamp_shadow:712,stunfisk_galarian:392;galvantula:430;bastiodon:412;skarmory:150;toxicroak:422
+magmortar_shadow,Magmortar (Shadow),74.6,,,,,FIRE_SPIN,FIRE_PUNCH,BRICK_BREAK,,,,,skarmory:662;galvantula:699;abomasnow:865;meganium:791;ferrothorn:865,stunfisk_galarian:485;azumarill:230;altaria:262;marowak_alolan:326;deoxys_defense:422
+grimer_alolan,Grimer (Alolan),74.5,,,,,POISON_JAB,CRUNCH,SLUDGE_BOMB,,,,,azumarill:750;marowak_alolan:515;abomasnow:567;hypno:589;shiftry:540,skarmory:295;stunfisk_galarian:236;altaria:405;deoxys_defense:463;umbreon:356
+pinsir,Pinsir,74.5,,,,,FURY_CUTTER,CLOSE_COMBAT,X_SCISSOR,,,,,abomasnow:765;umbreon:607;obstagoon:790;swampert:540;scrafty:714,azumarill:285;galvantula:426;altaria:262;stunfisk_galarian:140;deoxys_defense:448
+aggron,Aggron,74.4,,,,,SMACK_DOWN,STONE_EDGE,HEAVY_SLAM,,,,,skarmory:790;altaria:661;galvantula:823;marowak_alolan:504;abomasnow:609,azumarill:296;umbreon:487;stunfisk_galarian:110;bastiodon:314;shiftry:451
+golduck_shadow,Golduck (Shadow),74.4,,,,,WATER_GUN,CROSS_CHOP,ICE_BEAM,,,,,stunfisk_galarian:625;bastiodon:679;swampert:601;mawile_shadow:691;abomasnow_shadow:628,azumarill:304;skarmory:491;altaria:299;marowak_alolan:463;umbreon:493
+mamoswine,Mamoswine,74.4,,,,,POWDER_SNOW,AVALANCHE,BULLDOZE,,,,,altaria:645;galvantula:587;bastiodon:521;stunfisk:726;meganium:602,stunfisk_galarian:428;azumarill:298;skarmory:483;whiscash:445;umbreon:401
+carracosta,Carracosta,74.3,,,,,WATER_GUN,SURF,BODY_SLAM,,,,,stunfisk_galarian:649;skarmory:636;marowak_alolan:735;bastiodon:576;swampert:512,azumarill:288;altaria:339;whiscash:377;umbreon:359;deoxys_defense:407
+charmeleon,Charmeleon,74.3,,,,,FIRE_FANG,FIRE_PUNCH,RETURN,,,,,galvantula:740;abomasnow:913;shiftry:897;victreebel_shadow:716;ferrothorn:937,stunfisk_galarian:431;skarmory:470;azumarill:176;marowak_alolan:358;altaria:222
+croconaw,Croconaw,74.3,,,,,WATER_GUN,ICE_PUNCH,CRUNCH,,,,,stunfisk_galarian:645;marowak_alolan:604;deoxys_defense:563;swampert:555;stunfisk:518,azumarill:426;skarmory:370;altaria:489;bastiodon:390;whiscash:425
+arcanine_shadow,Arcanine (Shadow),74.2,,,,,SNARL,WILD_CHARGE,FLAMETHROWER,,,,,skarmory:688;galvantula:548;abomasnow:612;toxicroak:536;meganium:820,azumarill:429;altaria:390;marowak_alolan:487;deoxys_defense:432;stunfisk_galarian:107
+kingdra,Kingdra,74.1,,,,,DRAGON_BREATH,OUTRAGE,OCTAZOOKA,,,,,marowak_alolan:621;shiftry:558;stunfisk:508;lapras:571;dewgong:529,azumarill:328;skarmory:287;altaria:437;stunfisk_galarian:188;bastiodon:439
+manectric,Manectric,74.1,,,,,SNARL,WILD_CHARGE,FLAME_BURST,,,,,skarmory:817;galvantula:724;marowak_alolan:656;toxicroak:555;ferrothorn:809,azumarill:461;altaria:408;stunfisk_galarian:191;deoxys_defense:432;obstagoon:402
+qwilfish,Qwilfish,74.1,,,,,WATER_GUN,AQUA_TAIL,ICE_BEAM,,,,,altaria:508;bastiodon:638;marowak_alolan:556;obstagoon:577;registeel:642,azumarill:372;stunfisk_galarian:497;skarmory:370;swampert:492;galvantula:331
+torkoal,Torkoal,74.1,,,,,FIRE_SPIN,OVERHEAT,EARTHQUAKE,,,,,skarmory:576;galvantula:552;bastiodon:524;abomasnow:822;victreebel_shadow:729,azumarill:279;stunfisk_galarian:272;marowak_alolan:403;umbreon:429;altaria:164
+golurk,Golurk,74,,,,,MUD_SLAP,SHADOW_PUNCH,DYNAMIC_PUNCH,,,,,stunfisk_galarian:692;bastiodon:783;galvantula:685;toxicroak:854;deoxys_defense:669,azumarill:364;skarmory:320;marowak_alolan:423;altaria:255;whiscash:400
+krookodile,Krookodile,74,,,,,SNARL,CRUNCH,EARTHQUAKE,,,,,stunfisk_galarian:723;bastiodon:788;marowak_alolan:600;stunfisk:773;hypno:773,azumarill:347;skarmory:337;altaria:328;galvantula:459;umbreon:398
+turtwig_shadow,Turtwig (Shadow),73.9,,,,,RAZOR_LEAF,BODY_SLAM,SEED_BOMB,,,,,azumarill:799;whiscash:948;swampert:937;stunfisk:751;machamp_shadow:586,stunfisk_galarian:434;bastiodon:454;skarmory:166;umbreon:382;galvantula:323
+alakazam_shadow,Alakazam (Shadow),73.8,,,,,COUNTER,FIRE_PUNCH,SHADOW_BALL,,,,,bastiodon:609;toxicroak:532;obstagoon:829;shiftry:692;scrafty:554,azumarill:453;stunfisk_galarian:392;skarmory:304;abomasnow:482;galvantula:323
+seviper,Seviper,73.8,,,,,POISON_JAB,CRUNCH,POISON_FANG,,,,,galvantula:655;abomasnow:526;shiftry:636;machamp_shadow:693;meganium:844,azumarill:467;altaria:489;skarmory:283;stunfisk_galarian:230;marowak_alolan:431
+pidgeot,Pidgeot,73.7,,,,,WING_ATTACK,AERIAL_ACE,BRAVE_BIRD,,,,,marowak_alolan:663;obstagoon:560;shiftry:624;victreebel_shadow:627;scrafty:595,azumarill:263;stunfisk_galarian:326;skarmory:320;altaria:346;swampert:455
+beartic,Beartic,73.6,,,,,POWDER_SNOW,ICE_PUNCH,SURF,,,,,altaria:690;stunfisk:625;meganium:805;shiftry:526;tropius:614,azumarill:298;stunfisk_galarian:404;skarmory:370;galvantula:483;marowak_alolan:383
+cloyster_shadow,Cloyster (Shadow),73.6,,,,,ICE_SHARD,ICY_WIND,HYDRO_PUMP,,,,,azumarill:521;altaria:652;umbreon:657;whiscash:521;stunfisk:532,stunfisk_galarian:461;skarmory:470;marowak_alolan:346;galvantula:331;toxicroak:329
+bouffalant,Bouffalant,73.5,,,,,MUD_SHOT,STOMP,MEGAHORN,,,,,umbreon:649;shiftry:613;hypno:565;cherrim_sunny:850;ferrothorn:572,azumarill:312;stunfisk_galarian:332;skarmory:241;altaria:313;whiscash:485
+graveler,Graveler,73.5,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST,,,,,skarmory:665;altaria:604;galvantula:908;marowak_alolan:873;bastiodon:591,azumarill:255;stunfisk_galarian:218;umbreon:398;toxicroak:399;deoxys_defense:309
+venomoth_shadow,Venomoth (Shadow),73.5,,,,,INFESTATION,POISON_FANG,BUG_BUZZ,,,,,galvantula:705;deoxys_defense:844;umbreon:620;abomasnow:538;obstagoon:658,azumarill:432;altaria:375;skarmory:187;whiscash:471;toxicroak:484
+golduck,Golduck,73.4,,,,,WATER_GUN,CROSS_CHOP,ICE_BEAM,,,,,bastiodon:683;marowak_alolan:550;obstagoon:554;registeel:671;cherrim_sunny:503,azumarill:399;stunfisk_galarian:458;skarmory:341;altaria:288;galvantula:352
+nidoqueen,Nidoqueen,73.4,,,,,POISON_JAB,EARTH_POWER,STONE_EDGE,,,,,galvantula:741;bastiodon:532;deoxys_defense:676;obstagoon:640;scrafty:705,azumarill:288;skarmory:350;altaria:222;umbreon:388;shiftry:496
+houndoom,Houndoom,73.3,,,,,SNARL,CRUNCH,FLAMETHROWER,,,,,skarmory:726;marowak_alolan:819;galvantula:701;abomasnow:651;hypno:844,azumarill:209;stunfisk_galarian:290;altaria:324;umbreon:487;deoxys_defense:438
+drapion,Drapion,73.2,,,,,INFESTATION,AQUA_TAIL,CRUNCH,,,,,marowak_alolan:586;abomasnow:573;deoxys_defense:508;shiftry:756;hypno:665,stunfisk_galarian:377;azumarill:266;skarmory:262;bastiodon:401;umbreon:445
+rotom_wash,Rotom (Wash),73.2,,,,,THUNDER_SHOCK,THUNDERBOLT,HYDRO_PUMP,,,,,azumarill:673;skarmory:820;bastiodon:538;marowak_alolan:527;stunfisk:570,altaria:394;stunfisk_galarian:128;umbreon:359;deoxys_defense:365;whiscash:231
+amoonguss,Amoonguss,73.1,,,,,FEINT_ATTACK,GRASS_KNOT,SLUDGE_BOMB,,,,,galvantula:640;deoxys_defense:671;swampert:620;stunfisk:671;victreebel_shadow:710,azumarill:451;stunfisk_galarian:401;skarmory:179;marowak_alolan:286;bastiodon:272
+durant,Durant,73.1,,,,,BUG_BITE,X_SCISSOR,STONE_EDGE,,,,,deoxys_defense:670;abomasnow:670;shiftry:870;hypno:750;victreebel_shadow:670,azumarill:375;stunfisk_galarian:224;altaria:295;skarmory:175;umbreon:493
+gurdurr,Gurdurr,73.1,,,,,POISON_JAB,BRICK_BREAK,STONE_EDGE,,,,,altaria:613;abomasnow:599;obstagoon:599;shiftry:631;tropius:581,azumarill:483;skarmory:337;stunfisk_galarian:194;bastiodon:412;galvantula:381
+venomoth,Venomoth,73.1,,,,,INFESTATION,POISON_FANG,BUG_BUZZ,,,,,galvantula:744;deoxys_defense:895;umbreon:639;swampert:565;abomasnow:573,azumarill:361;stunfisk_galarian:218;altaria:299;skarmory:170;whiscash:400
+grimer_shadow,Grimer (Shadow),73,,,,,POISON_JAB,MUD_BOMB,SLUDGE_BOMB,,,,,azumarill:746;deoxys_defense:543;abomasnow:509;obstagoon:577;meganium:836,stunfisk_galarian:275;altaria:496;skarmory:204;bastiodon:496;galvantula:348
+plusle,Plusle,72.9,,,,,SPARK,THUNDERBOLT,GRASS_KNOT,,,,,azumarill:781;skarmory:817;whiscash:503;registeel:503;drifblim:599,stunfisk_galarian:263;altaria:394;bastiodon:412;galvantula:352;umbreon:337
+ursaring,Ursaring,72.9,,,,,COUNTER,CLOSE_COMBAT,HYPER_BEAM,,,,,skarmory:664;bastiodon:628;umbreon:617;whiscash:542;obstagoon:652,stunfisk_galarian:392;azumarill:277;altaria:350;abomasnow:471;stunfisk:491
+banette_shadow,Banette (Shadow),72.7,,,,,SHADOW_CLAW,SHADOW_BALL,THUNDER,,,,,azumarill:641;skarmory:553;machamp_shadow:557;medicham:539;registeel:871,stunfisk_galarian:254;bastiodon:454;marowak_alolan:447;altaria:266;galvantula:397
+jolteon,Jolteon,72.7,,,,,VOLT_SWITCH,DISCHARGE,LAST_RESORT,,,,,azumarill:755;skarmory:794;toxicroak:515;lapras:715;sableye:635,altaria:434;bastiodon:443;galvantula:356;umbreon:359;stunfisk_galarian:92
+huntail,Huntail,72.5,,,,,WATER_GUN,AQUA_TAIL,CRUNCH,,,,,stunfisk_galarian:657;bastiodon:628;marowak_alolan:528;hypno:628;drifblim:661,azumarill:285;skarmory:370;altaria:372;galvantula:348;whiscash:388
+klinklang,Klinklang,72.5,,,,,THUNDER_SHOCK,MIRROR_SHOT,FLASH_CANNON,,,,,abomasnow:686;shiftry:570;victreebel_shadow:570;cresselia:646;sableye:691,azumarill:480;skarmory:483;altaria:481;stunfisk_galarian:203;bastiodon:382
+sandshrew_alolan,Sandshrew (Alolan),72.5,,,,,POWDER_SNOW,NIGHT_SLASH,BLIZZARD,,,,,skarmory:766;altaria:754;abomasnow:695;whiscash:504;hypno:762,azumarill:301;stunfisk_galarian:245;galvantula:368;bastiodon:337;umbreon:382
+spiritomb,Spiritomb,72.5,,,,,SUCKER_PUNCH,SHADOW_BALL,OMINOUS_WIND,,,,,deoxys_defense:611;toxicroak:558;hypno:839;medicham:660;ferrothorn:606,azumarill:342;stunfisk_galarian:419;skarmory:287;altaria:328;bastiodon:386
+magmortar,Magmortar,72.4,,,,,FIRE_SPIN,FIRE_PUNCH,BRICK_BREAK,,,,,skarmory:699;galvantula:694;abomasnow:712;shiftry:800;meganium:828,azumarill:206;stunfisk_galarian:275;altaria:244;umbreon:436;bastiodon:306
+oddish,Oddish,72.4,,,,,RAZOR_LEAF,SEED_BOMB,SLUDGE_BOMB,,,,,azumarill:818;whiscash:902;swampert:929;stunfisk:694;machamp_shadow:716,stunfisk_galarian:314;bastiodon:465;skarmory:179;galvantula:372;deoxys_defense:417
+swellow,Swellow,72.4,,,,,WING_ATTACK,BRAVE_BIRD,SKY_ATTACK,,,,,marowak_alolan:542;swampert:508;victreebel_shadow:579;tropius:668;meganium:596,azumarill:375;stunfisk_galarian:353;skarmory:329;altaria:419;umbreon:477
+corsola,Corsola,72.3,,,,,BUBBLE,ROCK_BLAST,BUBBLE_BEAM,,,,,skarmory:669;marowak_alolan:736;bastiodon:535;drifblim:586;lapras:551,stunfisk_galarian:482;azumarill:339;altaria:445;umbreon:334;toxicroak:360
+gothitelle,Gothitelle,72.3,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC,,,,,azumarill:720;toxicroak:864;whiscash:546;machamp_shadow:805;stunfisk:580,stunfisk_galarian:365;skarmory:383;altaria:259;galvantula:360;deoxys_defense:407
+heatmor,Heatmor,72.3,,,,,FIRE_SPIN,FLAMETHROWER,THUNDER_PUNCH,,,,,skarmory:694;galvantula:716;abomasnow:861;toxicroak:585;meganium:787,azumarill:290;stunfisk_galarian:254;altaria:270;marowak_alolan:342;umbreon:391
+darumaka,Darumaka,72.2,,,,,FIRE_FANG,FIRE_PUNCH,FLAME_CHARGE,,,,,skarmory:656;galvantula:707;abomasnow:901;shiftry:877;victreebel_shadow:673,stunfisk_galarian:332;azumarill:206;umbreon:417;altaria:222;toxicroak:422
+celebi,Celebi,72.1,,,,,CONFUSION,SEED_BOMB,PSYCHIC,,,,,toxicroak:842;deoxys_defense:586;stunfisk:657;machamp_shadow:783;victreebel_shadow:712,azumarill:472;stunfisk_galarian:341;skarmory:233;altaria:335;bastiodon:367
+dunsparce,Dunsparce,72.1,,,,,BITE,ROCK_SLIDE,DRILL_RUN,,,,,marowak_alolan:706;bastiodon:502;hypno:584;mew:910;cresselia:540,azumarill:364;stunfisk_galarian:335;skarmory:304;galvantula:459;altaria:237
+shelgon_shadow,Shelgon (Shadow),72.1,,,,,DRAGON_BREATH,FLAMETHROWER,DRAGON_PULSE,,,,,toxicroak:583;victreebel_shadow:662;cherrim_sunny:845;raichu_alolan:808;victreebel:629,altaria:441;stunfisk_galarian:236;azumarill:160;skarmory:254;marowak_alolan:471
+ursaring_shadow,Ursaring (Shadow),72.1,,,,,COUNTER,CLOSE_COMBAT,HYPER_BEAM,,,,,skarmory:589;stunfisk_galarian:523;bastiodon:609;shiftry:839;obstagoon:640,azumarill:339;abomasnow:464;umbreon:375;altaria:189;galvantula:295
+cryogonal,Cryogonal,72,,,,,ICE_SHARD,NIGHT_SLASH,AURORA_BEAM,,,,,altaria:705;abomasnow:563;shiftry:634;stunfisk:575;tropius:613,stunfisk_galarian:386;skarmory:416;azumarill:220;whiscash:471;umbreon:407
+magnemite_shadow,Magnemite (Shadow),72,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE,,,,,skarmory:829;abomasnow:529;cresselia:588;lapras:747;drifblim:705,azumarill:472;altaria:386;stunfisk_galarian:200;bastiodon:443;galvantula:356
+arcanine,Arcanine,71.9,,,,,SNARL,WILD_CHARGE,FLAMETHROWER,,,,,galvantula:628;abomasnow:648;meganium:864;ferrothorn:892;victreebel_shadow:600,azumarill:377;skarmory:495;marowak_alolan:407;toxicroak:492;deoxys_defense:391
+glaceon,Glaceon,71.9,,,,,ICE_SHARD,AVALANCHE,ICY_WIND,,,,,skarmory:659;altaria:623;whiscash:654;swampert:567;abomasnow:530,stunfisk_galarian:497;azumarill:282;galvantula:368;umbreon:394;hypno:489
+scyther_shadow,Scyther (Shadow),71.9,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR,,,,,umbreon:564;obstagoon:871;abomasnow:623;shiftry:683;meganium:912,azumarill:301;stunfisk_galarian:257;skarmory:241;altaria:324;deoxys_defense:479
+lairon,Lairon,71.7,,,,,METAL_CLAW,ROCK_SLIDE,BODY_SLAM,,,,,skarmory:788;altaria:521;galvantula:551;abomasnow:633;hypno:512,azumarill:339;stunfisk_galarian:188;marowak_alolan:459;bastiodon:375;umbreon:410
+slowking,Slowking,71.7,,,,,CONFUSION,PSYCHIC,BLIZZARD,,,,,azumarill:639;toxicroak:857;deoxys_defense:507;machamp_shadow:803;medicham:596,stunfisk_galarian:266;skarmory:229;altaria:259;galvantula:360;swampert:466
+slowbro,Slowbro,71.5,,,,,CONFUSION,PSYCHIC,ICE_BEAM,,,,,azumarill:639;toxicroak:857;machamp_shadow:803;medicham:596;lapras:542,stunfisk_galarian:242;skarmory:254;altaria:259;galvantula:360;swampert:466
+grimer,Grimer,71.4,,,,,POISON_JAB,MUD_BOMB,SLUDGE_BOMB,,,,,azumarill:774;deoxys_defense:564;abomasnow:567;shiftry:549;victreebel_shadow:589,stunfisk_galarian:242;altaria:405;skarmory:187;bastiodon:435;umbreon:369
+hydreigon,Hydreigon,71.3,,,,,DRAGON_BREATH,DARK_PULSE,DRAGON_PULSE,,,,,marowak_alolan:570;shiftry:657;hypno:618;victreebel_shadow:561;ferrothorn:649,stunfisk_galarian:236;azumarill:165;altaria:423;skarmory:262;bastiodon:454
+sunflora,Sunflora,71.3,,,,,BULLET_SEED,SLUDGE_BOMB,PETAL_BLIZZARD,,,,,azumarill:858;swampert:717;stunfisk:778;obstagoon:526;shiftry:530,stunfisk_galarian:434;skarmory:200;altaria:244;whiscash:451;bastiodon:363
+bonsly,Bonsly,71.2,,,,,COUNTER,ROCK_SLIDE,EARTHQUAKE,,,,,skarmory:629;bastiodon:704;marowak_alolan:620;umbreon:633;cherrim_sunny:625,stunfisk_galarian:380;azumarill:271;altaria:437;whiscash:340;abomasnow:386
+claydol,Claydol,71.2,,,,,CONFUSION,EARTH_POWER,PSYCHIC,,,,,stunfisk_galarian:588;bastiodon:668;toxicroak:894;deoxys_defense:508;stunfisk:701,azumarill:271;skarmory:212;galvantula:487;altaria:299;marowak_alolan:326
+exeggutor_alolan,Exeggutor (Alolan),71.1,,,,,BULLET_SEED,SEED_BOMB,DRAGON_PULSE,,,,,whiscash:795;swampert:775;toxicroak:606;stunfisk:826;victreebel_shadow:712,azumarill:372;stunfisk_galarian:428;skarmory:229;galvantula:459;marowak_alolan:366
+purugly,Purugly,71.1,,,,,SHADOW_CLAW,AERIAL_ACE,THUNDER,,,,,skarmory:690;marowak_alolan:645;hypno:648;ferrothorn:503;cherrim_sunny:645,azumarill:470;altaria:427;stunfisk_galarian:227;bastiodon:397;swampert:463
+weepinbell,Weepinbell,71,,,,,BULLET_SEED,POWER_WHIP,SEED_BOMB,,,,,azumarill:811;whiscash:637;umbreon:566;swampert:596;stunfisk:714,stunfisk_galarian:359;bastiodon:465;skarmory:170;galvantula:336;toxicroak:391
+gigalith,Gigalith,70.9,,,,,SMACK_DOWN,ROCK_SLIDE,SUPER_POWER,,,,,skarmory:649;galvantula:802;bastiodon:565;marowak_alolan:561;abomasnow:785,azumarill:274;altaria:478;umbreon:480;stunfisk_galarian:110;deoxys_defense:283
+weavile_shadow,Weavile (Shadow),70.9,,,,,SNARL,AVALANCHE,FOUL_PLAY,,,,,altaria:572;galvantula:634;umbreon:663;abomasnow:572;hypno:822,skarmory:495;stunfisk_galarian:416;azumarill:260;whiscash:485;marowak_alolan:197
+kingler,Kingler,70.8,,,,,BUBBLE,CRABHAMMER,X_SCISSOR,,,,,stunfisk_galarian:547;marowak_alolan:643;umbreon:521;swampert:569;sableye:643,azumarill:323;skarmory:445;altaria:281;whiscash:462;abomasnow:393
+latias,Latias,70.8,,,,,DRAGON_BREATH,OUTRAGE,PSYCHIC,,,,,toxicroak:752;deoxys_defense:556;victreebel_shadow:635;stunfisk:518;ferrothorn:537,azumarill:203;altaria:496;skarmory:262;stunfisk_galarian:194;galvantula:450
+omastar,Omastar,70.8,,,,,MUD_SHOT,ROCK_SLIDE,ROCK_BLAST,,,,,altaria:578;marowak_alolan:712;galvantula:601;lapras:611;raichu_alolan:601,azumarill:437;skarmory:491;stunfisk_galarian:221;bastiodon:375;umbreon:410
+pawniard,Pawniard,70.8,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR,,,,,umbreon:561;abomasnow:654;shiftry:690;hypno:690;victreebel_shadow:557,skarmory:400;azumarill:228;altaria:383;stunfisk_galarian:203;bastiodon:401
+lumineon,Lumineon,70.6,,,,,WATER_GUN,BLIZZARD,SILVER_WIND,,,,,marowak_alolan:550;swampert:568;mawile_shadow:663;charizard_shadow:822;charizard:713,azumarill:478;stunfisk_galarian:470;skarmory:320;bastiodon:431;altaria:273
+palpitoad,Palpitoad,70.6,,,,,MUD_SHOT,EARTH_POWER,SLUDGE_WAVE,,,,,stunfisk_galarian:509;bastiodon:801;marowak_alolan:636;deoxys_defense:516;stunfisk:594,azumarill:415;skarmory:195;galvantula:430;altaria:255;swampert:433
+poliwhirl,Poliwhirl,70.6,,,,,BUBBLE,MUD_BOMB,SCALD,,,,,stunfisk_galarian:678;bastiodon:653;marowak_alolan:607;swampert:553;registeel:557,azumarill:437;skarmory:416;galvantula:422;whiscash:434;altaria:222
+crawdaunt,Crawdaunt,70.5,,,,,SNARL,NIGHT_SLASH,CRABHAMMER,,,,,marowak_alolan:799;hypno:509;mew:654;hypno_shadow:799;drifblim:523,azumarill:320;stunfisk_galarian:446;skarmory:370;bastiodon:435;altaria:262
+tentacruel,Tentacruel,70.5,,,,,POISON_JAB,ACID_SPRAY,HYDRO_PUMP,,,,,azumarill:669;abomasnow:598;toxicroak:511;deoxys_defense:531;obstagoon:562,altaria:295;skarmory:175;umbreon:445;galvantula:311;marowak_alolan:282
+kangaskhan,Kangaskhan,70.4,,,,,MUD_SLAP,STOMP,CRUNCH,,,,,stunfisk_galarian:516;bastiodon:705;marowak_alolan:642;galvantula:519;stunfisk:519,azumarill:317;skarmory:337;altaria:237;toxicroak:468;swampert:474
+turtwig,Turtwig,70.4,,,,,RAZOR_LEAF,BODY_SLAM,SEED_BOMB,,,,,whiscash:940;swampert:948;stunfisk:771;lapras:539;raichu_alolan:783,azumarill:491;stunfisk_galarian:386;skarmory:191;bastiodon:382;umbreon:328
+nidoqueen_shadow,Nidoqueen (Shadow),70.3,,,,,POISON_JAB,EARTH_POWER,STONE_EDGE,,,,,galvantula:690;deoxys_defense:654;obstagoon:611;scrafty:643;shiftry:546,azumarill:345;bastiodon:496;altaria:277;umbreon:417;skarmory:129
+simipour,Simipour,70.3,,,,,WATER_GUN,SURF,CRUNCH,,,,,bastiodon:638;whiscash:638;mawile_shadow:654;jirachi:523;charizard_shadow:805,azumarill:282;stunfisk_galarian:392;skarmory:441;altaria:332;marowak_alolan:439
+wartortle,Wartortle,70.3,,,,,WATER_GUN,ICE_BEAM,HYDRO_PUMP,,,,,marowak_alolan:617;whiscash:594;charizard_shadow:814;moltres:844;graveler:893,azumarill:475;stunfisk_galarian:446;skarmory:295;umbreon:493;bastiodon:375
+kricketune,Kricketune,70.2,,,,,FURY_CUTTER,X_SCISSOR,AERIAL_ACE,,,,,swampert:571;abomasnow:555;obstagoon:620;shiftry:707;scrafty:655,azumarill:285;stunfisk_galarian:230;skarmory:191;altaria:291;galvantula:409
+nidorino_shadow,Nidorino (Shadow),70.2,,,,,POISON_JAB,SLUDGE_BOMB,HORN_ATTACK,,,,,azumarill:729;altaria:551;galvantula:581;deoxys_defense:551;abomasnow:503,skarmory:175;stunfisk_galarian:131;umbreon:401;toxicroak:395;marowak_alolan:181
+rapidash,Rapidash,70.2,,,,,FIRE_SPIN,DRILL_RUN,FIRE_BLAST,,,,,skarmory:645;galvantula:668;abomasnow:727;ferrothorn:886;victreebel_shadow:586,azumarill:290;stunfisk_galarian:275;bastiodon:469;altaria:218;umbreon:366
+rufflet,Rufflet,70.1,,,,,WING_ATTACK,BRAVE_BIRD,AERIAL_ACE,,,,,marowak_alolan:585;swampert:602;shiftry:551;victreebel_shadow:588;tropius:639,azumarill:274;stunfisk_galarian:344;altaria:361;skarmory:212;toxicroak:457
+weavile,Weavile,70.1,,,,,SNARL,AVALANCHE,FOUL_PLAY,,,,,altaria:572;galvantula:682;marowak_alolan:591;hypno:850;stunfisk:591,azumarill:358;skarmory:408;stunfisk_galarian:347;umbreon:493;whiscash:442
+basculin,Basculin,70,,,,,WATER_GUN,AQUA_TAIL,MUDDY_WATER,,,,,stunfisk_galarian:625;bastiodon:606;marowak_alolan:523;mawile_shadow:688;charizard:775,azumarill:372;skarmory:370;altaria:302;galvantula:348;whiscash:391
+sharpedo_shadow,Sharpedo (Shadow),70,,,,,WATERFALL,CRUNCH,POISON_FANG,,,,,stunfisk_galarian:813;marowak_alolan:792;hypno:752;stunfisk:670;mew:727,azumarill:453;skarmory:454;galvantula:409;bastiodon:397;swampert:466
+vullaby,Vullaby,70,,,,,FEINT_ATTACK,BRAVE_BIRD,FOUL_PLAY,,,,,marowak_alolan:636;swampert:693;hypno:690;victreebel_shadow:588;tropius:707,azumarill:345;stunfisk_galarian:317;skarmory:350;altaria:295;whiscash:371
+lilligant,Lilligant,69.9,,,,,CHARM,PETAL_BLIZZARD,HYPER_BEAM,,,,,altaria:570;galvantula:783;umbreon:606;shiftry:862;scrafty:783,azumarill:361;stunfisk_galarian:266;skarmory:275;swampert:463;whiscash:400
+ninjask,Ninjask,69.9,,,,,FURY_CUTTER,AERIAL_ACE,SHADOW_BALL,,,,,toxicroak:792;deoxys_defense:830;swampert:572;shiftry:703;obstagoon:593,azumarill:364;skarmory:354;altaria:343;whiscash:471;stunfisk_galarian:128
+poliwhirl_shadow,Poliwhirl (Shadow),69.9,,,,,BUBBLE,MUD_BOMB,SCALD,,,,,marowak_alolan:825;bastiodon:610;galvantula:503;registeel:678;mawile_shadow:689,azumarill:404;stunfisk_galarian:488;skarmory:470;swampert:441;altaria:197
+tyranitar_shadow,Tyranitar (Shadow),69.8,,,,,SMACK_DOWN,STONE_EDGE,CRUNCH,,,,,altaria:575;galvantula:806;marowak_alolan:600;umbreon:550;abomasnow:508,azumarill:328;skarmory:491;stunfisk_galarian:137;bastiodon:340;shiftry:437
+magnemite,Magnemite,69.7,,,,,THUNDER_SHOCK,MAGNET_BOMB,DISCHARGE,,,,,skarmory:817;hypno:535;drifblim:676;wigglytuff:629;clefable:576,azumarill:423;altaria:357;stunfisk_galarian:179;bastiodon:397;abomasnow:478
+mightyena,Mightyena,69.7,,,,,ICE_FANG,CRUNCH,POISON_FANG,,,,,altaria:632;marowak_alolan:530;hypno:723;shiftry:606;tropius:587,azumarill:301;skarmory:329;stunfisk_galarian:236;swampert:463;galvantula:323
+sneasel,Sneasel,69.7,,,,,ICE_SHARD,AVALANCHE,FOUL_PLAY,,,,,altaria:668;whiscash:609;hypno:859;stunfisk:613;shiftry:595,skarmory:495;azumarill:277;stunfisk_galarian:194;umbreon:407;galvantula:331
+staraptor,Staraptor,69.7,,,,,WING_ATTACK,BRAVE_BIRD,CLOSE_COMBAT,,,,,toxicroak:504;victreebel_shadow:586;ferrothorn:655;tropius:540;machamp_shadow:504,azumarill:317;skarmory:416;umbreon:496;whiscash:491;stunfisk_galarian:128
+aerodactyl_shadow,Aerodactyl (Shadow),69.6,,,,,ROCK_THROW,ROCK_SLIDE,EARTH_POWER,,,,,skarmory:508;altaria:551;marowak_alolan:816;galvantula:688;abomasnow:649,azumarill:328;stunfisk_galarian:134;umbreon:328;toxicroak:329;deoxys_defense:340
+golem,Golem,69.5,,,,,MUD_SHOT,STONE_EDGE,EARTHQUAKE,,,,,skarmory:530;bastiodon:780;marowak_alolan:655;galvantula:633;stunfisk:685,stunfisk_galarian:251;altaria:445;azumarill:100;umbreon:331;deoxys_defense:371
+darmanitan_standard,Darmanitan (Standard),69.4,,,,,FIRE_FANG,ROCK_SLIDE,OVERHEAT,,,,,skarmory:670;galvantula:785;abomasnow:885;shiftry:848;meganium:833,stunfisk_galarian:398;azumarill:192;umbreon:493;altaria:193;deoxys_defense:340
+magmar_shadow,Magmar (Shadow),69.4,,,,,EMBER,FIRE_PUNCH,FLAMETHROWER,,,,,skarmory:640;galvantula:666;abomasnow:872;shiftry:837;victreebel_shadow:605,stunfisk_galarian:302;azumarill:165;toxicroak:422;altaria:208;umbreon:257
+simisear,Simisear,69.4,,,,,FIRE_SPIN,CRUNCH,FLAMETHROWER,,,,,skarmory:674;galvantula:698;abomasnow:702;ferrothorn:900;victreebel_shadow:599,azumarill:269;stunfisk_galarian:275;altaria:343;umbreon:394;toxicroak:387
+slowbro_shadow,Slowbro (Shadow),69.4,,,,,CONFUSION,PSYCHIC,ICE_BEAM,,,,,azumarill:603;toxicroak:871;swampert:671;machamp_shadow:821;medicham:503,stunfisk_galarian:218;skarmory:237;altaria:310;galvantula:422;whiscash:391
+gabite,Gabite,69.3,,,,,MUD_SHOT,FLAMETHROWER,TWISTER,,,,,bastiodon:729;galvantula:659;stunfisk:596;ferrothorn:848;shiftry:537,stunfisk_galarian:452;skarmory:441;azumarill:220;marowak_alolan:375;toxicroak:480
+garchomp,Garchomp,69.3,,,,,MUD_SHOT,OUTRAGE,EARTHQUAKE,,,,,bastiodon:790;galvantula:635;marowak_alolan:532;swampert:524;stunfisk:762,azumarill:383;skarmory:320;stunfisk_galarian:158;deoxys_defense:453;umbreon:324
+rhyperior,Rhyperior,69.2,,,,,MUD_SLAP,ROCK_WRECKER,SURF,,,,,skarmory:623;bastiodon:809;marowak_alolan:656;galvantula:630;toxicroak:526,stunfisk_galarian:380;azumarill:222;umbreon:474;altaria:197;whiscash:285
+wormadam_plant,Wormadam (Plant),69.2,,,,,BUG_BITE,ENERGY_BALL,BUG_BUZZ,,,,,azumarill:560;umbreon:576;deoxys_defense:544;shiftry:899;victreebel_shadow:737,stunfisk_galarian:188;galvantula:409;altaria:229;skarmory:120;swampert:389
+omanyte_shadow,Omanyte (Shadow),69.1,,,,,MUD_SHOT,ROCK_BLAST,BRINE,,,,,altaria:546;marowak_alolan:886;bastiodon:541;galvantula:505;mawile_shadow:819,azumarill:399;stunfisk_galarian:431;skarmory:491;umbreon:356;abomasnow:400
+rhyhorn,Rhyhorn,69,,,,,MUD_SLAP,STOMP,HORN_ATTACK,,,,,skarmory:531;bastiodon:822;galvantula:696;marowak_alolan:620;toxicroak:544,azumarill:307;stunfisk_galarian:398;umbreon:442;altaria:237;deoxys_defense:360
+chansey,Chansey,68.8,,,,,ZEN_HEADBUTT,PSYCHIC,HYPER_BEAM,,,,,marowak_alolan:622;venusaur:515;beedrill:566;snorlax_shadow:700;snorlax:669,azumarill:369;skarmory:420;stunfisk_galarian:245;altaria:448;galvantula:426
+exeggutor_shadow,Exeggutor (Shadow),68.8,,,,,BULLET_SEED,SEED_BOMB,PSYCHIC,,,,,stunfisk_galarian:605;galvantula:781;whiscash:730;toxicroak:695;swampert:609,azumarill:437;altaria:343;bastiodon:344;skarmory:133;deoxys_defense:298
+sneasel_shadow,Sneasel (Shadow),68.8,,,,,ICE_SHARD,AVALANCHE,FOUL_PLAY,,,,,skarmory:627;altaria:613;whiscash:572;hypno:831;stunfisk:572,azumarill:317;stunfisk_galarian:191;umbreon:480;galvantula:405;abomasnow:315
+braviary,Braviary,68.7,,,,,AIR_SLASH,BRAVE_BIRD,CLOSE_COMBAT,,,,,toxicroak:573;victreebel_shadow:650;machamp_shadow:615;tropius:603;shiftry:534,azumarill:358;skarmory:408;stunfisk_galarian:167;altaria:284;umbreon:493
+slowking_shadow,Slowking (Shadow),68.7,,,,,CONFUSION,PSYCHIC,BLIZZARD,,,,,azumarill:603;toxicroak:871;swampert:671;machamp_shadow:821;medicham:503,skarmory:237;stunfisk_galarian:191;altaria:310;galvantula:422;bastiodon:340
+combusken,Combusken,68.6,,,,,EMBER,ROCK_SLIDE,FLAME_CHARGE,,,,,skarmory:534;marowak_alolan:603;abomasnow:757;shiftry:692;victreebel_shadow:650,stunfisk_galarian:332;altaria:434;azumarill:125;galvantula:495;bastiodon:340
+cinccino,Cinccino,68.5,,,,,CHARM,AQUA_TAIL,THUNDERBOLT,,,,,altaria:624;umbreon:620;shiftry:879;scrafty:674;machamp_shadow:577,azumarill:331;skarmory:279;stunfisk_galarian:191;galvantula:495;marowak_alolan:342
+metang,Metang,68.5,,,,,METAL_CLAW,PSYSHOCK,GYRO_BALL,,,,,abomasnow:694;victreebel_shadow:579;hypno:523;tropius:535;cresselia:587,azumarill:315;skarmory:495;altaria:405;bastiodon:371;galvantula:368
+parasect,Parasect,68.5,,,,,FURY_CUTTER,X_SCISSOR,CROSS_POISON,,,,,deoxys_defense:524;shiftry:772;obstagoon:626;victreebel_shadow:731;scrafty:666,azumarill:307;stunfisk_galarian:224;altaria:270;galvantula:405;umbreon:461
+tyranitar,Tyranitar,68.5,,,,,SMACK_DOWN,CRUNCH,STONE_EDGE,,,,,skarmory:584;altaria:617;galvantula:794;marowak_alolan:647;umbreon:600,azumarill:274;bastiodon:318;stunfisk_galarian:110;shiftry:365;whiscash:208
+weezing,Weezing,68.5,,,,,INFESTATION,SLUDGE_BOMB,SHADOW_BALL,,,,,deoxys_defense:630;abomasnow:608;shiftry:621;medicham:752;victreebel_shadow:569,azumarill:345;stunfisk_galarian:266;skarmory:283;marowak_alolan:435;galvantula:434
+boldore,Boldore,68.4,,,,,SMACK_DOWN,ROCK_SLIDE,BULLDOZE,,,,,skarmory:610;galvantula:807;marowak_alolan:586;abomasnow:759;drifblim:637,azumarill:274;altaria:478;bastiodon:488;umbreon:417;stunfisk_galarian:110
+dugtrio_alolan,Dugtrio (Alolan),68.4,,,,,MUD_SLAP,MUD_BOMB,IRON_HEAD,,,,,bastiodon:844;galvantula:622;stunfisk:561;raichu_alolan:888;cresselia:522,stunfisk_galarian:461;azumarill:301;skarmory:337;marowak_alolan:427;umbreon:404
+garbodor,Garbodor,68.4,,,,,INFESTATION,BODY_SLAM,SEED_BOMB,,,,,deoxys_defense:596;swampert:523;abomasnow:557;obstagoon:646;shiftry:726,azumarill:391;skarmory:245;stunfisk_galarian:188;altaria:302;whiscash:417
+furret,Furret,68.3,,,,,QUICK_ATTACK,BRICK_BREAK,HYPER_BEAM,,,,,azumarill:751;whiscash:544;stunfisk:584;shiftry:584;hypno:553,stunfisk_galarian:389;skarmory:379;altaria:270;umbreon:449;bastiodon:329
+geodude_alolan,Geodude (Alolan),68.3,,,,,VOLT_SWITCH,ROCK_SLIDE,THUNDERBOLT,,,,,azumarill:570;skarmory:853;galvantula:533;marowak_alolan:504;lapras:731,altaria:492;bastiodon:458;umbreon:334;deoxys_defense:329;toxicroak:236
+fraxure,Fraxure,68.2,,,,,DRAGON_TAIL,DRAGON_CLAW,NIGHT_SLASH,,,,,galvantula:741;toxicroak:529;shiftry:597;victreebel_shadow:529;ferrothorn:601,stunfisk_galarian:260;skarmory:275;azumarill:163;marowak_alolan:471;altaria:244
+ledian,Ledian,68.1,,,,,BUG_BITE,AERIAL_ACE,BUG_BUZZ,,,,,umbreon:606;whiscash:515;swampert:531;shiftry:826;deoxys_defense:511,azumarill:336;stunfisk_galarian:251;toxicroak:441;skarmory:125;abomasnow:400
+metagross,Metagross,68.1,,,,,BULLET_PUNCH,METEOR_MASH,PSYCHIC,,,,,altaria:700;abomasnow:661;hypno:666;tropius:627;cresselia:622,azumarill:456;skarmory:383;stunfisk_galarian:158;bastiodon:401;deoxys_defense:484
+sandslash,Sandslash,68.1,,,,,MUD_SHOT,EARTHQUAKE,BULLDOZE,,,,,stunfisk_galarian:564;bastiodon:796;galvantula:640;marowak_alolan:512;stunfisk:796,azumarill:358;skarmory:300;deoxys_defense:391;obstagoon:496;umbreon:334
+scyther,Scyther,68.1,,,,,FURY_CUTTER,NIGHT_SLASH,X_SCISSOR,,,,,abomasnow:706;swampert:605;shiftry:738;obstagoon:628;scrafty:738,azumarill:279;stunfisk_galarian:236;skarmory:229;altaria:328;umbreon:487
+exeggutor,Exeggutor,68,,,,,BULLET_SEED,SEED_BOMB,PSYCHIC,,,,,whiscash:792;toxicroak:738;swampert:695;stunfisk:628;victreebel_shadow:527,azumarill:372;stunfisk_galarian:434;skarmory:233;altaria:313;galvantula:463
+kabutops,Kabutops,68,,,,,MUD_SHOT,STONE_EDGE,ANCIENT_POWER,,,,,skarmory:603;marowak_alolan:678;abomasnow:668;lapras:836;drifblim:797,azumarill:377;stunfisk_galarian:260;altaria:478;bastiodon:439;umbreon:401
+murkrow,Murkrow,68,,,,,FEINT_ATTACK,DRILL_PECK,FOUL_PLAY,,,,,hypno:809;shiftry:599;tropius:622;meganium:530;hypno_shadow:782,azumarill:336;skarmory:416;stunfisk_galarian:218;altaria:240;marowak_alolan:358
+maractus,Maractus,67.9,,,,,BULLET_SEED,AERIAL_ACE,PETAL_BLIZZARD,,,,,azumarill:820;swampert:718;stunfisk:761;machamp_shadow:527;meganium:562,stunfisk_galarian:449;skarmory:158;whiscash:468;bastiodon:378;toxicroak:445
+monferno,Monferno,67.9,,,,,EMBER,FLAMETHROWER,LOW_SWEEP,,,,,skarmory:518;bastiodon:533;abomasnow:724;shiftry:709;obstagoon:551,stunfisk_galarian:314;azumarill:222;galvantula:495;altaria:233;umbreon:343
+nidorino,Nidorino,67.9,,,,,POISON_JAB,SLUDGE_BOMB,HORN_ATTACK,,,,,azumarill:762;abomasnow:566;deoxys_defense:507;shiftry:692;victreebel_shadow:629,altaria:408;skarmory:162;galvantula:405;stunfisk_galarian:122;umbreon:372
+nidoking,Nidoking,67.8,,,,,FURY_CUTTER,EARTH_POWER,MEGAHORN,,,,,bastiodon:792;galvantula:695;deoxys_defense:638;obstagoon:597;stunfisk:666,azumarill:285;skarmory:283;umbreon:458;altaria:244;stunfisk_galarian:80
+wormadam_sandy,Wormadam (Sandy),67.8,,,,,BUG_BITE,BUG_BUZZ,BULLDOZE,,,,,stunfisk_galarian:544;umbreon:564;deoxys_defense:604;shiftry:899;stunfisk:689,azumarill:171;bastiodon:458;galvantula:418;altaria:229;skarmory:129
+ponyta,Ponyta,67.7,,,,,EMBER,FLAME_CHARGE,STOMP,,,,,abomasnow:734;ferrothorn:902;victreebel_shadow:597;shiftry:539;tropius:597,azumarill:279;skarmory:433;stunfisk_galarian:266;galvantula:495;altaria:288
+quilava,Quilava,67.7,,,,,EMBER,FLAME_CHARGE,FLAMETHROWER,,,,,abomasnow:877;ferrothorn:913;shiftry:586;victreebel_shadow:677;tropius:594,skarmory:454;stunfisk_galarian:332;azumarill:214;galvantula:475;altaria:284
+gothorita,Gothorita,67.6,,,,,CONFUSION,PSYCHIC,FUTURE_SIGHT,,,,,toxicroak:844;machamp_shadow:821;stunfisk:546;victreebel_shadow:612;medicham:600,azumarill:296;stunfisk_galarian:404;skarmory:229;altaria:259;galvantula:360
+tranquill,Tranquill,67.6,,,,,AIR_SLASH,SKY_ATTACK,AERIAL_ACE,,,,,marowak_alolan:591;toxicroak:632;swampert:595;victreebel_shadow:628;shiftry:540,azumarill:361;stunfisk_galarian:284;skarmory:295;altaria:416;galvantula:331
+nidoking_shadow,Nidoking (Shadow),67.5,,,,,FURY_CUTTER,EARTH_POWER,MEGAHORN,,,,,bastiodon:776;galvantula:638;umbreon:540;deoxys_defense:613;shiftry:825,azumarill:320;skarmory:312;stunfisk_galarian:158;altaria:270;abomasnow:205
+donphan,Donphan,67.4,,,,,COUNTER,EARTHQUAKE,HEAVY_SLAM,,,,,bastiodon:796;galvantula:604;obstagoon:756;stunfisk:616;registeel:568,stunfisk_galarian:353;skarmory:345;azumarill:165;altaria:310;umbreon:468
+weezing_shadow,Weezing (Shadow),67.4,,,,,INFESTATION,SLUDGE_BOMB,SHADOW_BALL,,,,,deoxys_defense:595;abomasnow:521;obstagoon:617;shiftry:543;medicham:639,azumarill:385;stunfisk_galarian:302;skarmory:320;altaria:339;whiscash:402
+pignite,Pignite,67.3,,,,,EMBER,FLAME_CHARGE,FLAMETHROWER,,,,,abomasnow:868;shiftry:733;ferrothorn:894;victreebel_shadow:679;tropius:615,skarmory:420;stunfisk_galarian:332;azumarill:214;galvantula:475;altaria:284
+wobbuffet_shadow,Wobbuffet (Shadow),67.3,,,,,COUNTER,MIRROR_COAT,FRUSTRATION,,,,,bastiodon:565;toxicroak:659;abomasnow:602;obstagoon:594;machamp_shadow:635,stunfisk_galarian:353;skarmory:333;azumarill:203;altaria:248;swampert:400
+farfetchd,Farfetch'd,67.2,,,,,FURY_CUTTER,LEAF_BLADE,AERIAL_ACE,,,,,swampert:613;shiftry:666;victreebel_shadow:593;meganium:593;tropius:581,azumarill:418;stunfisk_galarian:332;skarmory:191;whiscash:485;altaria:226
+masquerain,Masquerain,67.2,,,,,AIR_SLASH,BUBBLE_BEAM,LUNGE,,,,,toxicroak:817;swampert:695;obstagoon:723;scrafty:772;machamp_shadow:833,azumarill:366;stunfisk_galarian:251;skarmory:225;altaria:291;galvantula:331
+excadrill,Excadrill,67.1,,,,,MUD_SLAP,DRILL_RUN,ROCK_SLIDE,,,,,bastiodon:819;galvantula:634;toxicroak:549;raichu_alolan:900;jirachi:765,stunfisk_galarian:434;azumarill:274;skarmory:441;marowak_alolan:455;umbreon:474
+metang_shadow,Metang (Shadow),67.1,,,,,METAL_CLAW,PSYSHOCK,GYRO_BALL,,,,,altaria:527;abomasnow:599;victreebel_shadow:519;cresselia:555;venusaur:630,azumarill:388;skarmory:295;bastiodon:378;stunfisk_galarian:119;whiscash:368
+chimecho,Chimecho,67,,,,,EXTRASENSORY,PSYSHOCK,SHADOW_BALL,,,,,toxicroak:837;swampert:595;deoxys_defense:595;machamp_shadow:710;medicham:646,azumarill:323;stunfisk_galarian:347;skarmory:329;altaria:386;bastiodon:280
+metagross_shadow,Metagross (Shadow),67,,,,,BULLET_PUNCH,METEOR_MASH,PSYCHIC,,,,,altaria:553;bastiodon:651;abomasnow:647;hypno:602;tropius:553,skarmory:416;azumarill:247;stunfisk_galarian:158;toxicroak:422;galvantula:225
+crobat,Crobat,66.9,,,,,AIR_SLASH,SLUDGE_BOMB,SHADOW_BALL,,,,,toxicroak:866;deoxys_defense:562;scrafty:751;victreebel_shadow:759;machamp_shadow:838,azumarill:192;stunfisk_galarian:167;skarmory:170;altaria:244;galvantula:331
+drifloon,Drifloon,66.9,,,,,HEX,ICY_WIND,SHADOW_BALL,,,,,toxicroak:834;deoxys_defense:651;hypno:711;medicham:717;victreebel_shadow:608,azumarill:285;stunfisk_galarian:329;skarmory:350;altaria:405;swampert:470
+walrein,Walrein,66.9,,,,,WATERFALL,BLIZZARD,EARTHQUAKE,,,,,azumarill:513;marowak_alolan:562;mawile_shadow:546;dewgong:513;gliscor:832,stunfisk_galarian:464;skarmory:354;bastiodon:397;galvantula:401;swampert:488
+sharpedo,Sharpedo,66.8,,,,,WATERFALL,CRUNCH,POISON_FANG,,,,,skarmory:508;marowak_alolan:800;hypno:768;registeel:882;drifblim:589,azumarill:369;stunfisk_galarian:422;bastiodon:397;umbreon:429;galvantula:348
+aerodactyl,Aerodactyl,66.7,,,,,ROCK_THROW,ROCK_SLIDE,EARTH_POWER,,,,,altaria:517;galvantula:653;marowak_alolan:538;drifblim:790;beedrill:841,azumarill:288;skarmory:429;stunfisk_galarian:146;abomasnow:464;umbreon:273
+delcatty,Delcatty,66.7,,,,,FEINT_ATTACK,WILD_CHARGE,DISARMING_VOICE,,,,,skarmory:734;marowak_alolan:693;hypno:595;drifblim:792;mew:656,azumarill:255;stunfisk_galarian:299;altaria:430;whiscash:417;galvantula:274
+magcargo,Magcargo,66.7,,,,,EMBER,STONE_EDGE,OVERHEAT,,,,,skarmory:652;abomasnow:800;galvantula:526;ferrothorn:665;victreebel_shadow:565,stunfisk_galarian:275;azumarill:133;bastiodon:401;umbreon:474;altaria:167
+magmar,Magmar,66.7,,,,,EMBER,FIRE_PUNCH,RETURN,,,,,skarmory:719;abomasnow:732;ferrothorn:903;victreebel_shadow:600;shiftry:535,azumarill:244;stunfisk_galarian:242;galvantula:495;umbreon:315;toxicroak:329
+togetic,Togetic,66.7,,,,,HIDDEN_POWER_FLYING,AERIAL_ACE,ANCIENT_POWER,,,,,scrafty:764;machamp_shadow:859;shiftry:768;victreebel_shadow:698;medicham:681,azumarill:334;altaria:481;skarmory:237;marowak_alolan:463;umbreon:452
+chinchou,Chinchou,66.6,,,,,BUBBLE,THUNDERBOLT,BUBBLE_BEAM,,,,,azumarill:616;skarmory:646;marowak_alolan:597;registeel:603;mawile_shadow:737,stunfisk_galarian:266;altaria:299;bastiodon:409;umbreon:442;galvantula:364
+misdreavus_shadow,Misdreavus (Shadow),66.4,,,,,HEX,DARK_PULSE,OMINOUS_WIND,,,,,galvantula:725;marowak_alolan:604;deoxys_defense:833;toxicroak:762;swampert:520,azumarill:260;stunfisk_galarian:350;skarmory:387;altaria:357;bastiodon:356
+lileep,Lileep,66.3,,,,,BULLET_SEED,GRASS_KNOT,ANCIENT_POWER,,,,,whiscash:785;swampert:669;stunfisk:644;sableye:514;raichu_alolan:605,azumarill:461;stunfisk_galarian:428;galvantula:450;marowak_alolan:399;skarmory:137
+unfezant,Unfezant,66.3,,,,,AIR_SLASH,SKY_ATTACK,HYPER_BEAM,,,,,marowak_alolan:537;toxicroak:583;victreebel_shadow:579;machamp_shadow:537;tropius:620,azumarill:404;stunfisk_galarian:296;skarmory:308;altaria:470;galvantula:340
+dusknoir,Dusknoir,66.2,,,,,HEX,DARK_PULSE,PSYCHIC,,,,,toxicroak:700;deoxys_defense:650;medicham:555;vigoroth:583;hypno_shadow:661,azumarill:301;stunfisk_galarian:317;skarmory:329;altaria:324;bastiodon:356
+mismagius,Mismagius,66.2,,,,,HEX,SHADOW_BALL,DARK_PULSE,,,,,toxicroak:611;deoxys_defense:626;hypno:661;medicham:656;vigoroth:555,azumarill:361;stunfisk_galarian:386;skarmory:437;altaria:445;bastiodon:321
+persian_alolan,Persian (Alolan),66.2,,,,,FEINT_ATTACK,FOUL_PLAY,DARK_PULSE,,,,,marowak_alolan:590;hypno:734;ferrothorn:553;cresselia:571;lapras:678,stunfisk_galarian:389;azumarill:230;skarmory:270;altaria:390;bastiodon:344
+scraggy,Scraggy,66.1,,,,,FEINT_ATTACK,FOUL_PLAY,BRICK_BREAK,,,,,bastiodon:725;marowak_alolan:600;swampert:512;hypno:762;ferrothorn:520,stunfisk_galarian:335;azumarill:225;skarmory:329;altaria:379;umbreon:340
+crobat_shadow,Crobat (Shadow),65.9,,,,,AIR_SLASH,SLUDGE_BOMB,SHADOW_BALL,,,,,toxicroak:854;victreebel_shadow:787;scrafty:744;machamp_shadow:838;shiftry:531,azumarill:247;stunfisk_galarian:200;altaria:284;skarmory:170;umbreon:442
+nuzleaf_shadow,Nuzleaf (Shadow),65.9,,,,,FEINT_ATTACK,LEAF_BLADE,FOUL_PLAY,,,,,whiscash:710;hypno:812;stunfisk:700;ferrothorn:578;drifblim:833,azumarill:418;stunfisk_galarian:455;skarmory:187;altaria:222;galvantula:323
+mantyke,Mantyke,65.8,,,,,BUBBLE,AERIAL_ACE,ICE_BEAM,,,,,toxicroak:725;whiscash:561;medicham:522;beedrill:646;shiftry_shadow:561,azumarill:290;stunfisk_galarian:398;skarmory:329;marowak_alolan:483;umbreon:404
+yanmega,Yanmega,65.6,,,,,WING_ATTACK,AERIAL_ACE,BUG_BUZZ,,,,,toxicroak:743;umbreon:603;swampert:611;obstagoon:636;scrafty:780,azumarill:331;skarmory:275;altaria:368;whiscash:345;galvantula:282
+emboar,Emboar,65.5,,,,,EMBER,ROCK_SLIDE,FOCUS_BLAST,,,,,galvantula:647;abomasnow:886;shiftry:657;ferrothorn:886;victreebel_shadow:585,stunfisk_galarian:380;skarmory:412;azumarill:165;umbreon:356;toxicroak:375
+omanyte,Omanyte,65.5,,,,,MUD_SHOT,ROCK_BLAST,BRINE,,,,,marowak_alolan:654;bastiodon:597;lapras:572;mawile_shadow:809;dewgong:525,azumarill:364;stunfisk_galarian:383;skarmory:366;altaria:467;galvantula:426
+mismagius_shadow,Mismagius (Shadow),65.4,,,,,HEX,SHADOW_BALL,DARK_PULSE,,,,,skarmory:631;deoxys_defense:585;toxicroak:515;hypno:601;medicham:626,azumarill:432;stunfisk_galarian:464;bastiodon:390;marowak_alolan:294;altaria:178
+nuzleaf,Nuzleaf,65.4,,,,,FEINT_ATTACK,LEAF_BLADE,FOUL_PLAY,,,,,whiscash:738;hypno:721;stunfisk:574;victreebel_shadow:506;meganium:510,azumarill:336;stunfisk_galarian:380;altaria:364;skarmory:204;bastiodon:420
+archen,Archen,65.3,,,,,WING_ATTACK,DRAGON_CLAW,CRUNCH,,,,,marowak_alolan:646;meganium:685;hypno:530;cherrim_sunny:607;drifblim:719,azumarill:263;skarmory:379;altaria:412;stunfisk_galarian:200;deoxys_defense:484
+armaldo,Armaldo,65.2,,,,,FURY_CUTTER,ROCK_BLAST,CROSS_POISON,,,,,galvantula:727;shiftry:861;abomasnow:566;cresselia:504;raichu_alolan:727,azumarill:388;altaria:405;skarmory:245;stunfisk_galarian:185;umbreon:410
+snover,Snover,65.2,,,,,POWDER_SNOW,ICE_BEAM,ENERGY_BALL,,,,,altaria:578;whiscash:503;stunfisk:787;shiftry:526;tropius:682,azumarill:361;stunfisk_galarian:353;skarmory:375;abomasnow:446;umbreon:299
+stoutland,Stoutland,65.1,,,,,LICK,WILD_CHARGE,CRUNCH,,,,,marowak_alolan:602;hypno:516;drifblim:745;sableye:631;mew:590,azumarill:467;altaria:423;skarmory:245;stunfisk_galarian:164;bastiodon:401
+lombre,Lombre,65,,,,,BUBBLE,GRASS_KNOT,ICE_BEAM,,,,,azumarill:638;whiscash:533;stunfisk:664;marshtomp:776;politoed:682,stunfisk_galarian:434;skarmory:170;bastiodon:367;marowak_alolan:286;obstagoon:449
+darumaka_galarian,Darumaka (Galarian),64.9,,,,,ICE_FANG,ICE_PUNCH,ICE_BEAM,,,,,altaria:656;shiftry:853;victreebel_shadow:510;tropius:622;drifblim:751,azumarill:323;skarmory:295;stunfisk_galarian:233;galvantula:368;umbreon:398
+sawk,Sawk,64.8,,,,,POISON_JAB,BODY_SLAM,LOW_SWEEP,,,,,umbreon:580;obstagoon:674;abomasnow:522;shiftry:540;machamp_shadow:504,azumarill:366;stunfisk_galarian:242;skarmory:233;altaria:343;galvantula:471
+archeops,Archeops,64.7,,,,,WING_ATTACK,DRAGON_CLAW,CRUNCH,,,,,marowak_alolan:619;meganium:652;hypno:509;cherrim_sunny:614;drifblim:690,skarmory:379;azumarill:152;altaria:394;stunfisk_galarian:203;toxicroak:468
+dusknoir_shadow,Dusknoir (Shadow),64.6,,,,,HEX,DARK_PULSE,PSYCHIC,,,,,toxicroak:600;deoxys_defense:616;hypno:661;medicham:705;vigoroth:544,azumarill:345;skarmory:404;stunfisk_galarian:344;altaria:375;bastiodon:401
+swoobat,Swoobat,64.6,,,,,CONFUSION,AERIAL_ACE,PSYCHIC,,,,,toxicroak:911;machamp_shadow:892;victreebel_shadow:733;medicham:614;tropius:640,azumarill:250;skarmory:325;stunfisk_galarian:278;altaria:284;galvantula:385
+samurott,Samurott,64.4,,,,,FURY_CUTTER,MEGAHORN,HYDRO_PUMP,,,,,marowak_alolan:533;swampert:659;obstagoon:518;cherrim_sunny:614;mawile_shadow:574,azumarill:309;skarmory:208;bastiodon:492;umbreon:455;altaria:240
+wartortle_shadow,Wartortle (Shadow),64.3,,,,,WATER_GUN,ICE_BEAM,HYDRO_PUMP,,,,,bastiodon:602;marowak_alolan:568;mawile_shadow:723;charizard:814;gliscor_shadow:829,azumarill:380;stunfisk_galarian:362;skarmory:270;altaria:229;galvantula:352
+arbok,Arbok,64.2,,,,,DRAGON_TAIL,DARK_PULSE,SLUDGE_WAVE,,,,,deoxys_defense:576;tropius:632;cherrim_sunny:709;venusaur:589;wigglytuff:585,azumarill:467;skarmory:295;altaria:456;umbreon:410;stunfisk_galarian:110
+lunatone,Lunatone,64.1,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC,,,,,altaria:524;toxicroak:827;machamp_shadow:679;venusaur:714;mawile_shadow:619,skarmory:470;azumarill:230;stunfisk_galarian:170;galvantula:360;deoxys_defense:412
+miltank,Miltank,64.1,,,,,TACKLE,BODY_SLAM,ICE_BEAM,,,,,wigglytuff:503;hypno_shadow:506;clefable:541;electivire_shadow:862;quagsire:679,azumarill:331;stunfisk_galarian:293;galvantula:434;whiscash:462;altaria:244
+persian_shadow,Persian (Shadow),64.1,,,,,FEINT_ATTACK,NIGHT_SLASH,PLAY_ROUGH,,,,,marowak_alolan:617;hypno:636;drifblim:908;mew:713;hypno_shadow:621,azumarill:315;stunfisk_galarian:311;skarmory:358;altaria:339;bastiodon:378
+solrock,Solrock,64.1,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC,,,,,altaria:524;toxicroak:827;machamp_shadow:679;venusaur:714;mawile_shadow:619,skarmory:470;azumarill:230;stunfisk_galarian:170;galvantula:360;deoxys_defense:412
+misdreavus,Misdreavus,64,,,,,HEX,DARK_PULSE,OMINOUS_WIND,,,,,marowak_alolan:658;deoxys_defense:691;toxicroak:600;hypno:675;medicham:658,azumarill:244;stunfisk_galarian:293;skarmory:320;altaria:310;galvantula:446
+machop_shadow,Machop (Shadow),63.9,,,,,KARATE_CHOP,CROSS_CHOP,BRICK_BREAK,,,,,stunfisk_galarian:653;bastiodon:806;umbreon:564;obstagoon:506;scrafty:591,azumarill:201;skarmory:312;altaria:222;galvantula:303;whiscash:360
+roserade,Roserade,63.9,,,,,POISON_JAB,GRASS_KNOT,SLUDGE_BOMB,,,,,altaria:530;stunfisk:639;tropius:685;victreebel_shadow:530;cherrim_sunny:541,azumarill:345;umbreon:410;galvantula:348;skarmory:104;shiftry:496
+slowpoke,Slowpoke,63.9,,,,,CONFUSION,PSYSHOCK,WATER_PULSE,,,,,azumarill:554;toxicroak:862;machamp_shadow:791;medicham:574;registeel:508,stunfisk_galarian:416;skarmory:350;whiscash:454;altaria:233;swampert:400
+entei,Entei,63.6,,,,,FIRE_SPIN,FLAMETHROWER,OVERHEAT,,,,,galvantula:692;abomasnow:898;shiftry:568;ferrothorn:920;victreebel_shadow:670,stunfisk_galarian:326;skarmory:379;azumarill:138;marowak_alolan:411;umbreon:468
+sandslash_shadow,Sandslash (Shadow),63.6,,,,,MUD_SHOT,EARTHQUAKE,BULLDOZE,,,,,bastiodon:796;galvantula:592;stunfisk:768;obstagoon:504;registeel:884,azumarill:404;skarmory:337;stunfisk_galarian:197;deoxys_defense:489;umbreon:363
+smoochum,Smoochum,63.6,,,,,POWDER_SNOW,ICE_PUNCH,PSYSHOCK,,,,,altaria:641;galvantula:641;stunfisk:530;meganium:730;tropius:508,azumarill:271;skarmory:366;stunfisk_galarian:287;toxicroak:476;abomasnow:450
+dugtrio_shadow,Dugtrio (Shadow),63.5,,,,,SUCKER_PUNCH,MUD_BOMB,STONE_EDGE,,,,,skarmory:582;galvantula:809;bastiodon:592;sableye:623;raichu_alolan:587,stunfisk_galarian:470;azumarill:116;whiscash:417;deoxys_defense:443;altaria:178
+liepard,Liepard,63.5,,,,,SNARL,DARK_PULSE,PLAY_ROUGH,,,,,marowak_alolan:576;hypno:852;shiftry:536;drifblim:868;hypno_shadow:828,azumarill:260;stunfisk_galarian:332;skarmory:379;altaria:474;galvantula:491
+mr_mime,Mr. Mime,63.5,,,,,CONFUSION,PSYCHIC,SHADOW_BALL,,,,,altaria:516;toxicroak:900;deoxys_defense:572;machamp_shadow:877;medicham:638,azumarill:285;skarmory:237;stunfisk_galarian:191;galvantula:397;bastiodon:352
+entei_shadow,Entei (Shadow),63.4,,,,,FIRE_SPIN,FLAMETHROWER,OVERHEAT,,,,,galvantula:764;abomasnow:880;umbreon:590;shiftry:844;victreebel_shadow:641,skarmory:462;stunfisk_galarian:296;azumarill:165;toxicroak:422;altaria:186
+arbok_shadow,Arbok (Shadow),63.3,,,,,DRAGON_TAIL,DARK_PULSE,SLUDGE_WAVE,,,,,tropius:559;vigoroth:508;venusaur:559;haxorus:782;forretress_shadow:705,skarmory:370;azumarill:190;altaria:368;umbreon:474;stunfisk_galarian:137
+roselia,Roselia,63.1,,,,,POISON_JAB,SLUDGE_BOMB,PETAL_BLIZZARD,,,,,azumarill:808;obstagoon:537;victreebel_shadow:574;tropius:714;shiftry:504,altaria:240;galvantula:323;umbreon:369;bastiodon:276;skarmory:104
+yanma,Yanma,63.1,,,,,WING_ATTACK,AERIAL_ACE,SILVER_WIND,,,,,toxicroak:775;scrafty:782;victreebel_shadow:696;machamp_shadow:696;tropius:782,azumarill:328;altaria:364;skarmory:212;swampert:463;umbreon:372
+dodrio,Dodrio,63,,,,,FEINT_ATTACK,BRAVE_BIRD,DRILL_PECK,,,,,marowak_alolan:523;hypno:533;meganium:547;tropius:542;drifblim:509,stunfisk_galarian:461;azumarill:274;skarmory:354;umbreon:429;altaria:193
+growlithe_shadow,Growlithe (Shadow),62.9,,,,,EMBER,BODY_SLAM,FLAMETHROWER,,,,,skarmory:562;galvantula:622;abomasnow:818;meganium:807;ferrothorn:885,stunfisk_galarian:299;azumarill:133;altaria:284;umbreon:382;deoxys_defense:407
+machop,Machop,62.9,,,,,KARATE_CHOP,CROSS_CHOP,RETURN,,,,,bastiodon:758;umbreon:646;abomasnow:510;obstagoon:598;shiftry:551,azumarill:339;stunfisk_galarian:398;skarmory:287;deoxys_defense:396;galvantula:290
+floatzel,Floatzel,62.8,,,,,WATERFALL,HYDRO_PUMP,AQUA_JET,,,,,bastiodon:538;machamp_shadow:549;mawile_shadow:645;regirock:896;gliscor:812,stunfisk_galarian:488;azumarill:298;skarmory:416;marowak_alolan:487;galvantula:397
+grumpig,Grumpig,62.8,,,,,EXTRASENSORY,PSYCHIC,SHADOW_BALL,,,,,toxicroak:823;medicham:650;machamp_shadow:515;hypno_shadow:615;jirachi:542,azumarill:369;stunfisk_galarian:335;skarmory:341;whiscash:457;deoxys_defense:484
+porygon_z,Porygon-Z,62.8,,,,,LOCK_ON,TRI_ATTACK,ZAP_CANNON,,,,,azumarill:721;skarmory:643;cherrim_sunny:521;drifblim:643;raichu_alolan:669,stunfisk_galarian:191;altaria:291;galvantula:422;bastiodon:363;umbreon:366
+rampardos,Rampardos,62.7,,,,,SMACK_DOWN,ROCK_SLIDE,FLAMETHROWER,,,,,altaria:548;marowak_alolan:800;galvantula:752;abomasnow:739;drifblim:776,azumarill:320;skarmory:420;stunfisk_galarian:107;umbreon:289;shiftry:462
+swanna,Swanna,62.7,,,,,AIR_SLASH,HURRICANE,ICE_BEAM,,,,,azumarill:582;toxicroak:748;marowak_alolan:503;whiscash:552;machamp_shadow:733,stunfisk_galarian:167;altaria:284;skarmory:170;swampert:400;abomasnow:400
+magby,Magby,62.5,,,,,EMBER,FIRE_PUNCH,BRICK_BREAK,,,,,skarmory:676;abomasnow:663;victreebel_shadow:553;tropius:592;ferrothorn:654,azumarill:192;stunfisk_galarian:242;galvantula:495;altaria:244;umbreon:321
+porygon,Porygon,62.5,,,,,QUICK_ATTACK,DISCHARGE,HYPER_BEAM,,,,,hypno:511;lickitung:714;munchlax:684;lickilicky:699;mantine:541,azumarill:497;skarmory:345;stunfisk_galarian:194;altaria:350;marowak_alolan:318
+golett,Golett,62.3,,,,,MUD_SLAP,SHADOW_PUNCH,BRICK_BREAK,,,,,bastiodon:791;galvantula:655;toxicroak:829;obstagoon:530;vigoroth:530,stunfisk_galarian:464;azumarill:296;skarmory:262;marowak_alolan:358;deoxys_defense:474
+growlithe,Growlithe,62.2,,,,,EMBER,BODY_SLAM,FLAMETHROWER,,,,,skarmory:641;abomasnow:677;victreebel_shadow:519;ferrothorn:649;tropius:582,azumarill:217;stunfisk_galarian:266;altaria:295;galvantula:413;umbreon:375
+mothim,Mothim,62.2,,,,,BUG_BITE,AERIAL_ACE,BUG_BUZZ,,,,,umbreon:583;shiftry:890;obstagoon:636;victreebel_shadow:651;tropius:712,azumarill:296;altaria:372;stunfisk_galarian:128;galvantula:364;swampert:430
+slowpoke_shadow,Slowpoke (Shadow),62.2,,,,,CONFUSION,PSYSHOCK,WATER_PULSE,,,,,toxicroak:817;machamp_shadow:765;medicham:662;vigoroth:548;lapras:757,azumarill:497;skarmory:308;stunfisk_galarian:170;altaria:259;galvantula:360
+exploud,Exploud,62.1,,,,,BITE,CRUNCH,DISARMING_VOICE,,,,,marowak_alolan:616;drifblim:735;mew:663;raichu_alolan:776;jirachi:694,stunfisk_galarian:308;azumarill:198;skarmory:304;altaria:343;galvantula:401
+snover_shadow,Snover (Shadow),62.1,,,,,POWDER_SNOW,ICE_BEAM,ENERGY_BALL,,,,,stunfisk:742;tropius:630;meganium:541;ferrothorn:604;politoed:723,azumarill:434;altaria:463;stunfisk_galarian:158;skarmory:179;umbreon:328
+persian,Persian,62,,,,,FEINT_ATTACK,NIGHT_SLASH,RETURN,,,,,marowak_alolan:669;ferrothorn:584;cresselia:650;drifblim:768;mew:650,azumarill:410;stunfisk_galarian:278;skarmory:204;altaria:321;bastiodon:359
+xatu,Xatu,62,,,,,AIR_SLASH,AERIAL_ACE,FUTURE_SIGHT,,,,,toxicroak:809;swampert:559;machamp_shadow:809;victreebel_shadow:614;tropius:614,azumarill:345;stunfisk_galarian:254;skarmory:262;altaria:401;galvantula:299
+dwebble,Dwebble,61.8,,,,,SMACK_DOWN,X_SCISSOR,ROCK_BLAST,,,,,galvantula:745;shiftry:558;beedrill:529;zapdos:845;charizard_shadow:816,azumarill:307;skarmory:291;altaria:463;stunfisk_galarian:167;marowak_alolan:447
+beheeyem,Beheeyem,61.5,,,,,CONFUSION,ROCK_SLIDE,PSYCHIC,,,,,toxicroak:844;machamp_shadow:784;victreebel_shadow:517;venusaur:780;beedrill:762,azumarill:459;stunfisk_galarian:191;skarmory:208;altaria:310;galvantula:409
+lampent,Lampent,61.5,,,,,EMBER,ENERGY_BALL,FLAME_BURST,,,,,abomasnow:888;shiftry:710;ferrothorn:900;victreebel_shadow:674;cherrim_sunny:746,skarmory:470;stunfisk_galarian:266;azumarill:176;galvantula:495;altaria:167
+jynx,Jynx,61.4,,,,,CONFUSION,AVALANCHE,ICE_PUNCH,,,,,toxicroak:750;whiscash:601;stunfisk:587;machamp_shadow:671;venusaur:763,azumarill:478;skarmory:362;galvantula:422;altaria:266;stunfisk_galarian:137
+porygon_z_shadow,Porygon-Z (Shadow),61.4,,,,,LOCK_ON,TRI_ATTACK,ZAP_CANNON,,,,,azumarill:643;skarmory:565;galvantula:526;hypno:526;venusaur:630,bastiodon:397;whiscash:388;stunfisk_galarian:62;stunfisk:350;meganium:438
+dustox,Dustox,61.2,,,,,CONFUSION,SLUDGE_BOMB,BUG_BUZZ,,,,,toxicroak:906;galvantula:507;victreebel_shadow:802;meganium:626;tropius:514,azumarill:410;stunfisk_galarian:122;skarmory:137;deoxys_defense:396;altaria:182
+girafarig,Girafarig,61.2,,,,,CONFUSION,PSYCHIC,THUNDERBOLT,,,,,toxicroak:787;machamp_shadow:736;victreebel_shadow:527;venusaur:799;victreebel:570,azumarill:285;skarmory:237;stunfisk_galarian:191;altaria:310;galvantula:397
+ambipom,Ambipom,61.1,,,,,SCRATCH,AERIAL_ACE,LOW_SWEEP,,,,,galvantula:600;mew:665;raichu_alolan:633;zapdos:818;farfetchd_galarian:810,azumarill:328;stunfisk_galarian:245;skarmory:262;altaria:343;bastiodon:306
+sawsbuck,Sawsbuck,60.9,,,,,FEINT_ATTACK,WILD_CHARGE,MEGAHORN,,,,,skarmory:523;ferrothorn:688;meganium:570;cresselia:539;mew:598,azumarill:415;stunfisk_galarian:323;altaria:434;galvantula:315;marowak_alolan:294
+absol,Absol,60.8,,,,,SNARL,DARK_PULSE,MEGAHORN,,,,,galvantula:550;hypno:800;drifblim:810;sableye:717;venusaur:662,stunfisk_galarian:359;skarmory:404;azumarill:233;altaria:394;umbreon:414
+blissey,Blissey,60.7,,,,,ZEN_HEADBUTT,PSYCHIC,HYPER_BEAM,,,,,toxicroak:566;gengar:840;haunter:837;lickitung:614;munchlax:594,azumarill:334;stunfisk_galarian:164;skarmory:187;marowak_alolan:431;altaria:222
+pupitar_shadow,Pupitar (Shadow),60.7,,,,,BITE,CRUNCH,ANCIENT_POWER,,,,,marowak_alolan:640;galvantula:589;hypno:561;drifblim:794;raichu_alolan:910,skarmory:466;stunfisk_galarian:236;azumarill:144;altaria:343;bastiodon:462
+spinda,Spinda,60.7,,,,,PSYCHO_CUT,ICY_WIND,ROCK_TOMB,,,,,victreebel_shadow:529;tropius:559;mew:567;drifblim:563;venusaur:522,azumarill:195;stunfisk_galarian:245;skarmory:283;altaria:368;marowak_alolan:447
+sandshrew_shadow,Sandshrew (Shadow),60.6,,,,,MUD_SHOT,ROCK_SLIDE,SAND_TOMB,,,,,galvantula:870;altaria:512;bastiodon:745;marowak_alolan:733;raichu_alolan:870,stunfisk_galarian:398;azumarill:187;skarmory:216;toxicroak:476;whiscash:288
+clamperl,Clamperl,60.5,,,,,WATER_GUN,BODY_SLAM,ICE_BEAM,,,,,graveler:858;ninetales:767;charizard:626;moltres:782;gliscor:590,azumarill:285;stunfisk_galarian:371;skarmory:320;altaria:335;marowak_alolan:375
+pupitar,Pupitar,60.5,,,,,BITE,CRUNCH,ANCIENT_POWER,,,,,skarmory:589;marowak_alolan:661;galvantula:622;bastiodon:517;raichu_alolan:906,stunfisk_galarian:236;azumarill:160;altaria:386;deoxys_defense:453;hypno:468
+onix,Onix,60.4,,,,,ROCK_THROW,ROCK_SLIDE,STONE_EDGE,,,,,skarmory:621;galvantula:702;marowak_alolan:510;beedrill:555;charizard_shadow:898,azumarill:154;altaria:397;bastiodon:356;umbreon:328;abomasnow:343
+krokorok,Krokorok,60.1,,,,,MUD_SLAP,CRUNCH,EARTHQUAKE,,,,,bastiodon:708;hypno:567;raichu_alolan:869;mawile_shadow:626;hypno_shadow:552,stunfisk_galarian:407;azumarill:247;skarmory:212;marowak_alolan:423;galvantula:422
+flaaffy,Flaaffy,60,,,,,CHARGE_BEAM,DISCHARGE,RETURN,,,,,skarmory:646;mew:561;skarmory_shadow:812;mantine:707;zapdos_shadow:680,azumarill:426;altaria:306;galvantula:471;bastiodon:356;umbreon:312
+roggenrola,Roggenrola,60,,,,,SMACK_DOWN,STONE_EDGE,ROCK_BLAST,,,,,skarmory:594;altaria:523;galvantula:720;marowak_alolan:539;charizard_shadow:874,azumarill:309;umbreon:388;stunfisk_galarian:110;abomasnow:429;bastiodon:238
+sigilyph,Sigilyph,60,,,,,AIR_SLASH,SIGNAL_BEAM,ANCIENT_POWER,,,,,toxicroak:810;machamp_shadow:810;victreebel_shadow:617;medicham:579;tropius:617,azumarill:301;skarmory:270;altaria:412;stunfisk_galarian:203;galvantula:299
+throh,Throh,59.8,,,,,LOW_KICK,BODY_SLAM,LOW_SWEEP,,,,,bastiodon:637;umbreon:567;obstagoon:672;melmetal:763;lapras_shadow:707,stunfisk_galarian:407;azumarill:201;skarmory:283;altaria:222;abomasnow:464
+absol_shadow,Absol (Shadow),59.6,,,,,SNARL,DARK_PULSE,MEGAHORN,,,,,hypno:773;meganium:638;drifblim:773;cresselia:513;venusaur:550,skarmory:491;azumarill:258;bastiodon:318;stunfisk_galarian:110;marowak_alolan:258
+staravia,Staravia,59.6,,,,,WING_ATTACK,BRAVE_BIRD,AERIAL_ACE,,,,,tropius:582;meganium:539;sableye:818;drifblim:543;victreebel:535,azumarill:269;stunfisk_galarian:200;altaria:354;skarmory:208;umbreon:401
+exeggcute,Exeggcute,59.4,,,,,CONFUSION,SEED_BOMB,PSYCHIC,,,,,toxicroak:850;stunfisk:645;machamp_shadow:794;victreebel_shadow:667;meganium:619,azumarill:388;stunfisk_galarian:263;skarmory:191;altaria:273;galvantula:299
+exeggcute_shadow,Exeggcute (Shadow),59.3,,,,,CONFUSION,SEED_BOMB,PSYCHIC,,,,,toxicroak:820;stunfisk:615;machamp_shadow:761;victreebel_shadow:660;meganium:615,azumarill:230;stunfisk_galarian:314;skarmory:229;altaria:306;galvantula:360
+flaaffy_shadow,Flaaffy (Shadow),59.3,,,,,CHARGE_BEAM,DISCHARGE,POWER_GEM,,,,,skarmory:812;drifblim:585;skarmory_shadow:782;noctowl:819;mantine:632,azumarill:475;altaria:335;bastiodon:401;stunfisk_galarian:128;umbreon:283
+raticate,Raticate,59.2,,,,,QUICK_ATTACK,HYPER_FANG,RETURN,,,,,mew:694;snorlax:669;munchlax:673;politoed:665;lickilicky:669,azumarill:470;altaria:416;skarmory:254;stunfisk_galarian:119;galvantula:274
+teddiursa_shadow,Teddiursa (Shadow),59,,,,,LICK,CROSS_CHOP,CRUNCH,,,,,drifblim:611;raichu_alolan:593;jirachi:503;rapidash_galarian:791;gengar:809,azumarill:320;stunfisk_galarian:413;skarmory:362;bastiodon:454;marowak_alolan:439
+camerupt,Camerupt,58.9,,,,,EMBER,OVERHEAT,EARTH_POWER,,,,,galvantula:683;bastiodon:564;abomasnow:816;ferrothorn:836;shiftry:504,skarmory:470;stunfisk_galarian:314;azumarill:122;altaria:167;toxicroak:329
+mesprit,Mesprit,58.9,,,,,CONFUSION,FUTURE_SIGHT,BLIZZARD,,,,,toxicroak:868;machamp_shadow:811;victreebel_shadow:578;venusaur:820;victreebel:600,azumarill:320;stunfisk_galarian:218;skarmory:204;altaria:284;galvantula:442
+porygon2,Porygon2,58.9,,,,,LOCK_ON,HYPER_BEAM,ZAP_CANNON,,,,,azumarill:536;drifblim:736;mew:596;sableye:508;munchlax:700,marowak_alolan:467;bastiodon:348;skarmory:129;umbreon:372;stunfisk_galarian:89
+cacturne,Cacturne,58.8,,,,,SUCKER_PUNCH,DARK_PULSE,GRASS_KNOT,,,,,stunfisk:739;hypno:672;ferrothorn:588;mew:743;politoed:693,stunfisk_galarian:491;skarmory:204;azumarill:116;bastiodon:356;altaria:222
+octillery,Octillery,58.8,,,,,WATER_GUN,OCTAZOOKA,AURORA_BEAM,,,,,bastiodon:603;marowak_alolan:515;mawile_shadow:702;charizard_shadow:805;dugtrio:837,azumarill:334;stunfisk_galarian:314;skarmory:262;altaria:229;galvantula:352
+vibrava_shadow,Vibrava (Shadow),58.8,,,,,DRAGON_BREATH,BUG_BUZZ,BULLDOZE,,,,,bastiodon:616;galvantula:508;zapdos_shadow:920;raikou:904;flygon_shadow:850,stunfisk_galarian:245;azumarill:165;skarmory:254;altaria:328;marowak_alolan:391
+volbeat,Volbeat,58.7,,,,,STRUGGLE_BUG,SIGNAL_BEAM,THUNDERBOLT,,,,,umbreon:571;shiftry:905;obstagoon:556;victreebel_shadow:545;ferrothorn:693,azumarill:133;stunfisk_galarian:134;galvantula:352;deoxys_defense:438;abomasnow:429
+illumise,Illumise,58.6,,,,,STRUGGLE_BUG,BUG_BUZZ,SILVER_WIND,,,,,umbreon:571;deoxys_defense:549;shiftry:905;obstagoon:556;stunfisk:541,azumarill:187;stunfisk_galarian:134;galvantula:352;whiscash:405;abomasnow:429
+starmie,Starmie,58.6,,,,,WATER_GUN,PSYCHIC,ICE_BEAM,,,,,bastiodon:549;mawile_shadow:642;charizard:799;charizard_shadow:818;castform_sunny:789,azumarill:410;stunfisk_galarian:314;skarmory:254;marowak_alolan:375;altaria:229
+watchog,Watchog,58.6,,,,,BITE,HYPER_FANG,CRUNCH,,,,,marowak_alolan:602;drifblim:741;mew:709;raichu_alolan:750;jirachi:651,skarmory:404;azumarill:192;stunfisk_galarian:236;altaria:343;galvantula:401
+drilbur,Drilbur,58.5,,,,,MUD_SLAP,DRILL_RUN,ROCK_TOMB,,,,,bastiodon:708;toxicroak:626;raichu_alolan:869;mawile_shadow:664;jirachi:623,stunfisk_galarian:407;azumarill:247;skarmory:212;galvantula:495;marowak_alolan:423
+krabby,Krabby,58.5,,,,,BUBBLE,VICE_GRIP,BUBBLE_BEAM,,,,,marowak_alolan:532;mawile_shadow:642;charizard_shadow:741;graveler:862;gliscor_shadow:730,azumarill:334;stunfisk_galarian:404;skarmory:304;bastiodon:481;altaria:218
+nidorina_shadow,Nidorina (Shadow),58.5,,,,,BITE,POISON_FANG,SLUDGE_BOMB,,,,,deoxys_defense:551;victreebel_shadow:554;ferrothorn:591;cresselia:632;raichu_alolan:741,azumarill:192;stunfisk_galarian:254;skarmory:245;altaria:343;marowak_alolan:407
+geodude,Geodude,58.4,,,,,ROCK_THROW,ROCK_SLIDE,DIG,,,,,galvantula:853;beedrill:669;charizard_shadow:867;zapdos_shadow:919;zapdos:910,skarmory:358;azumarill:198;altaria:441;marowak_alolan:455;stunfisk_galarian:128
+cacturne_shadow,Cacturne (Shadow),58.3,,,,,SUCKER_PUNCH,DARK_PULSE,GRASS_KNOT,,,,,stunfisk:621;hypno:617;ferrothorn:558;raichu_alolan:693;jirachi:768,stunfisk_galarian:236;azumarill:154;skarmory:191;altaria:222;galvantula:348
+hippopotas,Hippopotas,58.3,,,,,BITE,BODY_SLAM,DIG,,,,,deoxys_defense:575;raichu_alolan:910;electivire_shadow:906;magnezone:637;zapdos_shadow:624,stunfisk_galarian:341;azumarill:171;skarmory:270;galvantula:487;bastiodon:443
+nidorina,Nidorina,58.1,,,,,BITE,POISON_FANG,SLUDGE_BOMB,,,,,victreebel_shadow:506;raichu_alolan:710;wigglytuff:537;clefable:537;whimsicott:629,azumarill:192;stunfisk_galarian:254;skarmory:295;marowak_alolan:379;deoxys_defense:494
+teddiursa,Teddiursa,57.9,,,,,LICK,CROSS_CHOP,CRUNCH,,,,,marowak_alolan:533;bastiodon:511;hypno:578;cresselia:563;drifblim:686,azumarill:230;stunfisk_galarian:305;skarmory:341;altaria:361;abomasnow:464
+beautifly,Beautifly,57.7,,,,,INFESTATION,BUG_BUZZ,SILVER_WIND,,,,,umbreon:592;swampert:572;obstagoon:633;shiftry:685;meganium:862,azumarill:250;altaria:273;deoxys_defense:407;whiscash:322;stunfisk_galarian:86
+flareon,Flareon,57.3,,,,,FIRE_SPIN,FLAMETHROWER,OVERHEAT,,,,,galvantula:670;abomasnow:875;ferrothorn:890;victreebel_shadow:590;cherrim_sunny:860,skarmory:420;stunfisk_galarian:275;azumarill:138;umbreon:496;toxicroak:387
+shellos_west_sea,Shellos (West),57.3,,,,,MUD_SLAP,BODY_SLAM,MUD_BOMB,,,,,bastiodon:621;marowak_alolan:548;mawile_shadow:721;magnezone_shadow:794;magnezone:766,azumarill:404;stunfisk_galarian:428;skarmory:187;toxicroak:422;swampert:389
+shellos_east_sea,Shellos (East),57.2,,,,,MUD_SLAP,BODY_SLAM,MUD_BOMB,,,,,bastiodon:621;marowak_alolan:548;mawile_shadow:721;magnezone_shadow:794;magnezone:766,azumarill:404;stunfisk_galarian:428;skarmory:187;toxicroak:422;swampert:389
+sandshrew,Sandshrew,57.1,,,,,MUD_SHOT,ROCK_SLIDE,SAND_TOMB,,,,,bastiodon:725;galvantula:575;stunfisk:570;beedrill:650;magnezone:775,stunfisk_galarian:353;azumarill:220;skarmory:170;toxicroak:395;marowak_alolan:282
+whirlipede,Whirlipede,57.1,,,,,BUG_BITE,SLUDGE_BOMB,SIGNAL_BEAM,,,,,shiftry:863;deoxys_defense:556;obstagoon:551;victreebel_shadow:674;meganium:556,azumarill:402;stunfisk_galarian:188;skarmory:129;whiscash:351;abomasnow:414
+chatot,Chatot,57,,,,,PECK,SKY_ATTACK,NIGHT_SHADE,,,,,toxicroak:611;machamp_shadow:632;victreebel_shadow:618;tropius:555;meganium:527,azumarill:247;stunfisk_galarian:194;skarmory:191;altaria:259;marowak_alolan:346
+aron,Aron,56.7,,,,,METAL_CLAW,BODY_SLAM,IRON_HEAD,,,,,skarmory:641;abomasnow:537;wigglytuff:629;hypno_shadow:541;clefable:662,azumarill:277;altaria:470;stunfisk_galarian:182;bastiodon:276;umbreon:273
+chandelure,Chandelure,56.7,,,,,HEX,SHADOW_BALL,OVERHEAT,,,,,skarmory:601;medicham:612;registeel:539;cresselia:516;forretress:735,azumarill:149;stunfisk_galarian:128;galvantula:278;marowak_alolan:262;toxicroak:282
+herdier,Herdier,56.6,,,,,LICK,THUNDERBOLT,PLAY_ROUGH,,,,,mew:612;drifblim:547;gengar:898;haunter:898;dusclops:663,azumarill:198;skarmory:279;stunfisk_galarian:194;bastiodon:431;marowak_alolan:403
+cofagrigus,Cofagrigus,56.5,,,,,ASTONISH,SHADOW_BALL,DARK_PULSE,,,,,toxicroak:620;deoxys_defense:657;medicham:625;mawile_shadow:523;hitmonchan:703,azumarill:317;stunfisk_galarian:365;skarmory:375;whiscash:342;bastiodon:242
+runerigus,Runerigus,56.3,,,,,ASTONISH,SHADOW_BALL,SAND_TOMB,,,,,galvantula:750;deoxys_defense:750;toxicroak:648;machamp_shadow:606;medicham:680,stunfisk_galarian:266;azumarill:165;skarmory:212;bastiodon:405;altaria:178
+espeon,Espeon,56.2,,,,,CONFUSION,PSYCHIC,LAST_RESORT,,,,,toxicroak:816;machamp_shadow:744;venusaur:790;victreebel:510;beedrill:719,azumarill:328;stunfisk_galarian:212;skarmory:237;altaria:288;galvantula:446
+gorebyss,Gorebyss,55.9,,,,,WATER_GUN,PSYCHIC,WATER_PULSE,,,,,bastiodon:557;mawile_shadow:619;charizard:786;scizor_shadow:723;charizard_shadow:807,stunfisk_galarian:407;azumarill:198;skarmory:254;marowak_alolan:471;altaria:229
+aipom,Aipom,55.8,,,,,SCRATCH,AERIAL_ACE,LOW_SWEEP,,,,,zapdos_shadow:822;honchkrow:807;charizard_shadow:618;houndoom_shadow:775;fraxure:649,azumarill:247;skarmory:262;altaria:343;stunfisk_galarian:164;galvantula:413
+azelf,Azelf,55.8,,,,,CONFUSION,FUTURE_SIGHT,FIRE_BLAST,,,,,toxicroak:830;galvantula:570;machamp_shadow:731;cherrim_sunny:712;venusaur:768,azumarill:288;skarmory:270;stunfisk_galarian:212;altaria:288;marowak_alolan:342
+cherrim_overcast,Cherrim (Overcast),55.6,,,,,BULLET_SEED,SOLAR_BEAM,DAZZLING_GLEAM,,,,,azumarill:511;stunfisk:633;raichu_alolan:633;marshtomp_shadow:724;suicune:633,stunfisk_galarian:278;bastiodon:386;umbreon:385;swampert:356;whiscash:311
+seadra,Seadra,55.6,,,,,DRAGON_BREATH,HYDRO_PUMP,BLIZZARD,,,,,flygon_shadow:847;charizard:717;charizard_shadow:671;haxorus:736;dragonite_shadow:648,azumarill:225;altaria:456;skarmory:245;stunfisk_galarian:170;marowak_alolan:379
+vibrava,Vibrava,55.5,,,,,DRAGON_BREATH,BULLDOZE,BUG_BUZZ,,,,,galvantula:579;raichu_alolan:508;raikou_shadow:904;flygon_shadow:829;raichu:829,azumarill:165;skarmory:254;bastiodon:477;stunfisk_galarian:164;altaria:291
+hitmonlee_shadow,Hitmonlee (Shadow),54.9,,,,,ROCK_SMASH,CLOSE_COMBAT,STONE_EDGE,,,,,bastiodon:704;umbreon:645;obstagoon:661;shiftry:865;shiftry_shadow:860,stunfisk_galarian:434;azumarill:182;skarmory:270;abomasnow:446;altaria:178
+fearow,Fearow,54.8,,,,,STEEL_WING,SKY_ATTACK,DRILL_RUN,,,,,marowak_alolan:528;meganium:568;tropius:560;drifblim:560;snorlax:653,azumarill:206;stunfisk_galarian:194;skarmory:179;altaria:277;toxicroak:329
+cubone_shadow,Cubone (Shadow),54.6,,,,,MUD_SLAP,BONE_CLUB,BULLDOZE,,,,,bastiodon:766;galvantula:591;toxicroak:545;stunfisk:570;mawile_shadow:554,azumarill:260;stunfisk_galarian:299;skarmory:170;marowak_alolan:366;whiscash:291
+deoxys_speed,Deoxys (Speed),54.4,,,,,CHARGE_BEAM,PSYCHO_BOOST,THUNDERBOLT,,,,,skarmory:645;toxicroak:703;machamp_shadow:523;mantine:587;melmetal:639,azumarill:445;altaria:324;galvantula:307;bastiodon:227;hypno:362
+pidgeotto,Pidgeotto,54.2,,,,,WING_ATTACK,AERIAL_ACE,TWISTER,,,,,shiftry:539;victreebel_shadow:525;meganium:612;cherrim_sunny:681;venusaur:510,azumarill:260;stunfisk_galarian:206;skarmory:200;altaria:288;marowak_alolan:334
+butterfree,Butterfree,54.1,,,,,CONFUSION,PSYCHIC,SIGNAL_BEAM,,,,,toxicroak:870;machamp_shadow:850;victreebel_shadow:814;meganium:592;tropius:576,azumarill:211;skarmory:150;altaria:233;galvantula:323;stunfisk_galarian:107
+raticate_shadow,Raticate (Shadow),54.1,,,,,QUICK_ATTACK,HYPER_FANG,DIG,,,,,mew:657;munchlax:644;lickilicky:640;gligar:549;linoone:586,azumarill:206;bastiodon:488;skarmory:191;altaria:222;stunfisk_galarian:119
+audino,Audino,53.9,,,,,ZEN_HEADBUTT,DISARMING_VOICE,HYPER_BEAM,,,,,gengar:775;haunter:770;lickitung:572;munchlax:556;lickilicky:548,azumarill:290;altaria:390;stunfisk_galarian:200;skarmory:208;marowak_alolan:403
+loudred,Loudred,53.9,,,,,BITE,STOMP,CRUNCH,,,,,marowak_alolan:550;drifblim:712;mew:685;raichu_alolan:742;hypno_shadow:556,azumarill:171;stunfisk_galarian:236;skarmory:254;altaria:343;galvantula:389
+elgyem,Elgyem,53.8,,,,,CONFUSION,PSYCHIC,DARK_PULSE,,,,,toxicroak:858;machamp_shadow:775;venusaur:759;machamp:783;sirfetchd:803,azumarill:285;skarmory:208;stunfisk_galarian:170;altaria:284;galvantula:385
+cubone,Cubone,53.6,,,,,MUD_SLAP,BONE_CLUB,RETURN,,,,,bastiodon:762;registeel:550;mawile_shadow:579;jirachi:645;graveler_alolan:912,stunfisk_galarian:452;azumarill:165;skarmory:183;galvantula:454;toxicroak:457
+weezing_galarian,Weezing (Galarian),53.6,,,,,TACKLE,SLUDGE,OVERHEAT,,,,,deoxys_defense:652;scrafty:652;wigglytuff:600;clefable:600;sirfetchd:656,azumarill:203;altaria:452;stunfisk_galarian:164;skarmory:137;umbreon:388
+salamence_shadow,Salamence (Shadow),53,,,,,DRAGON_TAIL,OUTRAGE,HYDRO_PUMP,,,,,victreebel_shadow:585;tropius:611;meganium:581;cherrim_sunny:525;victreebel:547,skarmory:212;altaria:306;azumarill:111;galvantula:442;stunfisk_galarian:149
+salamence,Salamence,52.5,,,,,DRAGON_TAIL,OUTRAGE,HYDRO_PUMP,,,,,meganium:696;victreebel_shadow:547;tropius:688;cherrim_sunny:576;victreebel:585,azumarill:111;altaria:284;skarmory:170;umbreon:464;stunfisk_galarian:128
+hitmonlee,Hitmonlee,52,,,,,ROCK_SMASH,CLOSE_COMBAT,STONE_EDGE,,,,,bastiodon:698;umbreon:612;obstagoon:677;shiftry:559;shiftry_shadow:865,stunfisk_galarian:353;skarmory:266;azumarill:152;altaria:200;abomasnow:425
+ho_oh,Ho-Oh,51.8,,,,,EXTRASENSORY,BRAVE_BIRD,EARTHQUAKE,,,,,toxicroak:796;victreebel_shadow:707;scrafty:561;tropius:699;cherrim_sunny:513,azumarill:165;skarmory:129;altaria:186;stunfisk_galarian:86;galvantula:217
+snubbull,Snubbull,51.7,,,,,BITE,CRUNCH,BRICK_BREAK,,,,,raichu_alolan:679;dragonite_shadow:694;latios:772;shelgon_shadow:660;latias:794,stunfisk_galarian:245;azumarill:160;skarmory:254;altaria:343;bastiodon:409
+drowzee_shadow,Drowzee (Shadow),51.5,,,,,CONFUSION,PSYSHOCK,PSYCHIC,,,,,toxicroak:820;machamp_shadow:761;medicham:518;sirfetchd:772;machamp:750,azumarill:361;stunfisk_galarian:149;skarmory:150;altaria:233;galvantula:299
+kadabra,Kadabra,51.5,,,,,PSYCHO_CUT,SHADOW_BALL,RETURN,,,,,deoxys_defense:705;toxicroak:594;hypno:661;hypno_shadow:627;jirachi:627,azumarill:453;skarmory:395;whiscash:440;bastiodon:287;galvantula:225
+pineco_shadow,Pineco (Shadow),51.5,,,,,BUG_BITE,SAND_TOMB,ROCK_TOMB,,,,,shiftry:870;meganium:508;raichu_alolan:558;shiftry_shadow:879;bellossom_shadow:641,azumarill:255;stunfisk_galarian:221;altaria:233;skarmory:141;umbreon:394
+drowzee,Drowzee,51.3,,,,,CONFUSION,PSYSHOCK,RETURN,,,,,toxicroak:847;machamp_shadow:750;sirfetchd:772;blaziken:735;machamp:548,azumarill:293;stunfisk_galarian:215;skarmory:137;whiscash:351;altaria:182
+porygon2_shadow,Porygon2 (Shadow),51.1,,,,,LOCK_ON,HYPER_BEAM,ZAP_CANNON,,,,,drifblim:668;mandibuzz:608;lickitung:679;munchlax:664;lickilicky:660,bastiodon:382;umbreon:426;azumarill:84;skarmory:129;stunfisk_galarian:83
+axew,Axew,51,,,,,SCRATCH,DRAGON_CLAW,AQUA_TAIL,,,,,moltres:719;moltres_shadow:750;magmortar_shadow:719;serperior:583;sharpedo:657,azumarill:255;skarmory:262;stunfisk_galarian:164;galvantula:340;altaria:211
+kabuto,Kabuto,50.9,,,,,MUD_SHOT,ANCIENT_POWER,AQUA_JET,,,,,marowak_alolan:625;mawile_shadow:559;moltres:842;charizard:646;charmeleon_shadow:755,azumarill:290;stunfisk_galarian:320;skarmory:308;bastiodon:420;galvantula:381
+nosepass,Nosepass,50.7,,,,,SPARK,ROCK_SLIDE,ROCK_BLAST,,,,,gyarados:744;dragonite_shadow:619;charizard:684;charizard_shadow:684;vespiquen:728,skarmory:429;azumarill:220;altaria:427;marowak_alolan:495;galvantula:377
+porygon_shadow,Porygon (Shadow),50.7,,,,,CHARGE_BEAM,DISCHARGE,SIGNAL_BEAM,,,,,mew:695;mantine:676;skarmory_shadow:657;vespiquen:639;pidgeot:751,azumarill:375;skarmory:462;altaria:299;bastiodon:356;marowak_alolan:354
+anorith,Anorith,50.5,,,,,STRUGGLE_BUG,ANCIENT_POWER,CROSS_POISON,,,,,shiftry:888;cherrim_sunny:540;raichu_alolan:598;hypno_shadow:513;shiftry_shadow:888,azumarill:298;skarmory:262;altaria:262;umbreon:452;galvantula:385
+ponyta_galarian,Ponyta (Galarian),50.3,,,,,PSYCHO_CUT,PLAY_ROUGH,PSYBEAM,,,,,medicham:588;poliwrath:650;swalot:716;hitmonchan:517;conkeldurr:685,azumarill:301;altaria:478;skarmory:262;toxicroak:457;stunfisk_galarian:80
+koffing,Koffing,50.2,,,,,INFESTATION,DARK_PULSE,SLUDGE_BOMB,,,,,abomasnow:556;shiftry:523;cherrim_sunny:698;whimsicott:617;granbull:613,azumarill:317;stunfisk_galarian:215;skarmory:187;altaria:240;deoxys_defense:396
+rhydon,Rhydon,50.2,,,,,ROCK_SMASH,STONE_EDGE,SURF,,,,,skarmory:532;bastiodon:735;magnezone:677;bisharp:887;probopass:739,stunfisk_galarian:272;azumarill:100;marowak_alolan:391;galvantula:389;umbreon:372
+buneary,Buneary,49.8,,,,,QUICK_ATTACK,FIRE_PUNCH,SWIFT,,,,,shiftry:523;linoone:574;durant:618;ivysaur_shadow:665;sandshrew_alolan:610,azumarill:269;stunfisk_galarian:275;skarmory:287;altaria:299;deoxys_defense:304
+accelgor,Accelgor,49,,,,,INFESTATION,BUG_BUZZ,ACID_SPRAY,,,,,umbreon:586;shiftry:830;obstagoon:531;medicham:519;meganium:515,azumarill:190;stunfisk_galarian:143;altaria:200;skarmory:112;galvantula:258
+kadabra_shadow,Kadabra (Shadow),49,,,,,PSYCHO_CUT,SHADOW_BALL,PSYBEAM,,,,,deoxys_defense:633;toxicroak:550;hypno:627;hypno_shadow:527;jirachi:561,azumarill:432;skarmory:441;bastiodon:314;stunfisk_galarian:92;altaria:135
+koffing_shadow,Koffing (Shadow),48.8,,,,,INFESTATION,DARK_PULSE,SLUDGE_BOMB,,,,,obstagoon:509;meganium:556;wigglytuff:528;clefable:570;ninetales_alolan:613,azumarill:353;stunfisk_galarian:242;skarmory:254;umbreon:328;bastiodon:212
+reuniclus,Reuniclus,47.9,,,,,HIDDEN_POWER_FIGHTING,FUTURE_SIGHT,SHADOW_BALL,,,,,bastiodon:559;obstagoon:579;registeel:548;lucario:663;bisharp:822,stunfisk_galarian:302;azumarill:133;skarmory:212;altaria:164;abomasnow:315
+duosion,Duosion,47.8,,,,,HIDDEN_POWER_PSYCHIC,PSYSHOCK,THUNDER,,,,,toxicroak:800;machamp_shadow:735;venusaur:654;primeape:739;machamp:711,azumarill:247;stunfisk_galarian:164;skarmory:170;altaria:266;galvantula:385
+pineco,Pineco,47.5,,,,,BUG_BITE,RETURN,SAND_TOMB,,,,,shiftry:691;raichu_alolan:650;shiftry_shadow:870;sceptile:679;grotle:595,stunfisk_galarian:314;azumarill:220;skarmory:154;umbreon:350;swampert:386
+lopunny,Lopunny,45.5,,,,,POUND,FIRE_PUNCH,HYPER_BEAM,,,,,sandshrew:644;yanma:512;mesprit:541;stoutland:644;teddiursa_shadow:623,azumarill:198;stunfisk_galarian:173;skarmory:162;galvantula:286;altaria:167
+timburr,Timburr,44.4,,,,,LOW_KICK,BRICK_BREAK,ROCK_TOMB,,,,,bastiodon:724;obstagoon:545;registeel:529;probopass:672;melmetal:587,skarmory:287;stunfisk_galarian:197;azumarill:95;umbreon:356;abomasnow:258
+phanpy,Phanpy,43.7,,,,,TACKLE,BODY_SLAM,ROCK_SLIDE,,,,,raichu:634;magnezone_shadow:551;electabuzz_shadow:674;pachirisu:657;raikou_shadow:568,azumarill:165;stunfisk_galarian:173;galvantula:409;skarmory:150;altaria:229
+solosis,Solosis,43.3,,,,,HIDDEN_POWER_PSYCHIC,PSYSHOCK,THUNDER,,,,,toxicroak:783;machamp_shadow:676;venusaur:623;machamp:685;primeape:676,azumarill:220;skarmory:170;stunfisk_galarian:146;galvantula:368;altaria:208
+darmanitan_galarian_standard,Darmanitan (Galarian),40.6,,,,,TACKLE,AVALANCHE,SUPER_POWER,,,,,absol:696;dugtrio_shadow:640;weepinbell_shadow:662;absol_shadow:711;audino:607,azumarill:247;skarmory:270;galvantula:401;stunfisk_galarian:128;altaria:200
+tauros,Tauros,39.5,,,,,ZEN_HEADBUTT,HORN_ATTACK,EARTHQUAKE,,,,,haunter:843;gengar:855;purugly:542;crobat:588;weezing:542,azumarill:282;skarmory:141;toxicroak:445;stunfisk_galarian:110;altaria:204
+spoink,Spoink,39.3,,,,,ZEN_HEADBUTT,SHADOW_BALL,MIRROR_COAT,,,,,toxicroak:828;heracross:735;conkeldurr:697;hitmonchan:593;machoke_shadow:671,azumarill:198;stunfisk_galarian:131;skarmory:141;altaria:204;galvantula:254
+stantler_shadow,Stantler (Shadow),38.1,,,,,ZEN_HEADBUTT,WILD_CHARGE,STOMP,,,,,toxicroak:511;gengar:842;haunter:873;qwilfish:626;weepinbell:750,azumarill:192;skarmory:170;stunfisk_galarian:137;altaria:200;galvantula:282
+clefairy,Clefairy,36.8,,,,,ZEN_HEADBUTT,BODY_SLAM,DISARMING_VOICE,,,,,fraxure:581;kingdra:547;hydreigon:527;vibrava_shadow:744;machoke:551,azumarill:133;altaria:302;toxicroak:492;stunfisk_galarian:101;skarmory:87
+stantler,Stantler,36.7,,,,,ZEN_HEADBUTT,WILD_CHARGE,STOMP,,,,,gengar:826;haunter:826;dusclops:530;drifloon:507;emboar:619,azumarill:165;skarmory:129;stunfisk_galarian:110;altaria:204;marowak_alolan:245
+deerling,Deerling,36,,,,,TAKE_DOWN,WILD_CHARGE,SEED_BOMB,,,,,marshtomp:731;politoed_shadow:604;marshtomp_shadow:645;raikou:563;wailord:608,azumarill:260;stunfisk_galarian:173;altaria:156;skarmory:87;stunfisk:338
+cranidos,Cranidos,33.2,,,,,ZEN_HEADBUTT,ANCIENT_POWER,BULLDOZE,,,,,golbat_shadow:693;gengar:577;haunter:593;nidorino_shadow:697;sawk:763,azumarill:154;skarmory:170;galvantula:331;stunfisk_galarian:104;toxicroak:372
+slaking,Slaking,29.5,,,,,YAWN,BODY_SLAM,EARTHQUAKE,,,,,marowak_alolan:507;torkoal:561;onix:605;magcargo:565;nidorina:503,azumarill:160;bastiodon:492;stunfisk_galarian:122;skarmory:137;altaria:189
