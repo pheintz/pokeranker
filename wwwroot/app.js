@@ -1779,10 +1779,271 @@ function pickOptimalMoveset(speciesId, metaEntries) {
     return bestCombo;
 }
 
+// ─── Sim-driven moveset selection (authoritative path) ──────────────────────
+//
+// pickOptimalMovesetSim enumerates every (fast, c1, c2) candidate and ranks
+// them by *simulated* total margin against the cup's top-N meta, blending
+// across shield scenarios. This is the algorithm that produces our final
+// canonical movesets — the heuristic pickOptimalMoveset above is now used
+// only as a warmup fallback while the cache populates.
+//
+// No statChangeFactor², nukeBonus, redundancyPenalty, sameTypeRolePenalty —
+// the simulator captures those effects mechanistically (a move that crashes
+// your defense actually reduces post-fire damage; a buff actually compounds).
+//
+// Performance contract: synchronous, but expensive (~1–3 sec per species at
+// 30-meta × 5-shield-scenario fidelity). Callers should warmup-cache via
+// pickOptimalMovesetCached / the worker orchestrator rather than calling
+// directly per battler-build.
+//
+// Return shape matches pickOptimalMoveset for downstream caller compatibility.
+
+// Sim-driven moveset cache. Keyed by `speciesId|cpCap|metaHash` so two
+// leagues that share a CP cap (e.g. cp1500_all and cp1500_fantasy) get
+// distinct cache entries — different metas drive different optimal
+// movesets even at the same CP cap.
+const simMovesetCache = {};
+
+function _metaHashKey(metaEntries) {
+    if (!metaEntries || metaEntries.length === 0) return '';
+    // Use first 30 IDs joined as hash. Stable for a given cup's meta order.
+    const ids = [];
+    for (let i = 0; i < Math.min(30, metaEntries.length); i++) ids.push(metaEntries[i].id);
+    return ids.join(',');
+}
+
+function pickOptimalMovesetSim(speciesId, metaEntries, cpCap, opts) {
+    opts = opts || {};
+    const topN = opts.topN || 30;
+    const skipUnviableFast = opts.skipUnviableFast !== false;
+    // Competitive doctrine: every viable PvP Pokemon runs TWO charged moves.
+    // Single-charged is mathematically optimal in some matchups (the sim sees
+    // higher per-fire damage when energy concentrates), but in actual ladder
+    // play opponents always shield your only threat, neutralizing the
+    // matchup. PvPoke's algorithm enforces the same constraint. Set
+    // `allowSingleCharged: true` only when validating against species that
+    // literally have one charged move (e.g., Smeargle pre-CD).
+    const allowSingleCharged = opts.allowSingleCharged === true;
+
+    const moveset = (typeof POKEMON_MOVESETS !== 'undefined') ? POKEMON_MOVESETS[speciesId] : null;
+    if (!moveset || !moveset.fast || !moveset.charged || moveset.charged.length === 0) return null;
+
+    const eliteSet = new Set(moveset.elite || []);
+    const pokemonTypes = (typeof POKEMON_TYPES !== 'undefined' ? POKEMON_TYPES[speciesId] : null) || ['normal'];
+
+    // Filter unviable fast moves (DPT or EPT below 3.0). Fallback to all if
+    // none qualify — some species have only trash fast moves and we still
+    // want to pick the best of a bad lot.
+    let fastIds = moveset.fast.filter(fid => {
+        const fm = (typeof FAST_MOVES !== 'undefined') ? FAST_MOVES[fid] : null;
+        if (!fm) return false;
+        if (!skipUnviableFast) return true;
+        const dpt = fm.pow / fm.turns, ept = fm.nrg / fm.turns;
+        return (dpt >= 3.0 || ept >= 3.0) && (dpt + ept) >= 6.0;
+    });
+    if (fastIds.length === 0) fastIds = moveset.fast.filter(fid => FAST_MOVES[fid]);
+    if (fastIds.length === 0) return null;
+
+    // Pre-build opponent battlers using the HEURISTIC moveset selector
+    // directly, bypassing battlerCache. This avoids the recursion problem
+    // (sim → buildBattler('opp') → sim('opp') → buildBattler('species
+    // we're currently scoring') → cycle) and prevents the sim from
+    // populating battlerCache with stale heuristic-moveset entries that
+    // would shadow the outer sim's result. Opp battlers built this way
+    // are *temporary* — they live only for this sim call.
+    const opps = [];
+    for (const e of metaEntries.slice(0, topN)) {
+        const oppMoves = pickOptimalMoveset(e.id, metaEntries);
+        if (!oppMoves) continue;
+        const b = buildBattlerWithMoves(e.id, cpCap, oppMoves.bestFast, oppMoves.charged1, oppMoves.charged2, false);
+        if (b) opps.push({ id: e.id, battler: b, weight: e.weight ?? 1 });
+    }
+    if (opps.length === 0) return null;
+
+    // 5-scenario shield blend — same weights scoreTeamFull uses, so moveset
+    // selection is consistent with team-quality scoring.
+    const W_00 = 0.15, W_11 = 0.35, W_22 = 0.15, W_10 = 0.20, W_01 = 0.15;
+
+    let best = null, bestScore = -Infinity;
+
+    // If species has only one charged move available, single-charged is
+    // forced regardless of the doctrine flag — there's no other option.
+    const enumerateSingles = allowSingleCharged || moveset.charged.length < 2;
+
+    // Helper: simulate (fast, c1, c2) vs the meta and return per-opponent
+    // wins (margin > 0.5) and weighted total margin. Works for c2 = null.
+    function simBattlerVsMeta(fastId, c1Id, c2Id) {
+        const battler = buildBattlerWithMoves(speciesId, cpCap, fastId, c1Id, c2Id, false);
+        if (!battler) return null;
+        const wins = new Set();
+        let totalMargin = 0, totalW = 0;
+        for (const o of opps) {
+            const m00 = battleMargin(simulateBattle(battler, o.battler, 0, 0));
+            const m11 = battleMargin(simulateBattle(battler, o.battler, 1, 1));
+            const m22 = battleMargin(simulateBattle(battler, o.battler, 2, 2));
+            const m10 = battleMargin(simulateBattle(battler, o.battler, 1, 0));
+            const m01 = battleMargin(simulateBattle(battler, o.battler, 0, 1));
+            const blended = W_00*m00 + W_11*m11 + W_22*m22 + W_10*m10 + W_01*m01;
+            if (blended > 0.5) wins.add(o.id);
+            totalMargin += blended * o.weight;
+            totalW += o.weight;
+        }
+        return {
+            wins,
+            avgMargin: totalW > 0 ? totalMargin / totalW : 0,
+        };
+    }
+
+    // PvPoke-style incremental-coverage scoring:
+    //   1. For each (fast, c1), compute baseline wins with c1 alone.
+    //   2. For each (fast, c1, c2), compute combined wins.
+    //   3. Pick the moveset that maximizes:
+    //        avgMargin + INCREMENTAL_WEIGHT × (|wins(c1+c2) ∖ wins(c1)|) / |meta|
+    //
+    // This rewards c2 specifically for opening NEW matchups c1 alone can't
+    // win — exactly the selection criterion that prevents two-same-type
+    // movesets like Swampert Surf+HC (zero new wins) from beating canonical
+    // HC + EQ (EQ adds wins vs Steel/Fire/Electric resistors).
+    //
+    // INCREMENTAL_WEIGHT = 1.0 means a new win counts as much as a 1.0
+    // margin against the entire meta — strong signal toward type diversity.
+    const INCREMENTAL_WEIGHT = 1.0;
+    const metaSize = opps.length;
+
+    // First pass: compute baseline (c1-only) sims, cached by (fast, c1).
+    const c1OnlyBaseline = new Map(); // key = fastId|c1Id → { wins, avgMargin }
+    for (const fastId of fastIds) {
+        for (const c1Id of moveset.charged) {
+            const key = fastId + '|' + c1Id;
+            if (c1OnlyBaseline.has(key)) continue;
+            c1OnlyBaseline.set(key, simBattlerVsMeta(fastId, c1Id, null));
+        }
+    }
+
+    // Second pass: enumerate full (fast, c1, c2) combos and score.
+    for (const fastId of fastIds) {
+        const charged = moveset.charged;
+        for (let i = 0; i < charged.length; i++) {
+            const c1Id = charged[i];
+            const baseline = c1OnlyBaseline.get(fastId + '|' + c1Id);
+            // Skip single-charged unless explicitly allowed or required.
+            const jStart = enumerateSingles ? i : i + 1;
+            for (let j = jStart; j < charged.length; j++) {
+                const c2Id = (i === j) ? null : charged[j];
+
+                // Single-charged path: just use the baseline.
+                if (c2Id == null) {
+                    if (!baseline) continue;
+                    const score = baseline.avgMargin;
+                    if (score > bestScore) {
+                        bestScore = score;
+                        best = { fast: fastId, c1: c1Id, c2: null };
+                    }
+                    continue;
+                }
+
+                // Pair path: sim (c1+c2), measure new wins vs baseline.
+                const pair = simBattlerVsMeta(fastId, c1Id, c2Id);
+                if (!pair) continue;
+
+                // Symmetric: also consider c2 as the "primary" with c1 as
+                // the secondary. Pick whichever ordering gives more
+                // incremental coverage. Avoids accidentally penalizing
+                // pairs where c2 is the better baseline anchor.
+                const baselineC2 = c1OnlyBaseline.get(fastId + '|' + c2Id);
+                const newWinsFromC2 = baseline ? [...pair.wins].filter(w => !baseline.wins.has(w)).length : pair.wins.size;
+                const newWinsFromC1 = baselineC2 ? [...pair.wins].filter(w => !baselineC2.wins.has(w)).length : pair.wins.size;
+                const incrementalWins = Math.min(newWinsFromC2, newWinsFromC1);
+                const incremental = metaSize > 0 ? (incrementalWins / metaSize) * INCREMENTAL_WEIGHT : 0;
+
+                const score = pair.avgMargin + incremental;
+                if (score > bestScore) {
+                    bestScore = score;
+                    best = { fast: fastId, c1: c1Id, c2: c2Id };
+                }
+            }
+        }
+    }
+
+    if (!best) return null;
+
+    // Populate downstream-compatible metadata. The per-move scorers
+    // (scoreFastMove, scoreChargedMove) still produce structureBonus /
+    // pressure / etc. used by team-builder code paths that aren't yet
+    // sim-aware. The selection itself is sim-driven; the metadata is
+    // descriptive of the chosen moves.
+    const fastInfoStub = scoreFastMove(best.fast, pokemonTypes, /* approx best DPE */ 1.5);
+    const c1Info       = scoreChargedMove(best.c1, pokemonTypes);
+    const c2Info       = best.c2 ? scoreChargedMove(best.c2, pokemonTypes) : null;
+    const moveTypes    = [...new Set([fastInfoStub.type, c1Info.type, c2Info?.type].filter(Boolean))];
+    const eliteMoves   = [best.fast, best.c1, best.c2].filter(m => m && eliteSet.has(m));
+
+    return {
+        bestFast:   best.fast,
+        charged1:   best.c1,
+        charged2:   best.c2,
+        moveTypes,
+        fastInfo:   fastInfoStub,
+        charged1Info: c1Info,
+        charged2Info: c2Info,
+        eliteMoves,
+        // Sim-margin replaces the heuristic totalMoveScore. Used by callers
+        // that compare moveset strengths (e.g., per-mon RRF fusion).
+        totalMoveScore: bestScore,
+        simMargin: bestScore,
+        // Stub fields for legacy callers that read them. Sim doesn't
+        // produce these directly.
+        pressureScore:  c1Info.role === 'bait' ? 1 : (c2Info?.role === 'bait' ? 1 : 0),
+        structureBonus: 0,
+        coverageBonus:  0,
+        metaOff:        0,
+    };
+}
+
+/**
+ * Cached wrapper around pickOptimalMovesetSim. Sim runs ~30–80ms per species
+ * cold; subsequent calls hit `simMovesetCache` (O(1)).
+ *
+ * Recursion guard: per-species set (not global flag) so nested sims for
+ * DIFFERENT species can proceed normally — the sim for Talonflame runs sim
+ * for Medicham as an opponent battler, which can in turn run sim for
+ * Azumarill. Only same-species cycles (mirror match in the opp set, or
+ * a meta opp's sim recursing back to the species we're currently scoring)
+ * fall through to the heuristic moveset.
+ *
+ * This matches PvPoke's bootstrap behavior: round 1 sims use whatever
+ * moveset is convenient for the in-progress species, then converge.
+ *
+ * Falls back to heuristic when sim returns null (no valid moves / no meta).
+ */
+const _simInProgressSet = new Set();
+
+function pickOptimalMovesetCached(speciesId, cpCap, metaEntries) {
+    if (!metaEntries || metaEntries.length === 0) {
+        return pickOptimalMoveset(speciesId, metaEntries);
+    }
+    if (_simInProgressSet.has(speciesId)) {
+        return pickOptimalMoveset(speciesId, metaEntries);
+    }
+    const key = `${speciesId}|${cpCap}|${_metaHashKey(metaEntries)}`;
+    if (simMovesetCache[key] !== undefined) return simMovesetCache[key];
+    _simInProgressSet.add(speciesId);
+    let result;
+    try {
+        result = pickOptimalMovesetSim(speciesId, metaEntries, cpCap);
+        if (!result) result = pickOptimalMoveset(speciesId, metaEntries);
+    } finally {
+        _simInProgressSet.delete(speciesId);
+    }
+    simMovesetCache[key] = result;
+    return result;
+}
+
 // ─── Battle Engine ───────────────────────────────────────────────────────────
 // findRank1IVs, getRank1Stats, pvpDamage, computeBreakpoints, simulateBattle,
 // buildBattler, getCachedBattler, SHIELD_SCENARIOS_*, computeBattleRating,
-// computeRoleRatings → see battle-engine.js (loaded by index.html before app.js).
+// computeRoleRatings, buildBattlerWithMoves
+// → see battle-engine.js (loaded by index.html before app.js).
 
 /**
  * Reciprocal Rank Fusion — research-validated method for combining heterogeneous scores.

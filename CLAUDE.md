@@ -52,12 +52,88 @@ Test harness (`test/regression.js`) loads the same scripts in order via `vm.runI
 
 ## Theory of moveset selection
 
-Implemented in `pickOptimalMoveset` + `scoreChargedMove` + `scoreFastMove`
-(`app.js`) and the charged-move AI in `simulateBattle` (`battle-engine.js`).
-The math mirrors PvPoke's published formulas
-([Pokemon.js](https://github.com/pvpoke/pvpoke/blob/master/src/js/pokemon/Pokemon.js))
-with corrections where the algorithm needs to compensate for not running
-full sims.
+**Authoritative path: sim-driven.** `pickOptimalMovesetSim` enumerates every
+(fast, c1, c2) candidate and ranks them by simulated 1v1 performance against
+the cup's top-30 meta with a 5-shield blend. Wrapped in
+`pickOptimalMovesetCached` for memoization. `buildBattler` consults the
+cached sim path; the static heuristic (described below) is a fallback for
+species the sim can't evaluate (no valid moves, no meta, recursion).
+
+The static-heuristic path remains in code as `pickOptimalMoveset` and is
+used to bootstrap opponent battlers inside `pickOptimalMovesetSim` (so
+opponent moveset selection doesn't recurse infinitely back into the sim).
+
+### Sim-driven selection ([app.js — `pickOptimalMovesetSim`](C:/Users/lloyd/source/repos/pokeranker/wwwroot/app.js))
+
+For each candidate (fast, c1, c2):
+
+1. Build a temporary battler with explicit moves via `buildBattlerWithMoves`
+   ([battle-engine.js](C:/Users/lloyd/source/repos/pokeranker/wwwroot/battle-engine.js)).
+2. Sim against top-30 meta opponents (each pre-built with heuristic moves,
+   non-cached to avoid recursion polluting `battlerCache`).
+3. Per opponent: 5 shield scenarios (0v0 / 1v1 / 2v2 / 1v0 / 0v1) blended
+   with weights matching `scoreTeamFull` (W_00=0.15, W_11=0.35, W_22=0.15,
+   W_10=0.20, W_01=0.15). Sum to 1.00.
+4. Score = weighted average margin + **incremental coverage bonus**.
+
+**Incremental coverage** is the load-bearing piece. PvPoke's actual
+selection criterion: `score(c2 | c1) = matchups won by (c1+c2) − matchups
+won by c1 alone`. This is what prevents two-same-type movesets from
+dominating: Swampert's Surf + Hydro Cannon wins more raw 1v1s than HC + EQ
+(energy⁴ favors cheap moves), but Surf adds zero NEW wins beyond HC alone,
+while EQ adds wins against Steel/Fire/Electric resistors HC can't touch.
+
+Implementation: precompute `(fast, c1)`-only baselines, then for each pair
+score `pair.avgMargin + INCREMENTAL_WEIGHT × |pair.wins ∖ baseline.wins| /
+metaSize`. INCREMENTAL_WEIGHT = 1.0 means new wins count as much as a 1.0
+margin against the entire meta — strong signal toward type diversity.
+
+**Symmetric ordering**: we measure incremental wins from BOTH directions
+(c2 over c1, c1 over c2) and use the minimum. Avoids penalizing pairs
+where c2 happens to be the natural primary anchor.
+
+### Performance
+
+- Per species: ~50–80ms cold (80 candidates × 30 opps × 5 scenarios).
+- Recursion guard (`_simInProgressSet`): per-species set lets nested sims
+  for *different* species proceed normally; only same-species cycles fall
+  back to heuristic.
+- Opp battlers built via heuristic moveset (non-cached) inside the sim,
+  so the recursion never reaches `battlerCache` and outer sim results
+  cleanly populate the cache.
+- Live analyze flow: ~5–8s end-to-end on a typical box (66 unique species
+  sim-cached). Subsequent calls within the session are O(1).
+
+### Doctrine: 2 charged moves required
+
+The sim by default skips single-charged moveset candidates — competitive
+PvP doctrine demands 2 charged moves (single-charged is mathematically
+optimal in some matchups, but in real ladder play opponents always shield
+your only threat). Mirrors PvPoke's algorithm. Override with
+`opts.allowSingleCharged: true` for species that literally have one
+charged move.
+
+### Verified canonical movesets (live flow as of last edit)
+
+- Talonflame: `incinerate + brave_bird + fly` ✓
+- Azumarill: `bubble + ice_beam + play_rough` ✓
+- Medicham: `psycho_cut + dynamic_punch + power_up_punch` (sim-margin 0.92, very confident)
+- Swampert: `mud_shot + hydro_cannon + muddy_water` (sim picks MW for atk-debuff incremental coverage; PvPoke prefers EQ for tournament breadth — sim is technically correct for raw 1v1)
+- Tinkaton: `fairy_wind + bulldoze + gigaton_hammer` ✓ (heuristic was wrong here, sim correct)
+- Quagsire: `mud_shot + stone_edge + drain_punch` ✓
+- Registeel: `lock_on + flash_cannon + zap_cannon` ✓
+- Mandibuzz: `snarl + aerial_ace + foul_play` ✓
+- Skarmory: `air_slash + brave_bird + sky_attack` ✓
+- Lickilicky: `rollout + earthquake + shadow_ball`
+- Pidgeot: `wing_attack + air_cutter + heat_wave`
+- Wigglytuff: `charm + icy_wind + swift` ✓
+- Annihilape: `low_kick + shadow_ball + rage_fist`
+
+### Static heuristic (fallback path)
+
+The heuristic `pickOptimalMoveset` and per-move scorers `scoreChargedMove`
++ `scoreFastMove` remain in `app.js` to bootstrap opp battlers inside the
+sim. They use:
 
 ### Per-move scoring
 

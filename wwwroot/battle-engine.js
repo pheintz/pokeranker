@@ -499,7 +499,21 @@ function buildBattler(speciesId, cpCap, metaEntries, isShadow) {
     if (!stats) return null;
 
     const types = POKEMON_TYPES[baseId] || ['normal'];
-    const optimal = pickOptimalMoveset(baseId, metaEntries || null);
+    // Prefer the sim-driven cached selection (pickOptimalMovesetCached), which
+    // enumerates every (fast, c1, c2) candidate, sims each against the cup's
+    // top-30 meta with a 5-shield blend, and picks the moveset that maximizes
+    // weighted matchup margin + incremental coverage. Falls through to the
+    // heuristic pickOptimalMoveset (which is what the cached wrapper does
+    // internally) if sim returns null.
+    //
+    // Cross-file: pickOptimalMovesetCached lives in app.js. By the time any
+    // buildBattler call fires from the UI, all scripts have loaded and the
+    // global is resolvable. If somebody calls buildBattler before app.js
+    // (impossible in normal flow), fall back to the heuristic.
+    const pickFn = (typeof pickOptimalMovesetCached === 'function')
+        ? pickOptimalMovesetCached
+        : (sid, _cap, meta) => pickOptimalMoveset(sid, meta);
+    const optimal = pickFn(baseId, cpCap, metaEntries || null);
 
     // Need at least a fast move and one charged move
     let fast, charged1, charged2;
@@ -549,6 +563,51 @@ function getCachedBattler(speciesId, cpCap, metaEntries, isShadow) {
     const key = baseId + '|' + cpCap + (shadow ? '|shadow' : '');
     if (!battlerCache[key]) battlerCache[key] = buildBattler(baseId, cpCap, metaEntries, shadow);
     return battlerCache[key];
+}
+
+/**
+ * Build a battler with explicit moves (bypassing pickOptimalMoveset).
+ * Used by `pickOptimalMovesetSim` to enumerate every (fast, c1, c2) combo
+ * and pick the winner via simulation. Stats use rank-1 IVs at the cap.
+ *
+ * c2Id may be null for single-charged-move evaluation (the precondition for
+ * "incremental coverage of c2 = wins(c1+c2) − wins(c1 alone)" measurement).
+ *
+ * @param {string}  speciesId  May carry _shadow suffix
+ * @param {number}  cpCap
+ * @param {string}  fastId     Fast-move ID (already lowercase / snake_case)
+ * @param {string}  c1Id       Primary charged-move ID
+ * @param {string|null} c2Id   Secondary charged-move ID, or null
+ * @param {boolean} [isShadow] Override / supplement ID-detected shadow flag
+ * @returns {object|null} Battler shape used by simulateBattle, or null if any
+ *                        move ID is unknown / stats missing.
+ */
+function buildBattlerWithMoves(speciesId, cpCap, fastId, c1Id, c2Id, isShadow) {
+    const { baseId, isShadow: detectedShadow } = parseShadowId(speciesId);
+    const shadow = !!(isShadow || detectedShadow);
+    const stats = getRank1Stats(baseId, cpCap);
+    if (!stats) return null;
+
+    const fastBase = FAST_MOVES[fastId];
+    const c1Base   = CHARGED_MOVES[c1Id];
+    const c2Base   = c2Id ? CHARGED_MOVES[c2Id] : null;
+    if (!fastBase || !c1Base) return null;
+    if (c2Id && !c2Base) return null;
+
+    const types = POKEMON_TYPES[baseId] || ['normal'];
+    const fast    = { ...fastBase, id: fastId };
+    const charged1 = { ...c1Base, id: c1Id };
+    const charged2 = c2Base ? { ...c2Base, id: c2Id } : null;
+
+    const atk = shadow ? stats.atk * (6/5) : stats.atk;
+    const def = shadow ? stats.def * (5/6) : stats.def;
+
+    return {
+        speciesId: baseId, types,
+        atk, def, hp: stats.hp,
+        fast, charged1, charged2,
+        isShadow: shadow,
+    };
 }
 
 // ─── Shield scenario presets ──────────────────────────────────────────────────
