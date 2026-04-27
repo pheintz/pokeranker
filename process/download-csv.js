@@ -1,11 +1,17 @@
 /**
  * Downloads PvPoke data from the public GitHub repository.
  *
+ * 1500-only mode: Pokeranker is a Great League / 1500 CP analyzer. We only
+ * fetch rankings-1500.json from each cup. Little Cup (500), Ultra (2500),
+ * and Master (10000) are intentionally out of scope. Restricted 1500 cups
+ * (Fantasy, Spellcraft, Bayou, Catch, etc.) ARE included — they're 1500 CP
+ * with species restrictions.
+ *
  * Rankings (auto-discovered via GitHub API):
- *   Source: https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/{cup}/{category}/rankings-{cp}.json
+ *   Source: https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/{cup}/{category}/rankings-1500.json
  *           where {category} ∈ { overall, leads, switches, closers, attackers }
- *   Output: wwwroot/csv/cp{cp}_{cup}_overall_rankings.csv
- *           One CSV per cup/CP, with overall ordering and per-role score columns
+ *   Output: wwwroot/csv/cp1500_{cup}_overall_rankings.csv
+ *           One CSV per cup, with overall ordering and per-role score columns
  *           (leadScore, switchScore, closerScore, attackerScore) joined on speciesId.
  *
  * Gamemaster (moves + pokemon movesets):
@@ -23,46 +29,45 @@ const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
 
+// ─── 1500-only mode ──────────────────────────────────────────────────────────
+// Pokeranker is a Great League / 1500-CP-cap analyzer. We don't pull rankings
+// for Little Cup (500), Ultra (2500), or Master (10000). Restricted 1500 cups
+// (Fantasy, Spellcraft, Catch, etc.) are kept — they're 1500 with species
+// restrictions, which is exactly what we want.
+const TARGET_CP = 1500;
+
 // ─── Human-readable labels for known cups ────────────────────────────────────
 // New cups discovered via API will fall back to a title-cased version of the ID.
 const CUP_LABELS = {
-  all:                   null,          // handled specially: 1500=Great League, 2500=Ultra League, 10000=Master League
-  little:                'Little Cup',
-  remix:                 'GL Remix',
-  classic:               'Classic GL',
-  premier:               'Premier Cup',
-  premierultra:          'Premier Ultra',
-  premiermaster:         'Premier Master',
-  fantasy:               'Fantasy Cup',
-  spring:                'Spring Cup',
-  jungle:                'Jungle Cup',
-  electric:              'Electric Cup',
-  retro:                 'Retro Cup',
-  maelstrom:             'Maelstrom Cup',
-  spellcraft:            'Spellcraft Cup',
-  equinox:               'Equinox Cup',
-  chrono:                'Chrono Cup',
-  bayou:                 'Bayou Cup',
-  catch:                 'Catch Cup',
-  battlefrontiermaster:  'Battle Frontier Master',
-  bfretro:               'Battle Frontier Retro',
-  laic2025remix:         'LAIC 2025 Remix',
-  littlegeneral:         'Little General Cup',
+  all:           null,                 // 'all' at 1500 CP → "Great League"
+  remix:         'GL Remix',
+  classic:       'Classic GL',
+  premier:       'Premier Cup',
+  fantasy:       'Fantasy Cup',
+  spring:        'Spring Cup',
+  jungle:        'Jungle Cup',
+  electric:      'Electric Cup',
+  retro:         'Retro Cup',
+  maelstrom:     'Maelstrom Cup',
+  spellcraft:    'Spellcraft Cup',
+  equinox:       'Equinox Cup',
+  chrono:        'Chrono Cup',
+  bayou:         'Bayou Cup',
+  catch:         'Catch Cup',
+  laic2025remix: 'LAIC 2025 Remix',
+  naic2026:      'NAIC 2026',
 };
 
 const CP_LABELS = {
-  500:   'Little (500)',
-  1500:  'Great League',
-  2500:  'Ultra League',
-  10000: 'Master League',
+  1500: 'Great League',
 };
 
-// Cups that restrict the eligible species pool (not just CP-capped open formats)
+// Cups that restrict the eligible species pool (not just CP-capped open formats).
+// All entries here are 1500 CP — non-1500 cups have been removed.
 const RESTRICTED_CUPS = new Set([
   'fantasy', 'spring', 'jungle', 'electric', 'retro', 'maelstrom',
-  'spellcraft', 'equinox', 'chrono', 'bayou', 'catch', 'little',
-  'classic', 'remix', 'premier', 'premierultra', 'premiermaster',
-  'battlefrontiermaster', 'bfretro', 'laic2025remix', 'littlegeneral',
+  'spellcraft', 'equinox', 'chrono', 'bayou', 'catch',
+  'classic', 'remix', 'premier', 'laic2025remix', 'naic2026',
 ]);
 
 const GITHUB_API = 'https://api.github.com';
@@ -188,11 +193,9 @@ function rankingsToCsv({ overall, leads, switches, closers, attackers }) {
   return [header, ...rows].join('\n');
 }
 
-function cupLabel(cupId, cp) {
-  if (cupId === 'all') {
-    return CP_LABELS[cp] || `CP ${cp}`;
-  }
-  return (CUP_LABELS[cupId] ?? titleCase(cupId)) + (cp !== 1500 ? ` (${cp})` : '');
+function cupLabel(cupId /* cp param kept for API parity, but always 1500 here */) {
+  if (cupId === 'all') return CP_LABELS[TARGET_CP] || 'Great League';
+  return CUP_LABELS[cupId] ?? titleCase(cupId);
 }
 
 function titleCase(str) {
@@ -229,8 +232,9 @@ async function downloadAllRankings() {
     for (const file of rankingFiles) {
       const cp = parseInt(file.name.match(/rankings-(\d+)\.json/)[1], 10);
 
-      // Skip Master League (10000) for non-all cups — too large & rarely used
-      if (cp === 10000 && cupId !== 'all') continue;
+      // 1500-only mode: skip every other CP cap. The app is a Great League
+      // analyzer; Little Cup, Ultra, and Master are out of scope.
+      if (cp !== TARGET_CP) continue;
 
       const rawUrl  = `${GITHUB_RAW}/${REPO}/${BRANCH}/src/data/rankings/${cupId}/overall/rankings-${cp}.json`;
       const outName = `cp${cp}_${cupId}_overall_rankings.csv`;
@@ -265,11 +269,10 @@ async function downloadAllRankings() {
     }
   }
 
-  // Sort: open formats first (all GL, all UL), then restricted cups alphabetically
+  // Sort: open Great League first, then restricted 1500 cups alphabetically.
   indexEntries.sort((a, b) => {
     const aOpen = !a.restricted, bOpen = !b.restricted;
     if (aOpen !== bOpen) return aOpen ? -1 : 1;
-    if (a.cp !== b.cp) return a.cp - b.cp;
     return a.cup.localeCompare(b.cup);
   });
 

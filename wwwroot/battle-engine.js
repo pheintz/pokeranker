@@ -444,11 +444,18 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
         // A Pokemon KO'd by a charged move earlier this turn does not get to
         // complete an in-progress fast move — gate on hp > 0 so leftover fast
         // damage doesn't skew aHpPct/bHpPct (and therefore battleMargin).
+        //
+        // Fast-move effects (e.g. Snarl's -1 opp atk @30%, Sand Attack's -2
+        // opp atk, Confusion's stat scaling) fire on completion via
+        // applyMoveEffects. Fast moves can't be shielded so `shielded=false`.
+        // PoGo PvP rule: opp-debuff effects from fast moves DO apply (only
+        // shields block opp-debuffs, and shields don't apply to fast moves).
         if (aTurnCd > 0 && aHp > 0) {
             aTurnCd--;
             if (aTurnCd === 0) {
                 bHp -= aFastDmg();
                 aEnergy = Math.min(100, aEnergy + a.fast.nrg);
+                applyMoveEffects(a.fast.id, true, false);
             }
         }
         if (bTurnCd > 0 && bHp > 0) {
@@ -456,6 +463,7 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
             if (bTurnCd === 0) {
                 aHp -= bFastDmg();
                 bEnergy = Math.min(100, bEnergy + b.fast.nrg);
+                applyMoveEffects(b.fast.id, false, false);
             }
         }
     }

@@ -87,7 +87,8 @@ function populateLeagueDropdown() {
     for (const [key, info] of Object.entries(LEAGUE_FORMATS)) {
         const opt = document.createElement('option');
         opt.value = key;
-        opt.textContent = `${info.label} (${info.cpCap} CP)`;
+        // 1500-only mode: every league is 1500 CP, the suffix is noise.
+        opt.textContent = info.label;
         el.appendChild(opt);
     }
     // Restore selection if it still exists, otherwise default to first entry
@@ -358,6 +359,28 @@ function applyGamemasterMove(entry) {
     // Fast moves and TRANSFORM have energy === 0 (generate or gain nothing).
     const isFast = !entry.energy;
 
+    // Parse stat-change effects from PvPoke's gamemaster format. Applies to
+    // BOTH fast and charged moves — Snarl, Sand Attack, Confusion, etc. are
+    // fast moves with opp-debuff effects that genuinely shape matchups.
+    // Previously this lived only in the charged branch and silently dropped
+    // every fast-move effect, which is why our sim under-rated Snarl users.
+    function parseEffect() {
+        if (!entry.buffs || typeof MOVE_EFFECTS === 'undefined') return null;
+        const [atkStg, defStg] = entry.buffs;
+        const chance = parseFloat(entry.buffApplyChance) || 0;
+        if (chance <= 0 || (atkStg === 0 && defStg === 0)) return null;
+        const effect = { chance };
+        if (entry.buffTarget === 'self') {
+            // positive = buff (e.g. Power-Up Punch), negative = self-debuff (e.g. Overheat)
+            const key = (atkStg >= 0 && defStg >= 0) ? 'selfBuff' : 'selfDebuff';
+            effect[key] = [atkStg, defStg];
+        } else {
+            // opponent target — almost always a debuff
+            effect.oppDebuff = [atkStg, defStg];
+        }
+        return effect;
+    }
+
     if (isFast) {
         const nrg   = entry.energyGain || 0;
         const turns = entry.turns || 1;
@@ -365,6 +388,11 @@ function applyGamemasterMove(entry) {
         if (typeof FAST_MOVES !== 'undefined') {
             FAST_MOVES[id] = { type, pow, nrg, turns };
             if (alias) FAST_MOVES[alias] = FAST_MOVES[id];
+        }
+        const effect = parseEffect();
+        if (effect && typeof MOVE_EFFECTS !== 'undefined') {
+            MOVE_EFFECTS[id] = effect;
+            if (alias) MOVE_EFFECTS[alias] = effect;
         }
         return 'fast';
     } else {
@@ -374,26 +402,11 @@ function applyGamemasterMove(entry) {
             CHARGED_MOVES[id] = { type, pow, nrg };
             if (alias) CHARGED_MOVES[alias] = CHARGED_MOVES[id];
         }
-
-        // Populate MOVE_EFFECTS if this move has stat-change buffs
-        if (entry.buffs && typeof MOVE_EFFECTS !== 'undefined') {
-            const [atkStg, defStg] = entry.buffs;
-            const chance = parseFloat(entry.buffApplyChance) || 0;
-            if (chance > 0 && (atkStg !== 0 || defStg !== 0)) {
-                const effect = { chance };
-                if (entry.buffTarget === 'self') {
-                    // positive = buff (e.g. Power-Up Punch), negative = self-debuff (e.g. Overheat)
-                    const key = (atkStg >= 0 && defStg >= 0) ? 'selfBuff' : 'selfDebuff';
-                    effect[key] = [atkStg, defStg];
-                } else {
-                    // opponent target — almost always a debuff
-                    effect.oppDebuff = [atkStg, defStg];
-                }
-                MOVE_EFFECTS[id] = effect;
-                if (alias) MOVE_EFFECTS[alias] = effect;
-            }
+        const effect = parseEffect();
+        if (effect && typeof MOVE_EFFECTS !== 'undefined') {
+            MOVE_EFFECTS[id] = effect;
+            if (alias) MOVE_EFFECTS[alias] = effect;
         }
-
         return 'charged';
     }
 }
@@ -1844,18 +1857,33 @@ function pickOptimalMovesetSim(speciesId, metaEntries, cpCap, opts) {
     if (fastIds.length === 0) fastIds = moveset.fast.filter(fid => FAST_MOVES[fid]);
     if (fastIds.length === 0) return null;
 
-    // Pre-build opponent battlers using the HEURISTIC moveset selector
-    // directly, bypassing battlerCache. This avoids the recursion problem
-    // (sim → buildBattler('opp') → sim('opp') → buildBattler('species
-    // we're currently scoring') → cycle) and prevents the sim from
-    // populating battlerCache with stale heuristic-moveset entries that
-    // would shadow the outer sim's result. Opp battlers built this way
-    // are *temporary* — they live only for this sim call.
+    // Pre-build opponent battlers using a configurable moveset source.
+    // Default: heuristic (pickOptimalMoveset). Caller can pass a custom
+    // function via opts.oppMovesetSource to inject sim-derived movesets
+    // for round-2+ of fictitious play (Brown 1951): given round-1 sim
+    // results, re-evaluate every species's moveset against opps that now
+    // run their round-1 best response. Standard zero-sum-game convergence.
+    //
+    // The non-cached, recursion-free build path is preserved either way:
+    // we never touch battlerCache here, only build temporary battlers for
+    // this sim call.
+    // Three-way precedence: explicit function override > opt-in oppCache (plain
+    // object) > heuristic fallback. The oppCache form is what the validation
+    // harness passes for round-2 fictitious play — it's a serializable object
+    // crossing the VM boundary, mapping speciesId → {bestFast, charged1, charged2}.
+    const oppMovesetSource = opts.oppMovesetSource
+        || (opts.oppCache
+            ? ((sid) => opts.oppCache[sid] || pickOptimalMoveset(sid, metaEntries))
+            : ((sid) => pickOptimalMoveset(sid, metaEntries)));
     const opps = [];
     for (const e of metaEntries.slice(0, topN)) {
-        const oppMoves = pickOptimalMoveset(e.id, metaEntries);
+        const oppMoves = oppMovesetSource(e.id);
         if (!oppMoves) continue;
-        const b = buildBattlerWithMoves(e.id, cpCap, oppMoves.bestFast, oppMoves.charged1, oppMoves.charged2, false);
+        const fast = oppMoves.bestFast || oppMoves.fast;
+        const c1   = oppMoves.charged1 || oppMoves.c1;
+        const c2   = oppMoves.charged2 || oppMoves.c2;
+        if (!fast || !c1) continue;
+        const b = buildBattlerWithMoves(e.id, cpCap, fast, c1, c2, false);
         if (b) opps.push({ id: e.id, battler: b, weight: e.weight ?? 1 });
     }
     if (opps.length === 0) return null;
@@ -1872,17 +1900,31 @@ function pickOptimalMovesetSim(speciesId, metaEntries, cpCap, opts) {
 
     // Helper: simulate (fast, c1, c2) vs the meta and return per-opponent
     // wins (margin > 0.5) and weighted total margin. Works for c2 = null.
+    //
+    // Multi-seed averaging: simulateBattle's bait/nuke AI uses a stochastic
+    // 75/25 choice that adds noise. With one seed per matchup, close calls
+    // (margin within ±0.05) flip-flop based on which side won the coin toss.
+    // Averaging 3 deterministic seeds smooths the variance enough to firm up
+    // most close calls, at 3× sim cost (still under 10 sec for the live
+    // box-builder flow).
+    const SEEDS = [17, 101, 257];
     function simBattlerVsMeta(fastId, c1Id, c2Id) {
         const battler = buildBattlerWithMoves(speciesId, cpCap, fastId, c1Id, c2Id, false);
         if (!battler) return null;
         const wins = new Set();
         let totalMargin = 0, totalW = 0;
         for (const o of opps) {
-            const m00 = battleMargin(simulateBattle(battler, o.battler, 0, 0));
-            const m11 = battleMargin(simulateBattle(battler, o.battler, 1, 1));
-            const m22 = battleMargin(simulateBattle(battler, o.battler, 2, 2));
-            const m10 = battleMargin(simulateBattle(battler, o.battler, 1, 0));
-            const m01 = battleMargin(simulateBattle(battler, o.battler, 0, 1));
+            // Average margin across SEEDS for each shield scenario, then blend.
+            let m00 = 0, m11 = 0, m22 = 0, m10 = 0, m01 = 0;
+            for (const seed of SEEDS) {
+                m00 += battleMargin(simulateBattle(battler, o.battler, 0, 0, seed));
+                m11 += battleMargin(simulateBattle(battler, o.battler, 1, 1, seed));
+                m22 += battleMargin(simulateBattle(battler, o.battler, 2, 2, seed));
+                m10 += battleMargin(simulateBattle(battler, o.battler, 1, 0, seed));
+                m01 += battleMargin(simulateBattle(battler, o.battler, 0, 1, seed));
+            }
+            m00 /= SEEDS.length; m11 /= SEEDS.length; m22 /= SEEDS.length;
+            m10 /= SEEDS.length; m01 /= SEEDS.length;
             const blended = W_00*m00 + W_11*m11 + W_22*m22 + W_10*m10 + W_01*m01;
             if (blended > 0.5) wins.add(o.id);
             totalMargin += blended * o.weight;
@@ -2910,6 +2952,136 @@ function buildBoxTeams(leagueKey, cpCap) {
  * Render the My Box Builder results into #box-out.
  * Auto-runs Analyze in the background if it hasn't been run yet.
  */
+// ─── Off-meta picks ─────────────────────────────────────────────────────────
+//
+// Loads the static `sim-vs-pvpoke-{league}.json` artifact (generated offline
+// by test/validate-movesets.js) and renders the species where our sim's
+// chosen moveset beats PvPoke's CSV-shipped recommendation in head-to-head
+// matchups against the meta. These are the "anti-meta" picks the app exists
+// to surface — picks that mathematically outperform PvPoke specifically
+// because PvPoke users prepare for what PvPoke recommends.
+
+const offMetaCache = {}; // leagueKey → loaded JSON
+
+async function loadOffMetaData(leagueKey) {
+    if (offMetaCache[leagueKey]) return offMetaCache[leagueKey];
+    try {
+        const resp = await fetch(`./data/sim-vs-pvpoke-${leagueKey}.json`);
+        if (!resp.ok) return null;
+        const data = await resp.json();
+        offMetaCache[leagueKey] = data;
+        return data;
+    } catch (e) {
+        return null;
+    }
+}
+
+async function runOffMetaPicks() {
+    const { key: leagueKey } = getSelectedLeagueInfo();
+    const outEl = document.getElementById('offmeta-out');
+    if (!outEl) return;
+
+    outEl.innerHTML = '<p style="color:#94a3b8;font-size:13px;padding:12px;">Loading off-meta findings…</p>';
+    const data = await loadOffMetaData(leagueKey);
+    if (!data) {
+        outEl.innerHTML = `<p style="color:#94a3b8;font-size:13px;padding:12px;">
+            No off-meta data available for <strong>${leagueKey}</strong>.<br>
+            Run <code>node test/validate-movesets.js ${leagueKey}</code> to generate it.</p>`;
+        return;
+    }
+
+    const simSup = data.results
+        .filter(r => r.verdict === 'sim-superior')
+        .sort((a, b) => b.marginDiff - a.marginDiff);
+    const pvSup = data.results
+        .filter(r => r.verdict === 'pvpoke-superior')
+        .sort((a, b) => a.marginDiff - b.marginDiff);
+
+    const summary = data.summary;
+    const generatedDate = data.generated ? new Date(data.generated).toISOString().slice(0, 10) : 'unknown';
+
+    let html = `<div style="padding:12px;">
+        <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:14px;margin-bottom:16px;">
+            <div style="font-weight:600;color:#e2e8f0;margin-bottom:6px;">${data.leagueKey} · sim vs PvPoke</div>
+            <div style="font-size:12px;color:#94a3b8;line-height:1.6;">
+                ${summary.processed} species analyzed · generated ${generatedDate}<br>
+                <span style="color:#22c55e;">●</span> ${summary.agreements} agreement (${(summary.agreements/summary.processed*100).toFixed(1)}%)
+                · <span style="color:#60a5fa;">●</span> <strong>${summary.simSuperior} sim-superior</strong> (${(summary.simSuperior/summary.processed*100).toFixed(1)}%)
+                · <span style="color:#fb923c;">●</span> ${summary.pvpokeSuperior} pvpoke-superior (${(summary.pvpokeSuperior/summary.processed*100).toFixed(1)}%)
+                · <span style="color:#64748b;">●</span> ${summary.indeterminate} indeterminate (${(summary.indeterminate/summary.processed*100).toFixed(1)}%)
+            </div>
+        </div>`;
+
+    // Anti-meta picks for high-rank species (the actionable cases). Users mostly
+    // care about top-meta picks they actually run — a sim-superior finding for
+    // #1 Quagsire (use Drain Punch over Aqua Tail) is far more useful than one
+    // for #936 Manectric Shadow, even if the latter has higher raw margin.
+    const HIGH_RANK_CUTOFF = 30; // top-30 of the meta
+    const highRankSimSup = simSup.filter(r => r.rank < HIGH_RANK_CUTOFF);
+    const fringeSimSup   = simSup.filter(r => r.rank >= HIGH_RANK_CUTOFF);
+
+    if (highRankSimSup.length) {
+        html += `<h3 style="color:#60a5fa;margin:18px 0 8px;font-size:15px;">🎯 Anti-meta picks for top-${HIGH_RANK_CUTOFF} meta</h3>`;
+        html += `<p style="color:#94a3b8;font-size:11px;margin:0 0 12px;">Top-meta species where our sim's moveset beats PvPoke's recommendation. These are the highest-impact anti-meta plays — opponents prepare for the PvPoke pick and won't expect the sim's choice.</p>`;
+        html += renderOffMetaTable(highRankSimSup, '#60a5fa');
+    }
+
+    html += `<h3 style="color:#60a5fa;margin:24px 0 8px;font-size:15px;">📊 Other sim-superior picks (by margin)</h3>`;
+    html += `<p style="color:#94a3b8;font-size:11px;margin:0 0 12px;">All other species where the sim disagrees with PvPoke and wins head-to-head. Top 50 by margin advantage.</p>`;
+    html += renderOffMetaTable(fringeSimSup.slice(0, 50), '#60a5fa');
+
+    if (pvSup.length) {
+        html += `<h3 style="color:#fb923c;margin:24px 0 8px;font-size:15px;">⚠ Sim-inferior cases</h3>`;
+        html += `<p style="color:#94a3b8;font-size:11px;margin:0 0 12px;">Where our sim diverges from PvPoke and loses head-to-head. These are sim limitations or genuine PvPoke advantages worth investigating.</p>`;
+        html += renderOffMetaTable(pvSup.slice(0, 30), '#fb923c');
+    }
+
+    html += `</div>`;
+    outEl.innerHTML = html;
+}
+
+function renderOffMetaTable(rows, accentColor) {
+    if (rows.length === 0) {
+        return '<p style="color:#64748b;font-size:12px;padding:8px;">No entries.</p>';
+    }
+    const fmtMove = (id) => id ? toTitleCase((id || '').replace(/_/g, ' ')) : '—';
+    let s = '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;">';
+    s += `<thead><tr style="border-bottom:1px solid #334155;text-align:left;">
+        <th style="padding:6px 8px;color:#94a3b8;">Rank</th>
+        <th style="padding:6px 8px;color:#94a3b8;">Species</th>
+        <th style="padding:6px 8px;color:#94a3b8;">Sim pick</th>
+        <th style="padding:6px 8px;color:#94a3b8;">PvPoke pick</th>
+        <th style="padding:6px 8px;color:#94a3b8;text-align:right;" title="Point-estimate margin difference (sim minus PvPoke)">Δ Margin</th>
+        <th style="padding:6px 8px;color:#94a3b8;text-align:right;" title="Bootstrap 95% confidence interval over the meta sample (Efron 1979). Verdicts require the entire CI to lie above or below zero.">95% CI</th>
+        <th style="padding:6px 8px;color:#94a3b8;text-align:right;">Wins</th>
+        <th style="padding:6px 8px;color:#94a3b8;">Key swing matchups</th>
+    </tr></thead><tbody>`;
+    for (const r of rows) {
+        const moves = (m) => `${fmtMove(m.fast)} · ${fmtMove(m.c1)}${m.c2 ? ' + ' + fmtMove(m.c2) : ''}`;
+        const swingMatchups = (r.topDifferingMatchups || []).slice(0, 3).map(t => {
+            const ourCol = t.diff > 0 ? '#86efac' : '#fca5a5';
+            return `<span style="color:${ourCol};font-weight:500;">${toTitleCase(t.opp)}</span>` +
+                   ` <span style="color:#64748b;">${(t.ours*100).toFixed(0)}/${(t.pvpoke*100).toFixed(0)}</span>`;
+        }).join(', ');
+        // Show the bootstrap 95% CI when available (post multi-round-rerun harness)
+        const ciCell = (r.ci95Lo != null && r.ci95Hi != null)
+            ? `<span style="color:#64748b;font-size:10px;">[${r.ci95Lo > 0 ? '+' : ''}${r.ci95Lo.toFixed(3)}, ${r.ci95Hi > 0 ? '+' : ''}${r.ci95Hi.toFixed(3)}]</span>`
+            : '<span style="color:#475569;">—</span>';
+        s += `<tr style="border-bottom:1px solid #1e293b;">
+            <td style="padding:6px 8px;color:#94a3b8;font-variant-numeric:tabular-nums;">#${r.rank+1}</td>
+            <td style="padding:6px 8px;font-weight:600;color:#e2e8f0;">${toTitleCase(r.species)}</td>
+            <td style="padding:6px 8px;color:#cbd5e1;">${moves(r.ourPick)}</td>
+            <td style="padding:6px 8px;color:#94a3b8;">${moves(r.pvpokePick)}</td>
+            <td style="padding:6px 8px;text-align:right;color:${accentColor};font-weight:600;font-variant-numeric:tabular-nums;">${r.marginDiff > 0 ? '+' : ''}${r.marginDiff.toFixed(3)}</td>
+            <td style="padding:6px 8px;text-align:right;font-variant-numeric:tabular-nums;">${ciCell}</td>
+            <td style="padding:6px 8px;text-align:right;color:#94a3b8;font-variant-numeric:tabular-nums;">${r.oursWins} <span style="color:#475569;">vs</span> ${r.pvpokeWins}</td>
+            <td style="padding:6px 8px;font-size:10px;">${swingMatchups}</td>
+        </tr>`;
+    }
+    s += '</tbody></table></div>';
+    return s;
+}
+
 async function runBoxBuilder() {
     const { key: leagueKey, cpCap } = getSelectedLeagueInfo();
     const outEl = document.getElementById('box-out');

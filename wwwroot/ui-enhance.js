@@ -60,9 +60,10 @@
 
     // ── Tabs ─────────────────────────────────────────────────────────────
     const TAB_MAP = {
-        'out':      'tab-analyze',
-        'meta-out': 'tab-meta',
-        'box-out':  'tab-box',
+        'out':         'tab-analyze',
+        'meta-out':    'tab-meta',
+        'box-out':     'tab-box',
+        'offmeta-out': 'tab-offmeta',
     };
 
     function activateTab(tabId) {
@@ -76,6 +77,17 @@
             const shouldShow = p.getAttribute('aria-labelledby') === tabId;
             p.hidden = !shouldShow;
         });
+        // Lazy-load: when user activates the off-meta tab, kick off the load
+        // if the panel hasn't been populated yet. Skips re-render on tab
+        // re-activation if already populated for the current league.
+        if (tabId === 'tab-offmeta' && typeof runOffMetaPicks === 'function') {
+            const out = document.getElementById('offmeta-out');
+            const leagueKey = (typeof getSelectedLeagueInfo === 'function' ? getSelectedLeagueInfo().key : '');
+            if (out && (out.dataset.loadedLeague !== leagueKey)) {
+                out.dataset.loadedLeague = leagueKey;
+                runOffMetaPicks();
+            }
+        }
     }
 
     function hideEmptyStateIfPopulated(outputId) {

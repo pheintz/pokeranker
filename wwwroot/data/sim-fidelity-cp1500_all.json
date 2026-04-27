@@ -1,0 +1,8719 @@
+{
+  "leagueKey": "cp1500_all",
+  "cpCap": 1500,
+  "generated": "2026-04-27T04:00:10.183Z",
+  "summary": {
+    "total": 300,
+    "matches": 215,
+    "close": 49,
+    "diverge": 36,
+    "meanAbsDiff": 44,
+    "meanSignedDiff": 5,
+    "outcomeAgreement": 268,
+    "outcomeAgreementPct": 89.3
+  },
+  "matchTolerance": 50,
+  "closeTolerance": 100,
+  "compares": [
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 237,
+      "ourBrAvg": 584,
+      "ourBrBest": 581,
+      "avgDiff": 347,
+      "bestDiff": 344,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 585,
+          "diff": 348
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 581,
+          "diff": 344
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 585,
+          "diff": 348
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "medicham",
+      "kind": "win",
+      "pvpokeRating": 762,
+      "ourBrAvg": 416,
+      "ourBrBest": 419,
+      "avgDiff": -346,
+      "bestDiff": -343,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 415,
+          "diff": -347
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 419,
+          "diff": -343
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 415,
+          "diff": -347
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 282,
+      "ourBrAvg": 655,
+      "ourBrBest": 613,
+      "avgDiff": 373,
+      "bestDiff": 331,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 706,
+          "diff": 424
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 645,
+          "diff": 363
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 613,
+          "diff": 331
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 847,
+      "ourBrAvg": 570,
+      "ourBrBest": 585,
+      "avgDiff": -277,
+      "bestDiff": -262,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 585,
+          "diff": -262
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 574,
+          "diff": -273
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 550,
+          "diff": -297
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "annihilape",
+      "kind": "win",
+      "pvpokeRating": 694,
+      "ourBrAvg": 335,
+      "ourBrBest": 450,
+      "avgDiff": -359,
+      "bestDiff": -244,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 245,
+          "diff": -449
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 450,
+          "diff": -244
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 309,
+          "diff": -385
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "medicham",
+      "kind": "win",
+      "pvpokeRating": 553,
+      "ourBrAvg": 246,
+      "ourBrBest": 327,
+      "avgDiff": -307,
+      "bestDiff": -226,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 327,
+          "diff": -226
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 254,
+          "diff": -299
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 158,
+          "diff": -395
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 297,
+      "ourBrAvg": 539,
+      "ourBrBest": 505,
+      "avgDiff": 242,
+      "bestDiff": 208,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 577,
+          "diff": 280
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 536,
+          "diff": 239
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 505,
+          "diff": 208
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "medicham",
+      "kind": "win",
+      "pvpokeRating": 680,
+      "ourBrAvg": 409,
+      "ourBrBest": 486,
+      "avgDiff": -271,
+      "bestDiff": -194,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 486,
+          "diff": -194
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 370,
+          "diff": -310
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 370,
+          "diff": -310
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 394,
+      "ourBrAvg": 696,
+      "ourBrBest": 574,
+      "avgDiff": 302,
+      "bestDiff": 180,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 574,
+          "diff": 180
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 663,
+          "diff": 269
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 851,
+          "diff": 457
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 185,
+      "ourBrAvg": 414,
+      "ourBrBest": 364,
+      "avgDiff": 229,
+      "bestDiff": 179,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 364,
+          "diff": 179
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 430,
+          "diff": 245
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 449,
+          "diff": 264
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 362,
+      "ourBrAvg": 735,
+      "ourBrBest": 536,
+      "avgDiff": 373,
+      "bestDiff": 174,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 536,
+          "diff": 174
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 836,
+          "diff": 474
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 832,
+          "diff": 470
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 649,
+      "ourBrAvg": 396,
+      "ourBrBest": 480,
+      "avgDiff": -253,
+      "bestDiff": -169,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 312,
+          "diff": -337
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 396,
+          "diff": -253
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 480,
+          "diff": -169
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 192,
+      "ourBrAvg": 395,
+      "ourBrBest": 356,
+      "avgDiff": 203,
+      "bestDiff": 164,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 444,
+          "diff": 252
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 356,
+          "diff": 164
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 384,
+          "diff": 192
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 633,
+      "ourBrAvg": 418,
+      "ourBrBest": 475,
+      "avgDiff": -215,
+      "bestDiff": -158,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 335,
+          "diff": -298
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 443,
+          "diff": -190
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 475,
+          "diff": -158
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 380,
+      "ourBrAvg": 583,
+      "ourBrBest": 526,
+      "avgDiff": 203,
+      "bestDiff": 146,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 638,
+          "diff": 258
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 585,
+          "diff": 205
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 526,
+          "diff": 146
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "guzzlord",
+      "kind": "win",
+      "pvpokeRating": 657,
+      "ourBrAvg": 554,
+      "ourBrBest": 511,
+      "avgDiff": -103,
+      "bestDiff": -146,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 887,
+          "diff": 230
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 511,
+          "diff": -146
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 263,
+          "diff": -394
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 111,
+      "ourBrAvg": 375,
+      "ourBrBest": 254,
+      "avgDiff": 264,
+      "bestDiff": 143,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 306,
+          "diff": 195
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 565,
+          "diff": 454
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 254,
+          "diff": 143
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "corsola_galarian",
+      "kind": "win",
+      "pvpokeRating": 533,
+      "ourBrAvg": 741,
+      "ourBrBest": 676,
+      "avgDiff": 208,
+      "bestDiff": 143,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 676,
+          "diff": 143
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 807,
+          "diff": 274
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 739,
+          "diff": 206
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 661,
+      "ourBrAvg": 489,
+      "ourBrBest": 521,
+      "avgDiff": -172,
+      "bestDiff": -140,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 521,
+          "diff": -140
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 521,
+          "diff": -140
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 424,
+          "diff": -237
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 418,
+      "ourBrAvg": 690,
+      "ourBrBest": 552,
+      "avgDiff": 272,
+      "bestDiff": 134,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 552,
+          "diff": 134
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 703,
+          "diff": 285
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 816,
+          "diff": 398
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 334,
+      "ourBrAvg": 539,
+      "ourBrBest": 465,
+      "avgDiff": 205,
+      "bestDiff": 131,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 465,
+          "diff": 131
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 489,
+          "diff": 155
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 664,
+          "diff": 330
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 222,
+      "ourBrAvg": 366,
+      "ourBrBest": 352,
+      "avgDiff": 144,
+      "bestDiff": 130,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 352,
+          "diff": 130
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 352,
+          "diff": 130
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 393,
+          "diff": 171
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "medicham",
+      "kind": "win",
+      "pvpokeRating": 585,
+      "ourBrAvg": 612,
+      "ourBrBest": 713,
+      "avgDiff": 27,
+      "bestDiff": 128,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 772,
+          "diff": 187
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 713,
+          "diff": 128
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 352,
+          "diff": -233
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 381,
+      "ourBrAvg": 663,
+      "ourBrBest": 507,
+      "avgDiff": 282,
+      "bestDiff": 126,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 507,
+          "diff": 126
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 741,
+          "diff": 360
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 741,
+          "diff": 360
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "medicham",
+      "kind": "loss",
+      "pvpokeRating": 471,
+      "ourBrAvg": 296,
+      "ourBrBest": 345,
+      "avgDiff": -175,
+      "bestDiff": -126,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 236,
+          "diff": -235
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 345,
+          "diff": -126
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 306,
+          "diff": -165
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 343,
+      "ourBrAvg": 459,
+      "ourBrBest": 220,
+      "avgDiff": 116,
+      "bestDiff": -123,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 636,
+          "diff": 293
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 220,
+          "diff": -123
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 520,
+          "diff": 177
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 594,
+      "ourBrAvg": 695,
+      "ourBrBest": 473,
+      "avgDiff": 101,
+      "bestDiff": -121,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 473,
+          "diff": -121
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 725,
+          "diff": 131
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 888,
+          "diff": 294
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "corsola_galarian",
+      "kind": "win",
+      "pvpokeRating": 509,
+      "ourBrAvg": 345,
+      "ourBrBest": 391,
+      "avgDiff": -164,
+      "bestDiff": -118,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 352,
+          "diff": -157
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 391,
+          "diff": -118
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 292,
+          "diff": -217
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 631,
+      "ourBrAvg": 443,
+      "ourBrBest": 515,
+      "avgDiff": -188,
+      "bestDiff": -116,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 515,
+          "diff": -116
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 457,
+          "diff": -174
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 358,
+          "diff": -273
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "corsola_galarian",
+      "kind": "win",
+      "pvpokeRating": 535,
+      "ourBrAvg": 366,
+      "ourBrBest": 647,
+      "avgDiff": -169,
+      "bestDiff": 112,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 647,
+          "diff": 112
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 338,
+          "diff": -197
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 113,
+          "diff": -422
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "forretress",
+      "kind": "win",
+      "pvpokeRating": 815,
+      "ourBrAvg": 717,
+      "ourBrBest": 926,
+      "avgDiff": -98,
+      "bestDiff": 111,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 926,
+          "diff": 111
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 652,
+          "diff": -163
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 574,
+          "diff": -241
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 464,
+      "ourBrAvg": 639,
+      "ourBrBest": 353,
+      "avgDiff": 175,
+      "bestDiff": -111,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 353,
+          "diff": -111
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 669,
+          "diff": 205
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 894,
+          "diff": 430
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 358,
+      "ourBrAvg": 609,
+      "ourBrBest": 468,
+      "avgDiff": 251,
+      "bestDiff": 110,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 468,
+          "diff": 110
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 591,
+          "diff": 233
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 768,
+          "diff": 410
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "lickilicky",
+      "kind": "loss",
+      "pvpokeRating": 409,
+      "ourBrAvg": 538,
+      "ourBrBest": 515,
+      "avgDiff": 129,
+      "bestDiff": 106,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 530,
+          "diff": 121
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 515,
+          "diff": 106
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 568,
+          "diff": 159
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 550,
+      "ourBrAvg": 735,
+      "ourBrBest": 655,
+      "avgDiff": 185,
+      "bestDiff": 105,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 655,
+          "diff": 105
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 659,
+          "diff": 109
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 891,
+          "diff": 341
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 659,
+      "ourBrAvg": 415,
+      "ourBrBest": 557,
+      "avgDiff": -244,
+      "bestDiff": -102,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 557,
+          "diff": -102
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 517,
+          "diff": -142
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 172,
+          "diff": -487
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 490,
+      "ourBrAvg": 686,
+      "ourBrBest": 588,
+      "avgDiff": 196,
+      "bestDiff": 98,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 658,
+          "diff": 168
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 813,
+          "diff": 323
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 588,
+          "diff": 98
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 787,
+      "ourBrAvg": 576,
+      "ourBrBest": 885,
+      "avgDiff": -211,
+      "bestDiff": 98,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 885,
+          "diff": 98
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 651,
+          "diff": -136
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 191,
+          "diff": -596
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "florges",
+      "kind": "loss",
+      "pvpokeRating": 459,
+      "ourBrAvg": 610,
+      "ourBrBest": 556,
+      "avgDiff": 151,
+      "bestDiff": 97,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 556,
+          "diff": 97
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 655,
+          "diff": 196
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 618,
+          "diff": 159
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 397,
+      "ourBrAvg": 272,
+      "ourBrBest": 303,
+      "avgDiff": -125,
+      "bestDiff": -94,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 233,
+          "diff": -164
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 279,
+          "diff": -118
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 303,
+          "diff": -94
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "annihilape",
+      "kind": "win",
+      "pvpokeRating": 626,
+      "ourBrAvg": 655,
+      "ourBrBest": 716,
+      "avgDiff": 29,
+      "bestDiff": 90,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 826,
+          "diff": 200
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 716,
+          "diff": 90
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 422,
+          "diff": -204
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 373,
+      "ourBrAvg": 345,
+      "ourBrBest": 284,
+      "avgDiff": -28,
+      "bestDiff": -89,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 174,
+          "diff": -199
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 284,
+          "diff": -89
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 578,
+          "diff": 205
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 445,
+      "ourBrAvg": 353,
+      "ourBrBest": 533,
+      "avgDiff": -92,
+      "bestDiff": 88,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 533,
+          "diff": 88
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 319,
+          "diff": -126
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 206,
+          "diff": -239
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 336,
+      "ourBrAvg": 491,
+      "ourBrBest": 248,
+      "avgDiff": 155,
+      "bestDiff": -88,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 523,
+          "diff": 187
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 703,
+          "diff": 367
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 248,
+          "diff": -88
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 508,
+      "ourBrAvg": 578,
+      "ourBrBest": 594,
+      "avgDiff": 70,
+      "bestDiff": 86,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 418,
+          "diff": -90
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 594,
+          "diff": 86
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 721,
+          "diff": 213
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 491,
+      "ourBrAvg": 422,
+      "ourBrBest": 406,
+      "avgDiff": -69,
+      "bestDiff": -85,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 582,
+          "diff": 91
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 406,
+          "diff": -85
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 279,
+          "diff": -212
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 416,
+      "ourBrAvg": 488,
+      "ourBrBest": 333,
+      "avgDiff": 72,
+      "bestDiff": -83,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 603,
+          "diff": 187
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 527,
+          "diff": 111
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 333,
+          "diff": -83
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 518,
+      "ourBrAvg": 413,
+      "ourBrBest": 600,
+      "avgDiff": -105,
+      "bestDiff": 82,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 600,
+          "diff": 82
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 353,
+          "diff": -165
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 286,
+          "diff": -232
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 578,
+      "ourBrAvg": 437,
+      "ourBrBest": 497,
+      "avgDiff": -141,
+      "bestDiff": -81,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 497,
+          "diff": -81
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 390,
+          "diff": -188
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 423,
+          "diff": -155
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 512,
+      "ourBrAvg": 387,
+      "ourBrBest": 433,
+      "avgDiff": -125,
+      "bestDiff": -79,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 433,
+          "diff": -79
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 319,
+          "diff": -193
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 408,
+          "diff": -104
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 687,
+      "ourBrAvg": 572,
+      "ourBrBest": 610,
+      "avgDiff": -115,
+      "bestDiff": -77,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 591,
+          "diff": -96
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 515,
+          "diff": -172
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 610,
+          "diff": -77
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "florges",
+      "kind": "win",
+      "pvpokeRating": 608,
+      "ourBrAvg": 720,
+      "ourBrBest": 685,
+      "avgDiff": 112,
+      "bestDiff": 77,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 711,
+          "diff": 103
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 685,
+          "diff": 77
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 763,
+          "diff": 155
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 766,
+      "ourBrAvg": 689,
+      "ourBrBest": 840,
+      "avgDiff": -77,
+      "bestDiff": 74,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 840,
+          "diff": 74
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 680,
+          "diff": -86
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 548,
+          "diff": -218
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 421,
+      "ourBrAvg": 525,
+      "ourBrBest": 495,
+      "avgDiff": 104,
+      "bestDiff": 74,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 503,
+          "diff": 82
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 495,
+          "diff": 74
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 577,
+          "diff": 156
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 605,
+      "ourBrAvg": 339,
+      "ourBrBest": 532,
+      "avgDiff": -266,
+      "bestDiff": -73,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 532,
+          "diff": -73
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 337,
+          "diff": -268
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 149,
+          "diff": -456
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 559,
+      "ourBrAvg": 467,
+      "ourBrBest": 486,
+      "avgDiff": -92,
+      "bestDiff": -73,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 451,
+          "diff": -108
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 486,
+          "diff": -73
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 465,
+          "diff": -94
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 835,
+      "ourBrAvg": 644,
+      "ourBrBest": 762,
+      "avgDiff": -191,
+      "bestDiff": -73,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 610,
+          "diff": -225
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 560,
+          "diff": -275
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 762,
+          "diff": -73
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 173,
+      "ourBrAvg": 238,
+      "ourBrBest": 245,
+      "avgDiff": 65,
+      "bestDiff": 72,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 84,
+          "diff": -89
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 245,
+          "diff": 72
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 385,
+          "diff": 212
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 204,
+      "ourBrAvg": 368,
+      "ourBrBest": 276,
+      "avgDiff": 164,
+      "bestDiff": 72,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 276,
+          "diff": 72
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 332,
+          "diff": 128
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 496,
+          "diff": 292
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 795,
+      "ourBrAvg": 587,
+      "ourBrBest": 724,
+      "avgDiff": -208,
+      "bestDiff": -71,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 724,
+          "diff": -71
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 532,
+          "diff": -263
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 504,
+          "diff": -291
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "medicham",
+      "kind": "loss",
+      "pvpokeRating": 460,
+      "ourBrAvg": 593,
+      "ourBrBest": 530,
+      "avgDiff": 133,
+      "bestDiff": 70,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 553,
+          "diff": 93
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 530,
+          "diff": 70
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 697,
+          "diff": 237
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 377,
+      "ourBrAvg": 313,
+      "ourBrBest": 308,
+      "avgDiff": -64,
+      "bestDiff": -69,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 478,
+          "diff": 101
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 308,
+          "diff": -69
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 153,
+          "diff": -224
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 252,
+      "ourBrAvg": 282,
+      "ourBrBest": 321,
+      "avgDiff": 30,
+      "bestDiff": 69,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 354,
+          "diff": 102
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 321,
+          "diff": 69
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 172,
+          "diff": -80
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 226,
+      "ourBrAvg": 332,
+      "ourBrBest": 295,
+      "avgDiff": 106,
+      "bestDiff": 69,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 295,
+          "diff": 69
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 295,
+          "diff": 69
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 406,
+          "diff": 180
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 412,
+      "ourBrAvg": 554,
+      "ourBrBest": 480,
+      "avgDiff": 142,
+      "bestDiff": 68,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 556,
+          "diff": 144
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 480,
+          "diff": 68
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 627,
+          "diff": 215
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "florges",
+      "kind": "win",
+      "pvpokeRating": 546,
+      "ourBrAvg": 768,
+      "ourBrBest": 613,
+      "avgDiff": 222,
+      "bestDiff": 67,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 613,
+          "diff": 67
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 845,
+          "diff": 299
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 845,
+          "diff": 299
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 487,
+      "ourBrAvg": 576,
+      "ourBrBest": 553,
+      "avgDiff": 89,
+      "bestDiff": 66,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 582,
+          "diff": 95
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 553,
+          "diff": 66
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 592,
+          "diff": 105
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 464,
+      "ourBrAvg": 321,
+      "ourBrBest": 399,
+      "avgDiff": -143,
+      "bestDiff": -65,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 348,
+          "diff": -116
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 399,
+          "diff": -65
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 215,
+          "diff": -249
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 676,
+      "ourBrAvg": 588,
+      "ourBrBest": 740,
+      "avgDiff": -88,
+      "bestDiff": 64,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 740,
+          "diff": 64
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 544,
+          "diff": -132
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 479,
+          "diff": -197
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 330,
+      "ourBrAvg": 366,
+      "ourBrBest": 394,
+      "avgDiff": 36,
+      "bestDiff": 64,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 472,
+          "diff": 142
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 394,
+          "diff": 64
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 232,
+          "diff": -98
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 282,
+      "ourBrAvg": 380,
+      "ourBrBest": 346,
+      "avgDiff": 98,
+      "bestDiff": 64,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 400,
+          "diff": 118
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 395,
+          "diff": 113
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 346,
+          "diff": 64
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 630,
+      "ourBrAvg": 539,
+      "ourBrBest": 567,
+      "avgDiff": -91,
+      "bestDiff": -63,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 546,
+          "diff": -84
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 504,
+          "diff": -126
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 567,
+          "diff": -63
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 536,
+      "ourBrAvg": 519,
+      "ourBrBest": 475,
+      "avgDiff": -17,
+      "bestDiff": -61,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 610,
+          "diff": 74
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 475,
+          "diff": -61
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 471,
+          "diff": -65
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 535,
+      "ourBrAvg": 396,
+      "ourBrBest": 474,
+      "avgDiff": -139,
+      "bestDiff": -61,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 474,
+          "diff": -61
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 329,
+          "diff": -206
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 385,
+          "diff": -150
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 384,
+      "ourBrAvg": 542,
+      "ourBrBest": 444,
+      "avgDiff": 158,
+      "bestDiff": 60,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 444,
+          "diff": 60
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 506,
+          "diff": 122
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 676,
+          "diff": 292
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "florges",
+      "kind": "win",
+      "pvpokeRating": 872,
+      "ourBrAvg": 761,
+      "ourBrBest": 812,
+      "avgDiff": -111,
+      "bestDiff": -60,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 760,
+          "diff": -112
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 712,
+          "diff": -160
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 812,
+          "diff": -60
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 366,
+      "ourBrAvg": 348,
+      "ourBrBest": 425,
+      "avgDiff": -18,
+      "bestDiff": 59,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 425,
+          "diff": 59
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 465,
+          "diff": 99
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 153,
+          "diff": -213
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 615,
+      "ourBrAvg": 465,
+      "ourBrBest": 556,
+      "avgDiff": -150,
+      "bestDiff": -59,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 556,
+          "diff": -59
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 494,
+          "diff": -121
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 345,
+          "diff": -270
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 403,
+      "ourBrAvg": 427,
+      "ourBrBest": 462,
+      "avgDiff": 24,
+      "bestDiff": 59,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 329,
+          "diff": -74
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 462,
+          "diff": 59
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 491,
+          "diff": 88
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 600,
+      "ourBrAvg": 406,
+      "ourBrBest": 542,
+      "avgDiff": -194,
+      "bestDiff": -58,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 542,
+          "diff": -58
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 436,
+          "diff": -164
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 241,
+          "diff": -359
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "drapion_shadow",
+      "kind": "loss",
+      "pvpokeRating": 377,
+      "ourBrAvg": 343,
+      "ourBrBest": 433,
+      "avgDiff": -34,
+      "bestDiff": 56,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 433,
+          "diff": 56
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 298,
+          "diff": -79
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 298,
+          "diff": -79
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 622,
+      "ourBrAvg": 685,
+      "ourBrBest": 567,
+      "avgDiff": 63,
+      "bestDiff": -55,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 567,
+          "diff": -55
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 744,
+          "diff": 122
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 744,
+          "diff": 122
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 367,
+      "ourBrAvg": 323,
+      "ourBrBest": 313,
+      "avgDiff": -44,
+      "bestDiff": -54,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 519,
+          "diff": 152
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 313,
+          "diff": -54
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 138,
+          "diff": -229
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 578,
+      "ourBrAvg": 513,
+      "ourBrBest": 632,
+      "avgDiff": -65,
+      "bestDiff": 54,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 424,
+          "diff": -154
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 482,
+          "diff": -96
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 632,
+          "diff": 54
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 699,
+      "ourBrAvg": 582,
+      "ourBrBest": 750,
+      "avgDiff": -117,
+      "bestDiff": 51,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 750,
+          "diff": 51
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 522,
+          "diff": -177
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 475,
+          "diff": -224
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 300,
+      "ourBrAvg": 418,
+      "ourBrBest": 250,
+      "avgDiff": 118,
+      "bestDiff": -50,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 250,
+          "diff": -50
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 478,
+          "diff": 178
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 525,
+          "diff": 225
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 622,
+      "ourBrAvg": 719,
+      "ourBrBest": 672,
+      "avgDiff": 97,
+      "bestDiff": 50,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 672,
+          "diff": 50
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 700,
+          "diff": 78
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 784,
+          "diff": 162
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 503,
+      "ourBrAvg": 525,
+      "ourBrBest": 552,
+      "avgDiff": 22,
+      "bestDiff": 49,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 552,
+          "diff": 49
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 641,
+          "diff": 138
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 382,
+          "diff": -121
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 363,
+      "ourBrAvg": 523,
+      "ourBrBest": 412,
+      "avgDiff": 160,
+      "bestDiff": 49,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 465,
+          "diff": 102
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 412,
+          "diff": 49
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 692,
+          "diff": 329
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 625,
+      "ourBrAvg": 585,
+      "ourBrBest": 674,
+      "avgDiff": -40,
+      "bestDiff": 49,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 674,
+          "diff": 49
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 688,
+          "diff": 63
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 393,
+          "diff": -232
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 546,
+      "ourBrAvg": 677,
+      "ourBrBest": 595,
+      "avgDiff": 131,
+      "bestDiff": 49,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 595,
+          "diff": 49
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 677,
+          "diff": 131
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 759,
+          "diff": 213
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 400,
+      "ourBrAvg": 484,
+      "ourBrBest": 352,
+      "avgDiff": 84,
+      "bestDiff": -48,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 352,
+          "diff": -48
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 579,
+          "diff": 179
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 521,
+          "diff": 121
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 353,
+      "ourBrAvg": 378,
+      "ourBrBest": 401,
+      "avgDiff": 25,
+      "bestDiff": 48,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 441,
+          "diff": 88
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 401,
+          "diff": 48
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 293,
+          "diff": -60
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 646,
+      "ourBrAvg": 590,
+      "ourBrBest": 694,
+      "avgDiff": -56,
+      "bestDiff": 48,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 694,
+          "diff": 48
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 543,
+          "diff": -103
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 533,
+          "diff": -113
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 512,
+      "ourBrAvg": 652,
+      "ourBrBest": 560,
+      "avgDiff": 140,
+      "bestDiff": 48,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 563,
+          "diff": 51
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 560,
+          "diff": 48
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 833,
+          "diff": 321
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 335,
+      "ourBrAvg": 519,
+      "ourBrBest": 383,
+      "avgDiff": 184,
+      "bestDiff": 48,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 452,
+          "diff": 117
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 383,
+          "diff": 48
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 721,
+          "diff": 386
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 353,
+      "ourBrAvg": 410,
+      "ourBrBest": 306,
+      "avgDiff": 57,
+      "bestDiff": -47,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 306,
+          "diff": -47
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 457,
+          "diff": 104
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 467,
+          "diff": 114
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 570,
+      "ourBrAvg": 609,
+      "ourBrBest": 617,
+      "avgDiff": 39,
+      "bestDiff": 47,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 446,
+          "diff": -124
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 617,
+          "diff": 47
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 765,
+          "diff": 195
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 584,
+      "ourBrAvg": 612,
+      "ourBrBest": 631,
+      "avgDiff": 28,
+      "bestDiff": 47,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 631,
+          "diff": 47
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 690,
+          "diff": 106
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 516,
+          "diff": -68
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 420,
+      "ourBrAvg": 350,
+      "ourBrBest": 467,
+      "avgDiff": -70,
+      "bestDiff": 47,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 467,
+          "diff": 47
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 280,
+          "diff": -140
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 303,
+          "diff": -117
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 610,
+      "ourBrAvg": 569,
+      "ourBrBest": 564,
+      "avgDiff": -41,
+      "bestDiff": -46,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 698,
+          "diff": 88
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 444,
+          "diff": -166
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 564,
+          "diff": -46
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 666,
+      "ourBrAvg": 715,
+      "ourBrBest": 621,
+      "avgDiff": 49,
+      "bestDiff": -45,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 723,
+          "diff": 57
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 801,
+          "diff": 135
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 621,
+          "diff": -45
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 492,
+      "ourBrAvg": 342,
+      "ourBrBest": 447,
+      "avgDiff": -150,
+      "bestDiff": -45,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 447,
+          "diff": -45
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 342,
+          "diff": -150
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 236,
+          "diff": -256
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 356,
+      "ourBrAvg": 471,
+      "ourBrBest": 401,
+      "avgDiff": 115,
+      "bestDiff": 45,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 296,
+          "diff": -60
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 401,
+          "diff": 45
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 716,
+          "diff": 360
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 443,
+      "ourBrAvg": 563,
+      "ourBrBest": 487,
+      "avgDiff": 120,
+      "bestDiff": 44,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 487,
+          "diff": 44
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 625,
+          "diff": 182
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 576,
+          "diff": 133
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 330,
+      "ourBrAvg": 416,
+      "ourBrBest": 373,
+      "avgDiff": 86,
+      "bestDiff": 43,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 415,
+          "diff": 85
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 461,
+          "diff": 131
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 373,
+          "diff": 43
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 609,
+      "ourBrAvg": 593,
+      "ourBrBest": 567,
+      "avgDiff": -16,
+      "bestDiff": -42,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 690,
+          "diff": 81
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 567,
+          "diff": -42
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 521,
+          "diff": -88
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 564,
+      "ourBrAvg": 603,
+      "ourBrBest": 523,
+      "avgDiff": 39,
+      "bestDiff": -41,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 673,
+          "diff": 109
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 614,
+          "diff": 50
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 523,
+          "diff": -41
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 652,
+      "ourBrAvg": 688,
+      "ourBrBest": 691,
+      "avgDiff": 36,
+      "bestDiff": 39,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 506,
+          "diff": -146
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 691,
+          "diff": 39
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 867,
+          "diff": 215
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "forretress",
+      "kind": "loss",
+      "pvpokeRating": 347,
+      "ourBrAvg": 370,
+      "ourBrBest": 386,
+      "avgDiff": 23,
+      "bestDiff": 39,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 235,
+          "diff": -112
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 386,
+          "diff": 39
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 489,
+          "diff": 142
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 381,
+      "ourBrAvg": 397,
+      "ourBrBest": 420,
+      "avgDiff": 16,
+      "bestDiff": 39,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 488,
+          "diff": 107
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 284,
+          "diff": -97
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 420,
+          "diff": 39
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 618,
+      "ourBrAvg": 608,
+      "ourBrBest": 580,
+      "avgDiff": -10,
+      "bestDiff": -38,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 528,
+          "diff": -90
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 716,
+          "diff": 98
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 580,
+          "diff": -38
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 667,
+      "ourBrAvg": 686,
+      "ourBrBest": 705,
+      "avgDiff": 19,
+      "bestDiff": 38,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 617,
+          "diff": -50
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 705,
+          "diff": 38
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 735,
+          "diff": 68
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 405,
+      "ourBrAvg": 339,
+      "ourBrBest": 368,
+      "avgDiff": -66,
+      "bestDiff": -37,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 527,
+          "diff": 122
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 368,
+          "diff": -37
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 121,
+          "diff": -284
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 622,
+      "ourBrAvg": 608,
+      "ourBrBest": 585,
+      "avgDiff": -14,
+      "bestDiff": -37,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 535,
+          "diff": -87
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 585,
+          "diff": -37
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 704,
+          "diff": 82
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 486,
+      "ourBrAvg": 504,
+      "ourBrBest": 523,
+      "avgDiff": 18,
+      "bestDiff": 37,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 426,
+          "diff": -60
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 564,
+          "diff": 78
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 523,
+          "diff": 37
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 356,
+      "ourBrAvg": 281,
+      "ourBrBest": 320,
+      "avgDiff": -75,
+      "bestDiff": -36,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 240,
+          "diff": -116
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 284,
+          "diff": -72
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 320,
+          "diff": -36
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 526,
+      "ourBrAvg": 570,
+      "ourBrBest": 490,
+      "avgDiff": 44,
+      "bestDiff": -36,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 569,
+          "diff": 43
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 490,
+          "diff": -36
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 650,
+          "diff": 124
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 413,
+      "ourBrAvg": 525,
+      "ourBrBest": 448,
+      "avgDiff": 112,
+      "bestDiff": 35,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 616,
+          "diff": 203
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 512,
+          "diff": 99
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 448,
+          "diff": 35
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 294,
+      "ourBrAvg": 404,
+      "ourBrBest": 329,
+      "avgDiff": 110,
+      "bestDiff": 35,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 437,
+          "diff": 143
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 446,
+          "diff": 152
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 329,
+          "diff": 35
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 530,
+      "ourBrAvg": 500,
+      "ourBrBest": 495,
+      "avgDiff": -30,
+      "bestDiff": -35,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 495,
+          "diff": -35
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 638,
+          "diff": 108
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 367,
+          "diff": -163
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "florges",
+      "kind": "win",
+      "pvpokeRating": 605,
+      "ourBrAvg": 507,
+      "ourBrBest": 639,
+      "avgDiff": -98,
+      "bestDiff": 34,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 405,
+          "diff": -200
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 477,
+          "diff": -128
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 639,
+          "diff": 34
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 384,
+      "ourBrAvg": 281,
+      "ourBrBest": 418,
+      "avgDiff": -103,
+      "bestDiff": 34,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 418,
+          "diff": 34
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 281,
+          "diff": -103
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 143,
+          "diff": -241
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 270,
+      "ourBrAvg": 369,
+      "ourBrBest": 304,
+      "avgDiff": 99,
+      "bestDiff": 34,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 392,
+          "diff": 122
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 412,
+          "diff": 142
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 304,
+          "diff": 34
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 542,
+      "ourBrAvg": 445,
+      "ourBrBest": 508,
+      "avgDiff": -97,
+      "bestDiff": -34,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 369,
+          "diff": -173
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 457,
+          "diff": -85
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 508,
+          "diff": -34
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 528,
+      "ourBrAvg": 593,
+      "ourBrBest": 561,
+      "avgDiff": 65,
+      "bestDiff": 33,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 564,
+          "diff": 36
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 561,
+          "diff": 33
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 653,
+          "diff": 125
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 163,
+      "ourBrAvg": 213,
+      "ourBrBest": 130,
+      "avgDiff": 50,
+      "bestDiff": -33,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 313,
+          "diff": 150
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 130,
+          "diff": -33
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 196,
+          "diff": 33
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 363,
+      "ourBrAvg": 404,
+      "ourBrBest": 395,
+      "avgDiff": 41,
+      "bestDiff": 32,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 580,
+          "diff": 217
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 237,
+          "diff": -126
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 395,
+          "diff": 32
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 83,
+      "ourBrAvg": 268,
+      "ourBrBest": 115,
+      "avgDiff": 185,
+      "bestDiff": 32,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 336,
+          "diff": 253
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 352,
+          "diff": 269
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 115,
+          "diff": 32
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "medicham",
+      "kind": "win",
+      "pvpokeRating": 507,
+      "ourBrAvg": 622,
+      "ourBrBest": 538,
+      "avgDiff": 115,
+      "bestDiff": 31,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 538,
+          "diff": 31
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 633,
+          "diff": 126
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 696,
+          "diff": 189
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 446,
+      "ourBrAvg": 530,
+      "ourBrBest": 415,
+      "avgDiff": 84,
+      "bestDiff": -31,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 563,
+          "diff": 117
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 415,
+          "diff": -31
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 611,
+          "diff": 165
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 308,
+      "ourBrAvg": 435,
+      "ourBrBest": 339,
+      "avgDiff": 127,
+      "bestDiff": 31,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 238,
+          "diff": -70
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 339,
+          "diff": 31
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 727,
+          "diff": 419
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 286,
+      "ourBrAvg": 358,
+      "ourBrBest": 256,
+      "avgDiff": 72,
+      "bestDiff": -30,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 429,
+          "diff": 143
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 256,
+          "diff": -30
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 390,
+          "diff": 104
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 307,
+      "ourBrAvg": 433,
+      "ourBrBest": 336,
+      "avgDiff": 126,
+      "bestDiff": 29,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 548,
+          "diff": 241
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 416,
+          "diff": 109
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 336,
+          "diff": 29
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 462,
+      "ourBrAvg": 597,
+      "ourBrBest": 433,
+      "avgDiff": 135,
+      "bestDiff": -29,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 433,
+          "diff": -29
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 691,
+          "diff": 229
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 668,
+          "diff": 206
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 636,
+      "ourBrAvg": 682,
+      "ourBrBest": 664,
+      "avgDiff": 46,
+      "bestDiff": 28,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 487,
+          "diff": -149
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 664,
+          "diff": 28
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 895,
+          "diff": 259
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 420,
+      "ourBrAvg": 409,
+      "ourBrBest": 447,
+      "avgDiff": -11,
+      "bestDiff": 27,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 447,
+          "diff": 27
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 470,
+          "diff": 50
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 309,
+          "diff": -111
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 578,
+      "ourBrAvg": 600,
+      "ourBrBest": 605,
+      "avgDiff": 22,
+      "bestDiff": 27,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 664,
+          "diff": 86
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 605,
+          "diff": 27
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 532,
+          "diff": -46
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 659,
+      "ourBrAvg": 679,
+      "ourBrBest": 685,
+      "avgDiff": 20,
+      "bestDiff": 26,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 741,
+          "diff": 82
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 685,
+          "diff": 26
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 612,
+          "diff": -47
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 696,
+      "ourBrAvg": 806,
+      "ourBrBest": 722,
+      "avgDiff": 110,
+      "bestDiff": 26,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 889,
+          "diff": 193
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 806,
+          "diff": 110
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 722,
+          "diff": 26
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 466,
+      "ourBrAvg": 293,
+      "ourBrBest": 440,
+      "avgDiff": -173,
+      "bestDiff": -26,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 440,
+          "diff": -26
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 276,
+          "diff": -190
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 162,
+          "diff": -304
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 102,
+      "ourBrAvg": 207,
+      "ourBrBest": 128,
+      "avgDiff": 105,
+      "bestDiff": 26,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 292,
+          "diff": 190
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 200,
+          "diff": 98
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 128,
+          "diff": 26
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 366,
+      "ourBrAvg": 527,
+      "ourBrBest": 391,
+      "avgDiff": 161,
+      "bestDiff": 25,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 665,
+          "diff": 299
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 391,
+          "diff": 25
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 525,
+          "diff": 159
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 340,
+      "ourBrAvg": 281,
+      "ourBrBest": 315,
+      "avgDiff": -59,
+      "bestDiff": -25,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 259,
+          "diff": -81
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 315,
+          "diff": -25
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 269,
+          "diff": -71
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 369,
+      "ourBrAvg": 410,
+      "ourBrBest": 344,
+      "avgDiff": 41,
+      "bestDiff": -25,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 454,
+          "diff": 85
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 344,
+          "diff": -25
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 433,
+          "diff": 64
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 390,
+      "ourBrAvg": 437,
+      "ourBrBest": 365,
+      "avgDiff": 47,
+      "bestDiff": -25,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 524,
+          "diff": 134
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 365,
+          "diff": -25
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 421,
+          "diff": 31
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 335,
+      "ourBrAvg": 375,
+      "ourBrBest": 360,
+      "avgDiff": 40,
+      "bestDiff": 25,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 383,
+          "diff": 48
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 383,
+          "diff": 48
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 360,
+          "diff": 25
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 363,
+      "ourBrAvg": 342,
+      "ourBrBest": 388,
+      "avgDiff": -21,
+      "bestDiff": 25,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 401,
+          "diff": 38
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 388,
+          "diff": 25
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 237,
+          "diff": -126
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 373,
+      "ourBrAvg": 213,
+      "ourBrBest": 349,
+      "avgDiff": -160,
+      "bestDiff": -24,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 349,
+          "diff": -24
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 194,
+          "diff": -179
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 97,
+          "diff": -276
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 656,
+      "ourBrAvg": 484,
+      "ourBrBest": 632,
+      "avgDiff": -172,
+      "bestDiff": -24,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 352,
+          "diff": -304
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 468,
+          "diff": -188
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 632,
+          "diff": -24
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 586,
+      "ourBrAvg": 479,
+      "ourBrBest": 564,
+      "avgDiff": -107,
+      "bestDiff": -22,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 384,
+          "diff": -202
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 488,
+          "diff": -98
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 564,
+          "diff": -22
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 646,
+      "ourBrAvg": 643,
+      "ourBrBest": 668,
+      "avgDiff": -3,
+      "bestDiff": 22,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 572,
+          "diff": -74
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 668,
+          "diff": 22
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 688,
+          "diff": 42
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 282,
+      "ourBrAvg": 335,
+      "ourBrBest": 260,
+      "avgDiff": 53,
+      "bestDiff": -22,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 352,
+          "diff": 70
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 260,
+          "diff": -22
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 392,
+          "diff": 110
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 471,
+      "ourBrAvg": 450,
+      "ourBrBest": 493,
+      "avgDiff": -21,
+      "bestDiff": 22,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 416,
+          "diff": -55
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 441,
+          "diff": -30
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 493,
+          "diff": 22
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 237,
+      "ourBrAvg": 314,
+      "ourBrBest": 259,
+      "avgDiff": 77,
+      "bestDiff": 22,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 350,
+          "diff": 113
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 259,
+          "diff": 22
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 332,
+          "diff": 95
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 564,
+      "ourBrAvg": 579,
+      "ourBrBest": 586,
+      "avgDiff": 15,
+      "bestDiff": 22,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 645,
+          "diff": 81
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 586,
+          "diff": 22
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 505,
+          "diff": -59
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 323,
+      "ourBrAvg": 429,
+      "ourBrBest": 344,
+      "avgDiff": 106,
+      "bestDiff": 21,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 260,
+          "diff": -63
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 344,
+          "diff": 21
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 682,
+          "diff": 359
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 338,
+      "ourBrAvg": 457,
+      "ourBrBest": 317,
+      "avgDiff": 119,
+      "bestDiff": -21,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 479,
+          "diff": 141
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 317,
+          "diff": -21
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 576,
+          "diff": 238
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "corsola_galarian",
+      "kind": "win",
+      "pvpokeRating": 507,
+      "ourBrAvg": 475,
+      "ourBrBest": 486,
+      "avgDiff": -32,
+      "bestDiff": -21,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 486,
+          "diff": -21
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 528,
+          "diff": 21
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 412,
+          "diff": -95
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 352,
+      "ourBrAvg": 386,
+      "ourBrBest": 332,
+      "avgDiff": 34,
+      "bestDiff": -20,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 291,
+          "diff": -61
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 332,
+          "diff": -20
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 536,
+          "diff": 184
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "corsola_galarian",
+      "kind": "win",
+      "pvpokeRating": 523,
+      "ourBrAvg": 500,
+      "ourBrBest": 503,
+      "avgDiff": -23,
+      "bestDiff": -20,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 567,
+          "diff": 44
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 503,
+          "diff": -20
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 430,
+          "diff": -93
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 209,
+      "ourBrAvg": 432,
+      "ourBrBest": 189,
+      "avgDiff": 223,
+      "bestDiff": -20,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 189,
+          "diff": -20
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 329,
+          "diff": 120
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 777,
+          "diff": 568
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 424,
+      "ourBrAvg": 360,
+      "ourBrBest": 405,
+      "avgDiff": -64,
+      "bestDiff": -19,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 358,
+          "diff": -66
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 405,
+          "diff": -19
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 317,
+          "diff": -107
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 537,
+      "ourBrAvg": 498,
+      "ourBrBest": 555,
+      "avgDiff": -39,
+      "bestDiff": 18,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 606,
+          "diff": 69
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 555,
+          "diff": 18
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 332,
+          "diff": -205
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 687,
+      "ourBrAvg": 736,
+      "ourBrBest": 705,
+      "avgDiff": 49,
+      "bestDiff": 18,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 625,
+          "diff": -62
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 705,
+          "diff": 18
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 879,
+          "diff": 192
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 681,
+      "ourBrAvg": 629,
+      "ourBrBest": 663,
+      "avgDiff": -52,
+      "bestDiff": -18,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 621,
+          "diff": -60
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 603,
+          "diff": -78
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 663,
+          "diff": -18
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 291,
+      "ourBrAvg": 316,
+      "ourBrBest": 273,
+      "avgDiff": 25,
+      "bestDiff": -18,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 273,
+          "diff": -18
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 324,
+          "diff": 33
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 352,
+          "diff": 61
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "corsola_galarian",
+      "kind": "win",
+      "pvpokeRating": 746,
+      "ourBrAvg": 761,
+      "ourBrBest": 764,
+      "avgDiff": 15,
+      "bestDiff": 18,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 794,
+          "diff": 48
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 764,
+          "diff": 18
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 724,
+          "diff": -22
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 542,
+      "ourBrAvg": 633,
+      "ourBrBest": 560,
+      "avgDiff": 91,
+      "bestDiff": 18,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 620,
+          "diff": 78
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 560,
+          "diff": 18
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 718,
+          "diff": 176
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 492,
+      "ourBrAvg": 525,
+      "ourBrBest": 474,
+      "avgDiff": 33,
+      "bestDiff": -18,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 514,
+          "diff": 22
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 474,
+          "diff": -18
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 588,
+          "diff": 96
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 477,
+      "ourBrAvg": 453,
+      "ourBrBest": 459,
+      "avgDiff": -24,
+      "bestDiff": -18,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 615,
+          "diff": 138
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 459,
+          "diff": -18
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 284,
+          "diff": -193
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 497,
+      "ourBrAvg": 457,
+      "ourBrBest": 515,
+      "avgDiff": -40,
+      "bestDiff": 18,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 515,
+          "diff": 18
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 398,
+          "diff": -99
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 457,
+          "diff": -40
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 550,
+      "ourBrAvg": 488,
+      "ourBrBest": 568,
+      "avgDiff": -62,
+      "bestDiff": 18,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 464,
+          "diff": -86
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 568,
+          "diff": 18
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 431,
+          "diff": -119
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 475,
+      "ourBrAvg": 574,
+      "ourBrBest": 493,
+      "avgDiff": 99,
+      "bestDiff": 18,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 629,
+          "diff": 154
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 599,
+          "diff": 124
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 493,
+          "diff": 18
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "guzzlord",
+      "kind": "win",
+      "pvpokeRating": 536,
+      "ourBrAvg": 514,
+      "ourBrBest": 553,
+      "avgDiff": -22,
+      "bestDiff": 17,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 592,
+          "diff": 56
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 553,
+          "diff": 17
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 396,
+          "diff": -140
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 485,
+      "ourBrAvg": 453,
+      "ourBrBest": 468,
+      "avgDiff": -32,
+      "bestDiff": -17,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 423,
+          "diff": -62
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 468,
+          "diff": -17
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 468,
+          "diff": -17
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 354,
+      "ourBrAvg": 296,
+      "ourBrBest": 370,
+      "avgDiff": -58,
+      "bestDiff": 16,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 370,
+          "diff": 16
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 215,
+          "diff": -139
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 303,
+          "diff": -51
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "forretress",
+      "kind": "loss",
+      "pvpokeRating": 378,
+      "ourBrAvg": 376,
+      "ourBrBest": 394,
+      "avgDiff": -2,
+      "bestDiff": 16,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 394,
+          "diff": 16
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 303,
+          "diff": -75
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 432,
+          "diff": 54
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 515,
+      "ourBrAvg": 486,
+      "ourBrBest": 531,
+      "avgDiff": -29,
+      "bestDiff": 16,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 468,
+          "diff": -47
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 531,
+          "diff": 16
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 460,
+          "diff": -55
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "drapion_shadow",
+      "kind": "win",
+      "pvpokeRating": 655,
+      "ourBrAvg": 632,
+      "ourBrBest": 670,
+      "avgDiff": -23,
+      "bestDiff": 15,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 512,
+          "diff": -143
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 670,
+          "diff": 15
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 715,
+          "diff": 60
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 483,
+      "ourBrAvg": 481,
+      "ourBrBest": 468,
+      "avgDiff": -2,
+      "bestDiff": -15,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 364,
+          "diff": -119
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 468,
+          "diff": -15
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 611,
+          "diff": 128
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 327,
+      "ourBrAvg": 350,
+      "ourBrBest": 342,
+      "avgDiff": 23,
+      "bestDiff": 15,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 581,
+          "diff": 254
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 342,
+          "diff": 15
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 127,
+          "diff": -200
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 613,
+      "ourBrAvg": 629,
+      "ourBrBest": 628,
+      "avgDiff": 16,
+      "bestDiff": 15,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 674,
+          "diff": 61
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 628,
+          "diff": 15
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 584,
+          "diff": -29
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "florges",
+      "kind": "win",
+      "pvpokeRating": 657,
+      "ourBrAvg": 650,
+      "ourBrBest": 672,
+      "avgDiff": -7,
+      "bestDiff": 15,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 459,
+          "diff": -198
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 672,
+          "diff": 15
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 820,
+          "diff": 163
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "guzzlord",
+      "kind": "win",
+      "pvpokeRating": 627,
+      "ourBrAvg": 662,
+      "ourBrBest": 642,
+      "avgDiff": 35,
+      "bestDiff": 15,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 642,
+          "diff": 15
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 584,
+          "diff": -43
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 759,
+          "diff": 132
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 574,
+      "ourBrAvg": 617,
+      "ourBrBest": 588,
+      "avgDiff": 43,
+      "bestDiff": 14,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 462,
+          "diff": -112
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 588,
+          "diff": 14
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 800,
+          "diff": 226
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 521,
+      "ourBrAvg": 571,
+      "ourBrBest": 535,
+      "avgDiff": 50,
+      "bestDiff": 14,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 570,
+          "diff": 49
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 535,
+          "diff": 14
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 608,
+          "diff": 87
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 538,
+      "ourBrAvg": 541,
+      "ourBrBest": 552,
+      "avgDiff": 3,
+      "bestDiff": 14,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 619,
+          "diff": 81
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 552,
+          "diff": 14
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 453,
+          "diff": -85
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 622,
+      "ourBrAvg": 569,
+      "ourBrBest": 636,
+      "avgDiff": -53,
+      "bestDiff": 14,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 480,
+          "diff": -142
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 636,
+          "diff": 14
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 590,
+          "diff": -32
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 425,
+      "ourBrAvg": 383,
+      "ourBrBest": 412,
+      "avgDiff": -42,
+      "bestDiff": -13,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 538,
+          "diff": 113
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 412,
+          "diff": -13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 200,
+          "diff": -225
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 631,
+      "ourBrAvg": 569,
+      "ourBrBest": 644,
+      "avgDiff": -62,
+      "bestDiff": 13,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 460,
+          "diff": -171
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 644,
+          "diff": 13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 604,
+          "diff": -27
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 478,
+      "ourBrAvg": 429,
+      "ourBrBest": 465,
+      "avgDiff": -49,
+      "bestDiff": -13,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 430,
+          "diff": -48
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 465,
+          "diff": -13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 392,
+          "diff": -86
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 358,
+      "ourBrAvg": 339,
+      "ourBrBest": 345,
+      "avgDiff": -19,
+      "bestDiff": -13,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 266,
+          "diff": -92
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 345,
+          "diff": -13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 405,
+          "diff": 47
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "medicham",
+      "kind": "win",
+      "pvpokeRating": 708,
+      "ourBrAvg": 713,
+      "ourBrBest": 721,
+      "avgDiff": 5,
+      "bestDiff": 13,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 472,
+          "diff": -236
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 721,
+          "diff": 13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 946,
+          "diff": 238
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 588,
+      "ourBrAvg": 575,
+      "ourBrBest": 575,
+      "avgDiff": -13,
+      "bestDiff": -13,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 516,
+          "diff": -72
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 634,
+          "diff": 46
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 575,
+          "diff": -13
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 320,
+      "ourBrAvg": 388,
+      "ourBrBest": 307,
+      "avgDiff": 68,
+      "bestDiff": -13,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 509,
+          "diff": 189
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 307,
+          "diff": -13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 348,
+          "diff": 28
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 485,
+      "ourBrAvg": 489,
+      "ourBrBest": 472,
+      "avgDiff": 4,
+      "bestDiff": -13,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 437,
+          "diff": -48
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 472,
+          "diff": -13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 558,
+          "diff": 73
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "azumarill",
+      "kind": "loss",
+      "pvpokeRating": 471,
+      "ourBrAvg": 411,
+      "ourBrBest": 459,
+      "avgDiff": -60,
+      "bestDiff": -12,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 459,
+          "diff": -12
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 421,
+          "diff": -50
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 352,
+          "diff": -119
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 544,
+      "ourBrAvg": 500,
+      "ourBrBest": 556,
+      "avgDiff": -44,
+      "bestDiff": 12,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 427,
+          "diff": -117
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 556,
+          "diff": 12
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 516,
+          "diff": -28
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "florges",
+      "kind": "win",
+      "pvpokeRating": 525,
+      "ourBrAvg": 527,
+      "ourBrBest": 537,
+      "avgDiff": 2,
+      "bestDiff": 12,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 586,
+          "diff": 61
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 537,
+          "diff": 12
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 459,
+          "diff": -66
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "empoleon",
+      "kind": "loss",
+      "pvpokeRating": 368,
+      "ourBrAvg": 356,
+      "ourBrBest": 356,
+      "avgDiff": -12,
+      "bestDiff": -12,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 316,
+          "diff": -52
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 356,
+          "diff": -12
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 396,
+          "diff": 28
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 921,
+      "ourBrAvg": 926,
+      "ourBrBest": 933,
+      "avgDiff": 5,
+      "bestDiff": 12,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 957,
+          "diff": 36
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 933,
+          "diff": 12
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 887,
+          "diff": -34
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 549,
+      "ourBrAvg": 560,
+      "ourBrBest": 560,
+      "avgDiff": 11,
+      "bestDiff": 11,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 606,
+          "diff": 57
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 560,
+          "diff": 11
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 514,
+          "diff": -35
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "guzzlord",
+      "kind": "win",
+      "pvpokeRating": 596,
+      "ourBrAvg": 474,
+      "ourBrBest": 607,
+      "avgDiff": -122,
+      "bestDiff": 11,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 607,
+          "diff": 11
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 577,
+          "diff": -19
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 239,
+          "diff": -357
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 459,
+      "ourBrAvg": 545,
+      "ourBrBest": 448,
+      "avgDiff": 86,
+      "bestDiff": -11,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 630,
+          "diff": 171
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 448,
+          "diff": -11
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 558,
+          "diff": 99
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 588,
+      "ourBrAvg": 551,
+      "ourBrBest": 577,
+      "avgDiff": -37,
+      "bestDiff": -11,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 476,
+          "diff": -112
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 601,
+          "diff": 13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 577,
+          "diff": -11
+        }
+      ]
+    },
+    {
+      "species": "quagsire",
+      "speciesRank": 0,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 704,
+      "ourBrAvg": 648,
+      "ourBrBest": 694,
+      "avgDiff": -56,
+      "bestDiff": -10,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 536,
+          "diff": -168
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 715,
+          "diff": 11
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 694,
+          "diff": -10
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 602,
+      "ourBrAvg": 700,
+      "ourBrBest": 612,
+      "avgDiff": 98,
+      "bestDiff": 10,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 676,
+          "diff": 74
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 612,
+          "diff": 10
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 812,
+          "diff": 210
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 777,
+      "ourBrAvg": 709,
+      "ourBrBest": 787,
+      "avgDiff": -68,
+      "bestDiff": 10,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 629,
+          "diff": -148
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 787,
+          "diff": 10
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 710,
+          "diff": -67
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 490,
+      "ourBrAvg": 373,
+      "ourBrBest": 480,
+      "avgDiff": -117,
+      "bestDiff": -10,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 480,
+          "diff": -10
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 303,
+          "diff": -187
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 336,
+          "diff": -154
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 371,
+      "ourBrAvg": 321,
+      "ourBrBest": 361,
+      "avgDiff": -50,
+      "bestDiff": -10,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 310,
+          "diff": -61
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 361,
+          "diff": -10
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 291,
+          "diff": -80
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 583,
+      "ourBrAvg": 471,
+      "ourBrBest": 573,
+      "avgDiff": -112,
+      "bestDiff": -10,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 343,
+          "diff": -240
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 497,
+          "diff": -86
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 573,
+          "diff": -10
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "lickilicky",
+      "kind": "loss",
+      "pvpokeRating": 271,
+      "ourBrAvg": 261,
+      "ourBrBest": 261,
+      "avgDiff": -10,
+      "bestDiff": -10,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 239,
+          "diff": -32
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 261,
+          "diff": -10
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 282,
+          "diff": 11
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 340,
+      "ourBrAvg": 310,
+      "ourBrBest": 350,
+      "avgDiff": -30,
+      "bestDiff": 10,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 250,
+          "diff": -90
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 350,
+          "diff": 10
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 330,
+          "diff": -10
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 631,
+      "ourBrAvg": 739,
+      "ourBrBest": 640,
+      "avgDiff": 108,
+      "bestDiff": 9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 710,
+          "diff": 79
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 640,
+          "diff": 9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 867,
+          "diff": 236
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "forretress",
+      "kind": "loss",
+      "pvpokeRating": 312,
+      "ourBrAvg": 272,
+      "ourBrBest": 303,
+      "avgDiff": -40,
+      "bestDiff": -9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 383,
+          "diff": 71
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 303,
+          "diff": -9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 129,
+          "diff": -183
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 318,
+      "ourBrAvg": 383,
+      "ourBrBest": 309,
+      "avgDiff": 65,
+      "bestDiff": -9,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 379,
+          "diff": 61
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 461,
+          "diff": 143
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 309,
+          "diff": -9
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "lickilicky",
+      "kind": "loss",
+      "pvpokeRating": 384,
+      "ourBrAvg": 371,
+      "ourBrBest": 393,
+      "avgDiff": -13,
+      "bestDiff": 9,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 350,
+          "diff": -34
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 371,
+          "diff": -13
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 393,
+          "diff": 9
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 417,
+      "ourBrAvg": 416,
+      "ourBrBest": 408,
+      "avgDiff": -1,
+      "bestDiff": -9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 587,
+          "diff": 170
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 408,
+          "diff": -9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 254,
+          "diff": -163
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 435,
+      "ourBrAvg": 480,
+      "ourBrBest": 444,
+      "avgDiff": 45,
+      "bestDiff": 9,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 588,
+          "diff": 153
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 409,
+          "diff": -26
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 444,
+          "diff": 9
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 400,
+      "ourBrAvg": 470,
+      "ourBrBest": 391,
+      "avgDiff": 70,
+      "bestDiff": -9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 515,
+          "diff": 115
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 391,
+          "diff": -9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 503,
+          "diff": 103
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 685,
+      "ourBrAvg": 674,
+      "ourBrBest": 676,
+      "avgDiff": -11,
+      "bestDiff": -9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 695,
+          "diff": 10
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 676,
+          "diff": -9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 651,
+          "diff": -34
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "florges",
+      "kind": "win",
+      "pvpokeRating": 678,
+      "ourBrAvg": 652,
+      "ourBrBest": 687,
+      "avgDiff": -26,
+      "bestDiff": 9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 629,
+          "diff": -49
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 687,
+          "diff": 9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 640,
+          "diff": -38
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 571,
+      "ourBrAvg": 397,
+      "ourBrBest": 580,
+      "avgDiff": -174,
+      "bestDiff": 9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 364,
+          "diff": -207
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 580,
+          "diff": 9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 248,
+          "diff": -323
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 285,
+      "ourBrAvg": 269,
+      "ourBrBest": 294,
+      "avgDiff": -16,
+      "bestDiff": 9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 179,
+          "diff": -106
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 294,
+          "diff": 9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 333,
+          "diff": 48
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 356,
+      "ourBrAvg": 400,
+      "ourBrBest": 365,
+      "avgDiff": 44,
+      "bestDiff": 9,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 247,
+          "diff": -109
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 365,
+          "diff": 9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 589,
+          "diff": 233
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 640,
+      "ourBrAvg": 679,
+      "ourBrBest": 648,
+      "avgDiff": 39,
+      "bestDiff": 8,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 671,
+          "diff": 31
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 648,
+          "diff": 8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 717,
+          "diff": 77
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 685,
+      "ourBrAvg": 636,
+      "ourBrBest": 693,
+      "avgDiff": -49,
+      "bestDiff": 8,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 563,
+          "diff": -122
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 693,
+          "diff": 8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 652,
+          "diff": -33
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 360,
+      "ourBrAvg": 444,
+      "ourBrBest": 352,
+      "avgDiff": 84,
+      "bestDiff": -8,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 525,
+          "diff": 165
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 352,
+          "diff": -8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 454,
+          "diff": 94
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 548,
+      "ourBrAvg": 545,
+      "ourBrBest": 540,
+      "avgDiff": -3,
+      "bestDiff": -8,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 342,
+          "diff": -206
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 540,
+          "diff": -8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 754,
+          "diff": 206
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 615,
+      "ourBrAvg": 629,
+      "ourBrBest": 607,
+      "avgDiff": 14,
+      "bestDiff": -8,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 650,
+          "diff": 35
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 629,
+          "diff": 14
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 607,
+          "diff": -8
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 547,
+      "ourBrAvg": 505,
+      "ourBrBest": 555,
+      "avgDiff": -42,
+      "bestDiff": 8,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 442,
+          "diff": -105
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 555,
+          "diff": 8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 519,
+          "diff": -28
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 390,
+      "ourBrAvg": 379,
+      "ourBrBest": 398,
+      "avgDiff": -11,
+      "bestDiff": 8,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 362,
+          "diff": -28
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 378,
+          "diff": -12
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 398,
+          "diff": 8
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 610,
+      "ourBrAvg": 618,
+      "ourBrBest": 618,
+      "avgDiff": 8,
+      "bestDiff": 8,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 672,
+          "diff": 62
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 618,
+          "diff": 8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 563,
+          "diff": -47
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 419,
+      "ourBrAvg": 493,
+      "ourBrBest": 411,
+      "avgDiff": 74,
+      "bestDiff": -8,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 351,
+          "diff": -68
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 411,
+          "diff": -8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 718,
+          "diff": 299
+        }
+      ]
+    },
+    {
+      "species": "dusclops_shadow",
+      "speciesRank": 29,
+      "opp": "corviknight",
+      "kind": "loss",
+      "pvpokeRating": 476,
+      "ourBrAvg": 533,
+      "ourBrBest": 484,
+      "avgDiff": 57,
+      "bestDiff": 8,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 668,
+          "diff": 192
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 447,
+          "diff": -29
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 484,
+          "diff": 8
+        }
+      ]
+    },
+    {
+      "species": "empoleon",
+      "speciesRank": 6,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 294,
+      "ourBrAvg": 377,
+      "ourBrBest": 301,
+      "avgDiff": 83,
+      "bestDiff": 7,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 389,
+          "diff": 95
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 440,
+          "diff": 146
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 301,
+          "diff": 7
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 557,
+      "ourBrAvg": 510,
+      "ourBrBest": 550,
+      "avgDiff": -47,
+      "bestDiff": -7,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 408,
+          "diff": -149
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 571,
+          "diff": 14
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 550,
+          "diff": -7
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "lickilicky",
+      "kind": "loss",
+      "pvpokeRating": 475,
+      "ourBrAvg": 483,
+      "ourBrBest": 482,
+      "avgDiff": 8,
+      "bestDiff": 7,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 396,
+          "diff": -79
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 482,
+          "diff": 7
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 571,
+          "diff": 96
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 314,
+      "ourBrAvg": 339,
+      "ourBrBest": 307,
+      "avgDiff": 25,
+      "bestDiff": -7,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 361,
+          "diff": 47
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 307,
+          "diff": -7
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 348,
+          "diff": 34
+        }
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "speciesRank": 13,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 320,
+      "ourBrAvg": 307,
+      "ourBrBest": 313,
+      "avgDiff": -13,
+      "bestDiff": -7,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 516,
+          "diff": 196
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 313,
+          "diff": -7
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 92,
+          "diff": -228
+        }
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "speciesRank": 14,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 448,
+      "ourBrAvg": 456,
+      "ourBrBest": 455,
+      "avgDiff": 8,
+      "bestDiff": 7,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 404,
+          "diff": -44
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 509,
+          "diff": 61
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 455,
+          "diff": 7
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 620,
+      "ourBrAvg": 637,
+      "ourBrBest": 627,
+      "avgDiff": 17,
+      "bestDiff": 7,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 488,
+          "diff": -132
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 627,
+          "diff": 7
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 796,
+          "diff": 176
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 629,
+      "ourBrAvg": 670,
+      "ourBrBest": 636,
+      "avgDiff": 41,
+      "bestDiff": 7,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 871,
+          "diff": 242
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 636,
+          "diff": 7
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 504,
+          "diff": -125
+        }
+      ]
+    },
+    {
+      "species": "lapras",
+      "speciesRank": 18,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 603,
+      "ourBrAvg": 584,
+      "ourBrBest": 610,
+      "avgDiff": -19,
+      "bestDiff": 7,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 629,
+          "diff": 26
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 514,
+          "diff": -89
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 610,
+          "diff": 7
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 705,
+      "ourBrAvg": 633,
+      "ourBrBest": 699,
+      "avgDiff": -72,
+      "bestDiff": -6,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 630,
+          "diff": -75
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 570,
+          "diff": -135
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 699,
+          "diff": -6
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 551,
+      "ourBrAvg": 544,
+      "ourBrBest": 545,
+      "avgDiff": -7,
+      "bestDiff": -6,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 596,
+          "diff": 45
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 491,
+          "diff": -60
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 545,
+          "diff": -6
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 492,
+      "ourBrAvg": 417,
+      "ourBrBest": 486,
+      "avgDiff": -75,
+      "bestDiff": -6,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 462,
+          "diff": -30
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 486,
+          "diff": -6
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 304,
+          "diff": -188
+        }
+      ]
+    },
+    {
+      "species": "dusclops",
+      "speciesRank": 22,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 615,
+      "ourBrAvg": 508,
+      "ourBrBest": 609,
+      "avgDiff": -107,
+      "bestDiff": -6,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 436,
+          "diff": -179
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 480,
+          "diff": -135
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 609,
+          "diff": -6
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 398,
+      "ourBrAvg": 368,
+      "ourBrBest": 392,
+      "avgDiff": -30,
+      "bestDiff": -6,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 368,
+          "diff": -30
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 392,
+          "diff": -6
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 343,
+          "diff": -55
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 378,
+      "ourBrAvg": 361,
+      "ourBrBest": 383,
+      "avgDiff": -17,
+      "bestDiff": 5,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 329,
+          "diff": -49
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 370,
+          "diff": -8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 383,
+          "diff": 5
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "guzzlord",
+      "kind": "loss",
+      "pvpokeRating": 252,
+      "ourBrAvg": 261,
+      "ourBrBest": 257,
+      "avgDiff": 9,
+      "bestDiff": 5,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 233,
+          "diff": -19
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 257,
+          "diff": 5
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 293,
+          "diff": 41
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 562,
+      "ourBrAvg": 653,
+      "ourBrBest": 557,
+      "avgDiff": 91,
+      "bestDiff": -5,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 557,
+          "diff": -5
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 636,
+          "diff": 74
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 765,
+          "diff": 203
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 605,
+      "ourBrAvg": 554,
+      "ourBrBest": 610,
+      "avgDiff": -51,
+      "bestDiff": 5,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 427,
+          "diff": -178
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 624,
+          "diff": 19
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 610,
+          "diff": 5
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 92,
+      "ourBrAvg": 193,
+      "ourBrBest": 87,
+      "avgDiff": 101,
+      "bestDiff": -5,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 367,
+          "diff": 275
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 87,
+          "diff": -5
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 126,
+          "diff": 34
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "lickilicky",
+      "kind": "loss",
+      "pvpokeRating": 496,
+      "ourBrAvg": 478,
+      "ourBrBest": 491,
+      "avgDiff": -18,
+      "bestDiff": -5,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 491,
+          "diff": -5
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 405,
+          "diff": -91
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 538,
+          "diff": 42
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 450,
+      "ourBrAvg": 387,
+      "ourBrBest": 445,
+      "avgDiff": -63,
+      "bestDiff": -5,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 540,
+          "diff": 90
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 445,
+          "diff": -5
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 176,
+          "diff": -274
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 640,
+      "ourBrAvg": 733,
+      "ourBrBest": 645,
+      "avgDiff": 93,
+      "bestDiff": 5,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 707,
+          "diff": 67
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 645,
+          "diff": 5
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 848,
+          "diff": 208
+        }
+      ]
+    },
+    {
+      "species": "malamar",
+      "speciesRank": 20,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 575,
+      "ourBrAvg": 677,
+      "ourBrBest": 580,
+      "avgDiff": 102,
+      "bestDiff": 5,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 638,
+          "diff": 63
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 580,
+          "diff": 5
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 812,
+          "diff": 237
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 911,
+      "ourBrAvg": 846,
+      "ourBrBest": 916,
+      "avgDiff": -65,
+      "bestDiff": 5,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 742,
+          "diff": -169
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 916,
+          "diff": 5
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 879,
+          "diff": -32
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 344,
+      "ourBrAvg": 318,
+      "ourBrBest": 339,
+      "avgDiff": -26,
+      "bestDiff": -5,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 339,
+          "diff": -5
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 330,
+          "diff": -14
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 285,
+          "diff": -59
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 636,
+      "ourBrAvg": 618,
+      "ourBrBest": 641,
+      "avgDiff": -18,
+      "bestDiff": 5,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 568,
+          "diff": -68
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 644,
+          "diff": 8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 641,
+          "diff": 5
+        }
+      ]
+    },
+    {
+      "species": "quagsire_shadow",
+      "speciesRank": 1,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 394,
+      "ourBrAvg": 447,
+      "ourBrBest": 390,
+      "avgDiff": 53,
+      "bestDiff": -4,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 573,
+          "diff": 179
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 379,
+          "diff": -15
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 390,
+          "diff": -4
+        }
+      ]
+    },
+    {
+      "species": "corviknight",
+      "speciesRank": 3,
+      "opp": "guzzlord",
+      "kind": "win",
+      "pvpokeRating": 583,
+      "ourBrAvg": 538,
+      "ourBrBest": 579,
+      "avgDiff": -45,
+      "bestDiff": -4,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 579,
+          "diff": -4
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 536,
+          "diff": -47
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 498,
+          "diff": -85
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 621,
+      "ourBrAvg": 639,
+      "ourBrBest": 617,
+      "avgDiff": 18,
+      "bestDiff": -4,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 671,
+          "diff": 50
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 630,
+          "diff": 9
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 617,
+          "diff": -4
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "corsola_galarian",
+      "kind": "loss",
+      "pvpokeRating": 471,
+      "ourBrAvg": 439,
+      "ourBrBest": 475,
+      "avgDiff": -32,
+      "bestDiff": 4,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 303,
+          "diff": -168
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 475,
+          "diff": 4
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 538,
+          "diff": 67
+        }
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "speciesRank": 5,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 582,
+      "ourBrAvg": 585,
+      "ourBrBest": 578,
+      "avgDiff": 3,
+      "bestDiff": -4,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 413,
+          "diff": -169
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 578,
+          "diff": -4
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 763,
+          "diff": 181
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 652,
+      "ourBrAvg": 734,
+      "ourBrBest": 648,
+      "avgDiff": 82,
+      "bestDiff": -4,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 811,
+          "diff": 159
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 648,
+          "diff": -4
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 742,
+          "diff": 90
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 210,
+      "ourBrAvg": 262,
+      "ourBrBest": 206,
+      "avgDiff": 52,
+      "bestDiff": -4,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 85,
+          "diff": -125
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 206,
+          "diff": -4
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 496,
+          "diff": 286
+        }
+      ]
+    },
+    {
+      "species": "empoleon_shadow",
+      "speciesRank": 12,
+      "opp": "lickilicky",
+      "kind": "win",
+      "pvpokeRating": 540,
+      "ourBrAvg": 572,
+      "ourBrBest": 536,
+      "avgDiff": 32,
+      "bestDiff": -4,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 624,
+          "diff": 84
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 556,
+          "diff": 16
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 536,
+          "diff": -4
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 502,
+      "ourBrAvg": 466,
+      "ourBrBest": 506,
+      "avgDiff": -36,
+      "bestDiff": 4,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 382,
+          "diff": -120
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 509,
+          "diff": 7
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 506,
+          "diff": 4
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "altaria",
+      "kind": "win",
+      "pvpokeRating": 809,
+      "ourBrAvg": 735,
+      "ourBrBest": 805,
+      "avgDiff": -74,
+      "bestDiff": -4,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 642,
+          "diff": -167
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 805,
+          "diff": -4
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 759,
+          "diff": -50
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 493,
+      "ourBrAvg": 436,
+      "ourBrBest": 489,
+      "avgDiff": -57,
+      "bestDiff": -4,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 547,
+          "diff": 54
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 489,
+          "diff": -4
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 272,
+          "diff": -221
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 673,
+      "ourBrAvg": 517,
+      "ourBrBest": 669,
+      "avgDiff": -156,
+      "bestDiff": -4,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 480,
+          "diff": -193
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 401,
+          "diff": -272
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 669,
+          "diff": -4
+        }
+      ]
+    },
+    {
+      "species": "blastoise",
+      "speciesRank": 28,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 588,
+      "ourBrAvg": 596,
+      "ourBrBest": 592,
+      "avgDiff": 8,
+      "bestDiff": 4,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 654,
+          "diff": 66
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 592,
+          "diff": 4
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 542,
+          "diff": -46
+        }
+      ]
+    },
+    {
+      "species": "tinkaton",
+      "speciesRank": 2,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 339,
+      "ourBrAvg": 336,
+      "ourBrBest": 342,
+      "avgDiff": -3,
+      "bestDiff": 3,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 282,
+          "diff": -57
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 342,
+          "diff": 3
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 383,
+          "diff": 44
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 184,
+      "ourBrAvg": 227,
+      "ourBrBest": 181,
+      "avgDiff": 43,
+      "bestDiff": -3,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 74,
+          "diff": -110
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 181,
+          "diff": -3
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 426,
+          "diff": 242
+        }
+      ]
+    },
+    {
+      "species": "altaria_shadow",
+      "speciesRank": 9,
+      "opp": "wigglytuff",
+      "kind": "loss",
+      "pvpokeRating": 336,
+      "ourBrAvg": 253,
+      "ourBrBest": 339,
+      "avgDiff": -83,
+      "bestDiff": 3,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 283,
+          "diff": -53
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 339,
+          "diff": 3
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 138,
+          "diff": -198
+        }
+      ]
+    },
+    {
+      "species": "corsola_galarian",
+      "speciesRank": 16,
+      "opp": "jellicent",
+      "kind": "win",
+      "pvpokeRating": 528,
+      "ourBrAvg": 506,
+      "ourBrBest": 525,
+      "avgDiff": -22,
+      "bestDiff": -3,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 570,
+          "diff": 42
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 525,
+          "diff": -3
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 424,
+          "diff": -104
+        }
+      ]
+    },
+    {
+      "species": "talonflame",
+      "speciesRank": 17,
+      "opp": "quagsire_shadow",
+      "kind": "loss",
+      "pvpokeRating": 164,
+      "ourBrAvg": 148,
+      "ourBrBest": 161,
+      "avgDiff": -16,
+      "bestDiff": -3,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 79,
+          "diff": -85
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 161,
+          "diff": -3
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 203,
+          "diff": 39
+        }
+      ]
+    },
+    {
+      "species": "sealeo",
+      "speciesRank": 19,
+      "opp": "guzzlord",
+      "kind": "win",
+      "pvpokeRating": 625,
+      "ourBrAvg": 611,
+      "ourBrBest": 622,
+      "avgDiff": -14,
+      "bestDiff": -3,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 567,
+          "diff": -58
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 645,
+          "diff": 20
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 622,
+          "diff": -3
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 822,
+      "ourBrAvg": 801,
+      "ourBrBest": 825,
+      "avgDiff": -21,
+      "bestDiff": 3,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 763,
+          "diff": -59
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 814,
+          "diff": -8
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 825,
+          "diff": 3
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 514,
+      "ourBrAvg": 590,
+      "ourBrBest": 511,
+      "avgDiff": 76,
+      "bestDiff": -3,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 605,
+          "diff": 91
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 511,
+          "diff": -3
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 655,
+          "diff": 141
+        }
+      ]
+    },
+    {
+      "species": "jellicent",
+      "speciesRank": 4,
+      "opp": "tinkaton",
+      "kind": "win",
+      "pvpokeRating": 660,
+      "ourBrAvg": 664,
+      "ourBrBest": 658,
+      "avgDiff": 4,
+      "bestDiff": -2,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 718,
+          "diff": 58
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 658,
+          "diff": -2
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 617,
+          "diff": -43
+        }
+      ]
+    },
+    {
+      "species": "azumarill",
+      "speciesRank": 10,
+      "opp": "forretress",
+      "kind": "loss",
+      "pvpokeRating": 312,
+      "ourBrAvg": 270,
+      "ourBrBest": 314,
+      "avgDiff": -42,
+      "bestDiff": 2,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 314,
+          "diff": 2
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 261,
+          "diff": -51
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 235,
+          "diff": -77
+        }
+      ]
+    },
+    {
+      "species": "sealeo_shadow",
+      "speciesRank": 23,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 556,
+      "ourBrAvg": 583,
+      "ourBrBest": 558,
+      "avgDiff": 27,
+      "bestDiff": 2,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 602,
+          "diff": 46
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 590,
+          "diff": 34
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 558,
+          "diff": 2
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "jellicent",
+      "kind": "loss",
+      "pvpokeRating": 423,
+      "ourBrAvg": 405,
+      "ourBrBest": 421,
+      "avgDiff": -18,
+      "bestDiff": -2,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 361,
+          "diff": -62
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 421,
+          "diff": -2
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 434,
+          "diff": 11
+        }
+      ]
+    },
+    {
+      "species": "stunfisk",
+      "speciesRank": 26,
+      "opp": "medicham",
+      "kind": "loss",
+      "pvpokeRating": 421,
+      "ourBrAvg": 411,
+      "ourBrBest": 419,
+      "avgDiff": -10,
+      "bestDiff": -2,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 419,
+          "diff": -2
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 475,
+          "diff": 54
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 338,
+          "diff": -83
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "azumarill",
+      "kind": "win",
+      "pvpokeRating": 687,
+      "ourBrAvg": 707,
+      "ourBrBest": 686,
+      "avgDiff": 20,
+      "bestDiff": -1,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 686,
+          "diff": -1
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 750,
+          "diff": 63
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 686,
+          "diff": -1
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 368,
+      "ourBrAvg": 349,
+      "ourBrBest": 367,
+      "avgDiff": -19,
+      "bestDiff": -1,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 543,
+          "diff": 175
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 367,
+          "diff": -1
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 136,
+          "diff": -232
+        }
+      ]
+    },
+    {
+      "species": "clodsire",
+      "speciesRank": 21,
+      "opp": "wigglytuff",
+      "kind": "win",
+      "pvpokeRating": 668,
+      "ourBrAvg": 728,
+      "ourBrBest": 667,
+      "avgDiff": 60,
+      "bestDiff": -1,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 667,
+          "diff": -1
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 704,
+          "diff": 36
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 812,
+          "diff": 144
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "altaria",
+      "kind": "loss",
+      "pvpokeRating": 318,
+      "ourBrAvg": 439,
+      "ourBrBest": 319,
+      "avgDiff": 121,
+      "bestDiff": 1,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 472,
+          "diff": 154
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 319,
+          "diff": 1
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 525,
+          "diff": 207
+        }
+      ]
+    },
+    {
+      "species": "annihilape",
+      "speciesRank": 27,
+      "opp": "quagsire_shadow",
+      "kind": "win",
+      "pvpokeRating": 703,
+      "ourBrAvg": 625,
+      "ourBrBest": 702,
+      "avgDiff": -78,
+      "bestDiff": -1,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 518,
+          "diff": -185
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 702,
+          "diff": -1
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 656,
+          "diff": -47
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 667,
+      "ourBrAvg": 662,
+      "ourBrBest": 667,
+      "avgDiff": -5,
+      "bestDiff": 0,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 452,
+          "diff": -215
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 667,
+          "diff": 0
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 867,
+          "diff": 200
+        }
+      ]
+    },
+    {
+      "species": "forretress",
+      "speciesRank": 7,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 625,
+      "ourBrAvg": 616,
+      "ourBrBest": 625,
+      "avgDiff": -9,
+      "bestDiff": 0,
+      "bestScenario": "0v0",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 625,
+          "diff": 0
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 549,
+          "diff": -76
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 674,
+          "diff": 49
+        }
+      ]
+    },
+    {
+      "species": "altaria",
+      "speciesRank": 8,
+      "opp": "drapion_shadow",
+      "kind": "win",
+      "pvpokeRating": 681,
+      "ourBrAvg": 542,
+      "ourBrBest": 681,
+      "avgDiff": -139,
+      "bestDiff": 0,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 471,
+          "diff": -210
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 681,
+          "diff": 0
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 475,
+          "diff": -206
+        }
+      ]
+    },
+    {
+      "species": "forretress_shadow",
+      "speciesRank": 11,
+      "opp": "empoleon",
+      "kind": "win",
+      "pvpokeRating": 625,
+      "ourBrAvg": 640,
+      "ourBrBest": 625,
+      "avgDiff": 15,
+      "bestDiff": 0,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 652,
+          "diff": 27
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 625,
+          "diff": 0
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 644,
+          "diff": 19
+        }
+      ]
+    },
+    {
+      "species": "medicham",
+      "speciesRank": 15,
+      "opp": "corviknight",
+      "kind": "win",
+      "pvpokeRating": 539,
+      "ourBrAvg": 492,
+      "ourBrBest": 539,
+      "avgDiff": -47,
+      "bestDiff": 0,
+      "bestScenario": "2v2",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 454,
+          "diff": -85
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 484,
+          "diff": -55
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 539,
+          "diff": 0
+        }
+      ]
+    },
+    {
+      "species": "clefable",
+      "speciesRank": 24,
+      "opp": "tinkaton",
+      "kind": "loss",
+      "pvpokeRating": 273,
+      "ourBrAvg": 273,
+      "ourBrBest": 273,
+      "avgDiff": 0,
+      "bestDiff": 0,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 234,
+          "diff": -39
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 273,
+          "diff": 0
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 311,
+          "diff": 38
+        }
+      ]
+    },
+    {
+      "species": "drapion_shadow",
+      "speciesRank": 25,
+      "opp": "medicham",
+      "kind": "win",
+      "pvpokeRating": 605,
+      "ourBrAvg": 605,
+      "ourBrBest": 605,
+      "avgDiff": 0,
+      "bestDiff": 0,
+      "bestScenario": "1v1",
+      "perScenario": [
+        {
+          "shields": "0v0",
+          "ourBr": 643,
+          "diff": 38
+        },
+        {
+          "shields": "1v1",
+          "ourBr": 605,
+          "diff": 0
+        },
+        {
+          "shields": "2v2",
+          "ourBr": 567,
+          "diff": -38
+        }
+      ]
+    }
+  ]
+}

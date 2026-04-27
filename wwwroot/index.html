@@ -98,6 +98,7 @@
                 <button type="button" role="tab" id="tab-analyze" aria-controls="panel-analyze" aria-selected="true" class="tab active">Box analysis</button>
                 <button type="button" role="tab" id="tab-meta"    aria-controls="panel-meta"    aria-selected="false" class="tab" tabindex="-1">Meta-busting teams</button>
                 <button type="button" role="tab" id="tab-box"     aria-controls="panel-box"     aria-selected="false" class="tab" tabindex="-1">Teams from my box</button>
+                <button type="button" role="tab" id="tab-offmeta" aria-controls="panel-offmeta" aria-selected="false" class="tab" tabindex="-1">Off-meta picks</button>
             </div>
 
             <div id="panel-analyze" role="tabpanel" aria-labelledby="tab-analyze" class="tab-panel">
@@ -121,6 +122,13 @@
                     <p><kbd>Analyze box</kbd> auto-builds teams here. Or hit <kbd>Build teams from my box</kbd> to re-run after changing filters.</p>
                 </div>
                 <div id="box-out" aria-live="polite" aria-busy="false"></div>
+            </div>
+
+            <div id="panel-offmeta" role="tabpanel" aria-labelledby="tab-offmeta" class="tab-panel" hidden>
+                <div id="empty-offmeta" class="empty-state">
+                    <p>Pokémon where our simulator's optimal moveset <em>beats</em> PvPoke's recommendation in head-to-head sims against the meta. The math says these picks are stronger — and most opponents won't expect them. Switch to a league above to load.</p>
+                </div>
+                <div id="offmeta-out" aria-live="polite" aria-busy="false"></div>
             </div>
         </section>
     </main>

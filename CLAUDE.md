@@ -1,15 +1,20 @@
 # Pokeranker
 
-A browser-only Pokémon GO PvP analyzer. Paste a CalcyIV CSV export, get back keep/dust/team decisions for the current GO Battle League and Silph Arena meta.
+A browser-only Pokémon GO PvP analyzer **focused exclusively on 1500-CP / Great League formats**. Paste a CalcyIV CSV export, get back keep/dust/team decisions for the current Great League meta and any 1500-CP Silph Arena cup (Fantasy, Spellcraft, Bayou, Catch, Maelstrom, etc.).
+
+**Out of scope**: Little Cup (500 CP), Ultra League (2500), Master League (10000). The data pipeline, UI, and sim are all 1500-only. Restricted *1500-CP* cups are in scope and fully supported.
 
 ## Primary goal
 
-**Help the user beat the current meta with the box they actually own.**
+**Help the user beat the current meta with the box they actually own — including by finding picks that PvPoke *doesn't* recommend.**
 
-Box analysis (the original feature) is now in service of that goal — a stepping stone, not the destination. Two things matter most:
+Pokeranker isn't a PvPoke clone. PvPoke is the canonical reference and most ladder players follow it religiously. The app's anti-meta value comes from running our own simulation, finding moveset choices that genuinely beat PvPoke's recommendations in head-to-head sims, and surfacing those as actionable picks. Opponents prepare for what PvPoke recommends; the math sometimes shows a different choice wins because of that very assumption.
+
+Three things matter most:
 
 1. **Team building from the user's box** — given what they own, surface viable 3-mon cores for the selected league/cup.
 2. **Meta-busting** — surface teams (from box or from the wider dex) that counter the current top picks, with role coverage and no shared weaknesses.
+3. **Off-meta moveset picks** — sim-derived movesets that beat PvPoke's CSV-shipped recommendations in head-to-head matchups against the meta. See "Validation harness" below.
 
 ## Secondary goal: box analysis
 
@@ -22,9 +27,7 @@ Rank each Pokémon in the imported box for the selected league. Inputs: CalcyIV 
 
 ### IV filter — clarification
 
-The IV filter input is **stat-product percentage of rank-1 (per species)**, not in-game appraisal %. This matters because for Great/Ultra League, rank-1 PvP spreads are typically 0/15/15 (≈78% by appraisal). A user filtering by appraisal % would hide their best PvP mons. The UI tooltip already says "percentage of the theoretical #1 IV spread" — keep it that way.
-
-For Master League only, appraisal % and stat-product % converge, so the existing input behaves correctly there.
+The IV filter input is **stat-product percentage of rank-1 (per species)**, not in-game appraisal %. This matters because for Great League, rank-1 PvP spreads are typically 0/15/15 (≈78% by appraisal). A user filtering by appraisal % would hide their best PvP mons. The UI tooltip already says "percentage of the theoretical #1 IV spread" — keep it that way.
 
 ## Input format
 
@@ -112,6 +115,104 @@ optimal in some matchups, but in real ladder play opponents always shield
 your only threat). Mirrors PvPoke's algorithm. Override with
 `opts.allowSingleCharged: true` for species that literally have one
 charged move.
+
+### Validation harness (sim vs PvPoke)
+
+`test/validate-movesets.js` runs the sim against every ranked species in a league, compares each pick to PvPoke's CSV-shipped recommendation, and head-to-head sims our pick vs PvPoke's pick to measure actual matchup wins.
+
+**Run**: `node test/validate-movesets.js [leagueKey]` (default `cp1500_all`).
+
+**Output**: `wwwroot/data/sim-vs-pvpoke-{leagueKey}.json` — consumed by the "Off-meta picks" UI tab.
+
+**Categories per species**:
+- **agreement** — sim picks the same moveset PvPoke recommends. Confidence boost.
+- **sim-superior** — disagree AND sim's pick wins head-to-head against PvPoke's pick. **These are the anti-meta findings.** Surfaced in the UI as "Anti-meta picks for top-30 meta" (high-impact actionable cases) and "Other sim-superior picks (by margin)" (curiosities).
+- **pvpoke-superior** — disagree AND PvPoke's pick wins. These are genuine sim limitations or blind spots. Surfaced in the UI as "Sim-inferior cases" — diagnostic feedback for improving the sim.
+- **indeterminate** — disagree but head-to-head margin is within ±0.02 (essentially a wash).
+
+**Current cp1500_all stats (1120 species, post multi-round + bootstrap CI)**:
+- **37.0% agreement** (414 species)
+- **14.5% sim-superior** (162 anti-meta findings — statistically significant per CI)
+- **5.8% pvpoke-superior** (65 sim limitations)
+- **42.8% indeterminate** (CI crosses zero — not enough signal to distinguish)
+
+The 2.5:1 sim-superior:pvpoke-superior ratio holds even after rigor improvements — the sim is finding ~2.5× as many statistically-robust anti-meta picks as it's missing genuine PvPoke advantages.
+
+**Sim improvements that landed (chronological)**:
+
+1. **Multi-seed averaging (3 seeds)** in `pickOptimalMovesetSim`. Standard Monte Carlo variance reduction (Glasserman 2003). Smooths the stochastic 75/25 bait/nuke AI noise. Manectric Shadow flipped from PvPoke-superior to sim-superior with `thunder_fang`.
+
+2. **Fast-move effect plumbing** in `applyGamemasterMove` + `simulateBattle`. Parser populates `MOVE_EFFECTS` for fast moves; sim calls `applyMoveEffects` on fast-move completion. Currently no-op — PvPoke's gamemaster doesn't ship fast-move buff fields for any move. Dormant infrastructure for future PvPoke updates.
+
+3. **Move-pool audit** of the 14 worst sim-inferior species: zero data gaps. All canonical moves (Frenzy Plant on Torterra, Volt Switch on Magnezone, Rage Fist on Primeape, Drill Run on Excadrill) are present in `POKEMON_MOVESETS`. The sim *has* the moves and chooses not to pick them.
+
+4. **Multi-round convergence (fictitious play, Brown 1951)** in the validation harness. Round 1: each top-30 species's sim runs against opponents using their *heuristic* moveset. Round 1's sim picks are cached. Round 2: a full pass over all 1120 species with `oppCache=round1Cache` — opponents now use their round-1 best response. Standard zero-sum-game convergence (typically ε-converges in 2–3 rounds). Implemented via `opts.oppCache` parameter on `pickOptimalMovesetSim`.
+
+5. **Bootstrap 95% confidence intervals (Efron 1979)** on margin diffs in head-to-head verdicts. Replaces the fixed ±0.02 threshold with proper statistical inference: a verdict requires the entire 95% CI to lie above (or below) zero. 1000 bootstrap resamples per disagreement, zero additional sim cost. Reclassified ~145 borderline verdicts to indeterminate (honest "not enough signal").
+
+6. **Special move mechanics — confirmed non-issue.** Verified in PvPoke's gamemaster that Rage Fist, Triple Axel, Fell Stinger, etc. are all modeled as flat `+1 atk @100%` buff moves. No multi-hit or scaling-with-hits-taken mechanics in the data. PvPoke abstracts these the same way we do; the sim already handles them.
+
+**Remaining 65 PvPoke-superior cases — characterized patterns**:
+1. **Volt Switch under-picked** (~5 cases). Electrode Shadow (-0.138), Magnezone Shadow (-0.072). Sim consistently picks Spark/Metal Sound over Volt Switch. Volt Switch's 4 EPT + Electric STAB is canonically dominant; sim doesn't see it.
+2. **Snarl over higher-DPT STAB fast** (~6 cases). Pangoro (-0.105), Krookodile (-0.090), Altaria Shadow (-0.069). Sim picks Snarl (3.25 EPT, no STAB) over Karate Chop / Dragon Breath (4 DPT, STAB). Higher EPT enables more charged moves; the cumulative chip damage difference doesn't surface in our sim.
+3. **High-energy nuke over cheaper bait** (~6 cases). Excadrill (Earthquake over Drill Run), Pidgeot Shadow (Heat Wave over Air Cutter), Garchomp Shadow (Earth Power over Sand Tomb). Sim doesn't sufficiently reward 35–45 nrg baits paired with a closer.
+4. **Specific buff moves still under-valued** (~5 cases). Cacturne Shadow misses Trailblaze, Beedrill Shadow misses Fell Stinger, Scizor Shadow misses Bullet Punch fast.
+
+The remaining ~43 cases are similar variants of these patterns. Each requires a sim-mechanics-specific fix that probably affects multiple species.
+
+**Deferred work**:
+- **Iterate fictitious play to round 3+**: round 2 typically converges most species but a few may still oscillate. Cheap to add (~30 min) once round 2 cache is populated; would tighten the convergence further.
+- **Surface CI-graded confidence in the off-meta UI** (in progress — UI now shows the CI95 range alongside the point-estimate margin).
+- **Volt Switch / Snarl pattern fix**: needs deeper investigation. Likely a fast-move scoring or charged-move-firing AI tweak. Defer until empirical evidence (ladder data) confirms direction.
+- **Eigenvector-style rank weighting** (Page-Brin 1998) on the meta opponents: instead of `weight = topN - rank`, use power-iteration on the matchup matrix. PvPoke's actual algorithm. Would slightly shift the meta-prevalence weighting; modest expected impact.
+- **CFR for shielding mixed strategies** (Zinkevich 2007): real top players play mixed-strategy shielding; our `shouldShield` is pure-strategy. Multi-week research project; unbounded scope. Skip.
+
+### Sim engine fidelity validation (vs PvPoke's published Battle Ratings)
+
+`test/validate-sim-fidelity.js` answers "does our 1v1 sim engine produce the same Battle Rating PvPoke does for the same matchup with the same moveset?" — independent of moveset selection (which `validate-movesets.js` covers). Same species, same opp, same PvPoke-recommended moveset for both, three symmetric shield scenarios; pick the closest-to-PvPoke scenario; compute Δ = ourBR − pvpokeBR.
+
+Battle Rating = `500 × (1 − opp_hp_pct) + 500 × our_hp_pct` per PvPoke's TeamRanker.js. Range 0–1000, 500 = tie.
+
+**Run**: `node test/validate-sim-fidelity.js [leagueKey]` (default `cp1500_all`).
+
+**Output**: `wwwroot/data/sim-fidelity-{leagueKey}.json`.
+
+**cp1500_all results (300 matchups, top-30 species × top topMatchups+topCounters)**:
+
+| Metric | Value |
+|---|---|
+| **Outcome agreement** (same winner) | **89.3%** (268/300) |
+| **Match** (\|Δ\| ≤ 50 BR points) | 71.7% |
+| **Close** (\|Δ\| ≤ 100 BR points) | 88.0% |
+| **Diverge** (\|Δ\| > 100 BR points) | 12.0% |
+| Mean abs Δ | 44 BR points |
+| Mean signed Δ | +5 (no systematic bias) |
+
+**Interpretation**: our sim is engine-faithful to PvPoke for ~88% of matchups. No type-chart bugs (Fighting × Ghost = 0.390625 in our chart, matches PoGo PvP canonical immunity-as-double-resist). Mean signed Δ = +5 means no consistent over- or under-estimation.
+
+**Worst-divergence pattern**: Fighting attackers facing Ghost-typed defenders. Top 5 cases all involve Medicham/Annihilape/Dusclops vs Corsola Galarian/Jellicent. Counter and PuP do near-zero damage on Ghost (×0.391); the matchup hinges on the Fighting-Pokemon's *single* effective charged move (Psychic, Ice Punch) and how shield AI handles the fast-move chip stalemate. Likely cause: shield-decision behavior in our sim differs from PvPoke when one side's primary chip is heavily resisted. Not a type chart bug — type effectiveness multipliers match.
+
+**Practical implications for anti-meta findings**:
+- The 162 statistically-significant sim-superior findings are robust against this fidelity gap — most of them don't involve Fighting-vs-Ghost matchups. Top-30 anti-meta picks (Quagsire, Medicham, Tinkaton, etc.) are in the 88% close-agreement zone.
+- The 65 sim-inferior cases overlap somewhat with the divergence pattern (Annihilape, Pangoro). Some "PvPoke wins" results may be artifacts of the same shield-AI difference.
+
+### GBL ladder data integration — not feasible
+
+`gobattlelog.com` does not expose a programmatic API. Per their published docs, ladder data flows through PvPoke (anonymized batches each season), so PvPoke's rankings already incorporate ladder signal indirectly. No additional integration possible without scraping.
+
+### Path forward
+
+The sim engine is **mostly faithful** to PvPoke (89% outcome agreement, 88% within ±100 BR). The 12% divergence cluster is characterized (Fighting × Ghost shield-AI edge case) and doesn't broadly affect our anti-meta findings. The next-priority improvements would be:
+
+1. **Investigate one Medicham vs Corsola divergence end-to-end** — manual trace through `simulateBattle` to identify the specific shield-decision delta. ~2-3h. Either fix the bug or document the modeling difference.
+2. **Re-run validate-movesets.js after any sim fix** — convergence + bootstrap CIs will re-evaluate every species automatically.
+3. **Per-box-mon anti-meta surfacing in the UI** — when a user pastes their box, flag inline if any of their mons has a sim-superior moveset. The off-meta tab is currently league-wide; box-specific surfacing is the killer feature.
+
+**Notable top-30 meta divergences**:
+- Quagsire (#1): Drain Punch over Aqua Tail (+0.030 margin). Drain Punch's +1 def stacks while Fighting hits Steel-heavy meta SE.
+- Medicham (#16): Power-Up Punch over Ice Punch (+0.064). Compounding atk buff makes every Counter hit harder.
+- Drapion Shadow (#26): Fell Stinger over Aqua Tail (+0.064). Fell Stinger's KO-conditional +1 atk is hidden value.
+- Annihilape (#28): Shadow Ball over Close Combat (+0.030). Avoids Close Combat's self-debuff.
 
 ### Verified canonical movesets (live flow as of last edit)
 
@@ -288,7 +389,7 @@ Driven by the gap between "raw rank list" (what the app used to emphasize) and "
 
 ## Non-goals
 
-- Master League depth. The infrastructure is league-agnostic, but Master is a small and different problem (raid investment > IV optimization).
+- Any non-1500 CP format (Little, Ultra, Master). The data pipeline, sim, and UI are all 1500-only by design. Restricted 1500-CP cups (Fantasy, Spellcraft, Catch, etc.) ARE in scope.
 - Server-side anything. The app runs entirely in-browser; CSV stays on-device. Don't propose backends.
 - Replacing PvPoke. Pokeranker's value-add is **"applied to your box"**, not generic ranking — link out to PvPoke for raw matchup detail rather than re-implementing it.
 
