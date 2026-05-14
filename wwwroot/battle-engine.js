@@ -350,17 +350,45 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
     // already in progress still complete. Matches PvPoke's chargedMoveLockOut.
     let chargedLockout = 0;
 
-    // PvPoke-style shield AI: defender shields if the incoming charged move
-    //   (a) would KO them, OR
-    //   (b) deals ≥35% of defender's max HP, OR
-    //   (c) the attacker's OTHER charged move hits this defender HARDER
-    //       (i.e. the current hit is likely a bait to burn shields for the nuke).
-    // Returns true → shield the move; false → eat it.
-    function shouldShield(incomingDmg, defHp, defMaxHp, otherChargedDmg) {
+    // Forward-projecting shield AI. Defender shields if any of:
+    //   (a) the incoming move is lethal,
+    //   (b) eating it puts the defender on a *projected* lethal track —
+    //       incomingDmg + opp's fast-move chip until the defender's next
+    //       charged move would itself reach lethal HP. This is the rule
+    //       that prevents a chip-stalemate from snowballing for the
+    //       attacker (the Medicham-vs-Corsola Galarian failure mode in
+    //       sim-fidelity validation: Ice Punch was 19% of HP, below the
+    //       old 35% threshold, but eating successive IPs lost the matchup).
+    //   (c) it deals ≥35% of defender's max HP (legacy heuristic, still
+    //       fires for high-power threats),
+    //   (d) the attacker's OTHER charged move hits HARDER (bait-aware).
+    //
+    // `defender` and `attacker` are the battler objects; we read defender's
+    // EPT and cheapest charged cost, plus attacker's fast-move DPT, to
+    // estimate "turns until I can fight back × what they hit me for in the
+    // meantime."
+    function shouldShield(incomingDmg, defHp, defMaxHp, otherChargedDmg, defender, attacker, defEnergy, atkFastDmg) {
         if (incomingDmg <= 0) return false;
-        if (incomingDmg >= defHp) return true;                 // lethal
-        if (incomingDmg >= 0.35 * defMaxHp) return true;       // significant
-        if (otherChargedDmg != null && otherChargedDmg > incomingDmg) return true; // bait-aware
+        if (incomingDmg >= defHp) return true;                                 // (a) lethal
+
+        // (b) Forward projection. Skip if any input is missing (defensive).
+        if (defender && attacker && defender.charged1 && atkFastDmg != null) {
+            const cheapestNrg = defender.charged2
+                ? Math.min(defender.charged1.nrg, defender.charged2.nrg)
+                : defender.charged1.nrg;
+            const energyDeficit = Math.max(0, cheapestNrg - (defEnergy || 0));
+            const ept = defender.fast.nrg / Math.max(1, defender.fast.turns);
+            const turnsToCharge = ept > 0 ? energyDeficit / ept : 100;
+            const atkDpt = atkFastDmg / Math.max(1, attacker.fast.turns);
+            const projectedChip = Math.max(0, turnsToCharge * atkDpt);
+            // Shield if eating + projected chip leaves the defender unable
+            // to survive to their own counter-attack. Small safety buffer (5
+            // HP) tolerates rounding without flipping decisions on the edge.
+            if (incomingDmg + projectedChip >= defHp - 5) return true;
+        }
+
+        if (incomingDmg >= 0.35 * defMaxHp) return true;                       // (c) significant
+        if (otherChargedDmg != null && otherChargedDmg > incomingDmg) return true; // (d) bait-aware
         return false;
     }
 
@@ -399,15 +427,16 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
             aEnergy -= aPick.nrg;
             const dmg = (aPick.id === a.charged1.id) ? aC1Dmg() : aC2Dmg();
             // Smart defender: shield only if the incoming hit meets the
-            // PvPoke-style threshold. Compute B's "other charged move" damage
-            // dealt TO B (i.e. damage A would deal with the other move) so
-            // the defender can anticipate a bigger nuke and save shields.
+            // forward-projection threshold OR PvPoke-style fallback rules.
+            // Pass defender (b) + attacker (a) + defender's current energy
+            // + attacker's fast-move damage so shouldShield can estimate
+            // "if I eat this, can I survive the chip until my own charge?"
             let shielded = false;
             if (bShields > 0) {
                 const otherDmg = (aPick.id === a.charged1.id)
                     ? (a.charged2 ? aC2Dmg() : null)
                     : aC1Dmg();
-                shielded = shouldShield(dmg, bHp, bMaxHp, otherDmg);
+                shielded = shouldShield(dmg, bHp, bMaxHp, otherDmg, b, a, bEnergy, aFastDmg());
             }
             applyMoveEffects(aPick.id, true, shielded);
             if (shielded) { bShields--; bHp -= 1; }
@@ -422,7 +451,7 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
                 const otherDmg = (bPick.id === b.charged1.id)
                     ? (b.charged2 ? bC2Dmg() : null)
                     : bC1Dmg();
-                shielded = shouldShield(dmg, aHp, aMaxHp, otherDmg);
+                shielded = shouldShield(dmg, aHp, aMaxHp, otherDmg, a, b, aEnergy, bFastDmg());
             }
             applyMoveEffects(bPick.id, false, shielded);
             if (shielded) { aShields--; aHp -= 1; }
@@ -441,29 +470,40 @@ function simulateBattle(a, b, shieldsA, shieldsB, seed, aStartEnergy, bStartEner
         if (!bPick && bTurnCd === 0) bTurnCd = b.fast.turns;
 
         // ── Fast move completions ────────────────────────────────────────────
-        // A Pokemon KO'd by a charged move earlier this turn does not get to
-        // complete an in-progress fast move — gate on hp > 0 so leftover fast
-        // damage doesn't skew aHpPct/bHpPct (and therefore battleMargin).
+        // Gate on `!aPick && !bPick` — when a charged move fires this turn,
+        // both sides' fast-move animations freeze for the charged-move
+        // animation duration. Previously the defender's fast move could
+        // complete on the same turn the attacker fired a charged move,
+        // delivering "free" chip during the animation. PvPoke pauses the
+        // defender's fast-move countdown during the attacker's charged-move
+        // animation; we approximate by skipping fast-move ticks on any
+        // turn a charged move resolved.
         //
         // Fast-move effects (e.g. Snarl's -1 opp atk @30%, Sand Attack's -2
         // opp atk, Confusion's stat scaling) fire on completion via
         // applyMoveEffects. Fast moves can't be shielded so `shielded=false`.
         // PoGo PvP rule: opp-debuff effects from fast moves DO apply (only
         // shields block opp-debuffs, and shields don't apply to fast moves).
-        if (aTurnCd > 0 && aHp > 0) {
-            aTurnCd--;
-            if (aTurnCd === 0) {
-                bHp -= aFastDmg();
-                aEnergy = Math.min(100, aEnergy + a.fast.nrg);
-                applyMoveEffects(a.fast.id, true, false);
+        //
+        // Pokemon KO'd by a charged move earlier this turn don't get to
+        // complete an in-progress fast move — gate on hp > 0 so leftover
+        // fast damage doesn't skew aHpPct/bHpPct (and therefore battleMargin).
+        if (!aPick && !bPick) {
+            if (aTurnCd > 0 && aHp > 0) {
+                aTurnCd--;
+                if (aTurnCd === 0) {
+                    bHp -= aFastDmg();
+                    aEnergy = Math.min(100, aEnergy + a.fast.nrg);
+                    applyMoveEffects(a.fast.id, true, false);
+                }
             }
-        }
-        if (bTurnCd > 0 && bHp > 0) {
-            bTurnCd--;
-            if (bTurnCd === 0) {
-                aHp -= bFastDmg();
-                bEnergy = Math.min(100, bEnergy + b.fast.nrg);
-                applyMoveEffects(b.fast.id, false, false);
+            if (bTurnCd > 0 && bHp > 0) {
+                bTurnCd--;
+                if (bTurnCd === 0) {
+                    aHp -= bFastDmg();
+                    bEnergy = Math.min(100, bEnergy + b.fast.nrg);
+                    applyMoveEffects(b.fast.id, false, false);
+                }
             }
         }
     }

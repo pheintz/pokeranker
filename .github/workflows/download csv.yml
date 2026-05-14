@@ -30,8 +30,14 @@ jobs:
           ls -lh wwwroot/csv/*.csv 2>/dev/null || echo "(none)"
 
           echo ""
-          echo "=== Mandatory GL / UL rankings ==="
-          for f in cp1500_all_overall_rankings.csv cp2500_all_overall_rankings.csv; do
+          echo "=== Mandatory Great League ranking ==="
+          # 1500-only mode: Pokeranker is a Great League / 1500 CP analyzer.
+          # We dropped Ultra (2500), Master (10000), and Little (500) support.
+          # Restricted 1500-CP cups (Fantasy, Spellcraft, Catch, etc.) are
+          # downloaded too but only cp1500_all is hard-required — losing a
+          # restricted-cup CSV is a soft failure (the cup just won't appear
+          # in the dropdown until next run).
+          for f in cp1500_all_overall_rankings.csv; do
             if [ ! -f "wwwroot/csv/$f" ]; then
               echo "ERROR: Missing required file: wwwroot/csv/$f"
               exit 1
@@ -43,6 +49,17 @@ jobs:
               exit 1
             fi
           done
+
+          # Soft-warn on missing restricted-cup CSVs (don't fail the build).
+          # PvPoke occasionally rotates cups out of season; if a cup is gone
+          # we just skip it rather than blocking data updates for the rest.
+          echo ""
+          echo "=== Restricted 1500-CP cups (soft) ==="
+          count_1500=$(ls wwwroot/csv/cp1500_*_overall_rankings.csv 2>/dev/null | wc -l)
+          echo "Found $count_1500 cp1500 rankings CSVs."
+          if [ "$count_1500" -lt 5 ]; then
+            echo "WARN: only $count_1500 cp1500 cups present — PvPoke may have rotated formats."
+          fi
 
           echo ""
           echo "=== index.json ==="

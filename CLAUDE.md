@@ -167,6 +167,38 @@ The remaining ~43 cases are similar variants of these patterns. Each requires a 
 - **Eigenvector-style rank weighting** (Page-Brin 1998) on the meta opponents: instead of `weight = topN - rank`, use power-iteration on the matchup matrix. PvPoke's actual algorithm. Would slightly shift the meta-prevalence weighting; modest expected impact.
 - **CFR for shielding mixed strategies** (Zinkevich 2007): real top players play mixed-strategy shielding; our `shouldShield` is pure-strategy. Multi-week research project; unbounded scope. Skip.
 
+### Sim engine fidelity fixes (post-multi-agent code review)
+
+After a parallel 3-agent code review (Architecture / Algorithmic Correctness / QA), four sim improvements landed:
+
+**#3 Incremental coverage `Math.min` → `Math.max`** ([app.js](C:/Users/lloyd/source/repos/pokeranker/wwwroot/app.js)). The symmetric ordering rule for moveset pair scoring previously used `Math.min(newWinsFromC2, newWinsFromC1)`, which collapsed dual-coverage credit — a moveset where c1 covers Steel and c2 covers Grass scored *lower* than redundant pairs. PvPoke uses `max()`. Single-line fix.
+
+**#4 Fast-move freeze during charged-move animation** ([battle-engine.js](C:/Users/lloyd/source/repos/pokeranker/wwwroot/battle-engine.js)). Previously, the defender's fast-move could complete on the same turn the attacker fired a charged move (delivering "free chip" during the animation). PoGo PvP rule: defender's fast-move countdown freezes during attacker's charged-move animation. Gated fast-move ticks on `!aPick && !bPick` — neither side's fast move completes on a charged-move-firing turn.
+
+**#2 League-change cache invalidation** ([app.js — `onLeagueChange`](C:/Users/lloyd/source/repos/pokeranker/wwwroot/app.js)). `battlerCache` and `rank1Cache` were keyed by `cpCap` only; switching between two 1500-CP cups (Open GL → Fantasy) returned stale battlers built against the wrong meta. New `invalidateLeagueScopedCaches()` helper clears `battlerCache + rank1Cache + simMovesetCache + _simInProgressSet` on every league change.
+
+**#1 Forward-projecting shield AI** ([battle-engine.js — `shouldShield`](C:/Users/lloyd/source/repos/pokeranker/wwwroot/battle-engine.js)). The 35%-of-max-HP absolute threshold was the root cause of the Medicham/Corsola Galarian fidelity divergence (Δ=±344 BR). New rule projects forward: shield if `incomingDmg + projected_fast_chip_until_my_next_charge ≥ defHp`. Defender now considers "if I eat this AND chip continues until I can fight back, do I lose?" instead of an absolute damage cutoff. The legacy 35% rule and bait-aware rule remain as fallbacks.
+
+**Measured impact** (cp1500_all):
+
+*Sim engine fidelity vs PvPoke's published Battle Ratings — IMPROVED*:
+| Metric | Before | After | Δ |
+|---|---|---|---|
+| Outcome agreement (same winner) | 89.3% | **91.7%** | +2.4pp |
+| Match (\|Δ\| ≤ 50 BR) | 71.7% | 73.3% | +1.6pp |
+| Mean abs Δ | 44 BR | **39 BR** | -5 |
+| Medicham vs Corsola Galarian Δ | ±344 BR | ±274 BR | **-70** |
+
+*Moveset selection alignment with PvPoke — SHIFTED (mostly worsened in both directions)*:
+| Verdict | Before | After | Δ |
+|---|---|---|---|
+| Agreement | 37.0% (414) | 29.2% (327) | **-87** |
+| Sim-superior | 14.5% (162) | 15.9% (178) | +16 |
+| PvPoke-superior | 5.8% (65) | **10.0% (112)** | **+47** |
+| Indeterminate | 42.8% (479) | 44.9% (503) | +24 |
+
+**Interpretation of the divergence** between fidelity (improved) and selection alignment (worsened): the sim is now mechanically closer to canonical PvP rules, which is the harder ground-truth-aligned metric. The moveset selection drift is a downstream effect — when sim outcomes shift, optimization optima shift with them. This is actually consistent with the anti-meta value proposition: a more accurate sim that disagrees with PvPoke on more picks IS what surfaces real anti-meta findings. But the pvpoke-superior count nearly doubling (65 → 112) means the sim has new selection biases worth investigating in a future pass — likely related to how the more-aggressive shielding interacts with bait-heavy movesets.
+
 ### Sim engine fidelity validation (vs PvPoke's published Battle Ratings)
 
 `test/validate-sim-fidelity.js` answers "does our 1v1 sim engine produce the same Battle Rating PvPoke does for the same matchup with the same moveset?" — independent of moveset selection (which `validate-movesets.js` covers). Same species, same opp, same PvPoke-recommended moveset for both, three symmetric shield scenarios; pick the closest-to-PvPoke scenario; compute Δ = ourBR − pvpokeBR.

@@ -589,12 +589,37 @@ function setRankStatusDisplay(state, message) {
     el.textContent = message;
 }
 
+/**
+ * Invalidate every species-keyed cache that depends on the meta entries
+ * (i.e., on which league is active). These caches are keyed by `cpCap` only
+ * (battlerCache, rank1Cache) or by `cpCap+metaHash` (simMovesetCache); when
+ * the user switches between two leagues at the same CP cap (e.g.
+ * cp1500_all → cp1500_fantasy), the cpCap-only caches return stale battlers
+ * built against the wrong meta. We clear them aggressively on every league
+ * change — the rebuild cost is low (~5–10s in the worst case) and the
+ * staleness bug it fixes is silent and user-invisible.
+ *
+ * `simMovesetCache` is technically meta-keyed, so its entries from the old
+ * league don't conflict — but clearing it keeps memory bounded across many
+ * league switches.
+ */
+function invalidateLeagueScopedCaches() {
+    if (typeof battlerCache    !== 'undefined') for (const k of Object.keys(battlerCache))    delete battlerCache[k];
+    if (typeof rank1Cache      !== 'undefined') for (const k of Object.keys(rank1Cache))      delete rank1Cache[k];
+    if (typeof simMovesetCache !== 'undefined') for (const k of Object.keys(simMovesetCache)) delete simMovesetCache[k];
+    if (typeof _simInProgressSet !== 'undefined') _simInProgressSet.clear();
+}
+
 async function onLeagueChange() {
     const { key } = getSelectedLeagueInfo();
 
     // Clear stale analysis box so Box Builder re-runs analysis for the new league
     lastAnalysisBox    = new Set();
     lastAnalysisBox98  = new Set();
+
+    // Clear caches that are keyed only by cpCap — without this, cp1500_all
+    // and cp1500_fantasy battlers cross-pollute (same cpCap key).
+    invalidateLeagueScopedCaches();
 
     // Clear any previous output that was rendered for the old league
     const outEl   = document.getElementById('out');
@@ -1988,14 +2013,16 @@ function pickOptimalMovesetSim(speciesId, metaEntries, cpCap, opts) {
                 const pair = simBattlerVsMeta(fastId, c1Id, c2Id);
                 if (!pair) continue;
 
-                // Symmetric: also consider c2 as the "primary" with c1 as
-                // the secondary. Pick whichever ordering gives more
-                // incremental coverage. Avoids accidentally penalizing
-                // pairs where c2 is the better baseline anchor.
+                // Symmetric: consider both orderings (c1 anchor / c2 anchor)
+                // and reward the BEST incremental coverage. Previously this
+                // used Math.min, which collapsed dual-coverage credit — a
+                // moveset where c1 covered Steel and c2 covered Grass scored
+                // LOWER than redundant pairs because the smaller-covering
+                // ordering pulled the score down. PvPoke uses max() here.
                 const baselineC2 = c1OnlyBaseline.get(fastId + '|' + c2Id);
                 const newWinsFromC2 = baseline ? [...pair.wins].filter(w => !baseline.wins.has(w)).length : pair.wins.size;
                 const newWinsFromC1 = baselineC2 ? [...pair.wins].filter(w => !baselineC2.wins.has(w)).length : pair.wins.size;
-                const incrementalWins = Math.min(newWinsFromC2, newWinsFromC1);
+                const incrementalWins = Math.max(newWinsFromC2, newWinsFromC1);
                 const incremental = metaSize > 0 ? (incrementalWins / metaSize) * INCREMENTAL_WEIGHT : 0;
 
                 const score = pair.avgMargin + incremental;
