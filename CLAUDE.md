@@ -167,6 +167,20 @@ The remaining ~43 cases are similar variants of these patterns. Each requires a 
 - **Eigenvector-style rank weighting** (Page-Brin 1998) on the meta opponents: instead of `weight = topN - rank`, use power-iteration on the matchup matrix. PvPoke's actual algorithm. Would slightly shift the meta-prevalence weighting; modest expected impact.
 - **CFR for shielding mixed strategies** (Zinkevich 2007): real top players play mixed-strategy shielding; our `shouldShield` is pure-strategy. Multi-week research project; unbounded scope. Skip.
 
+### Meta-busting teams: CI precompute → static lookup
+
+`test/precompute-meta-teams.js` runs `buildMetaBreakerTeams` for each 1500-CP cup offline in GitHub Actions and writes `wwwroot/data/meta-teams-{leagueKey}.json`. The browser-side `runMetaBreaker` (app.js) loads the static artifact via `loadPrecomputedMetaTeams(leagueKey)` and renders instantly — falls back to live in-browser compute only when the artifact is missing (a cup PvPoke just rotated in, or a precompute job that failed soft).
+
+**Why**: every user clicking "Find meta-busting teams" for the same league runs the same 5–6 minutes of battle sim. Hoisting it into CI means the browser becomes a JSON renderer (instant load), and the cost is paid once per data refresh, not once per user.
+
+**Workflow integration** ([`.github/workflows/download csv.yml`](C:/Users/lloyd/source/repos/pokeranker/.github/workflows/download%20csv.yml)): after `download-csv.js` lands fresh PvPoke data, runs `node test/precompute-meta-teams.js` (all cups). Soft failure: per-cup precompute errors don't block the build — the browser live-computes that cup until the next workflow run.
+
+**Artifact shape**: each team's `_chainScore`/`_archetype`/`_matchupStats` are non-index props on the team Array. `JSON.stringify` drops those for arrays, so the harness converts teams to `{members, chainScore, archetype, matchupStats}` plain objects on serialize. The browser-side `loadPrecomputedMetaTeams` rehydrates back to Array+props so the existing render code works untouched.
+
+**Cost**: ~5 min/cup × 17 cups ≈ 90 min CPU per workflow run. Within GitHub Actions free tier (2000 min/month public). If this becomes a bottleneck, the script accepts a CLI arg to restrict to specific cups (`node test/precompute-meta-teams.js cp1500_all`).
+
+**Cache invalidation**: when a user analyzes the box (which clears `battlerCache` on league change), the in-memory `metaTeamsCache` persists — there's nothing user-specific in the artifact, and league changes use a different cache key. No invalidation hook needed.
+
 ### Sim engine fidelity fixes (post-multi-agent code review)
 
 After a parallel 3-agent code review (Architecture / Algorithmic Correctness / QA), four sim improvements landed:

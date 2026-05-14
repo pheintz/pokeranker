@@ -2554,12 +2554,27 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
     const n = Math.min(count, allScored.length);
     let html = `<h3 style="margin:20px 0 10px;color:#e2e8f0;">Top ${n} Individual Scorers</h3>`;
 
-    // Compute battle ratings for displayed rows (sim is expensive, only do top N)
+    // Battle ratings: prefer prepopulated values (from RRF in
+    // buildMetaBreakerTeams OR from a CI-precomputed meta-teams artifact),
+    // fall back to live compute only when missing. Live computeBattleRating
+    // runs 80 opponents × 7 shield scenarios × 3 seeds ≈ 1700 sims per
+    // species — doing that 20× per render is the ~8-second cost we just
+    // saw in the static-load path. With prepopulated values, this becomes
+    // a no-op and the static render lands in well under 1s.
     const battleRatings = {};
     if (cpCap && metaEntries && metaEntries.length > 0) {
         for (let i = 0; i < n; i++) {
-            const br = computeBattleRating(allScored[i].id, cpCap, metaEntries, 80);
-            if (br) battleRatings[allScored[i].id] = br;
+            const entry = allScored[i];
+            if (typeof entry.battleRating === 'number') {
+                battleRatings[entry.id] = {
+                    battleRating: entry.battleRating,
+                    wins:   entry.battleWins   ?? 0,
+                    losses: entry.battleLosses ?? 0,
+                };
+                continue;
+            }
+            const br = computeBattleRating(entry.id, cpCap, metaEntries, 80);
+            if (br) battleRatings[entry.id] = br;
         }
     }
     const hasBR = Object.keys(battleRatings).length > 0;
@@ -2621,6 +2636,54 @@ function renderScorerTable(allScored, count, userBox, cpCap, metaEntries) {
  * Render the Meta Breaker results into #meta-out.
  * Called when the user clicks the "Meta Breaker" button after running analysis.
  */
+// In-memory cache of precomputed meta-team artifacts. Keyed by leagueKey;
+// stores `{metaEntries, teams, allScored}` after reconstruction.
+const metaTeamsCache = {};
+
+/**
+ * Try to load the static `data/meta-teams-{league}.json` artifact written by
+ * `test/precompute-meta-teams.js` (run in CI after PvPoke data refreshes).
+ *
+ * On hit: returns the reconstructed `{metaEntries, teams, allScored}` exactly
+ * as `buildMetaBreakerTeams` would have produced. Each team is rebuilt as an
+ * Array with `_chainScore`, `_archetype`, `_matchupStats` re-attached as
+ * non-index props (the serialization format unpacks them to plain object keys
+ * so JSON.stringify doesn't drop them).
+ *
+ * On miss / network error: returns null so the caller falls back to live
+ * compute. Static-artifact wins are an optimization, not a correctness
+ * dependency — the app still works without them.
+ */
+async function loadPrecomputedMetaTeams(leagueKey) {
+    if (metaTeamsCache[leagueKey]) return metaTeamsCache[leagueKey];
+    try {
+        const resp = await fetch(`./data/meta-teams-${leagueKey}.json`);
+        if (!resp.ok) return null;
+        const raw = await resp.json();
+        // Rehydrate: teams were serialized as `{members, chainScore, archetype,
+        // matchupStats}` plain objects. Convert back to Array+props so the
+        // existing render code (which reads `team[0]`, `team._chainScore`, …)
+        // works without changes.
+        const teams = (raw.teams || []).map(t => {
+            const arr = Array.isArray(t.members) ? [...t.members] : [];
+            arr._chainScore   = t.chainScore;
+            arr._archetype    = t.archetype;
+            arr._matchupStats = t.matchupStats;
+            return arr;
+        });
+        const data = {
+            metaEntries: raw.metaEntries || [],
+            teams,
+            allScored:   raw.allScored || [],
+            __fromStatic: true,
+        };
+        metaTeamsCache[leagueKey] = data;
+        return data;
+    } catch (e) {
+        return null;
+    }
+}
+
 async function runMetaBreaker() {
     const { key: leagueKey, cpCap } = getSelectedLeagueInfo();
     const outEl = document.getElementById('meta-out');
@@ -2636,10 +2699,26 @@ async function runMetaBreaker() {
         return;
     }
 
-    outEl.innerHTML = '<p style="color:#b4b4b4;">Computing meta-busting teams (running battle simulations — may take a few seconds)...</p>';
+    // Try the CI-precomputed artifact first. If it lands, we skip 30-60s of
+    // browser-side battle sim. Falls through to live compute on miss.
+    outEl.innerHTML = '<p style="color:#b4b4b4;">Loading meta-busting teams…</p>';
+    const staticData = await loadPrecomputedMetaTeams(leagueKey);
 
     setTimeout(() => {
-        const { metaEntries, teams, allScored } = buildMetaBreakerTeams(leagueKey, cpCap);
+        let metaEntries, teams, allScored, fromStatic;
+        if (staticData) {
+            metaEntries = staticData.metaEntries;
+            teams       = staticData.teams;
+            allScored   = staticData.allScored;
+            fromStatic  = true;
+        } else {
+            outEl.innerHTML = '<p style="color:#b4b4b4;">Running battle simulations (no precomputed data for this cup — may take 30-60 seconds)...</p>';
+            const live = buildMetaBreakerTeams(leagueKey, cpCap);
+            metaEntries = live.metaEntries;
+            teams       = live.teams;
+            allScored   = live.allScored;
+            fromStatic  = false;
+        }
 
         if (teams.length === 0) {
             outEl.innerHTML = '<p style="color:#f87171;">No rankings loaded. Run analysis first or check rankings CSV.</p>';

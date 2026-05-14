@@ -84,6 +84,28 @@ jobs:
             fi
           done
 
+      - name: Precompute meta-busting teams (cp1500_all + restricted cups)
+        # Hoists the browser-side `runMetaBreaker` work into CI. The browser
+        # loads `data/meta-teams-{leagueKey}.json` at runtime instead of
+        # re-running 30-60s of battle sim per cup-view. Soft failure: if a
+        # cup's precompute fails (PvPoke rotated formats, missing species),
+        # the browser falls back to live compute for that one cup.
+        #
+        # Cost: ~5min per cup × ~17 cups ≈ 90min total CPU. Within GitHub
+        # Actions free tier (2000 min/month public, daily cron = 90/day = OK).
+        # If this becomes a bottleneck, restrict to cp1500_all + 2-3 active
+        # cups by passing a CLI arg per league.
+        run: node test/precompute-meta-teams.js || echo "WARN: precompute partial — browser will live-compute missing cups"
+
+      - name: Validate precomputed artifacts
+        run: |
+          echo "=== Precomputed meta-teams JSONs ==="
+          ls -lh wwwroot/data/meta-teams-*.json 2>/dev/null || echo "(none)"
+          # cp1500_all is the headline; soft-warn if missing rather than fail
+          if [ ! -f "wwwroot/data/meta-teams-cp1500_all.json" ]; then
+            echo "WARN: meta-teams-cp1500_all.json missing — Open GL will live-compute in browser"
+          fi
+
       - name: Commit and push updated files
         run: |
           git config user.name "github-actions[bot]"
@@ -91,5 +113,6 @@ jobs:
           git add wwwroot/csv/
           git add wwwroot/data/moves.json
           git add wwwroot/data/pokemon.json
+          git add wwwroot/data/meta-teams-*.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update PvPoke data [skip ci]"
           git push
