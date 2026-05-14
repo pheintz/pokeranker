@@ -95,7 +95,9 @@ jobs:
         # Actions free tier (2000 min/month public, daily cron = 90/day = OK).
         # If this becomes a bottleneck, restrict to cp1500_all + 2-3 active
         # cups by passing a CLI arg per league.
-        run: node test/precompute-meta-teams.js || echo "WARN: precompute partial — browser will live-compute missing cups"
+        run: |
+          node test/precompute-meta-teams.js \
+            || echo "WARN precompute partial — browser will live-compute missing cups"
 
       - name: Validate precomputed artifacts
         run: |
