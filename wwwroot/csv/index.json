@@ -4,6 +4,10 @@
     "label": "Great League"
   },
   {
+    "file": "cp1500_cosy_overall_rankings.csv",
+    "label": "Cosy"
+  },
+  {
     "file": "cp1500_bayou_overall_rankings.csv",
     "label": "Bayou Cup",
     "restricted": true
