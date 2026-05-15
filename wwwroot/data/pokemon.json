@@ -94011,7 +94011,7 @@
     },
     "buddyDistance": 3,
     "thirdMoveCost": 50000,
-    "released": false,
+    "released": true,
     "family": {
       "id": "FAMILY_FLITTLE",
       "evolutions": [
@@ -94070,7 +94070,7 @@
     },
     "buddyDistance": 3,
     "thirdMoveCost": 50000,
-    "released": false,
+    "released": true,
     "family": {
       "id": "FAMILY_FLITTLE",
       "parent": "flittle"
