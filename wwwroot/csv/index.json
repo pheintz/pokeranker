@@ -18,43 +18,8 @@
     "restricted": true
   },
   {
-    "file": "cp1500_chrono_overall_rankings.csv",
-    "label": "Chrono Cup",
-    "restricted": true
-  },
-  {
     "file": "cp1500_classic_overall_rankings.csv",
     "label": "Classic GL",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_electric_overall_rankings.csv",
-    "label": "Electric Cup",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_equinox_overall_rankings.csv",
-    "label": "Equinox Cup",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_fantasy_overall_rankings.csv",
-    "label": "Fantasy Cup",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_jungle_overall_rankings.csv",
-    "label": "Jungle Cup",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_laic2025remix_overall_rankings.csv",
-    "label": "LAIC 2025 Remix",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_maelstrom_overall_rankings.csv",
-    "label": "Maelstrom Cup",
     "restricted": true
   },
   {
@@ -80,11 +45,6 @@
   {
     "file": "cp1500_spellcraft_overall_rankings.csv",
     "label": "Spellcraft Cup",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_spring_overall_rankings.csv",
-    "label": "Spring Cup",
     "restricted": true
   }
 ]
