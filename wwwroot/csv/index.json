@@ -23,6 +23,11 @@
     "restricted": true
   },
   {
+    "file": "cp1500_equinox_overall_rankings.csv",
+    "label": "Equinox Cup",
+    "restricted": true
+  },
+  {
     "file": "cp1500_naic2026_overall_rankings.csv",
     "label": "NAIC 2026",
     "restricted": true
