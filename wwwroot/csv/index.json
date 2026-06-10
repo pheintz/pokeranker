@@ -4,8 +4,16 @@
     "label": "Great League"
   },
   {
+    "file": "cp1500_bastille_overall_rankings.csv",
+    "label": "Bastille"
+  },
+  {
     "file": "cp1500_cosy_overall_rankings.csv",
     "label": "Cosy"
+  },
+  {
+    "file": "cp1500_sunshine_overall_rankings.csv",
+    "label": "Sunshine"
   },
   {
     "file": "cp1500_bayou_overall_rankings.csv",
