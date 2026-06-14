@@ -12,6 +12,10 @@
     "label": "Cosy"
   },
   {
+    "file": "cp1500_mega_overall_rankings.csv",
+    "label": "Mega"
+  },
+  {
     "file": "cp1500_sunshine_overall_rankings.csv",
     "label": "Sunshine"
   },

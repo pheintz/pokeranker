@@ -20881,7 +20881,8 @@
     ],
     "fastMoves": [
       "CONFUSION",
-      "PSYCHO_CUT"
+      "PSYCHO_CUT",
+      "COUNTER"
     ],
     "chargedMoves": [
       "FLAMETHROWER",
@@ -20923,6 +20924,9 @@
       "SHADOW_BALL",
       "HYPER_BEAM"
     ],
+    "legacyMoves": [
+      "COUNTER"
+    ],
     "buddyDistance": 20,
     "thirdMoveCost": 100000,
     "released": true,
@@ -20945,7 +20949,8 @@
     ],
     "fastMoves": [
       "CONFUSION",
-      "PSYCHO_CUT"
+      "PSYCHO_CUT",
+      "COUNTER"
     ],
     "chargedMoves": [
       "FLAMETHROWER",
@@ -20988,6 +20993,9 @@
       "SHADOW_BALL",
       "HYPER_BEAM"
     ],
+    "legacyMoves": [
+      "COUNTER"
+    ],
     "buddyDistance": 20,
     "thirdMoveCost": 100000,
     "released": true,
@@ -21008,7 +21016,8 @@
     ],
     "fastMoves": [
       "CONFUSION",
-      "PSYCHO_CUT"
+      "PSYCHO_CUT",
+      "COUNTER"
     ],
     "chargedMoves": [
       "FLAMETHROWER",
@@ -21050,6 +21059,9 @@
       "PSYSTRIKE",
       "SHADOW_BALL",
       "HYPER_BEAM"
+    ],
+    "legacyMoves": [
+      "COUNTER"
     ],
     "buddyDistance": 20,
     "thirdMoveCost": 100000,
