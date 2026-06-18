@@ -96795,7 +96795,11 @@
       "AVALANCHE",
       "OUTRAGE",
       "BLIZZARD",
-      "ICY_WIND"
+      "ICY_WIND",
+      "GLAIVE_RUSH"
+    ],
+    "eliteMoves": [
+      "GLAIVE_RUSH"
     ],
     "defaultIVs": {
       "cp500": [
