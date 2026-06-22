@@ -20,6 +20,10 @@
     "label": "Mega"
   },
   {
+    "file": "cp1500_summer_overall_rankings.csv",
+    "label": "Summer"
+  },
+  {
     "file": "cp1500_sunshine_overall_rankings.csv",
     "label": "Sunshine"
   },
