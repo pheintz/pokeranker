@@ -36,6 +36,10 @@
     "label": "Tsuki"
   },
   {
+    "file": "cp1500_weather_overall_rankings.csv",
+    "label": "Weather"
+  },
+  {
     "file": "cp1500_bayou_overall_rankings.csv",
     "label": "Bayou Cup",
     "restricted": true
