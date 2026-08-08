@@ -20,6 +20,10 @@
     "label": "Cosy"
   },
   {
+    "file": "cp1500_evolution_overall_rankings.csv",
+    "label": "Evolution"
+  },
+  {
     "file": "cp1500_mega_overall_rankings.csv",
     "label": "Mega"
   },
