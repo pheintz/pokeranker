@@ -28,6 +28,10 @@
     "label": "Mega"
   },
   {
+    "file": "cp1500_scroll_overall_rankings.csv",
+    "label": "Scroll"
+  },
+  {
     "file": "cp1500_summer_overall_rankings.csv",
     "label": "Summer"
   },
