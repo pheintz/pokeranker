@@ -14839,7 +14839,7 @@
     "eliteMoves": [
       "TACKLE"
     ],
-    "searchPriority": 4,
+    "searchPriority": 2,
     "buddyDistance": 3,
     "thirdMoveCost": 50000,
     "released": true,
