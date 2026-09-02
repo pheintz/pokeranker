@@ -3926,7 +3926,8 @@
       "parent": "pikachu"
     },
     "tags": [
-      "mega"
+      "mega",
+      "supermega"
     ]
   },
   {
@@ -3991,7 +3992,8 @@
       "parent": "pikachu"
     },
     "tags": [
-      "mega"
+      "mega",
+      "supermega"
     ]
   },
   {
@@ -10261,7 +10263,8 @@
     "level25CP": 2192,
     "tags": [
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "buddyDistance": 3,
     "thirdMoveCost": 50000,
@@ -17649,7 +17652,8 @@
     "level25CP": 1582,
     "tags": [
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ]
   },
   {
@@ -21141,7 +21145,8 @@
     "level25CP": 3079,
     "tags": [
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "eliteMoves": [
       "DRACO_METEOR",
@@ -21210,7 +21215,7 @@
       "DRACO_METEOR",
       "DRAGON_PULSE"
     ],
-    "searchPriority": 4,
+    "searchPriority": 7,
     "buddyDistance": 5,
     "thirdMoveCost": 75000,
     "released": true,
@@ -21278,9 +21283,7 @@
     "eliteMoves": [
       "PSYSTRIKE",
       "SHADOW_BALL",
-      "HYPER_BEAM"
-    ],
-    "legacyMoves": [
+      "HYPER_BEAM",
       "COUNTER"
     ],
     "buddyDistance": 20,
@@ -21381,7 +21384,8 @@
     "tags": [
       "legendary",
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "defaultIVs": {
       "cp500": [
@@ -21451,7 +21455,8 @@
     "tags": [
       "legendary",
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "defaultIVs": {
       "cp500": [
@@ -29682,7 +29687,8 @@
     "level25CP": 1267,
     "tags": [
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "buddyDistance": 5,
     "thirdMoveCost": 75000,
@@ -53187,7 +53193,7 @@
         15
       ]
     },
-    "searchPriority": 7,
+    "searchPriority": 5,
     "buddyDistance": 5,
     "thirdMoveCost": 75000,
     "released": true,
@@ -73172,7 +73178,8 @@
     "tags": [
       "starter",
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "defaultIVs": {
       "cp500": [
@@ -73197,7 +73204,7 @@
     "searchPriority": null,
     "buddyDistance": 3,
     "thirdMoveCost": 10000,
-    "released": false,
+    "released": true,
     "family": {
       "id": "FAMILY_CHESPIN",
       "parent": "quilladin"
@@ -73593,7 +73600,8 @@
     "tags": [
       "starter",
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "defaultIVs": {
       "cp500": [
@@ -73617,7 +73625,7 @@
     },
     "buddyDistance": 3,
     "thirdMoveCost": 10000,
-    "released": false,
+    "released": true,
     "family": {
       "id": "FAMILY_FENNEKIN",
       "parent": "braixen"
@@ -73997,7 +74005,8 @@
     "tags": [
       "starter",
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "chargedMoves": [
       "NIGHT_SLASH",
@@ -74035,7 +74044,7 @@
     "searchPriority": null,
     "buddyDistance": 3,
     "thirdMoveCost": 10000,
-    "released": false,
+    "released": true,
     "family": {
       "id": "FAMILY_FROAKIE",
       "parent": "frogadier"
@@ -76266,7 +76275,8 @@
     "level25CP": 1955,
     "tags": [
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ]
   },
   {
@@ -90290,7 +90300,8 @@
     "thirdMoveCost": 75000,
     "released": true,
     "tags": [
-      "mega"
+      "mega",
+      "supermega"
     ]
   },
   {
