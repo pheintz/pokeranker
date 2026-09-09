@@ -4,10 +4,6 @@
     "label": "Great League"
   },
   {
-    "file": "cp1500_bastille_overall_rankings.csv",
-    "label": "Bastille"
-  },
-  {
     "file": "cp1500_chrysalis_overall_rankings.csv",
     "label": "Chrysalis"
   },
@@ -16,41 +12,16 @@
     "label": "Copadiluvio"
   },
   {
-    "file": "cp1500_cosy_overall_rankings.csv",
-    "label": "Cosy"
-  },
-  {
-    "file": "cp1500_evolution_overall_rankings.csv",
-    "label": "Evolution"
-  },
-  {
     "file": "cp1500_mega_overall_rankings.csv",
     "label": "Mega"
-  },
-  {
-    "file": "cp1500_scroll_overall_rankings.csv",
-    "label": "Scroll"
-  },
-  {
-    "file": "cp1500_summer_overall_rankings.csv",
-    "label": "Summer"
-  },
-  {
-    "file": "cp1500_sunshine_overall_rankings.csv",
-    "label": "Sunshine"
   },
   {
     "file": "cp1500_tsuki_overall_rankings.csv",
     "label": "Tsuki"
   },
   {
-    "file": "cp1500_weather_overall_rankings.csv",
-    "label": "Weather"
-  },
-  {
-    "file": "cp1500_bayou_overall_rankings.csv",
-    "label": "Bayou Cup",
-    "restricted": true
+    "file": "cp1500_willpower_overall_rankings.csv",
+    "label": "Willpower"
   },
   {
     "file": "cp1500_catch_overall_rankings.csv",
@@ -60,16 +31,6 @@
   {
     "file": "cp1500_classic_overall_rankings.csv",
     "label": "Classic GL",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_equinox_overall_rankings.csv",
-    "label": "Equinox Cup",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_naic2026_overall_rankings.csv",
-    "label": "NAIC 2026",
     "restricted": true
   },
   {
@@ -85,11 +46,6 @@
   {
     "file": "cp1500_retro_overall_rankings.csv",
     "label": "Retro Cup",
-    "restricted": true
-  },
-  {
-    "file": "cp1500_spellcraft_overall_rankings.csv",
-    "label": "Spellcraft Cup",
     "restricted": true
   }
 ]
