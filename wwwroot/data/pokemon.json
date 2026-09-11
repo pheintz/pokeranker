@@ -29924,6 +29924,9 @@
       "FOUL_PLAY",
       "TRAILBLAZE"
     ],
+    "extraChargedMoves": [
+      "DARK_PULSE_PLUS"
+    ],
     "defaultIVs": {
       "cp500": [
         5,
@@ -29946,7 +29949,8 @@
     },
     "tags": [
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "level25CP": 2416,
     "buddyDistance": 3,
