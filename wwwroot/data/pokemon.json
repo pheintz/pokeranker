@@ -17582,7 +17582,6 @@
       "id": "FAMILY_STARYU",
       "parent": "staryu_shadow"
     },
-    "searchPriority": 3,
     "tags": [
       "shadow"
     ]
@@ -48231,6 +48230,9 @@
       "HEAT_WAVE",
       "FLY"
     ],
+    "extraChargedMoves": [
+      "BRAVE_BIRD_PLUS"
+    ],
     "eliteMoves": [
       "GUST"
     ],
@@ -48256,7 +48258,7 @@
     },
     "buddyDistance": 1,
     "thirdMoveCost": 10000,
-    "released": false,
+    "released": true,
     "level25CP": 1738,
     "tags": [
       "shadoweligible",
