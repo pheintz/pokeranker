@@ -37550,7 +37550,7 @@
     "tags": [
       "shadow"
     ],
-    "searchPriority": 7,
+    "searchPriority": 8,
     "buddyDistance": 5,
     "thirdMoveCost": 75000,
     "released": true
@@ -86548,7 +86548,7 @@
     "tags": [
       "mythical"
     ],
-    "searchPriority": 7,
+    "searchPriority": 10,
     "buddyDistance": 20,
     "thirdMoveCost": 100000,
     "released": true,
