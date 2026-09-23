@@ -8,8 +8,16 @@
     "label": "Chrysalis"
   },
   {
+    "file": "cp1500_colormega_overall_rankings.csv",
+    "label": "Colormega"
+  },
+  {
     "file": "cp1500_copadiluvio_overall_rankings.csv",
     "label": "Copadiluvio"
+  },
+  {
+    "file": "cp1500_gymbreakers_overall_rankings.csv",
+    "label": "Gymbreakers"
   },
   {
     "file": "cp1500_laic2027_overall_rankings.csv",
@@ -18,6 +26,10 @@
   {
     "file": "cp1500_mega_overall_rankings.csv",
     "label": "Mega"
+  },
+  {
+    "file": "cp1500_spectral_overall_rankings.csv",
+    "label": "Spectral"
   },
   {
     "file": "cp1500_tsuki_overall_rankings.csv",
