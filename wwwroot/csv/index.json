@@ -32,6 +32,10 @@
     "label": "Spectral"
   },
   {
+    "file": "cp1500_trail_overall_rankings.csv",
+    "label": "Trail"
+  },
+  {
     "file": "cp1500_tsuki_overall_rankings.csv",
     "label": "Tsuki"
   },
