@@ -65789,13 +65789,17 @@
     ],
     "fastMoves": [
       "SHADOW_CLAW",
-      "SNARL"
+      "SNARL",
+      "SUCKER_PUNCH"
     ],
     "chargedMoves": [
       "FOUL_PLAY",
       "SLUDGE_BOMB",
       "FLAMETHROWER",
       "NIGHT_SHADE"
+    ],
+    "eliteMoves": [
+      "SUCKER_PUNCH"
     ],
     "defaultIVs": {
       "cp500": [
@@ -65823,6 +65827,7 @@
         15
       ]
     },
+    "searchPriority": 4,
     "buddyDistance": 5,
     "thirdMoveCost": 75000,
     "released": true,
