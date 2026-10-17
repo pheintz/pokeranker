@@ -54,6 +54,11 @@
     "restricted": true
   },
   {
+    "file": "cp1500_fantasy_overall_rankings.csv",
+    "label": "Fantasy Cup",
+    "restricted": true
+  },
+  {
     "file": "cp1500_premier_overall_rankings.csv",
     "label": "Premier Cup",
     "restricted": true
