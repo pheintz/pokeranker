@@ -16,8 +16,16 @@
     "label": "Copadiluvio"
   },
   {
+    "file": "cp1500_fable_overall_rankings.csv",
+    "label": "Fable"
+  },
+  {
     "file": "cp1500_gymbreakers_overall_rankings.csv",
     "label": "Gymbreakers"
+  },
+  {
+    "file": "cp1500_halloweenmega_overall_rankings.csv",
+    "label": "Halloweenmega"
   },
   {
     "file": "cp1500_laic2027_overall_rankings.csv",
