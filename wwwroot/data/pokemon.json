@@ -69183,7 +69183,7 @@
     },
     "buddyDistance": 5,
     "thirdMoveCost": 75000,
-    "released": false,
+    "released": true,
     "family": {
       "id": "FAMILY_LITWICK",
       "parent": "lampent"
@@ -69192,7 +69192,9 @@
     "tags": [
       "shadoweligible",
       "mega",
-      "supermega"
+      "supermega",
+      "include1500",
+      "include2500"
     ]
   },
   {
