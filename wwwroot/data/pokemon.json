@@ -37411,6 +37411,9 @@
       "DAZZLING_GLEAM",
       "DRAIN_PUNCH"
     ],
+    "extraChargedMoves": [
+      "NIGHT_SHADE_PLUS"
+    ],
     "defaultIVs": {
       "cp500": [
         9.5,
@@ -37434,7 +37437,8 @@
     "level25CP": 1158,
     "tags": [
       "shadoweligible",
-      "mega"
+      "mega",
+      "supermega"
     ],
     "buddyDistance": 5,
     "thirdMoveCost": 75000,
@@ -69135,7 +69139,7 @@
     "speciesName": "Chandelure (Mega)",
     "baseStats": {
       "atk": 335,
-      "def": 182,
+      "def": 227,
       "hp": 155
     },
     "types": [
@@ -69163,21 +69167,21 @@
     ],
     "defaultIVs": {
       "cp500": [
-        5,
+        4.5,
         4,
-        11,
-        4
+        9,
+        10
       ],
       "cp1500": [
-        13.5,
-        6,
-        14,
-        15
+        12.5,
+        4,
+        7,
+        13
       ],
       "cp2500": [
-        22.5,
-        7,
-        14,
+        20.5,
+        4,
+        13,
         14
       ]
     },
