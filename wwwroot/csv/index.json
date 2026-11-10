@@ -32,6 +32,10 @@
     "label": "Laic2027"
   },
   {
+    "file": "cp1500_laic2027gbl_overall_rankings.csv",
+    "label": "Laic2027gbl"
+  },
+  {
     "file": "cp1500_mega_overall_rankings.csv",
     "label": "Mega"
   },
